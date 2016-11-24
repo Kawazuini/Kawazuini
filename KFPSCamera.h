@@ -17,16 +17,21 @@ public:
     KFPSCamera(const KFPSCamera& orig) = default;
     virtual ~KFPSCamera() = default;
 
+    /**
+     * @brief 視点からのベクトル方向に移動する。
+     * @param aMovement
+     */
+    void move(const KVector& aMovement);
 
     /**
-     * @brief カメラを回転させる
+     * @brief カメラを回転させる。
      * @param aVAngle 垂直な回転角
      * @param aHAngle 水平な回転角
      */
     void rotate(const float& aVAngle, const float& aHAngle);
 
     /**
-     * @brief 視点からの指定方向をワールド座標のベクトルへ変換
+     * @brief 視点からの指定方向をワールド座標のベクトルへ変換。
      * @param aDirection 視点からの指定方向
      */
     KVector convertDirection(const KVector& aVec);

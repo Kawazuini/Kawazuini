@@ -14,6 +14,11 @@ KFPSCamera::KFPSCamera() {
     mDirection = BASE_DIRECTION;
 }
 
+void KFPSCamera::move(const KVector& aMovement) {
+    mPosition += convertDirection(aMovement);
+    set();
+}
+
 void KFPSCamera::rotate(const float& aVAngle, const float& aHAngle) {
     static const float LIMIT = Math::PI / 2 - Math::EPSILON;
 
@@ -22,14 +27,14 @@ void KFPSCamera::rotate(const float& aVAngle, const float& aHAngle) {
     KQuaternion v(KVector(mDirection.z, 0, -mDirection.x), aVAngle);
     KQuaternion h(KVector(0, 1, 0), aHAngle);
     mDirection = mDirection.rotate(v * h);
-    // mHeadSlope = mHeadSlope.rotate(v * h);
+    mHeadSlope = mHeadSlope.rotate(v * h);
 
     set();
 }
 
 KVector KFPSCamera::convertDirection(const KVector& aVec) {
-    float angle = KVector(aVec.x, 0, aVec.z).angle(BASE_DIRECTION);
-    if (angle == 0) return -aVec;
-    return aVec.rotate(KVector(aVec.x, 0, aVec.z).roundAngle(BASE_DIRECTION));
+    KQuaternion rot = KVector(mDirection.x, 0, mDirection.z).roundAngle(BASE_DIRECTION);
+    if (!KVector(rot).length()) return -aVec;
+    return aVec.rotate(rot);
 }
 

@@ -104,9 +104,11 @@ KVector KVector::extractVertical(const KVector& aVec) {
     return aVec * this->dot(aVec) / aVec.dot(aVec);
 }
 
+#include "KUtility.h"
+
 KVector KVector::rotate(const KQuaternion& aQuaternion) const {
     float len = length();
-    return KVector(-aQuaternion * KQuaternion(*this) * aQuaternion).normalization() * len;
+    return KVector((-aQuaternion) * KQuaternion(*this) * aQuaternion).normalization() * len;
 }
 
 float KVector::length() const {
@@ -118,7 +120,6 @@ float KVector::angle(const KVector& aVec) const {
 }
 
 KQuaternion KVector::roundAngle(const KVector& aVec) const {
-    // 回転軸は外積、回転角は内積を使い求める。
     return KQuaternion(cross(aVec), angle(aVec));
 }
 

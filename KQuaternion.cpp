@@ -20,10 +20,10 @@ KQuaternion::KQuaternion(
 
 KQuaternion::KQuaternion(const KVector& aVec, const float& aTheta) {
     t = cos(aTheta / 2);
-    float Sin = sin(aTheta / 2);
-    x = aVec.x * Sin;
-    y = aVec.y * Sin;
-    z = aVec.z * Sin;
+    KVector tmp = aVec.normalization() * sin(aTheta / 2);
+    x = tmp.x;
+    y = tmp.y;
+    z = tmp.z;
 }
 
 KQuaternion KQuaternion::operator-() const {
@@ -32,7 +32,7 @@ KQuaternion KQuaternion::operator-() const {
 
 KQuaternion KQuaternion::operator*(const KQuaternion& aQuaternion) const {
     KVector v1 = KVector(*this), v2 = KVector(aQuaternion);
-    float tmp = t * aQuaternion.t + v1.dot(v2);
+    float tmp = t * aQuaternion.t - v1.dot(v2);
     KVector tmp2 = v1 * aQuaternion.t + v2 * t + v1.cross(v2);
     return KQuaternion(tmp, tmp2.x, tmp2.y, tmp2.z);
 }
