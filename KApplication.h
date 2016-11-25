@@ -1,17 +1,15 @@
 /**
  * @file KApplication.h
- * @brief アプリケーションクラス
+ * @author Maeda Takumi
  */
 #ifndef KAPPLICATION_H
 #define KAPPLICATION_H
 
 #include "KListener.h"
-#include "KVector.h"
 
 class KSwitch;
 class KWindow;
 
-/** @brief アプリケーション */
 class KApplication : public KListener {
 private:
     void wait(const int& aTime); // ミリ秒間処理を休止

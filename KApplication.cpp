@@ -1,6 +1,6 @@
 /**
  * @file KApplication.cpp
- * @brief KApplicationクラスの実装
+ * @author Maeda Takumi
  */
 #include "KApplication.h"
 
@@ -9,7 +9,7 @@
 #include "KWindow.h"
 #include "KSwitch.h"
 
-KApplication::KApplication(KWindow* aWindow) : KListener(aWindow) {
+KApplication::KApplication(KWindow* aWindow) {
     mWindow = aWindow;
     mFrame = 0;
     mExecution = false;

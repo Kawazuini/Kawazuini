@@ -1,6 +1,6 @@
 /**
  * @file KListener.h
- * @brief イベントリスナークラス
+ * @author Maeda Takumi
  */
 #ifndef KLISTENER_H
 #define KLISTENER_H
@@ -8,22 +8,15 @@
 #include "KKeyboard.h"
 #include "KMouse.h"
 
-/**
- * @brief イベントリスナー
- * @see KWindow.h
- */
+/** @see KWindow.h */
 class KListener : private KNonCopy {
     friend class KWindow;
 protected:
-    /** @brief キーボード   */ KKeyboard mKeyboard;
-    /** @brief マウス       */ KMouse mMouse;
+    KKeyboard mKeyboard; ///< キーボード
+    KMouse mMouse; ///< マウス
 
-    KListener(KWindow* aWindow) {
-        mMouse.setWindow(*aWindow);
-    };
-
-    virtual ~KListener() {
-    };
+    KListener() = default;
+    virtual ~KListener() = default;
 
 public:
 
@@ -39,3 +32,4 @@ public:
 };
 
 #endif /* KLISTENER_H */
+

@@ -256,8 +256,10 @@ void KWindow::setClearColor(const color& aColor) {
     mClearColor = aColor;
 }
 
-const KRect& KWindow::size() const {
-    return mScreenSize;
+KRect KWindow::windowArea() const {
+    RECT window;
+    GetWindowRect(mWindow, &window);
+    return KRect(window);
 }
 
 bool KWindow::fullScreen() const {

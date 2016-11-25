@@ -92,7 +92,14 @@ public:
     /** @param aListener ウィンドウイベントリスナー */ void setListener(KListener* aListener);
     /** @param aColor    新しいクリアカラー         */ void setClearColor(const color& aColor);
 
-    /** @return ウィンドウサイズ   */ const KRect& size() const;
+
+    /**
+     * @brief ウィンドウの画面上の領域を返す。
+     * @return ウィンドウの画面上の領域
+     */
+    KRect windowArea() const;
+
+
     /** @return フルスクリーン状態 */ bool fullScreen() const;
 };
 

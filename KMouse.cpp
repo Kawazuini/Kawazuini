@@ -1,15 +1,13 @@
 /**
  * @file KMouse.cpp
- * @brief KMouseクラスの実装
+ * @author Maeda Takumi
  */
 #include "KMouse.h"
 
-#include "KSwitch.h"
-#include "KWindow.h"
+#include "KVector.h"
 
 KMouse::KMouse() {
     mWheel = 0;
-    mWindow = NULL;
 }
 
 void KMouse::press(const UINT& aMsg) {
@@ -28,12 +26,8 @@ void KMouse::release(const UINT& aMsg) {
     }
 }
 
-void KMouse::wheelSpin(const WPARAM aWheel) {
+void KMouse::wheelSpin(const WPARAM& aWheel) {
     mWheel = GET_WHEEL_DELTA_WPARAM(aWheel);
-}
-
-void KMouse::setWindow(const KWindow& aWindow) {
-    mWindow = &aWindow;
 }
 
 void KMouse::pass() {
@@ -43,23 +37,22 @@ void KMouse::pass() {
     mWheel = 0;
 }
 
+void KMouse::show() {
+    ShowCursor(true);
+}
+
+void KMouse::hide() {
+    ShowCursor(false);
+}
+
 KVector KMouse::pos() const {
     POINT pos;
     GetCursorPos(&pos);
-    ScreenToClient(mWindow->mWindow, &pos);
     return KVector(pos);
 }
 
 void KMouse::setPos(const KVector& aPos) {
-    POINT pos = aPos;
-    ClientToScreen(mWindow->mWindow, &pos);
-    SetCursorPos(pos.x, pos.y);
-}
-
-void KMouse::show() {
-}
-
-void KMouse::hide() {
+    SetCursorPos(aPos.x, aPos.y);
 }
 
 int KMouse::wheel() const {

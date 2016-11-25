@@ -1,6 +1,6 @@
 /**
  * @file KMouse.h
- * @brief マウスクラス
+ * @author Maeda Takumi
  */
 #ifndef KMOUSE_H
 #define KMOUSE_H
@@ -11,18 +11,16 @@
 #include "KSwitch.h"
 
 class KVector;
-class KWindow;
 
-/** @brief マウス */
+/** @see KWindow.h */
 class KMouse : private KNonCopy {
     friend class KWindow;
 private:
-    /** @brief ホイール回転数       */ int mWheel;
-    /** @brief 座標検出用ウィンドウ */ const KWindow* mWindow;
+    int mWheel; ///< ホイール回転数
 
-    /** @brief 指定ボタンを押す */ void press(const UINT& aMsg);
-    /** @brief 指定ボタンを離す */ void release(const UINT& aMsg);
-    /** @brief ホイールを回す   */ void wheelSpin(const WPARAM aWheel);
+    void press(const UINT& aMsg);
+    void release(const UINT& aMsg);
+    void wheelSpin(const WPARAM& aWheel);
 public:
     KSwitch mLeft; ///< 左クリック
     KSwitch mMiddle; ///< 中央クリック
@@ -31,23 +29,28 @@ public:
     KMouse();
     virtual ~KMouse() = default;
 
-    /** @brief ウィンドウの登録(座標検出に使用) */
-    void setWindow(const KWindow& aWindow);
-    /** @brief ボタン時間の更新 */
+    /** @brief ボタン時間を更新する。 */
     void pass();
 
-    /***/
-    KVector pos() const;
-    /***/
-    void setPos(const KVector& aPos);
-
-    /***/
+    /** @brief マウスカーソルの表示。 */
     void show();
-    /***/
+    /** @brief マウスカーソルの隠蔽。 */
     void hide();
 
-    /***/
+    /** @brief マウスポインタの座標を取得。 */
+    KVector pos() const;
+    /**
+     * @brief マウスポインタの座標設定。
+     * @param aPos 画面上の座標
+     */
+    void setPos(const KVector& aPos);
+
+    /**
+     * @brief ホイール回転数の取得。
+     * @return ホイール回転数
+     */
     int wheel() const;
 };
 
 #endif /* KMOUSE_H */
+
