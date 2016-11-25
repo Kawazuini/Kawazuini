@@ -131,7 +131,6 @@ void KTexture::drawText(const KCharset& aCharset, const String& aTxt, const KVec
     const char* txt = aTxt.data();
     KVector cursor = aVec;
     for (int i = 0, i_e = aTxt.size(); i < i_e; ++i) {
-        println(*(txt + i));
         KRect area = aCharset.getArea(txt + i);
         drawImage(*(aCharset.mImage), area, cursor);
         cursor += KVector(area.width);
