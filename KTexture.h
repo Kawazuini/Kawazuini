@@ -9,6 +9,7 @@
 
 #include "KNonCopy.h"
 
+class KCharset;
 class KImage;
 class KRect;
 class KVector;
@@ -60,6 +61,13 @@ public:
             }
         }
     }
+
+    /**
+     * 
+     * @param aRect
+     */
+    void clearRect(const KRect& aRect);
+
     /**
      * @brief ウィンドウに直線を描画
      * @param fromX  始点をあらわすx座標
@@ -94,12 +102,13 @@ public:
     void drawCircle(const int& aRadius, const KVector aCenter, const color& aColor);
 
     /**
-     * @brief ウィンドウに文字を描画
-     * @param aTxt   描画文字列
-     * @param aVec   1文字目左上の座標
-     * @param aColor 描画色(透過値無視)
+     * 
+     * @param aCharset
+     * @param aTxt
+     * @param aVec
+     * @param aColor
      */
-    void drawText(const String& aTxt, const KVector& aVec, const color& aColor);
+    void drawText(const KCharset& aCharset, const String& aTxt, const KVector& aVec, const color& aColor);
     /**
      * @brief 画像の描画
      * @param aImage 画像
@@ -107,8 +116,6 @@ public:
      * @param aDist  描画座標
      */
     void drawImage(const KImage& aImage, const KRect& aSrc, const KVector& aDist);
-    /** @brief 反転描画 */
-    void drawImageR(const KImage& aImage, const KRect& aSrc, const KVector& aDist);
 };
 
 #endif /* KTEXTURE_H */
