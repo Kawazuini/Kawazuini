@@ -12,7 +12,8 @@
 class KSegment;
 
 /**
- * @brief Polygon for collision determination
+ * @brief \~english Polygon for collision determination
+ * @brief \~japanese 衝突判定用ポリゴン
  * @author Maeda Takumi
  */
 class KPolygon {

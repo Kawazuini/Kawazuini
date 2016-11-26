@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.11"/>
+<title>Kawazuini: C:/Users/Kawaz/Documents/Kawazuini/Kawazuini/KWindow.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Kawazuini
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.8.11 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>総合概要</span></a></li>
+      <li><a href="pages.html"><span>諸情報</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">C:/Users/Kawaz/Documents/Kawazuini/Kawazuini/KWindow.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_k_window_8h.html">[詳解]</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef KWINDOW_H</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define KWINDOW_H</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_k_utility_8h.html">KUtility.h</a>&quot;</span></div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_k_non_copy_8h.html">KNonCopy.h</a>&quot;</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_k_rect_8h.html">KRect.h</a>&quot;</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">class </span><a class="code" href="class_k_listener.html">KListener</a>;</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div><div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_k_window.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_k_window.html">KWindow</a> : <span class="keyword">private</span> <a class="code" href="class_k_non_copy.html">KNonCopy</a> {</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_k_application.html">KApplication</a>;</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_k_mouse.html">KMouse</a>;</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div><div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="struct_k_window_1_1_main_args.html">   23</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">struct </span>{ HINSTANCE mInst; HINSTANCE mPrevInst; LPSTR mCmndLine; <span class="keywordtype">int</span> mCmndShow;</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    } <a class="code" href="struct_k_window_1_1_main_args.html">MainArgs</a>;</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">float</span> <a class="code" href="class_k_window.html#aca2b3f7c305e7c984d756cd13d20aad2">ASPECT</a>; <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="class_k_rect.html">KRect</a> <a class="code" href="class_k_window.html#a92ef5befd29bcf35119008cbbbaff0a2">SIZE</a>; <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="class_k_rect.html">KRect</a> <a class="code" href="class_k_window.html#a3c03749df185a2a6420add3ea3b05188">DISPLAY_SIZE</a>;</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">private</span>: <span class="keyword">const</span> <a class="code" href="struct_k_window_1_1_main_args.html">MainArgs</a> * <span class="keyword">const</span> mArgs; <span class="keyword">const</span> <a class="code" href="_k_utility_8h.html#afbeda3fd1bdc8c37d01bdf9f5c8274ff">String</a> mClassName; <span class="keyword">const</span> WNDCLASSEX mWindowClass; <span class="keyword">const</span> HWND mWindow; <a class="code" href="_k_utility_8h.html#afbeda3fd1bdc8c37d01bdf9f5c8274ff">String</a> mTitle;</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; <span class="keywordtype">bool</span> mExist; <span class="keywordtype">bool</span> mFrameVisible; <span class="keywordtype">bool</span> mFullScreen;</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    HDC mScreen; </div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; <a class="code" href="class_k_rect.html">KRect</a> mWindowSize; <a class="code" href="class_k_rect.html">KRect</a> mClientSize;</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; <a class="code" href="class_k_rect.html">KRect</a> mScreenSize; <a class="code" href="class_k_rect.html">KRect</a> mCanvasSize;</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; PAINTSTRUCT mPaint; BITMAPINFO mBmpInfo;</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="_k_utility_8h.html#aa7b8686ed161126a0e1dced34f44e962">color</a> mClearColor; </div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; <a class="code" href="class_k_listener.html">KListener</a>* mListener;</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="comment">/* ウィンドウプロシージャ */</span></div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">static</span> LRESULT CALLBACK WIN_PROC(HWND aHwnd, UINT aMsg, WPARAM aWParam, LPARAM aLParam);</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="comment">/* in WM_PAINT */</span></div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> startPaint(); <span class="comment">// 描画処理の開始</span></div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">void</span> clearCanvas(); <span class="comment">// 背景色でCanvasを塗りつぶす</span></div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> trans(<span class="keyword">const</span> HDC&amp; aDist, <span class="keyword">const</span> <a class="code" href="class_k_rect.html">KRect</a>&amp; aDistRec, <span class="keyword">const</span> HDC&amp; aSrc, <span class="keyword">const</span> <a class="code" href="class_k_rect.html">KRect</a>&amp; aSrcRec) <span class="keyword">const</span>; <span class="comment">// HDC間の転写</span></div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> display(); <span class="comment">// 描画の表示</span></div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    HGLRC mGLRC;</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <a class="code" href="class_k_window.html#a6288e93bdb99107c8898153b939f2ec9">KWindow</a>(</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="keyword">const</span> <a class="code" href="struct_k_window_1_1_main_args.html">MainArgs</a>* aArgs,</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <span class="keyword">const</span> <a class="code" href="class_k_rect.html">KRect</a>&amp; aSize,</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="keyword">const</span> <a class="code" href="_k_utility_8h.html#afbeda3fd1bdc8c37d01bdf9f5c8274ff">String</a>&amp; aTitle = <span class="stringliteral">&quot;&quot;</span>,</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="keyword">const</span> <span class="keywordtype">bool</span>&amp; aResizable = <span class="keyword">false</span></div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            );</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_k_window.html">KWindow</a>();</div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; <span class="keywordtype">void</span> <a class="code" href="class_k_window.html#a2a3356e8ddb803aef89eda6d2af5cde8">show</a>() <span class="keyword">const</span>; <span class="keywordtype">void</span> <a class="code" href="class_k_window.html#ac63ff2a080eb63a71c7fac17f2290dcf">hide</a>() <span class="keyword">const</span>;</div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; <span class="keywordtype">void</span> <a class="code" href="class_k_window.html#aba646d1f4fdcabe3d403b6b2b83ff684">borderLoss</a>(); <span class="keywordtype">void</span> <a class="code" href="class_k_window.html#a4a944d9903b1749703460dd62dc1599c">toFullScreen</a>();</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; <span class="keywordtype">void</span> <a class="code" href="class_k_window.html#ae43db722ea1d2809958d9dfda45c37a6">setTitle</a>(<span class="keyword">const</span> <a class="code" href="_k_utility_8h.html#afbeda3fd1bdc8c37d01bdf9f5c8274ff">String</a>&amp; aTitle); <span class="keywordtype">void</span> <a class="code" href="class_k_window.html#aa2ab4a85ac76553657886f32a8798bb2">setSize</a>(<span class="keyword">const</span> <a class="code" href="class_k_rect.html">KRect</a>&amp; aSize); <span class="keywordtype">void</span> <a class="code" href="class_k_window.html#a42a02c856005608f6fae35fc5752d030">setListener</a>(<a class="code" href="class_k_listener.html">KListener</a>* aListener); <span class="keywordtype">void</span> <a class="code" href="class_k_window.html#a8c56a581a068440f6c140c1cf7d37ee7">setClearColor</a>(<span class="keyword">const</span> <a class="code" href="_k_utility_8h.html#aa7b8686ed161126a0e1dced34f44e962">color</a>&amp; aColor);</div><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div><div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <a class="code" href="class_k_rect.html">KRect</a> <a class="code" href="class_k_window.html#ad4a9255dce175cb0157895d916201a06">windowArea</a>() <span class="keyword">const</span>;</div><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div><div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; <span class="keywordtype">bool</span> <a class="code" href="class_k_window.html#a6f21e80f8e04197a7890bf81a8ea04b5">fullScreen</a>() <span class="keyword">const</span>;</div><div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;};</div><div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div><div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* KWINDOW_H */</span><span class="preprocessor"></span></div><div class="ttc" id="class_k_window_html"><div class="ttname"><a href="class_k_window.html">KWindow</a></div><div class="ttdoc">ウィンドウ </div><div class="ttdef"><b>Definition:</b> KWindow.h:17</div></div>
+<div class="ttc" id="class_k_rect_html"><div class="ttname"><a href="class_k_rect.html">KRect</a></div><div class="ttdef"><b>Definition:</b> KRect.h:12</div></div>
+<div class="ttc" id="class_k_window_html_aba646d1f4fdcabe3d403b6b2b83ff684"><div class="ttname"><a href="class_k_window.html#aba646d1f4fdcabe3d403b6b2b83ff684">KWindow::borderLoss</a></div><div class="ttdeci">void borderLoss()</div><div class="ttdoc">フレームの有無を切り替える </div><div class="ttdef"><b>Definition:</b> KWindow.cpp:194</div></div>
+<div class="ttc" id="class_k_window_html_a3c03749df185a2a6420add3ea3b05188"><div class="ttname"><a href="class_k_window.html#a3c03749df185a2a6420add3ea3b05188">KWindow::DISPLAY_SIZE</a></div><div class="ttdeci">static const KRect DISPLAY_SIZE</div><div class="ttdoc">PCの画面サイズ </div><div class="ttdef"><b>Definition:</b> KWindow.h:32</div></div>
+<div class="ttc" id="_k_non_copy_8h_html"><div class="ttname"><a href="_k_non_copy_8h.html">KNonCopy.h</a></div></div>
+<div class="ttc" id="class_k_mouse_html"><div class="ttname"><a href="class_k_mouse.html">KMouse</a></div><div class="ttdef"><b>Definition:</b> KMouse.h:16</div></div>
+<div class="ttc" id="class_k_window_html_a4a944d9903b1749703460dd62dc1599c"><div class="ttname"><a href="class_k_window.html#a4a944d9903b1749703460dd62dc1599c">KWindow::toFullScreen</a></div><div class="ttdeci">void toFullScreen()</div><div class="ttdoc">フルスクリーンを切り替える </div><div class="ttdef"><b>Definition:</b> KWindow.cpp:202</div></div>
+<div class="ttc" id="class_k_window_html_aca2b3f7c305e7c984d756cd13d20aad2"><div class="ttname"><a href="class_k_window.html#aca2b3f7c305e7c984d756cd13d20aad2">KWindow::ASPECT</a></div><div class="ttdeci">static const float ASPECT</div><div class="ttdoc">デフォルトのアスペクト比 </div><div class="ttdef"><b>Definition:</b> KWindow.h:30</div></div>
+<div class="ttc" id="class_k_window_html_a6288e93bdb99107c8898153b939f2ec9"><div class="ttname"><a href="class_k_window.html#a6288e93bdb99107c8898153b939f2ec9">KWindow::KWindow</a></div><div class="ttdeci">KWindow(const MainArgs *aArgs, const KRect &amp;aSize, const String &amp;aTitle=&quot;&quot;, const bool &amp;aResizable=false)</div><div class="ttdef"><b>Definition:</b> KWindow.cpp:14</div></div>
+<div class="ttc" id="class_k_window_html_a6f21e80f8e04197a7890bf81a8ea04b5"><div class="ttname"><a href="class_k_window.html#a6f21e80f8e04197a7890bf81a8ea04b5">KWindow::fullScreen</a></div><div class="ttdeci">bool fullScreen() const </div><div class="ttdef"><b>Definition:</b> KWindow.cpp:265</div></div>
+<div class="ttc" id="class_k_window_html_a92ef5befd29bcf35119008cbbbaff0a2"><div class="ttname"><a href="class_k_window.html#a92ef5befd29bcf35119008cbbbaff0a2">KWindow::SIZE</a></div><div class="ttdeci">static const KRect SIZE</div><div class="ttdoc">デフォルトウィンドウサイズ </div><div class="ttdef"><b>Definition:</b> KWindow.h:31</div></div>
+<div class="ttc" id="class_k_non_copy_html"><div class="ttname"><a href="class_k_non_copy.html">KNonCopy</a></div><div class="ttdef"><b>Definition:</b> KNonCopy.h:8</div></div>
+<div class="ttc" id="_k_utility_8h_html"><div class="ttname"><a href="_k_utility_8h.html">KUtility.h</a></div></div>
+<div class="ttc" id="_k_utility_8h_html_afbeda3fd1bdc8c37d01bdf9f5c8274ff"><div class="ttname"><a href="_k_utility_8h.html#afbeda3fd1bdc8c37d01bdf9f5c8274ff">String</a></div><div class="ttdeci">std::string String</div><div class="ttdoc">文字列 </div><div class="ttdef"><b>Definition:</b> KUtility.h:13</div></div>
+<div class="ttc" id="class_k_application_html"><div class="ttname"><a href="class_k_application.html">KApplication</a></div><div class="ttdef"><b>Definition:</b> KApplication.h:13</div></div>
+<div class="ttc" id="class_k_window_html_ac63ff2a080eb63a71c7fac17f2290dcf"><div class="ttname"><a href="class_k_window.html#ac63ff2a080eb63a71c7fac17f2290dcf">KWindow::hide</a></div><div class="ttdeci">void hide() const </div><div class="ttdoc">ウィンドウ隠蔽 </div><div class="ttdef"><b>Definition:</b> KWindow.cpp:119</div></div>
+<div class="ttc" id="struct_k_window_1_1_main_args_html"><div class="ttname"><a href="struct_k_window_1_1_main_args.html">KWindow::MainArgs</a></div><div class="ttdoc">メイン関数の引数 </div><div class="ttdef"><b>Definition:</b> KWindow.h:23</div></div>
+<div class="ttc" id="class_k_listener_html"><div class="ttname"><a href="class_k_listener.html">KListener</a></div><div class="ttdef"><b>Definition:</b> KListener.h:12</div></div>
+<div class="ttc" id="class_k_window_html_aa2ab4a85ac76553657886f32a8798bb2"><div class="ttname"><a href="class_k_window.html#aa2ab4a85ac76553657886f32a8798bb2">KWindow::setSize</a></div><div class="ttdeci">void setSize(const KRect &amp;aSize)</div><div class="ttdef"><b>Definition:</b> KWindow.cpp:223</div></div>
+<div class="ttc" id="class_k_window_html_a42a02c856005608f6fae35fc5752d030"><div class="ttname"><a href="class_k_window.html#a42a02c856005608f6fae35fc5752d030">KWindow::setListener</a></div><div class="ttdeci">void setListener(KListener *aListener)</div><div class="ttdef"><b>Definition:</b> KWindow.cpp:251</div></div>
+<div class="ttc" id="_k_rect_8h_html"><div class="ttname"><a href="_k_rect_8h.html">KRect.h</a></div></div>
+<div class="ttc" id="_k_utility_8h_html_aa7b8686ed161126a0e1dced34f44e962"><div class="ttname"><a href="_k_utility_8h.html#aa7b8686ed161126a0e1dced34f44e962">color</a></div><div class="ttdeci">unsigned long color</div><div class="ttdoc">色情報 </div><div class="ttdef"><b>Definition:</b> KUtility.h:15</div></div>
+<div class="ttc" id="class_k_window_html_a8c56a581a068440f6c140c1cf7d37ee7"><div class="ttname"><a href="class_k_window.html#a8c56a581a068440f6c140c1cf7d37ee7">KWindow::setClearColor</a></div><div class="ttdeci">void setClearColor(const color &amp;aColor)</div><div class="ttdef"><b>Definition:</b> KWindow.cpp:255</div></div>
+<div class="ttc" id="class_k_window_html_ae43db722ea1d2809958d9dfda45c37a6"><div class="ttname"><a href="class_k_window.html#ae43db722ea1d2809958d9dfda45c37a6">KWindow::setTitle</a></div><div class="ttdeci">void setTitle(const String &amp;aTitle)</div><div class="ttdef"><b>Definition:</b> KWindow.cpp:218</div></div>
+<div class="ttc" id="class_k_window_html_a2a3356e8ddb803aef89eda6d2af5cde8"><div class="ttname"><a href="class_k_window.html#a2a3356e8ddb803aef89eda6d2af5cde8">KWindow::show</a></div><div class="ttdeci">void show() const </div><div class="ttdoc">ウィンドウ表示 </div><div class="ttdef"><b>Definition:</b> KWindow.cpp:115</div></div>
+<div class="ttc" id="class_k_window_html_ad4a9255dce175cb0157895d916201a06"><div class="ttname"><a href="class_k_window.html#ad4a9255dce175cb0157895d916201a06">KWindow::windowArea</a></div><div class="ttdeci">KRect windowArea() const </div><div class="ttdoc">ウィンドウの画面上の領域を返す。 </div><div class="ttdef"><b>Definition:</b> KWindow.cpp:259</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築: &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.11
+</small></address>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.11"/>
+<title>Kawazuini: C:/Users/Kawaz/Documents/Kawazuini/Kawazuini/KVector.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Kawazuini
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.8.11 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>総合概要</span></a></li>
+      <li><a href="pages.html"><span>諸情報</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">C:/Users/Kawaz/Documents/Kawazuini/Kawazuini/KVector.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_k_vector_8h.html">[詳解]</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef KVECTOR_H</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define KVECTOR_H</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_kawazu_include_8h.html">KawazuInclude.h</a>&quot;</span></div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">class </span><a class="code" href="class_k_quaternion.html">KQuaternion</a>;</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#define DEPLOYMENT(aVec) (aVec).x, (aVec).y, (aVec).z</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div><div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_k_vector.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_k_vector.html">KVector</a> {</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_k_vector.html#abdd965755c7de8ade1165150f845b57d">   16</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="class_k_vector.html#abdd965755c7de8ade1165150f845b57d">x</a>; </div><div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_k_vector.html#ac651682926a64ce97152e5953f00bbc5">   17</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="class_k_vector.html#ac651682926a64ce97152e5953f00bbc5">y</a>; </div><div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_k_vector.html#ab8a3bd17e646845b47c215573c207dc2">   18</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="class_k_vector.html#ab8a3bd17e646845b47c215573c207dc2">z</a>; </div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="class_k_vector.html">KVector</a>(<span class="keyword">const</span> <span class="keywordtype">float</span>&amp; ax = 0, <span class="keyword">const</span> <span class="keywordtype">float</span>&amp; ay = 0, <span class="keyword">const</span> <span class="keywordtype">float</span>&amp; az = 0);</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="class_k_vector.html">KVector</a>(<span class="keyword">const</span> POINT&amp; aPoint);</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="class_k_vector.html">KVector</a>(<span class="keyword">const</span> <a class="code" href="class_k_vector.html">KVector</a>&amp; orig) = <span class="keywordflow">default</span>;</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_k_vector.html">KVector</a>() = <span class="keywordflow">default</span>;</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> <a class="code" href="class_k_vector.html">KVector</a>&amp; aVec) <span class="keyword">const</span>;</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">bool</span> operator!=(<span class="keyword">const</span> <a class="code" href="class_k_vector.html">KVector</a>&amp; aVec) <span class="keyword">const</span>;</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="class_k_vector.html">KVector</a> operator-() <span class="keyword">const</span>;</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="class_k_vector.html">KVector</a>&amp; operator+=(<span class="keyword">const</span> <a class="code" href="class_k_vector.html">KVector</a>&amp; aVec);</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="class_k_vector.html">KVector</a>&amp; operator-=(<span class="keyword">const</span> <a class="code" href="class_k_vector.html">KVector</a>&amp; aVec);</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="class_k_vector.html">KVector</a>&amp; operator*=(<span class="keyword">const</span> <span class="keywordtype">float</span>&amp; aTimes);</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="class_k_vector.html">KVector</a>&amp; operator/=(<span class="keyword">const</span> <span class="keywordtype">float</span>&amp; aTimes);</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="class_k_vector.html">KVector</a> operator+(<span class="keyword">const</span> <a class="code" href="class_k_vector.html">KVector</a>&amp; aVec) <span class="keyword">const</span>;</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="class_k_vector.html">KVector</a> operator-(<span class="keyword">const</span> <a class="code" href="class_k_vector.html">KVector</a>&amp; aVec) <span class="keyword">const</span>;</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="class_k_vector.html">KVector</a> operator*(<span class="keyword">const</span> <span class="keywordtype">float</span>&amp; aTimes) <span class="keyword">const</span>;</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="class_k_vector.html">KVector</a> operator/(<span class="keyword">const</span> <span class="keywordtype">float</span>&amp; aTimes) <span class="keyword">const</span>;</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; <span class="keyword">operator</span> POINT() <span class="keyword">const</span>;</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="class_k_vector.html#a86f21490d80d71866538147a5ee789c3">length</a>() <span class="keyword">const</span>;</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="class_k_vector.html">KVector</a> <a class="code" href="class_k_vector.html#a8c04959b43ca62a533e6743c0d3e476f">normalization</a>() <span class="keyword">const</span>;</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="class_k_vector.html#a5255103907bf95a207b5ff5a883d7e45">dot</a>(<span class="keyword">const</span> <a class="code" href="class_k_vector.html">KVector</a>&amp; aVec) <span class="keyword">const</span>;</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="class_k_vector.html">KVector</a> <a class="code" href="class_k_vector.html#a2de4b3ad23c5f9267da7906d3be420ca">cross</a>(<span class="keyword">const</span> <a class="code" href="class_k_vector.html">KVector</a>&amp; aVec) <span class="keyword">const</span>;</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <a class="code" href="class_k_vector.html">KVector</a> <a class="code" href="class_k_vector.html#a2814d07da876e8c0d56418d95f64e79d">extractVertical</a>(<span class="keyword">const</span> <a class="code" href="class_k_vector.html">KVector</a>&amp; aVec);</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <a class="code" href="class_k_vector.html">KVector</a> <a class="code" href="class_k_vector.html#a0087a01efd6ec82a1be05a4747624489">rotate</a>(<span class="keyword">const</span> <a class="code" href="class_k_quaternion.html">KQuaternion</a>&amp; aQuaternion) <span class="keyword">const</span>;</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="class_k_vector.html#a83e8bd9d7f25f680e2ff4ee6b1dd745a">angle</a>(<span class="keyword">const</span> <a class="code" href="class_k_vector.html">KVector</a>&amp; aVec) <span class="keyword">const</span>;</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <a class="code" href="class_k_quaternion.html">KQuaternion</a> <a class="code" href="class_k_vector.html#aa22513a39e22451029eb4376e0f6e55b">roundAngle</a>(<span class="keyword">const</span> <a class="code" href="class_k_vector.html">KVector</a>&amp; aVec) <span class="keyword">const</span>;</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_k_vector.html#acd1a5780591af0b8e7dacc3fe77ac036">fit</a>(<span class="keyword">const</span> <a class="code" href="class_k_vector.html">KVector</a>&amp; aVec); <span class="keywordtype">bool</span> <a class="code" href="class_k_vector.html#a4edd134332d79cec94618b9d721b1b5a">isZero</a>() <span class="keyword">const</span>;</div><div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;};</div><div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div><div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* KVECTOR_H */</span><span class="preprocessor"></span></div><div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div><div class="ttc" id="class_k_quaternion_html"><div class="ttname"><a href="class_k_quaternion.html">KQuaternion</a></div><div class="ttdef"><b>Definition:</b> KQuaternion.h:13</div></div>
+<div class="ttc" id="class_k_vector_html_a0087a01efd6ec82a1be05a4747624489"><div class="ttname"><a href="class_k_vector.html#a0087a01efd6ec82a1be05a4747624489">KVector::rotate</a></div><div class="ttdeci">KVector rotate(const KQuaternion &amp;aQuaternion) const </div><div class="ttdoc">ベクトルを回転させる </div><div class="ttdef"><b>Definition:</b> KVector.cpp:109</div></div>
+<div class="ttc" id="class_k_vector_html_a2de4b3ad23c5f9267da7906d3be420ca"><div class="ttname"><a href="class_k_vector.html#a2de4b3ad23c5f9267da7906d3be420ca">KVector::cross</a></div><div class="ttdeci">KVector cross(const KVector &amp;aVec) const </div><div class="ttdoc">外積を計算 </div><div class="ttdef"><b>Definition:</b> KVector.cpp:95</div></div>
+<div class="ttc" id="class_k_vector_html_a5255103907bf95a207b5ff5a883d7e45"><div class="ttname"><a href="class_k_vector.html#a5255103907bf95a207b5ff5a883d7e45">KVector::dot</a></div><div class="ttdeci">float dot(const KVector &amp;aVec) const </div><div class="ttdoc">内積を計算 </div><div class="ttdef"><b>Definition:</b> KVector.cpp:91</div></div>
+<div class="ttc" id="class_k_vector_html_a2814d07da876e8c0d56418d95f64e79d"><div class="ttname"><a href="class_k_vector.html#a2814d07da876e8c0d56418d95f64e79d">KVector::extractVertical</a></div><div class="ttdeci">KVector extractVertical(const KVector &amp;aVec)</div><div class="ttdoc">ベクトルに垂直な成分を計算する。 </div><div class="ttdef"><b>Definition:</b> KVector.cpp:103</div></div>
+<div class="ttc" id="class_k_vector_html_a86f21490d80d71866538147a5ee789c3"><div class="ttname"><a href="class_k_vector.html#a86f21490d80d71866538147a5ee789c3">KVector::length</a></div><div class="ttdeci">float length() const </div><div class="ttdoc">ベクトルの長さを計算する </div><div class="ttdef"><b>Definition:</b> KVector.cpp:114</div></div>
+<div class="ttc" id="class_k_vector_html_aa22513a39e22451029eb4376e0f6e55b"><div class="ttname"><a href="class_k_vector.html#aa22513a39e22451029eb4376e0f6e55b">KVector::roundAngle</a></div><div class="ttdeci">KQuaternion roundAngle(const KVector &amp;aVec) const </div><div class="ttdoc">ベクトル同士の回転を計算する。 </div><div class="ttdef"><b>Definition:</b> KVector.cpp:122</div></div>
+<div class="ttc" id="_kawazu_include_8h_html"><div class="ttname"><a href="_kawazu_include_8h.html">KawazuInclude.h</a></div><div class="ttdoc">Project&amp;#39;s include file. </div></div>
+<div class="ttc" id="class_k_vector_html_ab8a3bd17e646845b47c215573c207dc2"><div class="ttname"><a href="class_k_vector.html#ab8a3bd17e646845b47c215573c207dc2">KVector::z</a></div><div class="ttdeci">float z</div><div class="ttdoc">z scalar </div><div class="ttdef"><b>Definition:</b> KVector.h:18</div></div>
+<div class="ttc" id="class_k_vector_html_acd1a5780591af0b8e7dacc3fe77ac036"><div class="ttname"><a href="class_k_vector.html#acd1a5780591af0b8e7dacc3fe77ac036">KVector::fit</a></div><div class="ttdeci">void fit(const KVector &amp;aVec)</div><div class="ttdoc">ベクトル内にベクトルをまとめる </div><div class="ttdef"><b>Definition:</b> KVector.cpp:126</div></div>
+<div class="ttc" id="class_k_vector_html_a4edd134332d79cec94618b9d721b1b5a"><div class="ttname"><a href="class_k_vector.html#a4edd134332d79cec94618b9d721b1b5a">KVector::isZero</a></div><div class="ttdeci">bool isZero() const </div><div class="ttdef"><b>Definition:</b> KVector.cpp:132</div></div>
+<div class="ttc" id="class_k_vector_html_a8c04959b43ca62a533e6743c0d3e476f"><div class="ttname"><a href="class_k_vector.html#a8c04959b43ca62a533e6743c0d3e476f">KVector::normalization</a></div><div class="ttdeci">KVector normalization() const </div><div class="ttdoc">正規化したベクトルを返す </div><div class="ttdef"><b>Definition:</b> KVector.cpp:87</div></div>
+<div class="ttc" id="class_k_vector_html_a83e8bd9d7f25f680e2ff4ee6b1dd745a"><div class="ttname"><a href="class_k_vector.html#a83e8bd9d7f25f680e2ff4ee6b1dd745a">KVector::angle</a></div><div class="ttdeci">float angle(const KVector &amp;aVec) const </div><div class="ttdoc">ベクトル同士の角度を計算する。 </div><div class="ttdef"><b>Definition:</b> KVector.cpp:118</div></div>
+<div class="ttc" id="class_k_vector_html_abdd965755c7de8ade1165150f845b57d"><div class="ttname"><a href="class_k_vector.html#abdd965755c7de8ade1165150f845b57d">KVector::x</a></div><div class="ttdeci">float x</div><div class="ttdoc">x scalar </div><div class="ttdef"><b>Definition:</b> KVector.h:16</div></div>
+<div class="ttc" id="class_k_vector_html"><div class="ttname"><a href="class_k_vector.html">KVector</a></div><div class="ttdef"><b>Definition:</b> KVector.h:14</div></div>
+<div class="ttc" id="class_k_vector_html_ac651682926a64ce97152e5953f00bbc5"><div class="ttname"><a href="class_k_vector.html#ac651682926a64ce97152e5953f00bbc5">KVector::y</a></div><div class="ttdeci">float y</div><div class="ttdoc">y scalar </div><div class="ttdef"><b>Definition:</b> KVector.h:17</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築: &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.11
+</small></address>
+</body>
+</html>
