@@ -109,10 +109,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:acc2b79cfcd4de59f0ee7303e6b52106d"><td class="mdescLeft">&#160;</td><td class="mdescRight">evaluate collision with Point.  <a href="#acc2b79cfcd4de59f0ee7303e6b52106d">More...</a><br /></td></tr>
 <tr class="separator:acc2b79cfcd4de59f0ee7303e6b52106d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5905bb5da9ac97b55d0cf70be32a933a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_polygon.html#a5905bb5da9ac97b55d0cf70be32a933a">operator*</a> (const <a class="el" href="class_k_segment.html">KSegment</a> &amp;aSegment)</td></tr>
-<tr class="memdesc:a5905bb5da9ac97b55d0cf70be32a933a"><td class="mdescLeft">&#160;</td><td class="mdescRight">evaluate collision with Segment  <a href="#a5905bb5da9ac97b55d0cf70be32a933a">More...</a><br /></td></tr>
+<tr class="memdesc:a5905bb5da9ac97b55d0cf70be32a933a"><td class="mdescLeft">&#160;</td><td class="mdescRight">evaluate collision with Segment.  <a href="#a5905bb5da9ac97b55d0cf70be32a933a">More...</a><br /></td></tr>
 <tr class="separator:a5905bb5da9ac97b55d0cf70be32a933a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a710081d787dd6025e236cd6e9fc17479"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_k_vector.html">KVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_polygon.html#a710081d787dd6025e236cd6e9fc17479">hitPoint</a> (const <a class="el" href="class_k_segment.html">KSegment</a> &amp;aSegment)</td></tr>
-<tr class="memdesc:a710081d787dd6025e236cd6e9fc17479"><td class="mdescLeft">&#160;</td><td class="mdescRight">compute intersection with Segment  <a href="#a710081d787dd6025e236cd6e9fc17479">More...</a><br /></td></tr>
+<tr class="memdesc:a710081d787dd6025e236cd6e9fc17479"><td class="mdescLeft">&#160;</td><td class="mdescRight">compute intersection with Segment.  <a href="#a710081d787dd6025e236cd6e9fc17479">More...</a><br /></td></tr>
 <tr class="separator:a710081d787dd6025e236cd6e9fc17479"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -128,6 +128,7 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Polygon for collision determination. </p>
+<p>Maeda Takumi </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a710081d787dd6025e236cd6e9fc17479"></a>
 <div class="memitem">
@@ -143,7 +144,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>compute intersection with Segment </p>
+<p>compute intersection with Segment. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">aSegment</td><td>target Segment </td></tr>
@@ -151,6 +152,9 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>intersection </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>returne value is intersection with Plane. </dd>
+<dd>
+When not intersecting, return zero vector. </dd></dl>
 
 </div>
 </div>
@@ -193,7 +197,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>evaluate collision with Segment </p>
+<p>evaluate collision with Segment. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">aSegment</td><td>target Segment </td></tr>

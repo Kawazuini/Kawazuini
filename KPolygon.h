@@ -1,5 +1,6 @@
 /**
- * @file KPolygon.h
+ * @file   KPolygon.h
+ * @brief  KPolygon
  * @author Maeda Takumi
  */
 #ifndef KPOLYGON_H
@@ -12,14 +13,22 @@
 class KSegment;
 
 /**
- * @brief \~english Polygon for collision determination
- * @brief \~japanese 衝突判定用ポリゴン
- * @author Maeda Takumi
+ * @brief  \~english  Polygon for collision determination
+ * @brief  \~japanese 衝突判定用ポリゴン
+ * @author \~ Maeda Takumi
  */
 class KPolygon {
 public:
-    /** @brief vertex list   */ List<KVector> mVertex;
-    /** @brief normal vector */ KVector mNormal;
+    /**
+     * @brief \~english  vertex list
+     * @brief \~japanese 頂点リスト
+     */
+    List<KVector> mVertex;
+    /**
+     * @brief \~english  normal vector
+     * @brief \~japanese 法線ベクトル
+     */
+    KVector mNormal;
 
     KPolygon() = default;
     KPolygon(const List<KVector>& aVertex);
@@ -27,23 +36,42 @@ public:
     virtual ~KPolygon() = default;
 
     /**
-     * @brief evaluate collision with Point.
-     * @param aPoint target Point
+     * \~english
+     * @brief  evaluate collision with Point.
+     * @param  aPoint target Point
      * @return collision determination
+     * \~japanese
+     * @brief  点との衝突判定を評価します。
+     * @param  aPoint 対象点(位置ベクトル)
+     * @return 衝突判定
      */
     bool operator*(const KVector& aPoint);
-
     /**
-     * @brief evaluate collision with Segment
-     * @param aSegment target Segment
+     * \~english
+     * @brief  evaluate collision with Segment.
+     * @param  aSegment target Segment
      * @return collision determination
+     * \~japanese
+     * @brief  線分との衝突判定を評価します。
+     * @param  aSegment 対象線分
+     * @return 衝突判定
+     * 
      */
     bool operator*(const KSegment& aSegment);
 
     /**
-     * @brief compute intersection with Segment
-     * @param aSegment target Segment
+     * \~english
+     * @brief  compute intersection with Segment.
+     * @param  aSegment target Segment
      * @return intersection
+     * @note   returne value is intersection with Plane.
+     * @note   When not intersecting, return zero vector.
+     * \~japanese
+     * @brief  線分との交点を計算します。
+     * @param  aSegment 対象線分
+     * @return 交点
+     * @note   返される交点は面との交点です。(ポリゴン上にあるとは限りません。)
+     * @note   交差していないときはゼロベクトルを返します。
      */
     KVector hitPoint(const KSegment& aSegment);
 };
