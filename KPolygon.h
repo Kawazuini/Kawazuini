@@ -11,30 +11,41 @@
 
 class KSegment;
 
+/**
+ * @brief Polygon for collision determination
+ * @author Maeda Takumi
+ */
 class KPolygon {
 public:
-    List<KVector> mVertex; /// 頂点リスト
-    KVector mNormal; ///< 法線ベクトル
+    /** @brief vertex list   */ List<KVector> mVertex;
+    /** @brief normal vector */ KVector mNormal;
 
     KPolygon() = default;
     KPolygon(const List<KVector>& aVertex);
     KPolygon(const KPolygon& orig) = default;
     virtual ~KPolygon() = default;
-    
+
     /**
-     * @brief 線分との衝突判定を計算する。
-     * @param aSegment 対象線分
-     * @return 衝突結果
+     * @brief evaluate collision with Point.
+     * @param aPoint target Point
+     * @return collision determination
+     */
+    bool operator*(const KVector& aPoint);
+
+    /**
+     * @brief evaluate collision with Segment
+     * @param aSegment target Segment
+     * @return collision determination
      */
     bool operator*(const KSegment& aSegment);
-    
+
     /**
-     * @brief 線分との交差点を計算する。(ポリゴン上にあるとは限りません。)
-     * @param aSegment 対象線分
-     * @return 交差点
-     * @note operator*()で衝突判定を確認してください。
+     * @brief compute intersection with Segment
+     * @param aSegment target Segment
+     * @return intersection
      */
     KVector hitPoint(const KSegment& aSegment);
 };
 
 #endif /* KPOLYGON_H */
+

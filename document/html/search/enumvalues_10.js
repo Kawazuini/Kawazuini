@@ -1,0 +1,22 @@
+var searchData=
+[
+  ['seashore',['Seashore',['../class_k_midi.html#a11035e68ce16118fd222337c93318813a360ae3d26e29f3aec0715f6a80d9ee75',1,'KMidi']]],
+  ['shakuhachi',['Shakuhachi',['../class_k_midi.html#a11035e68ce16118fd222337c93318813af00e884c6a26a031623dc74fedda882c',1,'KMidi']]],
+  ['shamisen',['Shamisen',['../class_k_midi.html#a11035e68ce16118fd222337c93318813adb324b899241a91dcf51383a17c4db6b',1,'KMidi']]],
+  ['shanai',['Shanai',['../class_k_midi.html#a11035e68ce16118fd222337c93318813aeb57dfe58a70afefbbbd37754ca024ec',1,'KMidi']]],
+  ['sitar',['Sitar',['../class_k_midi.html#a11035e68ce16118fd222337c93318813a9723feec88bcb5ce85c4debcd949cc85',1,'KMidi']]],
+  ['slapbass1',['SlapBass1',['../class_k_midi.html#a11035e68ce16118fd222337c93318813a8ec38039f46a04256293242ab8b94673',1,'KMidi']]],
+  ['slapbass2',['SlapBass2',['../class_k_midi.html#a11035e68ce16118fd222337c93318813a40907e4907fbbd5352d3656b8be732d6',1,'KMidi']]],
+  ['sopranosax',['SopranoSax',['../class_k_midi.html#a11035e68ce16118fd222337c93318813aab54082a64f29d8c3a0357a3fe273030',1,'KMidi']]],
+  ['steeldrums',['SteelDrums',['../class_k_midi.html#a11035e68ce16118fd222337c93318813aa66ca5ca91f9bc961201d234dd7acc6c',1,'KMidi']]],
+  ['stringensemble1',['StringEnsemble1',['../class_k_midi.html#a11035e68ce16118fd222337c93318813a950f3d509443c59b53673f280adf51ca',1,'KMidi']]],
+  ['stringensemble2',['StringEnsemble2',['../class_k_midi.html#a11035e68ce16118fd222337c93318813a2118a9b5a1efd1e51d9ea1a601349f37',1,'KMidi']]],
+  ['synthbass1',['SynthBass1',['../class_k_midi.html#a11035e68ce16118fd222337c93318813a03541f28c1ee48b11077b4a5eacdc123',1,'KMidi']]],
+  ['synthbass2',['SynthBass2',['../class_k_midi.html#a11035e68ce16118fd222337c93318813a7595919b495bad998bd3abcb5a55bade',1,'KMidi']]],
+  ['synthbrass1',['SynthBrass1',['../class_k_midi.html#a11035e68ce16118fd222337c93318813ac059a1b345f4ffb3633cb0859b34fbf8',1,'KMidi']]],
+  ['synthbrass2',['SynthBrass2',['../class_k_midi.html#a11035e68ce16118fd222337c93318813a10efa600bfb63625df97dde544d87555',1,'KMidi']]],
+  ['synthdrum',['SynthDrum',['../class_k_midi.html#a11035e68ce16118fd222337c93318813a2fd7ea1b8caf5bca57d7b3ddd0ff80c0',1,'KMidi']]],
+  ['synthstrings1',['SynthStrings1',['../class_k_midi.html#a11035e68ce16118fd222337c93318813a294a1ad2edf3ef987669d58be72e5acb',1,'KMidi']]],
+  ['synthstrings2',['SynthStrings2',['../class_k_midi.html#a11035e68ce16118fd222337c93318813a33e1dc797259d3dbe77dfc40c0987129',1,'KMidi']]],
+  ['synthvoice',['SynthVoice',['../class_k_midi.html#a11035e68ce16118fd222337c93318813a2405ed1b9c58e1dfc2dfe171bb9f7bd7',1,'KMidi']]]
+];
