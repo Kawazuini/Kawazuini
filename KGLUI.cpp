@@ -14,8 +14,8 @@ const int KGLUI::WIDTH = 1024;
 const int KGLUI::HEIGHT = WIDTH * KWindow::ASPECT;
 
 KGLUI::KGLUI(const KCamera& aCamera) :
-mCamera(&aCamera),
 mScreen(new KTexture(WIDTH)) {
+    mCamera = &aCamera;
 }
 
 KGLUI::~KGLUI() {

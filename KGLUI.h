@@ -20,9 +20,7 @@ class KGLUI : private KNonCopy {
 public:
     static const int WIDTH; ///< 横幅
     static const int HEIGHT; ///< 縦幅
-private:
-    const KCamera * const mCamera;
-public:
+    const KCamera * mCamera; ///< 描画対象のカメラ
     KTexture * const mScreen; ///< 画面の画素情報
 
     KGLUI(const KCamera& aCamera);
