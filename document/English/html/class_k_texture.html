@@ -91,6 +91,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">KTexture Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>System of Texture Mapping.  
+ <a href="class_k_texture.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_k_texture_8h_source.html">KTexture.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for KTexture:</div>
 <div class="dyncontent">
@@ -106,9 +111,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a72508cd303dd9d653379b21f57b24409"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a72508cd303dd9d653379b21f57b24409"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>KTexture</b> (const unsigned int &amp;aSize)</td></tr>
 <tr class="separator:a72508cd303dd9d653379b21f57b24409"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add6daf2129bf2e80f1dff8d6fbc4ef39"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="add6daf2129bf2e80f1dff8d6fbc4ef39"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>KTexture</b> (const unsigned int &amp;aSize, const <a class="el" href="class_k_image.html">KImage</a> &amp;aImage)</td></tr>
-<tr class="separator:add6daf2129bf2e80f1dff8d6fbc4ef39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0de9e2f9c0590ca2355d5080edf8e626"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0de9e2f9c0590ca2355d5080edf8e626"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()</td></tr>
 <tr class="separator:a0de9e2f9c0590ca2355d5080edf8e626"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -119,12 +121,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>bindON</b> () const <
 void&#160;</td><td class="memItemRight" valign="bottom"><b>bindOFF</b> () const </td></tr>
 <tr class="separator:ae58249d5adc9893ba0a24349ea74c2d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f03cfddd532a42dc0cf213f620a551c"><td class="memItemLeft" align="right" valign="top">byte *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_texture.html#a6f03cfddd532a42dc0cf213f620a551c">getPixel</a> (const int &amp;x, const int &amp;y)</td></tr>
+<tr class="memdesc:a6f03cfddd532a42dc0cf213f620a551c"><td class="mdescLeft">&#160;</td><td class="mdescRight">return a pixel information pointer at the specified position.  <a href="#a6f03cfddd532a42dc0cf213f620a551c">More...</a><br /></td></tr>
 <tr class="separator:a6f03cfddd532a42dc0cf213f620a551c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afdc5b759bf1e9889e1782adcad40a441"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_texture.html#afdc5b759bf1e9889e1782adcad40a441">clearRect</a> (const <a class="el" href="class_k_rect.html">KRect</a> &amp;aRect)</td></tr>
+<tr class="memdesc:afdc5b759bf1e9889e1782adcad40a441"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the pixel information of the specified area.  <a href="#afdc5b759bf1e9889e1782adcad40a441">More...</a><br /></td></tr>
 <tr class="separator:afdc5b759bf1e9889e1782adcad40a441"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d3577b1f6fd1c383363c264ccee1880"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_texture.html#a5d3577b1f6fd1c383363c264ccee1880">drawLine</a> (const int &amp;fromX, const int &amp;fromY, const int &amp;distX, const int &amp;distY, const <a class="el" href="_k_utility_8h.html#aa7b8686ed161126a0e1dced34f44e962">color</a> &amp;aColor)</td></tr>
-<tr class="memdesc:a5d3577b1f6fd1c383363c264ccee1880"><td class="mdescLeft">&#160;</td><td class="mdescRight">ウィンドウに直線を描画  <a href="#a5d3577b1f6fd1c383363c264ccee1880">More...</a><br /></td></tr>
-<tr class="separator:a5d3577b1f6fd1c383363c264ccee1880"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14d9743d7f1847be78b4eb6f6809fd0e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_texture.html#a14d9743d7f1847be78b4eb6f6809fd0e">drawLine</a> (const int &amp;fromX, const int &amp;fromY, const int &amp;toX, const int &amp;toY, const <a class="el" href="_k_utility_8h.html#aa7b8686ed161126a0e1dced34f44e962">color</a> &amp;aColor)</td></tr>
+<tr class="memdesc:a14d9743d7f1847be78b4eb6f6809fd0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">draw a straight line in pixel information.  <a href="#a14d9743d7f1847be78b4eb6f6809fd0e">More...</a><br /></td></tr>
+<tr class="separator:a14d9743d7f1847be78b4eb6f6809fd0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a951e6ee8b082749137be6f84ba665855"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a951e6ee8b082749137be6f84ba665855"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>drawLine</b> (const <a class="el" href="class_k_vector.html">KVector</a> &amp;fromVec, const <a class="el" href="class_k_vector.html">KVector</a> &amp;toVec, const <a class="el" href="_k_utility_8h.html#aa7b8686ed161126a0e1dced34f44e962">color</a> &amp;aColor)</td></tr>
 <tr class="separator:a951e6ee8b082749137be6f84ba665855"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -152,9 +156,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>drawVLine</b> (const 
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a18fe7481376f5fe8a69ebd89b3365d70"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_texture.html#a18fe7481376f5fe8a69ebd89b3365d70">setPixel</a> (byte *const pixel, const <a class="el" href="_k_utility_8h.html#aa7b8686ed161126a0e1dced34f44e962">color</a> &amp;aColor)</td></tr>
+<tr class="memdesc:a18fe7481376f5fe8a69ebd89b3365d70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mix color information to the entity of the pixel information pointer.  <a href="#a18fe7481376f5fe8a69ebd89b3365d70">More...</a><br /></td></tr>
 <tr class="separator:a18fe7481376f5fe8a69ebd89b3365d70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>System of Texture Mapping. </p>
+<p>Maeda Takumi </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="afdc5b759bf1e9889e1782adcad40a441"></a>
 <div class="memitem">
 <div class="memproto">
@@ -168,9 +176,11 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Clear the pixel information of the specified area. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">aRect</td><td></td></tr>
+    <tr><td class="paramname">aRect</td><td>specified area </td></tr>
   </table>
   </dd>
 </dl>
@@ -296,7 +306,7 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a5d3577b1f6fd1c383363c264ccee1880"></a>
+<a class="anchor" id="a14d9743d7f1847be78b4eb6f6809fd0e"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -316,13 +326,13 @@ Static Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const int &amp;&#160;</td>
-          <td class="paramname"><em>distX</em>, </td>
+          <td class="paramname"><em>toX</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const int &amp;&#160;</td>
-          <td class="paramname"><em>distY</em>, </td>
+          <td class="paramname"><em>toY</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -338,14 +348,14 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>ウィンドウに直線を描画 </p>
+<p>draw a straight line in pixel information. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">fromX</td><td>始点をあらわすx座標 </td></tr>
-    <tr><td class="paramname">fromY</td><td>始点をあらわすy座標 </td></tr>
-    <tr><td class="paramname">distX</td><td>終点をあらわすx座標 </td></tr>
-    <tr><td class="paramname">distY</td><td>終点をあらわすy座標 </td></tr>
-    <tr><td class="paramname">aColor</td><td>描画色 </td></tr>
+    <tr><td class="paramname">fromX</td><td>start point x-coordinate </td></tr>
+    <tr><td class="paramname">fromY</td><td>start point y-coordinate </td></tr>
+    <tr><td class="paramname">toX</td><td>end point x-coordinate </td></tr>
+    <tr><td class="paramname">toY</td><td>end point y-coordinate </td></tr>
+    <tr><td class="paramname">aColor</td><td>drawing color </td></tr>
   </table>
   </dd>
 </dl>
@@ -465,14 +475,17 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>return a pixel information pointer at the specified position. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">x</td><td></td></tr>
-    <tr><td class="paramname">y</td><td></td></tr>
+    <tr><td class="paramname">x</td><td>x-coordinate </td></tr>
+    <tr><td class="paramname">y</td><td>y-coordinate </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>pixel information pointer </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>when specify out of pixel information, return NULL. </dd></dl>
 
 </div>
 </div>
@@ -507,13 +520,16 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Mix color information to the entity of the pixel information pointer. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pixel</td><td></td></tr>
-    <tr><td class="paramname">aColor</td><td></td></tr>
+    <tr><td class="paramname">pixel</td><td>pixel information </td></tr>
+    <tr><td class="paramname">aColor</td><td>color information </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>If the pixel information pointer is NULL, processing is not performed. </dd></dl>
 
 </div>
 </div>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Kawazuini: KNonCopy クラス</title>
+<title>Kawazuini: KDrawSphere クラス</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -84,35 +84,44 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="class_k_non_copy-members.html">全メンバ一覧</a>  </div>
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pub-attribs">公開変数類</a> &#124;
+<a href="class_k_draw_sphere-members.html">全メンバ一覧</a>  </div>
   <div class="headertitle">
-<div class="title">KNonCopy クラス</div>  </div>
+<div class="title">KDrawSphere クラス</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="dynheader">
-KNonCopy の継承関係図</div>
-<div class="dyncontent">
- <div class="center">
-  <img src="class_k_non_copy.png" usemap="#KNonCopy_map" alt=""/>
-  <map id="KNonCopy_map" name="KNonCopy_map">
-<area href="class_k_charset.html" alt="KCharset" shape="rect" coords="85,56,160,80"/>
-<area href="class_k_drawer.html" alt="KDrawer" shape="rect" coords="85,112,160,136"/>
-<area href="class_k_file.html" title="ファイル入出力 " alt="KFile" shape="rect" coords="85,168,160,192"/>
-<area href="class_k_g_l_u_i.html" alt="KGLUI" shape="rect" coords="85,224,160,248"/>
-<area href="class_k_image.html" alt="KImage" shape="rect" coords="85,280,160,304"/>
-<area href="class_k_keyboard.html" title="キーボード " alt="KKeyboard" shape="rect" coords="85,336,160,360"/>
-<area href="class_k_listener.html" alt="KListener" shape="rect" coords="85,392,160,416"/>
-<area href="class_k_midi.html" title="MIDI(Musical Instrument Digital Interface)コントローラ " alt="KMidi" shape="rect" coords="85,448,160,472"/>
-<area href="class_k_mouse.html" alt="KMouse" shape="rect" coords="85,504,160,528"/>
-<area href="class_k_open_g_l.html" alt="KOpenGL" shape="rect" coords="85,560,160,584"/>
-<area href="class_k_texture.html" title="テクスチャマッピングシステム " alt="KTexture" shape="rect" coords="85,616,160,640"/>
-<area href="class_k_timer.html" title="時計 " alt="KTimer" shape="rect" coords="85,672,160,696"/>
-<area href="class_k_updater.html" alt="KUpdater" shape="rect" coords="85,728,160,752"/>
-<area href="class_k_window.html" title="ウィンドウ " alt="KWindow" shape="rect" coords="85,784,160,808"/>
-</map>
- </div></div>
-<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>C:/Users/Kawaz/Documents/Kawazuini/Kawazuini/<a class="el" href="_k_non_copy_8h_source.html">KNonCopy.h</a></li>
+
+<p>描画用球体  
+ <a href="class_k_draw_sphere.html#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_k_draw_sphere_8h_source.html">KDrawSphere.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a91ec291502ddbb787236ceaf93756b0a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a91ec291502ddbb787236ceaf93756b0a"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>KDrawSphere</b> (const <a class="el" href="class_k_vector.html">KVector</a> &amp;aPosition, const float &amp;aRadius)</td></tr>
+<tr class="separator:a91ec291502ddbb787236ceaf93756b0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54cb145c0c2ab1c45856de5ba317c5b6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a54cb145c0c2ab1c45856de5ba317c5b6"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>KDrawSphere</b> (const <a class="el" href="class_k_draw_sphere.html">KDrawSphere</a> &amp;orig)</td></tr>
+<tr class="separator:a54cb145c0c2ab1c45856de5ba317c5b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd2ae657165750b4e67a83448921e7ed"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afd2ae657165750b4e67a83448921e7ed"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>draw</b> () const </td></tr>
+<tr class="separator:afd2ae657165750b4e67a83448921e7ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+公開変数類</h2></td></tr>
+<tr class="memitem:a384d363a3eb402ce6c507d074c346e3b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a384d363a3eb402ce6c507d074c346e3b"></a>
+<a class="el" href="class_k_texture.html">KTexture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_sphere.html#a384d363a3eb402ce6c507d074c346e3b">mTexture</a></td></tr>
+<tr class="memdesc:a384d363a3eb402ce6c507d074c346e3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">テクスチャ <br /></td></tr>
+<tr class="separator:a384d363a3eb402ce6c507d074c346e3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>描画用球体 </p>
+<dl class="section author"><dt>著者</dt><dd>Maeda Takumi </dd></dl>
+</div><hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>C:/Users/Kawaz/Documents/Kawazuini/Kawazuini/<a class="el" href="_k_draw_sphere_8h_source.html">KDrawSphere.h</a></li>
+<li>C:/Users/Kawaz/Documents/Kawazuini/Kawazuini/<a class="el" href="_k_draw_sphere_8cpp.html">KDrawSphere.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

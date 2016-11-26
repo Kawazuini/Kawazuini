@@ -1,5 +1,6 @@
 /**
- * @file KTexture.h
+ * @file   KTexture.h
+ * @brief  KTesture
  * @author Maeda Takumi
  */
 #ifndef KTEXTURE_H
@@ -14,15 +15,31 @@ class KImage;
 class KRect;
 class KVector;
 
+/**
+ * @brief \~english  System of Texture Mapping
+ * @brief \~japanese テクスチャマッピングシステム
+ * @author \~ Maeda Takumi
+ */
 class KTexture : private KNonCopy {
 private:
+    /**
+     * @brief \~english  pixel info
+     * @brief \~japanese 画素情報
+     */
     byte * const mPixel;
 
+    /**
+     * @brief \~english  size of texture
+     * @brief \~japanese テクスチャサイズ
+     */
     const unsigned int mSize;
+    /**
+     * @brief \~english  name of registration
+     * @brief \~japanese テクスチャ登録名
+     */
     const unsigned int mName;
 public:
     KTexture(const unsigned int& aSize);
-    KTexture(const unsigned int& aSize, const KImage& aImage);
     virtual ~KTexture();
 
     void update();
@@ -30,13 +47,21 @@ public:
     void bindON() const;
     void bindOFF() const;
 
-    /* ------------------------- Paint.cpp ------------------------- */
+    /* ------------------------- in Paint.cpp ------------------------- */
 
     /**
-     * 
-     * @param x
-     * @param y
-     * @return 
+     * \~english
+     * @brief  return a pixel information pointer at the specified position.
+     * @param  x x-coordinate
+     * @param  y y-coordinate
+     * @return pixel information pointer
+     * @note   when specify out of pixel information, return NULL.
+     * \~japanese
+     * @brief  指定位置の画素情報ポインタを返します。
+     * @param  x x座標
+     * @param  y y座標
+     * @return 画素情報ポインタ
+     * @note   画僧情報外が指定された場合NULLを返します。
      */
     inline byte* getPixel(const int&x, const int& y) {
         if (x < 0 || mSize - 1 < x || y < 0 || mSize - 1 < y) return NULL;
@@ -44,9 +69,16 @@ public:
     };
 
     /**
-     * 
-     * @param pixel
-     * @param aColor
+     * \~english
+     * @brief Mix color information to the entity of the pixel information pointer.
+     * @param pixel  pixel information
+     * @param aColor color information
+     * @note  If the pixel information pointer is NULL, processing is not performed.
+     * \~japanese
+     * @brief 画素情報ポインタの実体に色情報を混合します。
+     * @param pixel  画素情報ポインタ
+     * @param aColor 色情報
+     * @note  画素情報ポインタがNULLの場合は処理を行いません。
      */
     static inline void setPixel(byte * const pixel, const color& aColor) {
         if (pixel) {
@@ -63,23 +95,36 @@ public:
     }
 
     /**
-     * 
-     * @param aRect
+     * \~english
+     * @brief Clear the pixel information of the specified area.
+     * @param aRect specified area
+     * \~japanese
+     * @brief 指定領域の画素情報をクリアします。
+     * @param aRect 指定領域
      */
     void clearRect(const KRect& aRect);
 
     /**
-     * @brief ウィンドウに直線を描画
-     * @param fromX  始点をあらわすx座標
-     * @param fromY  始点をあらわすy座標
-     * @param distX  終点をあらわすx座標
-     * @param distY  終点をあらわすy座標
+     * \~english
+     * @brief draw a straight line in pixel information.
+     * @param fromX  start point x-coordinate
+     * @param fromY  start point y-coordinate
+     * @param toX   end point x-coordinate
+     * @param toY   end point y-coordinate
+     * @param aColor drawing color
+     * \~japanese
+     * @brief 画素情報に直線を描画します。
+     * @param fromX  始点x座標
+     * @param fromY  始点y座標
+     * @param toX   終点x座標
+     * @param toY   終点y座標
      * @param aColor 描画色
      */
-    void drawLine(const int& fromX, const int& fromY, const int& distX, const int& distY, const color& aColor);
+    void drawLine(const int& fromX, const int& fromY, const int& toX, const int& toY, const color& aColor);
     void drawLine(const KVector& fromVec, const KVector& toVec, const color& aColor);
-    void drawHLine(const int& fromX, const int& distX, const int& y, const color& aColor); // 水平線
-    void drawVLine(const int& fromY, const int& distY, const int& x, const color& aColor); // 垂直線
+    void drawHLine(const int& fromX, const int& distX, const int& y, const color& aColor);
+    void drawVLine(const int& fromY, const int& distY, const int& x, const color& aColor);
+    
     /**
      * @brief ウィンドウに矩形を描画
      * @param aRect  描画する矩形

@@ -1,5 +1,6 @@
 /**
- * @file KPaint.cpp
+ * @file   KPaint.cpp
+ * @brief  KTexture
  * @author Maeda Takumi
  */
 #include "KTexture.h"
@@ -22,8 +23,8 @@ void KTexture::clearRect(const KRect& aRect) {
     }
 }
 
-void KTexture::drawLine(const int& fromX, const int& fromY, const int& distX, const int& distY, const color& aColor) {
-    int width = distX - fromX, height = distY - fromY, abW = Math::abs(width), abH = Math::abs(height), dWidth = mSize; // 描画・画面幅
+void KTexture::drawLine(const int& fromX, const int& fromY, const int& toX, const int& toY, const color& aColor) {
+    int width = toX - fromX, height = toY - fromY, abW = Math::abs(width), abH = Math::abs(height), dWidth = mSize; // 描画・画面幅
     int x = fromX, y = fromY;
     byte* pixel;
 
@@ -31,9 +32,9 @@ void KTexture::drawLine(const int& fromX, const int& fromY, const int& distX, co
     int delSum = 0; // 増加値に対する変化値
     if (abW > abH) {
         int sigH = Math::sign(height);
-        if (fromX > distX) { // 反転
-            x = distX;
-            y = distY;
+        if (fromX > toX) { // 反転
+            x = toX;
+            y = toY;
             sigH *= -1;
         }
         for (int i = 0; i < abW; ++i, ++x) {
@@ -45,9 +46,9 @@ void KTexture::drawLine(const int& fromX, const int& fromY, const int& distX, co
         }
     } else {
         int sigW = Math::sign(width);
-        if (fromY > distY) { // 反転
-            x = distX;
-            y = distY;
+        if (fromY > toY) { // 反転
+            x = toX;
+            y = toY;
             sigW *= -1;
         }
         for (int i = 0; i < abH; ++i, ++y) {

@@ -27,6 +27,7 @@ var searchData=
   ['mprevinst',['mPrevInst',['../struct_k_window_1_1_main_args.html#a4f03c7222a937459ceaacc7efe8439bf',1,'KWindow::MainArgs']]],
   ['mright',['mRight',['../class_k_mouse.html#a4aab19ea8b9956b66684a3cba0f38639',1,'KMouse']]],
   ['mscreen',['mScreen',['../class_k_g_l_u_i.html#af25f5d5d8aed5d9d0b894d5b6e54b976',1,'KGLUI']]],
+  ['mtexture',['mTexture',['../class_k_draw_sphere.html#a384d363a3eb402ce6c507d074c346e3b',1,'KDrawSphere']]],
   ['mtone',['mTone',['../struct_k_midi_1_1_note.html#a18eafb8e4b4ad081b36552d0e35ee1bc',1,'KMidi::Note']]],
   ['mvelocity',['mVelocity',['../struct_k_midi_1_1_note.html#a8bf9dd04598803292f6c0c9a5a028a95',1,'KMidi::Note']]],
   ['mvertex',['mVertex',['../class_k_polygon.html#a3580e5d83c040fc4dca4bc4d40af29d0',1,'KPolygon']]],

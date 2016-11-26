@@ -4,6 +4,7 @@ var searchData=
   ['kcamera',['KCamera',['../class_k_camera.html',1,'']]],
   ['kcharset',['KCharset',['../class_k_charset.html',1,'']]],
   ['kdrawer',['KDrawer',['../class_k_drawer.html',1,'']]],
+  ['kdrawsphere',['KDrawSphere',['../class_k_draw_sphere.html',1,'']]],
   ['kfile',['KFile',['../class_k_file.html',1,'']]],
   ['kfpscamera',['KFPSCamera',['../class_k_f_p_s_camera.html',1,'']]],
   ['kglui',['KGLUI',['../class_k_g_l_u_i.html',1,'']]],

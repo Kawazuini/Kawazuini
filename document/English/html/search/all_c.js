@@ -31,6 +31,7 @@ var searchData=
   ['mprevinst',['mPrevInst',['../struct_k_window_1_1_main_args.html#a4f03c7222a937459ceaacc7efe8439bf',1,'KWindow::MainArgs']]],
   ['mright',['mRight',['../class_k_mouse.html#a4aab19ea8b9956b66684a3cba0f38639',1,'KMouse']]],
   ['mscreen',['mScreen',['../class_k_g_l_u_i.html#af25f5d5d8aed5d9d0b894d5b6e54b976',1,'KGLUI']]],
+  ['mtexture',['mTexture',['../class_k_draw_sphere.html#a384d363a3eb402ce6c507d074c346e3b',1,'KDrawSphere']]],
   ['mtone',['mTone',['../struct_k_midi_1_1_note.html#a18eafb8e4b4ad081b36552d0e35ee1bc',1,'KMidi::Note']]],
   ['musicbox',['MusicBox',['../class_k_midi.html#a11035e68ce16118fd222337c93318813af3028fa389d9cfd60590d48bc93dcf43',1,'KMidi']]],
   ['mutedtrumpet',['MutedTrumpet',['../class_k_midi.html#a11035e68ce16118fd222337c93318813a2bce5458a60e240e4af2027168c942ea',1,'KMidi']]],

@@ -1,5 +1,6 @@
 /**
- * @file KTexture.cpp
+ * @file   KTexture.cpp
+ * @brief  KTesture
  * @author Maeda Takumi
  */
 #include "KTexture.h"
@@ -24,21 +25,6 @@ mName(0) {
             );
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-}
-
-KTexture::KTexture(const unsigned int& aSize, const KImage& aImage) :
-KTexture(aSize) {
-    // 配列に写しをとる
-    unsigned char* pix = mPixel;
-    const color* img = aImage.mPixel;
-    for (int i = aSize - 1; i >= 0; --i, pix += 4, ++img) {
-        *(pix + 0) = (*img & 0x00ff0000) >> 8 * 2;
-        *(pix + 1) = (*img & 0x0000ff00) >> 8 * 1;
-        *(pix + 2) = (*img & 0x000000ff) >> 8 * 0;
-        *(pix + 3) = (*img & 0xff000000) >> 8 * 3;
-    }
-
-    update();
 }
 
 KTexture::~KTexture() {

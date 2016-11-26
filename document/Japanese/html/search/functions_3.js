@@ -5,7 +5,7 @@ var searchData=
   ['drawcircle',['drawCircle',['../class_k_texture.html#a514e55c1aa0935bea261af5a0ce688ff',1,'KTexture']]],
   ['drawclearrect',['drawClearRect',['../class_k_texture.html#a91fe6c309c3ac2e1abb1cf866a3fc9b3',1,'KTexture']]],
   ['drawimage',['drawImage',['../class_k_texture.html#a5d99038b38b5f518ffb1a8daa114d307',1,'KTexture']]],
-  ['drawline',['drawLine',['../class_k_texture.html#a5d3577b1f6fd1c383363c264ccee1880',1,'KTexture']]],
+  ['drawline',['drawLine',['../class_k_texture.html#a14d9743d7f1847be78b4eb6f6809fd0e',1,'KTexture']]],
   ['drawrect',['drawRect',['../class_k_texture.html#a824dd6f8bd0f06867fb3ce1c65894323',1,'KTexture']]],
   ['drawtext',['drawText',['../class_k_texture.html#afe9117c29a34d7c4838733beef6d5108',1,'KTexture']]]
 ];

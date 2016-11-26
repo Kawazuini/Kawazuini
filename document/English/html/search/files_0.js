@@ -14,6 +14,8 @@ var searchData=
   ['kcharset_2eh',['KCharset.h',['../_k_charset_8h.html',1,'']]],
   ['kdrawer_2ecpp',['KDrawer.cpp',['../_k_drawer_8cpp.html',1,'']]],
   ['kdrawer_2eh',['KDrawer.h',['../_k_drawer_8h.html',1,'']]],
+  ['kdrawsphere_2ecpp',['KDrawSphere.cpp',['../_k_draw_sphere_8cpp.html',1,'']]],
+  ['kdrawsphere_2eh',['KDrawSphere.h',['../_k_draw_sphere_8h.html',1,'']]],
   ['kfile_2ecpp',['KFile.cpp',['../_k_file_8cpp.html',1,'']]],
   ['kfile_2eh',['KFile.h',['../_k_file_8h.html',1,'']]],
   ['kfpscamera_2ecpp',['KFPSCamera.cpp',['../_k_f_p_s_camera_8cpp.html',1,'']]],

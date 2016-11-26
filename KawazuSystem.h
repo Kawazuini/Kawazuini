@@ -8,10 +8,13 @@
 #include "KApplication.h"
 #include "KCharset.h"
 
-// Objects
+// ColliderObjects
 #include "KPolygon.h"
 #include "KSegment.h"
 #include "KSphere.h"
+
+// DrawObjects
+#include "KDrawSphere.h"
 
 #endif /* KAWAZUSYSTEM_H */
 
