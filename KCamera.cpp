@@ -1,6 +1,7 @@
 /**
- * @file KCamera.cpp
- * @athor Maeda Takumi
+ * @file   KCamera.cpp
+ * @brief  KCamera
+ * @author Maeda Takumi
  */
 #include "KCamera.h"
 
@@ -19,6 +20,9 @@ KCamera::KCamera() {
 }
 
 void KCamera::set() {
+    int mode;
+    glGetIntegerv(GL_MATRIX_MODE, &mode);
+
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     gluPerspective(mAngle, mAspect, mNearLimit, mFarLimit);
@@ -29,5 +33,7 @@ void KCamera::set() {
             DEPLOYMENT(mDirection + mPosition),
             DEPLOYMENT(mHeadSlope)
             );
+
+    glMatrixMode(mode);
 }
 

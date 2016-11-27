@@ -1,5 +1,6 @@
 /**
- * @file KCamera.h
+ * @file   KCamera.h
+ * @brief  KCamera
  * @author Maeda Takumi
  */
 #ifndef KCAMERA_H

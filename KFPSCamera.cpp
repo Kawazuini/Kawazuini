@@ -1,5 +1,6 @@
 /**
- * @file KFPSCamera.cpp
+ * @file   KFPSCamera.cpp
+ * @brief  KFPSCamera
  * @author Maeda Takumi
  */
 #include "KFPSCamera.h"
@@ -10,8 +11,10 @@
 const KVector KFPSCamera::BASE_DIRECTION(0, 0, -1);
 
 KFPSCamera::KFPSCamera() {
-    mVirticalAngle = 0;
+    mVerticalAngle = 0;
     mDirection = BASE_DIRECTION;
+    
+    set();
 }
 
 void KFPSCamera::move(const KVector& aMovement) {
@@ -22,9 +25,10 @@ void KFPSCamera::move(const KVector& aMovement) {
 void KFPSCamera::rotate(const float& aVAngle, const float& aHAngle) {
     static const float LIMIT = Math::PI / 2 - Math::EPSILON;
 
-    mVirticalAngle = Math::max(-LIMIT, Math::min(mVirticalAngle += aVAngle, LIMIT));
+    float pVAngle = mVerticalAngle;
+    mVerticalAngle = Math::max(-LIMIT, Math::min(mVerticalAngle + aVAngle, LIMIT));
 
-    KQuaternion v(KVector(mDirection.z, 0, -mDirection.x), aVAngle);
+    KQuaternion v(KVector(mDirection.z, 0, -mDirection.x), mVerticalAngle - pVAngle);
     KQuaternion h(KVector(0, 1, 0), aHAngle);
     mDirection = mDirection.rotate(v * h);
     mHeadSlope = mHeadSlope.rotate(v * h);

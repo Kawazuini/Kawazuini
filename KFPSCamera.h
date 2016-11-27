@@ -1,5 +1,6 @@
 /**
- * @file KFPSCamera.h
+ * @file   KFPSCamera.h
+ * @brief  KFPSCamera
  * @author Maeda Takumi
  */
 #ifndef KFPSCAMERA_H
@@ -11,7 +12,7 @@ class KFPSCamera : public KCamera {
 private:
     static const KVector BASE_DIRECTION;
 
-    float mVirticalAngle; ///< 垂直視点角度
+    float mVerticalAngle; ///< 垂直視点角度
 public:
     KFPSCamera();
     KFPSCamera(const KFPSCamera& orig) = default;
