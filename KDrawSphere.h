@@ -1,6 +1,6 @@
 /**
- * @file KDrawSphere.h
- * @brief KDrawSphere
+ * @file   KDrawSphere.h
+ * @brief  KDrawSphere
  * @author Maeda Takumi
  */
 #ifndef KDRAWSPHERE_H
@@ -33,6 +33,11 @@ private:
      * @brief \~japanese 頂点配列
      */
     KVector* mVertex;
+    /**
+     * @brief \~english  normal array
+     * @brief \~japanese 法線配列
+     */
+    KVector* mNormal;
     /**
      * @brief \~english  Number of horizonal divisions like latitude
      * @brief \~japanese 緯度のような水平分割数
