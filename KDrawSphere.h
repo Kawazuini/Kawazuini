@@ -34,11 +34,6 @@ private:
      */
     KVector* mVertex;
     /**
-     * @brief \~english  normal array
-     * @brief \~japanese 法線配列
-     */
-    KVector* mNormal;
-    /**
      * @brief \~english  Number of horizonal divisions like latitude
      * @brief \~japanese 緯度のような水平分割数
      */
@@ -68,6 +63,27 @@ public:
      * @brief \~japanese 描画処理
      */
     void draw() const;
+
+    /**
+     * \~english
+     * @brief translate center coordinate into argument.
+     * @param aVec new center coordinate
+     * \~japanese
+     * @brief 中心座標を指定座標に遷移させる。
+     * @param 設定する中心座標
+     */
+    void tlanslate(const KVector& aVec);
+    /**
+     * \~english
+     * @brief rotate each vertex at the center coordinate.
+     * @param aQuater rotating information
+     * \~japanese
+     * @brief 中心座標で各頂点を回転させる。
+     * @param aQuater 回転情報
+     */
+    void rotate(const KQuaternion& aQuater);
+    
+    KVector position() const;
 };
 
 #endif /* KDRAWSPHERE_H */
