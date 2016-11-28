@@ -43,6 +43,7 @@ void KTexture::update() {
 void KTexture::bindON() const {
     glEnable(GL_TEXTURE_2D);
     glBindTexture(GL_TEXTURE_2D, mName);
+    glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
 }
 
 void KTexture::bindOFF() const {
