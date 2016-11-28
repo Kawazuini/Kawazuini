@@ -13,7 +13,7 @@ const KVector KFPSCamera::BASE_DIRECTION(0, 0, -1);
 KFPSCamera::KFPSCamera() {
     mVerticalAngle = 0;
     mDirection = BASE_DIRECTION;
-    
+
     set();
 }
 
@@ -37,7 +37,7 @@ void KFPSCamera::rotate(const float& aVAngle, const float& aHAngle) {
 }
 
 KVector KFPSCamera::convertDirection(const KVector& aVec) {
-    KQuaternion rot = KVector(mDirection.x, 0, mDirection.z).roundAngle(BASE_DIRECTION);
+    KQuaternion rot = BASE_DIRECTION.roundAngle(KVector(mDirection.x, 0, mDirection.z));
     if (!KVector(rot).length()) return -aVec;
     return aVec.rotate(rot);
 }

@@ -85,7 +85,9 @@ KVector::operator POINT() const {
 }
 
 KVector KVector::normalization() const {
-    return *this / this->length();
+    float len = length();
+    if (len) return *this / len;
+    return *this;
 }
 
 float KVector::dot(const KVector& aVec) const {
@@ -107,8 +109,13 @@ KVector KVector::extractVertical(const KVector& aVec) {
 #include "KUtility.h"
 
 KVector KVector::rotate(const KQuaternion& aQuaternion) const {
+    if (KVector(aQuaternion).isZero()) { // 回転軸が零ベクトル
+        if (aQuaternion.t > Math::EPSILON) return *this; // 回転がない
+        return - * this;
+    }
     float len = length();
-    return KVector((-aQuaternion) * KQuaternion(*this) * aQuaternion).normalization() * len;
+    if (len) return KVector((-aQuaternion) * KQuaternion(*this) * aQuaternion).normalization() * len;
+    return *this;
 }
 
 float KVector::length() const {
@@ -116,11 +123,15 @@ float KVector::length() const {
 }
 
 float KVector::angle(const KVector& aVec) const {
-    return acos(dot(aVec) / (length() * aVec.length()));
+    static const float ACOS_LIMIT = 1.0f - Math::EPSILON;
+    float len1 = length();
+    float len2 = aVec.length();
+    if (len1 && len2) return acos(Math::max(-ACOS_LIMIT, Math::min(dot(aVec) / (len1 * len2), ACOS_LIMIT)));
+    return 0;
 }
 
 KQuaternion KVector::roundAngle(const KVector& aVec) const {
-    return KQuaternion(cross(aVec), angle(aVec));
+    return KQuaternion(cross(aVec), -angle(aVec));
 }
 
 void KVector::fit(const KVector& aVec) {
