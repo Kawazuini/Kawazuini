@@ -29,7 +29,7 @@ KDrawSphere::KDrawSphere(
         float r = mRadius * sin(theta);
         for (int j = 0; j <= mSlice; ++j, ++vertex) {
             float phi = 2.0f * Math::PI * (float) j / mSlice;
-            *vertex = KVector(r * cos(phi), y, -r * sin(phi));
+            *vertex = KVector(r * sin(phi), y, r * cos(phi));
         }
     }
 

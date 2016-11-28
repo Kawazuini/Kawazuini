@@ -31,7 +31,7 @@ void KGLUI::draw() const {
 
     mScreen->bindON();
     glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
-    glBegin(GL_POLYGON);
+    glBegin(GL_TRIANGLE_FAN);
     glTexCoord2f(0, 0);
     glVertex3f(DEPLOYMENT(center - width + height));
     glTexCoord2f(0, KWindow::ASPECT);
