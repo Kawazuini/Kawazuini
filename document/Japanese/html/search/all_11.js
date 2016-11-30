@@ -20,7 +20,6 @@ var searchData=
   ['start',['start',['../class_k_application.html#afd9ecbc6332362d556bd934f2eceb648',1,'KApplication::start()'],['../class_k_rect.html#aa2dc10626a3e6d1ce3fa98442394707c',1,'KRect::start()']]],
   ['steeldrums',['SteelDrums',['../class_k_midi.html#a11035e68ce16118fd222337c93318813aa66ca5ca91f9bc961201d234dd7acc6c',1,'KMidi']]],
   ['stop',['stop',['../class_k_application.html#ad442a053413ab9125645d07321b66034',1,'KApplication::stop()'],['../class_k_midi.html#a1eb53ea90218051689887f8efe963993',1,'KMidi::stop()']]],
-  ['string',['String',['../_k_utility_8h.html#afbeda3fd1bdc8c37d01bdf9f5c8274ff',1,'KUtility.h']]],
   ['stringensemble1',['StringEnsemble1',['../class_k_midi.html#a11035e68ce16118fd222337c93318813a950f3d509443c59b53673f280adf51ca',1,'KMidi']]],
   ['stringensemble2',['StringEnsemble2',['../class_k_midi.html#a11035e68ce16118fd222337c93318813a2118a9b5a1efd1e51d9ea1a601349f37',1,'KMidi']]],
   ['synthbass1',['SynthBass1',['../class_k_midi.html#a11035e68ce16118fd222337c93318813a03541f28c1ee48b11077b4a5eacdc123',1,'KMidi']]],

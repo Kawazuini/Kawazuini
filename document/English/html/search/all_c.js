@@ -7,7 +7,6 @@ var searchData=
   ['mcamera',['mCamera',['../class_k_g_l_u_i.html#a11f3b966a52dcfa80c7ae592e9a0b647',1,'KGLUI']]],
   ['mcmndline',['mCmndLine',['../struct_k_window_1_1_main_args.html#a35ac703665de51d203fca0473478c00c',1,'KWindow::MainArgs']]],
   ['mcmndshow',['mCmndShow',['../struct_k_window_1_1_main_args.html#acbaf8fff72523c84bace5d3bcd0452d5',1,'KWindow::MainArgs']]],
-  ['mdelete',['mDelete',['../class_k_updater.html#afb59161727a20eb69ef0d1d5199feca7',1,'KUpdater']]],
   ['mdirection',['mDirection',['../class_k_camera.html#a4cd6adb2dec44e36fd60e07fbb2b502b',1,'KCamera']]],
   ['melodictom',['MelodicTom',['../class_k_midi.html#a11035e68ce16118fd222337c93318813af9e11129a3e08c69fa75e1816a44e946',1,'KMidi']]],
   ['mexecution',['mExecution',['../class_k_application.html#a7759488974f553388a68f4d9d517e5d8',1,'KApplication']]],
@@ -36,7 +35,7 @@ var searchData=
   ['musicbox',['MusicBox',['../class_k_midi.html#a11035e68ce16118fd222337c93318813af3028fa389d9cfd60590d48bc93dcf43',1,'KMidi']]],
   ['mutedtrumpet',['MutedTrumpet',['../class_k_midi.html#a11035e68ce16118fd222337c93318813a2bce5458a60e240e4af2027168c942ea',1,'KMidi']]],
   ['mvelocity',['mVelocity',['../struct_k_midi_1_1_note.html#a8bf9dd04598803292f6c0c9a5a028a95',1,'KMidi::Note']]],
-  ['mvertex',['mVertex',['../class_k_polygon.html#a3580e5d83c040fc4dca4bc4d40af29d0',1,'KPolygon']]],
+  ['mvertex',['mVertex',['../class_k_polygon.html#a08d52697ba33d983c74887f6658885f7',1,'KPolygon']]],
   ['mwidth',['mWidth',['../class_k_image.html#a65ce50cd57332abd158ff31554877286',1,'KImage']]],
   ['mwindow',['mWindow',['../class_k_application.html#a543b4819dffc31429d3ab63b1a399228',1,'KApplication']]]
 ];

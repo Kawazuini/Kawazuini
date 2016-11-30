@@ -7,6 +7,7 @@ var searchData=
   ['time',['Time',['../class_k_timer.html#aa4c115887979a939aca44c7003c196d0',1,'KTimer']]],
   ['timpani',['Timpani',['../class_k_midi.html#a11035e68ce16118fd222337c93318813a98b9503a0ec540f91270e0922eb37c78',1,'KMidi']]],
   ['tinklebell',['TinkleBell',['../class_k_midi.html#a11035e68ce16118fd222337c93318813ae5a45702410ab226ee19c78b3aa4b95a',1,'KMidi']]],
+  ['tlanslate',['tlanslate',['../class_k_draw_sphere.html#a7e0f455044ea35db384cd3ecbe7fb159',1,'KDrawSphere']]],
   ['tofullscreen',['toFullScreen',['../class_k_window.html#a4a944d9903b1749703460dd62dc1599c',1,'KWindow']]],
   ['top',['top',['../class_k_rect.html#a67dc8857b2b3c3e4b7ef8e3e9f9a6943',1,'KRect']]],
   ['tremolostrings',['TremoloStrings',['../class_k_midi.html#a11035e68ce16118fd222337c93318813a726b61f70e5cdf304058b86128cef107',1,'KMidi']]],

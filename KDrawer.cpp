@@ -1,20 +1,18 @@
 /**
- * @file KDrawer.cpp
+ * @file   KDrawer.cpp
+ * @brief  KDrawer
  * @author Maeda Takuni
  */
 #include "KDrawer.h"
-#include "KVector.h"
 
-#include "KVector.h"
-
-KDrawer::Drawers KDrawer::sDrawers;
+List<KDrawer*> KDrawer::sDrawers;
 
 KDrawer::KDrawer() {
     add();
 }
 
 KDrawer::~KDrawer() {
-    remove();
+    erase();
 }
 
 void const KDrawer::DRAW() {
@@ -25,16 +23,12 @@ void KDrawer::add() {
     sDrawers.push_back(this);
 }
 
-void KDrawer::remove() {
+void KDrawer::erase() {
     for (auto i = sDrawers.begin(), i_e = sDrawers.end(); i != i_e; ++i) {
         if (*i == this) {
             sDrawers.erase(i);
             return;
         }
     }
-}
-
-const KDrawer::Drawers& KDrawer::LIST() {
-    return sDrawers;
 }
 

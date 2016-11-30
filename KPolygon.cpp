@@ -8,7 +8,7 @@
 #include "KMath.h"
 #include "KSegment.h"
 
-KPolygon::KPolygon(const List<KVector>& aVertex) {
+KPolygon::KPolygon(const Array<KVector>& aVertex) {
     mVertex = aVertex;
     mNormal = (mVertex[1] - mVertex[0]).cross(mVertex[2] - mVertex[1]).normalization();
 }

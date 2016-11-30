@@ -3,7 +3,7 @@ var searchData=
   ['display_5fsize',['DISPLAY_SIZE',['../class_k_window.html#a3c03749df185a2a6420add3ea3b05188',1,'KWindow']]],
   ['distortionguitar',['DistortionGuitar',['../class_k_midi.html#a11035e68ce16118fd222337c93318813a216808f22cc6b1c67e26661b5204d529',1,'KMidi']]],
   ['dot',['dot',['../class_k_vector.html#a5255103907bf95a207b5ff5a883d7e45',1,'KVector']]],
-  ['draw',['draw',['../class_k_g_l_u_i.html#a35bd61656c32d43787ccb3ed94e58c0c',1,'KGLUI::draw()'],['../class_k_listener.html#accc5603afd50ce42442c394d77b69701',1,'KListener::draw()'],['../class_k_drawer.html#a6918b5269b0f880e82d4364d2b9e365c',1,'KDrawer::DRAW()']]],
+  ['draw',['draw',['../class_k_drawer.html#a91708448ea336314d07eb60e19424d15',1,'KDrawer::draw()'],['../class_k_draw_sphere.html#afd2ae657165750b4e67a83448921e7ed',1,'KDrawSphere::draw()'],['../class_k_g_l_u_i.html#a35bd61656c32d43787ccb3ed94e58c0c',1,'KGLUI::draw()'],['../class_k_listener.html#accc5603afd50ce42442c394d77b69701',1,'KListener::draw()'],['../class_k_drawer.html#a6918b5269b0f880e82d4364d2b9e365c',1,'KDrawer::DRAW()']]],
   ['drawbarorgan',['DrawbarOrgan',['../class_k_midi.html#a11035e68ce16118fd222337c93318813a57204e56c8a264315a103e398df579e3',1,'KMidi']]],
   ['drawcircle',['drawCircle',['../class_k_texture.html#a514e55c1aa0935bea261af5a0ce688ff',1,'KTexture']]],
   ['drawclearrect',['drawClearRect',['../class_k_texture.html#a91fe6c309c3ac2e1abb1cf866a3fc9b3',1,'KTexture']]],

@@ -14,6 +14,7 @@
 #include <gdiplus.h>
 #include <iomanip>
 #include <iostream>
+#include <list>
 #include <mmsystem.h>
 #include <random>
 #include <sstream>

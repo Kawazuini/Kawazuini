@@ -96,18 +96,34 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
  <a href="class_k_draw_sphere.html#details">[詳解]</a></p>
 
 <p><code>#include &lt;<a class="el" href="_k_draw_sphere_8h_source.html">KDrawSphere.h</a>&gt;</code></p>
+<div class="dynheader">
+KDrawSphere の継承関係図</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_k_draw_sphere.png" usemap="#KDrawSphere_map" alt=""/>
+  <map id="KDrawSphere_map" name="KDrawSphere_map">
+<area href="class_k_non_copy.html" alt="KNonCopy" shape="rect" coords="0,0,91,24"/>
+</map>
+ </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a91ec291502ddbb787236ceaf93756b0a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a91ec291502ddbb787236ceaf93756b0a"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>KDrawSphere</b> (const <a class="el" href="class_k_vector.html">KVector</a> &amp;aPosition, const float &amp;aRadius)</td></tr>
-<tr class="separator:a91ec291502ddbb787236ceaf93756b0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a54cb145c0c2ab1c45856de5ba317c5b6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a54cb145c0c2ab1c45856de5ba317c5b6"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>KDrawSphere</b> (const <a class="el" href="class_k_draw_sphere.html">KDrawSphere</a> &amp;orig)</td></tr>
-<tr class="separator:a54cb145c0c2ab1c45856de5ba317c5b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64ce35bb66926a8459a3965919218d3b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a64ce35bb66926a8459a3965919218d3b"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>KDrawSphere</b> (const <a class="el" href="class_k_vector.html">KVector</a> &amp;aPosition, const float &amp;aRadius, const int &amp;aStack, const int &amp;aSlice)</td></tr>
+<tr class="separator:a64ce35bb66926a8459a3965919218d3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd2ae657165750b4e67a83448921e7ed"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afd2ae657165750b4e67a83448921e7ed"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>draw</b> () const </td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_sphere.html#afd2ae657165750b4e67a83448921e7ed">draw</a> () const </td></tr>
+<tr class="memdesc:afd2ae657165750b4e67a83448921e7ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">描画処理 <br /></td></tr>
 <tr class="separator:afd2ae657165750b4e67a83448921e7ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e0f455044ea35db384cd3ecbe7fb159"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_sphere.html#a7e0f455044ea35db384cd3ecbe7fb159">tlanslate</a> (const <a class="el" href="class_k_vector.html">KVector</a> &amp;aVec)</td></tr>
+<tr class="memdesc:a7e0f455044ea35db384cd3ecbe7fb159"><td class="mdescLeft">&#160;</td><td class="mdescRight">中心座標を指定座標に遷移させる。  <a href="#a7e0f455044ea35db384cd3ecbe7fb159">[詳解]</a><br /></td></tr>
+<tr class="separator:a7e0f455044ea35db384cd3ecbe7fb159"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05919eca9670fc2005fdd67f4222529b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_sphere.html#a05919eca9670fc2005fdd67f4222529b">rotate</a> (const <a class="el" href="class_k_quaternion.html">KQuaternion</a> &amp;aQuater)</td></tr>
+<tr class="memdesc:a05919eca9670fc2005fdd67f4222529b"><td class="mdescLeft">&#160;</td><td class="mdescRight">中心座標で各頂点を回転させる。  <a href="#a05919eca9670fc2005fdd67f4222529b">[詳解]</a><br /></td></tr>
+<tr class="separator:a05919eca9670fc2005fdd67f4222529b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72bfdb0ade9042642d852d7c186a1a47"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a72bfdb0ade9042642d852d7c186a1a47"></a>
+<a class="el" href="class_k_vector.html">KVector</a>&#160;</td><td class="memItemRight" valign="bottom"><b>position</b> () const </td></tr>
+<tr class="separator:a72bfdb0ade9042642d852d7c186a1a47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 公開変数類</h2></td></tr>
@@ -119,7 +135,56 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>draw</b> () const </t
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>描画用球体 </p>
 <dl class="section author"><dt>著者</dt><dd>Maeda Takumi </dd></dl>
-</div><hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+</div><h2 class="groupheader">関数詳解</h2>
+<a class="anchor" id="a05919eca9670fc2005fdd67f4222529b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void KDrawSphere::rotate </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_k_quaternion.html">KQuaternion</a> &amp;&#160;</td>
+          <td class="paramname"><em>aQuater</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>中心座標で各頂点を回転させる。 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">aQuater</td><td>回転情報 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a7e0f455044ea35db384cd3ecbe7fb159"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void KDrawSphere::tlanslate </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_k_vector.html">KVector</a> &amp;&#160;</td>
+          <td class="paramname"><em>aVec</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>中心座標を指定座標に遷移させる。 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">設定する中心座標</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
 <li>C:/Users/Kawaz/Documents/Kawazuini/Kawazuini/<a class="el" href="_k_draw_sphere_8h_source.html">KDrawSphere.h</a></li>
 <li>C:/Users/Kawaz/Documents/Kawazuini/Kawazuini/<a class="el" href="_k_draw_sphere_8cpp.html">KDrawSphere.cpp</a></li>
 </ul>

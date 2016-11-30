@@ -9,7 +9,7 @@ var searchData=
   ['electricpiano1',['ElectricPiano1',['../class_k_midi.html#a11035e68ce16118fd222337c93318813a4c9e17caa02436b95897c059973c1921',1,'KMidi']]],
   ['electricpiano2',['ElectricPiano2',['../class_k_midi.html#a11035e68ce16118fd222337c93318813aded08b5beb9ef6dcf81686c4c502e317',1,'KMidi']]],
   ['englishhorn',['EnglishHorn',['../class_k_midi.html#a11035e68ce16118fd222337c93318813adaea6f8abc1a41712304f958704bab51',1,'KMidi']]],
-  ['error',['Error',['../_k_utility_8h.html#a4551104bb83b3b07add92b179b93b757',1,'KUtility.h']]],
+  ['erase',['erase',['../class_k_drawer.html#a2a609d6b9985e335b3022eaba1b1b665',1,'KDrawer::erase()'],['../class_k_updater.html#af73b7904de907943b968e818c7adcc7e',1,'KUpdater::erase()']]],
   ['ext',['ext',['../class_k_image.html#ab0007e0cc1ba3ab8f09bb6c7b4604966',1,'KImage']]],
   ['extractvertical',['extractVertical',['../class_k_vector.html#a2814d07da876e8c0d56418d95f64e79d',1,'KVector']]]
 ];

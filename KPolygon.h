@@ -23,7 +23,7 @@ public:
      * @brief \~english  vertex list
      * @brief \~japanese 頂点リスト
      */
-    List<KVector> mVertex;
+    Array<KVector> mVertex;
     /**
      * @brief \~english  normal vector
      * @brief \~japanese 法線ベクトル
@@ -31,7 +31,7 @@ public:
     KVector mNormal;
 
     KPolygon() = default;
-    KPolygon(const List<KVector>& aVertex);
+    KPolygon(const Array<KVector>& aVertex);
     KPolygon(const KPolygon& orig) = default;
     virtual ~KPolygon() = default;
 
