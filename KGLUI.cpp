@@ -27,8 +27,9 @@ void KGLUI::draw() const {
     KVector height = mCamera->mHeadSlope * tan(mCamera->mAngle / 360 * Math::PI);
     KVector width = height.rotate(KQuaternion(mCamera->mDirection, -Math::PI / 2)) / KWindow::ASPECT;
 
-    mScreen->update();
+    mScreen->reflect();
 
+    glDisable(GL_DEPTH_TEST);
     mScreen->bindON();
     glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
     glBegin(GL_TRIANGLE_FAN);
@@ -42,4 +43,5 @@ void KGLUI::draw() const {
     glVertex3f(DEPLOYMENT(center + width + height));
     glEnd();
     mScreen->bindOFF();
+    glEnable(GL_DEPTH_TEST);
 }

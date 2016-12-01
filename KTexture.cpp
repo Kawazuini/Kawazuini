@@ -31,7 +31,7 @@ KTexture::~KTexture() {
     glDeleteTextures(1, const_cast<unsigned int*> (&mName));
 }
 
-void KTexture::update() {
+void KTexture::reflect() {
     glBindTexture(GL_TEXTURE_2D, mName);
     glTexSubImage2D(
             GL_TEXTURE_2D, 0,

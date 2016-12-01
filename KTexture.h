@@ -16,8 +16,8 @@ class KRect;
 class KVector;
 
 /**
- * @brief \~english  System of Texture Mapping
- * @brief \~japanese テクスチャマッピングシステム
+ * @brief  \~english  System of Texture Mapping
+ * @brief  \~japanese テクスチャマッピングシステム
  * @author \~ Maeda Takumi
  */
 class KTexture : private KNonCopy {
@@ -42,9 +42,21 @@ public:
     KTexture(const unsigned int& aSize);
     virtual ~KTexture();
 
-    void update();
+    /**
+     * @brief \~english  reflect drawing change.
+     * @brief \~japanese 描画内容を反映します。
+     */
+    void reflect();
 
+    /**
+     * @brief \~english  enable texture.
+     * @brief \~japanese テクスチャを使用可能にします。
+     */
     void bindON() const;
+    /**
+     * @brief \~english  disable texture.
+     * @brief \~japanese テクスチャを使用不可にします。
+     */
     void bindOFF() const;
 
     /* ------------------------- in Paint.cpp ------------------------- */
@@ -124,7 +136,7 @@ public:
     void drawLine(const KVector& fromVec, const KVector& toVec, const color& aColor);
     void drawHLine(const int& fromX, const int& distX, const int& y, const color& aColor);
     void drawVLine(const int& fromY, const int& distY, const int& x, const color& aColor);
-    
+
     /**
      * @brief ウィンドウに矩形を描画
      * @param aRect  描画する矩形
@@ -147,6 +159,39 @@ public:
     void drawCircle(const int& aRadius, const KVector aCenter, const color& aColor);
 
     /**
+     * \~english
+     * @brief draw Image in pixel information.
+     * @param aImage Image information
+     * @param aSrc   Image area
+     * @param aDist  drawing area
+     * \~japanese
+     * @brief 画素情報に画像を描画します。
+     * @param aImage 画像情報
+     * @param aSrc   画像領域
+     * @param aDist  描画領域
+     */
+    void drawImage(const KImage& aImage, const KRect& aSrc, const KVector& aDist);
+    /**
+     * \~english
+     * @brief draw monochrome Image with specified color in pixel information.
+     * @param aImage Image information
+     * @param aSrc   Image area
+     * @param aDist  drawing area
+     * @param aColor drawing color
+     * \~japanese
+     * @brief 画素情報に指定色でモノクロ画像を描画します。
+     * @param aImage 画像情報
+     * @param aSrc   画像領域
+     * @param aDist  描画領域
+     * @param aColor 描画色
+     */
+    void drawImageMono(
+            const KImage& aImage,
+            const KRect& aSrc,
+            const KVector& aDist,
+            const color& aColor
+            );
+    /**
      * 
      * @param aCharset
      * @param aTxt
@@ -154,13 +199,6 @@ public:
      * @param aColor
      */
     void drawText(const KCharset& aCharset, const String& aTxt, const KVector& aVec, const color& aColor);
-    /**
-     * @brief 画像の描画
-     * @param aImage 画像
-     * @param aSrc   画像描画領域
-     * @param aDist  描画座標
-     */
-    void drawImage(const KImage& aImage, const KRect& aSrc, const KVector& aDist);
 };
 
 #endif /* KTEXTURE_H */
