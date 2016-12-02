@@ -7,16 +7,12 @@
 
 #include "KUtility.h"
 
-#include "KNonCopy.h"
+#include "KDrawer.h"
 
 class KCamera;
-class KImage;
-class KRect;
-class KVector;
-
 class KTexture;
 
-class KGLUI : private KNonCopy {
+class KGLUI : private KDrawer {
 public:
     static const int WIDTH; ///< 横幅
     static const int HEIGHT; ///< 縦幅
@@ -27,7 +23,7 @@ public:
     virtual ~KGLUI();
 
     /** @brief 描画処理 */
-    void draw() const;
+    void draw() const override;
 };
 
 #endif /* KGLUI_H */

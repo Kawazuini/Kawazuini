@@ -31,7 +31,7 @@ public:
      * @brief \~english  drawing processing
      * @brief \~japanese 描画処理
      */
-    virtual void draw() {
+    virtual void draw() const {
     };
     /**
      * @brief \~english  bulk drawing in list.
