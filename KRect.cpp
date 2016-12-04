@@ -1,5 +1,6 @@
 /**
- * @file KRect.cpp
+ * @file   KRect.cpp
+ * @brief  KRect
  * @author Maeda Takumi
  */
 #include "KRect.h"
@@ -98,5 +99,9 @@ int KRect::centerY() const {
 
 KVector KRect::start() const {
     return KVector(x, y);
+}
+
+KVector KRect::center() const {
+    return KVector(centerX(), centerY());
 }
 

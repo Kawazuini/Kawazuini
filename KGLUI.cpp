@@ -16,6 +16,7 @@ const int KGLUI::HEIGHT = WIDTH * KWindow::ASPECT;
 KGLUI::KGLUI(const KCamera& aCamera) : mScreen(new KTexture(WIDTH)) {
     KDrawer::erase();
     mCamera = &aCamera;
+    draw();
 }
 
 KGLUI::~KGLUI() {

@@ -1,5 +1,6 @@
 /**
- * @file KCharset.h
+ * @file   KCharset.h
+ * @brief  KCharset
  * @author Maeda Takumi
  */
 #ifndef KCHARSET_H

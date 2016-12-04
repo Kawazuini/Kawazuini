@@ -38,7 +38,7 @@ void KFPSCamera::rotate(const float& aVAngle, const float& aHAngle) {
 
 KVector KFPSCamera::convertDirection(const KVector& aVec) {
     KQuaternion rot = BASE_DIRECTION.roundAngle(KVector(mDirection.x, 0, mDirection.z));
-    if (!KVector(rot).length()) return -aVec;
+    if (!KVector(rot).length() && rot.t) return -aVec;
     return aVec.rotate(rot);
 }
 

@@ -1,5 +1,6 @@
 /**
- * @file KCharset.cpp
+ * @file   KCharset.h
+ * @brief  KCharset
  * @author Maeda Takumi
  */
 #include "KCharset.h"
@@ -158,7 +159,9 @@ KVector KCharset::getOffsetIndex(const char* aChar) const {
         case 'め': return KVector(3, 9);
         case 'も': return KVector(4, 9);
         case 'や': return KVector(5, 9);
+        case '、': return KVector(6, 9);
         case 'ゆ': return KVector(7, 9);
+        case '。': return KVector(8, 9);
         case 'よ': return KVector(9, 9);
         case 'ら': return KVector(0, 10);
         case 'り': return KVector(1, 10);
