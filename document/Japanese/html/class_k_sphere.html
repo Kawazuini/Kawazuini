@@ -91,6 +91,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 <div class="title">KSphere クラス</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>衝突判定用球体  
+ <a href="class_k_sphere.html#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_k_sphere_8h_source.html">KSphere.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
@@ -100,19 +105,53 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 <tr class="memitem:aa2712f487b67629183bacda879ed2ed9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa2712f487b67629183bacda879ed2ed9"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>KSphere</b> (const <a class="el" href="class_k_sphere.html">KSphere</a> &amp;orig)=default</td></tr>
 <tr class="separator:aa2712f487b67629183bacda879ed2ed9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86c7ea35f280c9629cd7c283846715a4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_sphere.html#a86c7ea35f280c9629cd7c283846715a4">operator*</a> (const <a class="el" href="class_k_sphere.html">KSphere</a> &amp;aSphere) const </td></tr>
+<tr class="memdesc:a86c7ea35f280c9629cd7c283846715a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">球体との衝突判定を評価します。  <a href="#a86c7ea35f280c9629cd7c283846715a4">[詳解]</a><br /></td></tr>
+<tr class="separator:a86c7ea35f280c9629cd7c283846715a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 公開変数類</h2></td></tr>
 <tr class="memitem:a786e69a6c71cf8dc039f616ad879c9ca"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a786e69a6c71cf8dc039f616ad879c9ca"></a>
-<a class="el" href="class_k_vector.html">KVector</a>&#160;</td><td class="memItemRight" valign="bottom"><b>mPosition</b></td></tr>
+<a class="el" href="class_k_vector.html">KVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_sphere.html#a786e69a6c71cf8dc039f616ad879c9ca">mPosition</a></td></tr>
+<tr class="memdesc:a786e69a6c71cf8dc039f616ad879c9ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">中心座標 <br /></td></tr>
 <tr class="separator:a786e69a6c71cf8dc039f616ad879c9ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6a9e063d7023e5b782041e5a58c94f7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad6a9e063d7023e5b782041e5a58c94f7"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>mRadius</b></td></tr>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_sphere.html#ad6a9e063d7023e5b782041e5a58c94f7">mRadius</a></td></tr>
+<tr class="memdesc:ad6a9e063d7023e5b782041e5a58c94f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">半径 <br /></td></tr>
 <tr class="separator:ad6a9e063d7023e5b782041e5a58c94f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>衝突判定用球体 </p>
+<dl class="section author"><dt>著者</dt><dd>Maeda Takumi </dd></dl>
+</div><h2 class="groupheader">関数詳解</h2>
+<a class="anchor" id="a86c7ea35f280c9629cd7c283846715a4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool KSphere::operator* </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_k_sphere.html">KSphere</a> &amp;&#160;</td>
+          <td class="paramname"><em>aSphere</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>球体との衝突判定を評価します。 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">aSegment</td><td>対象球体 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>衝突判定 </dd></dl>
+
+</div>
+</div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
 <li>C:/Users/Kawaz/Documents/Kawazuini/Kawazuini/<a class="el" href="_k_sphere_8h_source.html">KSphere.h</a></li>
-<li>C:/Users/Kawaz/Documents/Kawazuini/Kawazuini/<a class="el" href="_k_sphere_8cpp.html">KSphere.cpp</a></li>
+<li>C:/Users/Kawaz/Documents/Kawazuini/Kawazuini/KSphere.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

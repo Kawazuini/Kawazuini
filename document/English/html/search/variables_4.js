@@ -22,14 +22,15 @@ var searchData=
   ['mpauseswitch',['mPauseSwitch',['../class_k_application.html#a6473d08a9b3b849beec6eb60711015b3',1,'KApplication']]],
   ['mphonetic',['mPhonetic',['../struct_k_midi_1_1_note.html#a825e5218158de6fd80d8b2f55be035cc',1,'KMidi::Note']]],
   ['mpixel',['mPixel',['../class_k_image.html#a7c72859bd82ae7171b6143cb6dd6ec1b',1,'KImage']]],
-  ['mposition',['mPosition',['../class_k_camera.html#a8f59397cdb55ab678a05c8afe04aa6a8',1,'KCamera']]],
+  ['mposition',['mPosition',['../class_k_camera.html#a8f59397cdb55ab678a05c8afe04aa6a8',1,'KCamera::mPosition()'],['../class_k_sphere.html#a786e69a6c71cf8dc039f616ad879c9ca',1,'KSphere::mPosition()']]],
   ['mprevinst',['mPrevInst',['../struct_k_window_1_1_main_args.html#a4f03c7222a937459ceaacc7efe8439bf',1,'KWindow::MainArgs']]],
+  ['mradius',['mRadius',['../class_k_sphere.html#ad6a9e063d7023e5b782041e5a58c94f7',1,'KSphere']]],
   ['mright',['mRight',['../class_k_mouse.html#a4aab19ea8b9956b66684a3cba0f38639',1,'KMouse']]],
   ['mscreen',['mScreen',['../class_k_g_l_u_i.html#af25f5d5d8aed5d9d0b894d5b6e54b976',1,'KGLUI']]],
   ['mtexture',['mTexture',['../class_k_draw_sphere.html#a384d363a3eb402ce6c507d074c346e3b',1,'KDrawSphere']]],
   ['mtone',['mTone',['../struct_k_midi_1_1_note.html#a18eafb8e4b4ad081b36552d0e35ee1bc',1,'KMidi::Note']]],
   ['mvelocity',['mVelocity',['../struct_k_midi_1_1_note.html#a8bf9dd04598803292f6c0c9a5a028a95',1,'KMidi::Note']]],
-  ['mvertex',['mVertex',['../class_k_polygon.html#a08d52697ba33d983c74887f6658885f7',1,'KPolygon']]],
+  ['mvertex',['mVertex',['../class_k_polygon.html#a1be5cf17f1fffb23aa491b266ae21736',1,'KPolygon']]],
   ['mwidth',['mWidth',['../class_k_image.html#a65ce50cd57332abd158ff31554877286',1,'KImage']]],
   ['mwindow',['mWindow',['../class_k_application.html#a543b4819dffc31429d3ab63b1a399228',1,'KApplication']]]
 ];

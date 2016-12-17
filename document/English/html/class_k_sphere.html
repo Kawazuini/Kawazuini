@@ -91,6 +91,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">KSphere Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Sphere for collision determination.  
+ <a href="class_k_sphere.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_k_sphere_8h_source.html">KSphere.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -100,19 +105,53 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa2712f487b67629183bacda879ed2ed9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa2712f487b67629183bacda879ed2ed9"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>KSphere</b> (const <a class="el" href="class_k_sphere.html">KSphere</a> &amp;orig)=default</td></tr>
 <tr class="separator:aa2712f487b67629183bacda879ed2ed9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86c7ea35f280c9629cd7c283846715a4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_sphere.html#a86c7ea35f280c9629cd7c283846715a4">operator*</a> (const <a class="el" href="class_k_sphere.html">KSphere</a> &amp;aSphere) const </td></tr>
+<tr class="memdesc:a86c7ea35f280c9629cd7c283846715a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">evaluate collision with Sphere.  <a href="#a86c7ea35f280c9629cd7c283846715a4">More...</a><br /></td></tr>
+<tr class="separator:a86c7ea35f280c9629cd7c283846715a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a786e69a6c71cf8dc039f616ad879c9ca"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a786e69a6c71cf8dc039f616ad879c9ca"></a>
-<a class="el" href="class_k_vector.html">KVector</a>&#160;</td><td class="memItemRight" valign="bottom"><b>mPosition</b></td></tr>
+<a class="el" href="class_k_vector.html">KVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_sphere.html#a786e69a6c71cf8dc039f616ad879c9ca">mPosition</a></td></tr>
+<tr class="memdesc:a786e69a6c71cf8dc039f616ad879c9ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">center coordinate <br /></td></tr>
 <tr class="separator:a786e69a6c71cf8dc039f616ad879c9ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6a9e063d7023e5b782041e5a58c94f7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad6a9e063d7023e5b782041e5a58c94f7"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>mRadius</b></td></tr>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_sphere.html#ad6a9e063d7023e5b782041e5a58c94f7">mRadius</a></td></tr>
+<tr class="memdesc:ad6a9e063d7023e5b782041e5a58c94f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">radius of Sphere <br /></td></tr>
 <tr class="separator:ad6a9e063d7023e5b782041e5a58c94f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Sphere for collision determination. </p>
+<p>Maeda Takumi </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a86c7ea35f280c9629cd7c283846715a4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool KSphere::operator* </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_k_sphere.html">KSphere</a> &amp;&#160;</td>
+          <td class="paramname"><em>aSphere</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>evaluate collision with Sphere. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">aSphere</td><td>target Sphere </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>collision determination </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>C:/Users/Kawaz/Documents/Kawazuini/Kawazuini/<a class="el" href="_k_sphere_8h_source.html">KSphere.h</a></li>
-<li>C:/Users/Kawaz/Documents/Kawazuini/Kawazuini/<a class="el" href="_k_sphere_8cpp.html">KSphere.cpp</a></li>
+<li>C:/Users/Kawaz/Documents/Kawazuini/Kawazuini/KSphere.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -2,6 +2,7 @@ var searchData=
 [
   ['celesta',['Celesta',['../class_k_midi.html#a11035e68ce16118fd222337c93318813ad11198766234ccde294d46de3a4dcab8',1,'KMidi']]],
   ['cello',['Cello',['../class_k_midi.html#a11035e68ce16118fd222337c93318813ab042d0e61a20f821ab8a198f9959f49e',1,'KMidi']]],
+  ['center',['center',['../class_k_rect.html#a96cdd0e2246570886f2e345631623a8a',1,'KRect']]],
   ['centerx',['centerX',['../class_k_rect.html#a92989da615a5cd6640a18a367255663a',1,'KRect']]],
   ['centery',['centerY',['../class_k_rect.html#a9d240deec98ecf1bfde985aa1d00718b',1,'KRect']]],
   ['change',['change',['../class_k_file.html#a9c260184149e368997f296ce4b06b1cb',1,'KFile']]],

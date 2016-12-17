@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['center',['center',['../class_k_rect.html#a96cdd0e2246570886f2e345631623a8a',1,'KRect']]],
   ['centerx',['centerX',['../class_k_rect.html#a92989da615a5cd6640a18a367255663a',1,'KRect']]],
   ['centery',['centerY',['../class_k_rect.html#a9d240deec98ecf1bfde985aa1d00718b',1,'KRect']]],
   ['change',['change',['../class_k_file.html#a9c260184149e368997f296ce4b06b1cb',1,'KFile']]],
