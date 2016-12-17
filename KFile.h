@@ -30,9 +30,9 @@ public:
      * @param aCO コメントを外すか
      * @return 一行ごとのファイル内容
      */
-    Array<String> read(const bool& aCommOut = true) const;
-    /** @brief ファイルに書き込む */ void write(const Array<String>& aTxt) const;
-    /** @brief ファイルに書き足す */ void add(const Array<String>& aTxt) const;
+    Vector<String> read(const bool& aCommOut = true) const;
+    /** @brief ファイルに書き込む */ void write(const Vector<String>& aTxt) const;
+    /** @brief ファイルに書き足す */ void add(const Vector<String>& aTxt) const;
 };
 
 #endif /* KFILE_H */

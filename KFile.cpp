@@ -14,9 +14,9 @@ void KFile::change(const String& aName) {
     mFileName = aName;
 }
 
-Array<String> KFile::read(const bool& aCommOut) const {
+Vector<String> KFile::read(const bool& aCommOut) const {
     InPut stream(mFileName);
-    Array<String> txt;
+    Vector<String> txt;
 
     String str;
     stream >> str;
@@ -27,7 +27,7 @@ Array<String> KFile::read(const bool& aCommOut) const {
 
     if (aCommOut) { // コメントアウト
         bool comment = false;
-        Array<String> tmp, sep;
+        Vector<String> tmp, sep;
         for (auto i = txt.begin(), i_e = txt.end(); i != i_e; ++i) {
             if (!comment) {
                 sep = split(*i, "//"); // 「[0] // [1]」
@@ -51,12 +51,12 @@ Array<String> KFile::read(const bool& aCommOut) const {
     return txt;
 }
 
-void KFile::write(const Array<String>& aTxt) const {
+void KFile::write(const Vector<String>& aTxt) const {
     OutPut stream(mFileName);
     for (String i : aTxt) stream << i << std::endl;
 }
 
-void KFile::add(const Array<String>& aTxt) const {
+void KFile::add(const Vector<String>& aTxt) const {
     OutPut stream(mFileName, ADD);
     for (auto i = aTxt.begin(), i_e = aTxt.end(); i != i_e; ++i)
         stream << *i << std::endl;

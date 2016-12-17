@@ -23,7 +23,7 @@ public:
      * @brief \~english  vertex list
      * @brief \~japanese 頂点リスト
      */
-    Array<KVector> mVertex;
+    Vector<KVector> mVertex;
     /**
      * @brief \~english  normal vector
      * @brief \~japanese 法線ベクトル
@@ -31,7 +31,7 @@ public:
     KVector mNormal;
 
     KPolygon() = default;
-    KPolygon(const Array<KVector>& aVertex);
+    KPolygon(const Vector<KVector>& aVertex);
     KPolygon(const KPolygon& orig) = default;
     virtual ~KPolygon() = default;
 
@@ -45,7 +45,7 @@ public:
      * @param  aPoint 対象点(位置ベクトル)
      * @return 衝突判定
      */
-    bool operator*(const KVector& aPoint);
+    bool operator*(const KVector& aPoint) const;
     /**
      * \~english
      * @brief  evaluate collision with Segment.
@@ -57,7 +57,7 @@ public:
      * @return 衝突判定
      * 
      */
-    bool operator*(const KSegment& aSegment);
+    bool operator*(const KSegment& aSegment) const;
 
     /**
      * \~english
@@ -73,7 +73,7 @@ public:
      * @note   返される交点は面との交点です。(ポリゴン上にあるとは限りません。)
      * @note   交差していないときはゼロベクトルを返します。
      */
-    KVector hitPoint(const KSegment& aSegment);
+    KVector hitPoint(const KSegment& aSegment) const;
 };
 
 #endif /* KPOLYGON_H */

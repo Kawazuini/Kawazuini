@@ -11,8 +11,9 @@
 
 typedef std::runtime_error Error;
 typedef std::string String;
-template <class Type> using Array = std::vector<Type>;
 template <class Type> using List = std::list<Type>;
+template <class Type> using Stack = std::stack<Type>;
+template <class Type> using Vector = std::vector<Type>;
 typedef unsigned long color;
 
 /** @brief 標準出力 */
@@ -75,8 +76,8 @@ static inline void stringCopy(char* const dist, const char* const src, const int
  * @param aSep 分割に使用する文字列
  * @return 分割した文字列のリスト
  */
-static inline Array<String> split(const String& aSrc, const String& aSep) {
-    Array<String> list;
+static inline Vector<String> split(const String& aSrc, const String& aSep) {
+    Vector<String> list;
     int current = 0, found, seplen = aSep.size();
     while ((found = aSrc.find(aSep, current)) != String::npos) {
         list.push_back(String(aSrc, current, found - current));
@@ -174,8 +175,8 @@ static inline String loadString(const int& aId) {
  * @brief リソースIDから連続して文字列を読み込む
  * @param aNum 読み込む文字列の数
  */
-static inline Array<String> loadStrings(const int& aId, const int& aNum) {
-    Array<String> list;
+static inline Vector<String> loadStrings(const int& aId, const int& aNum) {
+    Vector<String> list;
     for (int i = aId, i_e = aId + aNum; i < i_e; ++i) {
         list.push_back(loadString(i));
     }
