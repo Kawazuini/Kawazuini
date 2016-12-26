@@ -82,8 +82,6 @@ public:
      * @param aQuater 回転情報
      */
     void rotate(const KQuaternion& aQuater);
-    
-    KVector position() const;
 };
 
 #endif /* KDRAWSPHERE_H */

@@ -7,7 +7,6 @@
 #define KPOLYGON_H
 
 #include "KUtility.h"
-
 #include "KVector.h"
 
 class KSegment;

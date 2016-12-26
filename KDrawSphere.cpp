@@ -83,7 +83,3 @@ void KDrawSphere::rotate(const KQuaternion& aQuater) {
         *vertex = vertex->rotate(aQuater);
 }
 
-KVector KDrawSphere::position() const {
-    return mPosition;
-}
-

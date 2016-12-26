@@ -13,21 +13,16 @@
 const int KGLUI::WIDTH = 1024;
 const int KGLUI::HEIGHT = WIDTH * KWindow::ASPECT;
 
-KGLUI::KGLUI(const KCamera& aCamera) : mScreen(new KTexture(WIDTH)) {
+KGLUI::KGLUI() : mScreen(new KTexture(WIDTH)) {
     KDrawer::erase();
-    mCamera = &aCamera;
     draw();
 }
 
 KGLUI::~KGLUI() {
-    delete[] mScreen;
+    delete mScreen;
 }
 
 void KGLUI::draw() const {
-    KVector center = mCamera->mPosition + mCamera->mDirection;
-    KVector height = mCamera->mHeadSlope * tan(mCamera->mAngle / 360 * Math::PI);
-    KVector width = height.rotate(KQuaternion(mCamera->mDirection, -Math::PI / 2)) / KWindow::ASPECT;
-
     mScreen->reflect();
 
     glDisable(GL_DEPTH_TEST);
@@ -35,13 +30,13 @@ void KGLUI::draw() const {
     glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
     glBegin(GL_TRIANGLE_FAN);
     glTexCoord2f(0, 0);
-    glVertex3f(DEPLOYMENT(center - width + height));
+    glVertex3f(DEPLOYMENT(KCamera::sDirection_DL));
     glTexCoord2f(0, KWindow::ASPECT);
-    glVertex3f(DEPLOYMENT(center - width - height));
+    glVertex3f(DEPLOYMENT(KCamera::sDirection_UL));
     glTexCoord2f(1, KWindow::ASPECT);
-    glVertex3f(DEPLOYMENT(center + width - height));
+    glVertex3f(DEPLOYMENT(KCamera::sDirection_UR));
     glTexCoord2f(1, 0);
-    glVertex3f(DEPLOYMENT(center + width + height));
+    glVertex3f(DEPLOYMENT(KCamera::sDirection_DR));
     glEnd();
     mScreen->bindOFF();
     glEnable(GL_DEPTH_TEST);
