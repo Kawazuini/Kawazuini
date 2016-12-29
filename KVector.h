@@ -43,6 +43,12 @@ public:
      */
     float length() const;
     /**
+     * \~japanese
+     * @brief  ベクトルの長さの二乗を計算します。
+     * @return ベクトルの長さの二乗
+     */
+    float lengthSquared() const;
+    /**
      * @brief 正規化したベクトルを返す
      * @return 正規化したベクトル
      */
@@ -62,11 +68,17 @@ public:
     KVector cross(const KVector& aVec) const;
 
     /**
+     * @brief ベクトルに平行な成分を計算する。
+     * @param aVec 指定ベクトル
+     * @return 平行なベクトル
+     */
+    KVector extractParallel(const KVector& aVec) const;
+    /**
      * @brief ベクトルに垂直な成分を計算する。
      * @param aVec 指定ベクトル
      * @return 垂直なベクトル
      */
-    KVector extractVertical(const KVector& aVec);
+    KVector extractVertical(const KVector& aVec) const;
 
     /**
      * @brief ベクトルを回転させる

@@ -2,7 +2,6 @@ var searchData=
 [
   ['mangle',['mAngle',['../class_k_camera.html#ad33f6899d4790fb2f2ec32a7e18acbf2',1,'KCamera']]],
   ['maspect',['mAspect',['../class_k_camera.html#ac838ecea5e87a5eb25317331d9b2f2e6',1,'KCamera']]],
-  ['mcamera',['mCamera',['../class_k_g_l_u_i.html#a11f3b966a52dcfa80c7ae592e9a0b647',1,'KGLUI']]],
   ['mcmndline',['mCmndLine',['../struct_k_window_1_1_main_args.html#a35ac703665de51d203fca0473478c00c',1,'KWindow::MainArgs']]],
   ['mcmndshow',['mCmndShow',['../struct_k_window_1_1_main_args.html#acbaf8fff72523c84bace5d3bcd0452d5',1,'KWindow::MainArgs']]],
   ['mdirection',['mDirection',['../class_k_camera.html#a4cd6adb2dec44e36fd60e07fbb2b502b',1,'KCamera']]],

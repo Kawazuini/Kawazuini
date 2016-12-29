@@ -12,7 +12,7 @@ KDrawer::KDrawer() {
 }
 
 KDrawer::~KDrawer() {
-    erase();
+    remove();
 }
 
 void const KDrawer::DRAW() {
@@ -23,7 +23,7 @@ void KDrawer::add() {
     sDrawers.push_back(this);
 }
 
-void KDrawer::erase() {
+void KDrawer::remove() {
     for (auto i = sDrawers.begin(), i_e = sDrawers.end(); i != i_e; ++i) {
         if (*i == this) {
             sDrawers.erase(i);

@@ -6,9 +6,8 @@
 #ifndef KUPDATER_H
 #define KUPDATER_H
 
-#include "KUtility.h"
-
 #include "KNonCopy.h"
+#include "KUtility.h"
 
 /**
  * @brief  \~english  Base for Update
@@ -45,14 +44,14 @@ public:
     static void const UPDATE();
     /**
      * @brief \~english  add myself to list.
-     * @brief \~japanese リストに自分を追加。
+     * @brief \~japanese リストに自分を追加します。
      */
     void add();
     /**
-     * @brief \~english  erase myself form list.
-     * @brief \~japanese リストから自分を消す。
+     * @brief \~english  remove myself form list.
+     * @brief \~japanese リストから自分を消します。
      */
-    void erase();
+    void remove();
 };
 
 #endif /* KUPDATER_H */

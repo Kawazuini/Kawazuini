@@ -14,7 +14,7 @@ const int KGLUI::WIDTH = 1024;
 const int KGLUI::HEIGHT = WIDTH * KWindow::ASPECT;
 
 KGLUI::KGLUI() : mScreen(new KTexture(WIDTH)) {
-    KDrawer::erase();
+    KDrawer::remove();
     draw();
 }
 

@@ -5,6 +5,11 @@
 #ifndef KNONCOPY_H
 #define KNONCOPY_H
 
+/**
+ * @brief  \~english  base of copy inhibit
+ * @brief  \~japanese コピー禁止クラス
+ * @author \~ Maeda Takumi
+ */
 class KNonCopy {
 protected:
     KNonCopy() = default;
@@ -12,7 +17,7 @@ protected:
 private:
     KNonCopy(const KNonCopy& orig) = delete;
     KNonCopy(KNonCopy&&) = delete;
-    void operator=(const KNonCopy& orig) = delete;
+    KNonCopy& operator=(const KNonCopy& orig) = delete;
     KNonCopy& operator=(KNonCopy&&) = delete;
 };
 

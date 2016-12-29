@@ -13,7 +13,7 @@ KUpdater::KUpdater() {
 }
 
 KUpdater::~KUpdater() {
-    erase();
+    remove();
 }
 
 void const KUpdater::UPDATE() {
@@ -44,7 +44,7 @@ void KUpdater::add() {
     sUpdaters.push_back(this);
 }
 
-void KUpdater::erase() {
+void KUpdater::remove() {
     for (auto i = sUpdaters.begin(), i_e = sUpdaters.end(); i != i_e; ++i) {
         if (*i == this) {
             sUpdaters.erase(i);

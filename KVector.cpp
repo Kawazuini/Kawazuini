@@ -102,11 +102,13 @@ KVector KVector::cross(const KVector& aVec) const {
             );
 }
 
-KVector KVector::extractVertical(const KVector& aVec) {
+KVector KVector::extractParallel(const KVector& aVec) const {
     return aVec * this->dot(aVec) / aVec.dot(aVec);
 }
 
-#include "KUtility.h"
+KVector KVector::extractVertical(const KVector& aVec) const {
+    return *this -extractParallel(aVec);
+}
 
 KVector KVector::rotate(const KQuaternion& aQuaternion) const {
     if (KVector(aQuaternion).isZero()) { // 回転軸が零ベクトル
@@ -120,6 +122,10 @@ KVector KVector::rotate(const KQuaternion& aQuaternion) const {
 
 float KVector::length() const {
     return sqrt(x * x + y * y + z * z);
+}
+
+float KVector::lengthSquared() const {
+    return x * x + y * y + z * z;
 }
 
 float KVector::angle(const KVector& aVec) const {
