@@ -7,6 +7,8 @@
 
 #include "KApplication.h"
 #include "KCharset.h"
+#include "KDrawer.h"
+#include "KUpdater.h"
 
 // ColliderObjects
 #include "KPolygon.h"

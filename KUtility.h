@@ -11,7 +11,9 @@
 
 typedef std::runtime_error Error;
 typedef std::string String;
+typedef std::type_info const & TypeID;
 template <class Type> using List = std::list<Type>;
+template <class Type> using Queue = std::queue<Type>;
 template <class Type> using Stack = std::stack<Type>;
 template <class Type> using Vector = std::vector<Type>;
 typedef unsigned long color;
