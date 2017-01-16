@@ -1,5 +1,6 @@
 /**
- * @file KApplication.h
+ * @file   KApplication.h
+ * @brief  KApplication
  * @author Maeda Takumi
  */
 #ifndef KAPPLICATION_H
@@ -14,14 +15,14 @@ class KApplication : public KListener {
 private:
     void wait(const int& aTime); // ミリ秒間処理を休止
 protected:
-    /** @brief 処理を行うウィンドウ */ KWindow* mWindow;
+    /** @brief 処理を行うウィンドウ */ KWindow& mWindow;
     /** @brief 秒間フレームカウント */ int mFrame;
     /** @brief 実行中               */ bool mExecution;
     /** @brief ポーズ中             */ bool mPause;
     /** @brief ポーズ解除スイッチ   */ KSwitch* mPauseSwitch;
 
     /** @param aWindow 処理を行うウィンドウ */
-    KApplication(KWindow* aWindow);
+    KApplication(KWindow& aWindow);
     virtual ~KApplication();
 
 public:

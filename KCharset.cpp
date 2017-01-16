@@ -1,5 +1,5 @@
 /**
- * @file   KCharset.h
+ * @file   KCharset.cpp
  * @brief  KCharset
  * @author Maeda Takumi
  */
@@ -9,21 +9,11 @@
 #include "KVector.h"
 
 KCharset::KCharset(const KImage& aImage, const int& aSize) :
-mImage(&aImage), mSize(aSize) {
+mImage(aImage),
+mSize(aSize) {
 }
 
-KRect KCharset::getArea(const char* aChar) const {
-    KVector index = getOffsetIndex(aChar);
-    KVector offset = index * mSize;
-    int kana = index.y > 5 ? 2 : 1; // 仮名の時横幅2倍
-    return KRect(offset.x * kana, offset.y * 2, mSize * kana, mSize * 2);
-}
-
-KRect KCharset::getArea(const String& aStr) const {
-    return getArea(aStr.data());
-}
-
-KVector KCharset::getOffsetIndex(const char* aChar) const {
+KVector KCharset::getOffsetIndex(const char* aChar) {
     switch (*aChar) {
         case ' ': return KVector(0, 0);
         case '!': return KVector(1, 0);
@@ -285,5 +275,27 @@ KVector KCharset::getOffsetIndex(const char* aChar) const {
         case 'ェ': return KVector(3, 22);
         case 'ォ': return KVector(4, 22);
     }
+}
+
+KRect KCharset::getArea(const char* aChar) const {
+    KVector index = getOffsetIndex(aChar);
+    KVector offset = index * mSize;
+    int kana = index.y > 5 ? 2 : 1; // 仮名の時横幅2倍
+    return KRect(offset.x * kana, offset.y * 2, mSize * kana, mSize * 2);
+}
+
+KRect KCharset::getArea(const String& aStr) const {
+    return getArea(aStr.data());
+}
+
+int KCharset::getWidth(const String& aStr) const {
+    const char* txt = aStr.data();
+    int width = 0;
+    for (int i = 0, i_e = aStr.size(); i < i_e; ++i) {
+        KRect area = getArea(txt + i);
+        width += area.width;
+        if (area.width > mSize) i += 2;
+    }
+    return width;
 }
 

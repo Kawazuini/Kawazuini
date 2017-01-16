@@ -1,5 +1,6 @@
 /**
- * @file KVector.h
+ * @file   KVector.h
+ * @brief  KVector
  * @author Maeda Takumi
  */
 #ifndef KVECTOR_H

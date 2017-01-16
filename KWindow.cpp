@@ -1,6 +1,7 @@
 /**
- * @file KWindow.cpp
- * @brief KWindowクラスの実装
+ * @file   KWindow.cpp
+ * @brief  KWindow
+ * @author Maeda Takumi
  */
 #include "KWindow.h"
 
@@ -175,14 +176,15 @@ void KWindow::startPaint() {
 }
 
 void KWindow::clearCanvas() {
-    float a = (float) ((mClearColor & 0xff000000) >> 8 * 3) / 0xff;
-    float r = (float) ((mClearColor & 0x00ff0000) >> 8 * 2) / 0xff;
-    float g = (float) ((mClearColor & 0x0000ff00) >> 8 * 1) / 0xff;
-    float b = (float) ((mClearColor & 0x000000ff) >> 8 * 0) / 0xff;
-    glClearColor(r, g, b, a);
+    // float a = (float) ((mClearColor & 0xff000000) >> 8 * 3) / 0xff;
+    // float r = (float) ((mClearColor & 0x00ff0000) >> 8 * 2) / 0xff;
+    // float g = (float) ((mClearColor & 0x0000ff00) >> 8 * 1) / 0xff;
+    // float b = (float) ((mClearColor & 0x000000ff) >> 8 * 0) / 0xff;
+    // glClearColor(r, g, b, a);
     // glClearDepth(1.0f);
     // glClearStencil(0);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+    // glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+    glClear(GL_DEPTH_BUFFER_BIT);
 }
 
 void KWindow::display() {

@@ -1,5 +1,6 @@
 /**
- * @file KVector.cpp
+ * @file   KVector.cpp
+ * @brief  KVector
  * @author Maeda Takumi
  */
 #include "KVector.h"
@@ -7,10 +8,10 @@
 #include "KMath.h"
 #include "KQuaternion.h"
 
-KVector::KVector(const float& ax, const float& ay, const float& az) {
-    x = ax;
-    y = ay;
-    z = az;
+KVector::KVector(const float& ax, const float& ay, const float& az) :
+x(ax),
+y(ay),
+z(az) {
 }
 
 KVector::KVector(const POINT& aPoint)
@@ -22,7 +23,7 @@ bool KVector::operator==(const KVector& aVec) const {
 }
 
 bool KVector::operator!=(const KVector& aVec) const {
-    return !(x == aVec.x && y == aVec.y && z == aVec.z);
+    return !this->operator==(aVec);
 }
 
 KVector KVector::operator-() const {
@@ -58,10 +59,7 @@ KVector& KVector::operator/=(const float& aTimes) {
 }
 
 KVector KVector::operator+(const KVector& aVec) const {
-    KVector v(*this);
-    v += aVec;
-
-    return v;
+    return KVector(*this) += aVec;
 }
 
 KVector KVector::operator-(const KVector& aVec) const {
@@ -69,15 +67,11 @@ KVector KVector::operator-(const KVector& aVec) const {
 }
 
 KVector KVector::operator*(const float& aTimes) const {
-    KVector v(*this);
-    v *= aTimes;
-    return v;
+    return KVector(*this) *= aTimes;
 }
 
 KVector KVector::operator/(const float& aTimes) const {
-    KVector v(*this);
-    v /= aTimes;
-    return v;
+    return KVector(*this) /= aTimes;
 }
 
 KVector::operator POINT() const {
@@ -112,8 +106,7 @@ KVector KVector::extractVertical(const KVector& aVec) const {
 
 KVector KVector::rotate(const KQuaternion& aQuaternion) const {
     if (KVector(aQuaternion).isZero()) { // 回転軸が零ベクトル
-        if (aQuaternion.t > Math::EPSILON) return *this; // 回転がない
-        return - * this;
+        return *this; // 回転がない
     }
     float len = length();
     if (len) return KVector((-aQuaternion) * KQuaternion(*this) * aQuaternion).normalization() * len;

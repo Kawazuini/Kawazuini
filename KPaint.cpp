@@ -15,10 +15,7 @@ void KTexture::clearRect(const KRect& aRect) {
     for (int i = aRect.y, i_e = aRect.height + i; i < i_e; ++i) {
         for (int j = aRect.x, j_e = aRect.width + j; j < j_e; ++j) {
             byte* pix = getPixel(j, i);
-            *(pix + 0) = 0;
-            *(pix + 1) = 0;
-            *(pix + 2) = 0;
-            *(pix + 3) = 0;
+            *(pix + 0) = *(pix + 1) = *(pix + 2) = *(pix + 3) = 0;
         }
     }
 }
@@ -66,16 +63,15 @@ void KTexture::drawLine(const KVector& fromVec, const KVector& toVec, const colo
 }
 
 void KTexture::drawHLine(const int& fromX, const int& distX, const int& y, const color& aColor) {
-    int width = Math::abs(distX - fromX); // 描画・画面幅
-    byte* pixel = mPixel + y * mSize * 4 + Math::min(fromX, distX) * 4;
-    for (int i = 0; i < width; ++i, pixel += 4) setPixel(pixel, aColor);
-
+    for (int i = Math::min(fromX, distX), i_e = Math::max(fromX, distX); i < i_e; ++i) {
+        setPixel(getPixel(i, y), aColor);
+    }
 }
 
 void KTexture::drawVLine(const int& fromY, const int& distY, const int& x, const color& aColor) {
-    int height = Math::abs(distY - fromY); // 描画・画面幅
-    byte* pixel = mPixel + Math::min(fromY, distY) * mSize * 4 + x * 4;
-    for (int i = 0; i < height; ++i, pixel += mSize * 4) setPixel(pixel, aColor);
+    for (int i = Math::min(fromY, distY), i_e = Math::max(fromY, distY); i < i_e; ++i) {
+        setPixel(getPixel(x, i), aColor);
+    }
 }
 
 void KTexture::drawRect(const KRect& aRect, const color& aColor) {
@@ -151,7 +147,7 @@ void KTexture::drawText(const KCharset& aCharset, const String& aTxt, const KVec
     KVector cursor = aVec;
     for (int i = 0, i_e = aTxt.size(); i < i_e; ++i) {
         KRect area = aCharset.getArea(txt + i);
-        drawImageMono(*(aCharset.mImage), area, cursor, aColor);
+        drawImageMono(aCharset.mImage, area, cursor, aColor);
         cursor += KVector(area.width);
         if (area.width > aCharset.mSize) i += 2;
     }

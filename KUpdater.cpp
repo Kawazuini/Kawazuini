@@ -7,8 +7,8 @@
 
 List<KUpdater*> KUpdater::sUpdaters;
 
-KUpdater::KUpdater() {
-    mUpdated = false;
+KUpdater::KUpdater() :
+mUpdated(false) {
     add();
 }
 
@@ -20,8 +20,8 @@ void const KUpdater::UPDATE() {
     // listの増減で今までのiteratorが崩壊する!!!!!
     int pSize = sUpdaters.size();
     for (auto i = sUpdaters.begin(), i_e = sUpdaters.end(); i != i_e;) {
-        (*i)->update();
         (*i)->mUpdated = true;
+        (*i)->update();
         if (pSize != sUpdaters.size()) { // 削除 or 追加が行われた。
             pSize = sUpdaters.size();
             i = sUpdaters.begin();

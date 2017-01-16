@@ -46,7 +46,7 @@ public:
      * @brief \~english  reflect drawing change.
      * @brief \~japanese 描画内容を反映します。
      */
-    void reflect();
+    void reflect() const;
 
     /**
      * @brief \~english  enable texture.
@@ -192,7 +192,14 @@ public:
             const color& aColor
             );
     /**
-     * 
+     * \~english
+     * @brief 
+     * @param aCharset
+     * @param aTxt
+     * @param aVec
+     * @param aColor
+     * \~japanese
+     * @brief 
      * @param aCharset
      * @param aTxt
      * @param aVec

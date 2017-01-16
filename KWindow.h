@@ -1,6 +1,7 @@
 /**
- * @file KWindow.h
- * @brief ウィンドウクラス
+ * @file   KWindow.cpp
+ * @brief  KWindow
+ * @author Maeda Takumi
  */
 #ifndef KWINDOW_H
 #define KWINDOW_H
@@ -13,7 +14,10 @@
 
 class KListener;
 
-/** @brief ウィンドウ */
+/**
+ * @brief  Windows Window
+ * @author Maeda Takumi
+ */
 class KWindow : private KNonCopy {
     friend class KApplication;
     friend class KMouse;

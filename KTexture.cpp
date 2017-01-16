@@ -6,21 +6,19 @@
 #include "KTexture.h"
 
 #include "KImage.h"
+#include "KRect.h"
 
 KTexture::KTexture(const unsigned int& aSize) :
 mPixel(new unsigned char[aSize * aSize * 4]),
 mSize(aSize),
 mName(0) {
-    unsigned char* pix = mPixel;
-    for (int i = mSize * mSize * 4 - 1; i >= 0; --i, ++pix) {
-        *pix = 0;
-    }
+    clearRect(KRect(mSize, mSize));
 
     glGenTextures(1, const_cast<unsigned int*> (&mName));
     glBindTexture(GL_TEXTURE_2D, mName);
     glTexImage2D(
             GL_TEXTURE_2D, 0, GL_RGBA,
-            aSize, aSize, 0,
+            mSize, mSize, 0,
             GL_RGBA, GL_UNSIGNED_BYTE, mPixel
             );
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
@@ -31,7 +29,7 @@ KTexture::~KTexture() {
     glDeleteTextures(1, const_cast<unsigned int*> (&mName));
 }
 
-void KTexture::reflect() {
+void KTexture::reflect() const {
     glBindTexture(GL_TEXTURE_2D, mName);
     glTexSubImage2D(
             GL_TEXTURE_2D, 0,

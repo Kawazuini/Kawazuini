@@ -1,12 +1,12 @@
 /**
- * @file KQuaternion.h
+ * @file   KQuaternion.h
+ * @brief  KQuaternion
  * @author Maeda Takumi
  */
 #ifndef KQUATERNION_H
 #define KQUATERNION_H
 
 #include "KMath.h"
-
 
 class KVector;
 
@@ -24,7 +24,6 @@ public:
             const float& az = 0
             );
     KQuaternion(const KVector& aVec, const float& aTheta = Math::PI);
-    KQuaternion(const KQuaternion& orig) = default;
     virtual ~KQuaternion() = default;
 
     /**
@@ -32,7 +31,12 @@ public:
      * @return 共益クォータニオン
      */
     KQuaternion operator-() const;
+    KQuaternion& operator*=(const KQuaternion& aQuaternion);
     KQuaternion operator*(const KQuaternion& aQuaternion) const;
+    // 嘘つきメソッド
+    KQuaternion& operator/=(const float& aAmount);
+    KQuaternion operator/(const float& aAmount) const;
+
     operator KVector() const;
 };
 

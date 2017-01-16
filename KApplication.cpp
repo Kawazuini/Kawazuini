@@ -1,5 +1,6 @@
 /**
- * @file KApplication.cpp
+ * @file   KApplication.cpp
+ * @brief  KApplication
  * @author Maeda Takumi
  */
 #include "KApplication.h"
@@ -9,13 +10,12 @@
 #include "KWindow.h"
 #include "KSwitch.h"
 
-KApplication::KApplication(KWindow* aWindow) {
-    mWindow = aWindow;
-    mFrame = 0;
-    mExecution = false;
-    mPause = false;
-    mPauseSwitch = NULL;
-
+KApplication::KApplication(KWindow& aWindow) :
+mWindow(aWindow),
+mFrame(0),
+mExecution(false),
+mPause(false),
+mPauseSwitch(NULL) {
     timeBeginPeriod(1); // 最小分解能の設定(Timerは信頼できるが,Sleepは信頼できない)
 }
 
@@ -42,15 +42,15 @@ void KApplication::start(const int& aFps) {
     if (!mExecution) { // 二重実行を防ぐ
         mExecution = true;
         //メインループ
-        while (mWindow->mExist) {
+        while (mWindow.mExist) {
             start = KTimer::now();
 
             if (!mPause) {
                 update();
 
-                mWindow->startPaint();
+                mWindow.startPaint();
                 draw();
-                mWindow->display();
+                mWindow.display();
             } else if (mPauseSwitch && mPauseSwitch->isTouch()) {
                 resume();
             }
