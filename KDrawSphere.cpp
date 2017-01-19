@@ -14,13 +14,13 @@ KDrawSphere::KDrawSphere(
         const float& aRadius,
         const int& aStack,
         const int& aSlice
-        ) {
-    mPosition = aPosition;
-    mRadius = aRadius;
-    mStack = aStack;
-    mSlice = aSlice;
-    mVertex = new KVector[(mStack + 1) * (mSlice + 1)];
-
+        ) :
+mPosition(aPosition),
+mRadius(aRadius),
+mStack(aStack),
+mSlice(aSlice),
+mVertex(new KVector[(mStack + 1) * (mSlice + 1)]),
+mTexture(NULL) {
     // 頂点と法線の割り当て
     KVector* vertex = mVertex;
     for (int i = 0; i <= mStack; ++i) {
@@ -32,8 +32,6 @@ KDrawSphere::KDrawSphere(
             *vertex = KVector(r * sin(phi), y, r * cos(phi));
         }
     }
-
-    mTexture = NULL;
 }
 
 KDrawSphere::~KDrawSphere() {

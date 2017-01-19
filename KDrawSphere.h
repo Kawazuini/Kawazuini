@@ -6,7 +6,7 @@
 #ifndef KDRAWSPHERE_H
 #define KDRAWSPHERE_H
 
-#include "KNonCopy.h"
+#include "KDrawObject.h"
 #include "KVector.h"
 
 class KTexture;
@@ -16,7 +16,7 @@ class KTexture;
  * @brief  \~japanese 描画用球体
  * @author \~ Maeda Takumi
  */
-class KDrawSphere : private KNonCopy {
+class KDrawSphere : public KDrawObject {
 private:
     /**
      * @brief \~english  center coordinate
@@ -29,11 +29,6 @@ private:
      */
     float mRadius;
     /**
-     * @brief \~english  vertex array
-     * @brief \~japanese 頂点配列
-     */
-    KVector* mVertex;
-    /**
      * @brief \~english  Number of horizonal divisions like latitude
      * @brief \~japanese 緯度のような水平分割数
      */
@@ -43,6 +38,11 @@ private:
      * @brief \~japanese 経度のような垂直分割数
      */
     int mSlice;
+    /**
+     * @brief \~english  vertex array
+     * @brief \~japanese 頂点配列
+     */
+    KVector* mVertex;
 public:
     /**
      * @brief \~english  texture
@@ -62,7 +62,7 @@ public:
      * @brief \~english  drawing processing
      * @brief \~japanese 描画処理
      */
-    void draw() const;
+    void draw() const override;
 
     /**
      * \~english

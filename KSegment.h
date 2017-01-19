@@ -16,6 +16,9 @@ public:
     KSegment(const KVector& aVec1, const KVector& aVec2);
     KSegment(const KSegment& orig) = default;
     virtual ~KSegment() = default;
+
+    float length() const;
+    KVector direction() const;
 };
 
 #endif /* KSEGMENT_H */

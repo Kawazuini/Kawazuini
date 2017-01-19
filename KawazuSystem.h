@@ -16,6 +16,7 @@
 #include "KSphere.h"
 
 // DrawObjects
+#include "KDrawCube.h"
 #include "KDrawSphere.h"
 
 #endif /* KAWAZUSYSTEM_H */
