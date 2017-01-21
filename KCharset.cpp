@@ -111,7 +111,8 @@ KVector KCharset::getOffsetIndex(const char* aChar) {
         case '}': return KVector(13, 5);
         case '~': return KVector(14, 5);
     }
-    unsigned long chhh = ((*(aChar + 0) & 0xff) << 16) | ((*(aChar + 1) & 0xff) << 8) | ((*(aChar + 2) & 0xff) << 0);
+    // 3文字分の文字コードをくっつける
+    unsigned long chhh(((*(aChar + 0) & 0xff) << 16) | ((*(aChar + 1) & 0xff) << 8) | ((*(aChar + 2) & 0xff) << 0));
     switch (chhh) {
         case 'あ': return KVector(0, 6);
         case 'い': return KVector(1, 6);

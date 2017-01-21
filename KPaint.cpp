@@ -143,7 +143,7 @@ void KTexture::drawImageMono(
 }
 
 void KTexture::drawText(const KCharset& aCharset, const String& aTxt, const KVector& aVec, const color& aColor) {
-    const char* txt = aTxt.data();
+    const TCHAR* txt = aTxt.data();
     KVector cursor = aVec;
     for (int i = 0, i_e = aTxt.size(); i < i_e; ++i) {
         KRect area = aCharset.getArea(txt + i);

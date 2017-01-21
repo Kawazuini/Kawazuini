@@ -57,7 +57,7 @@ mWindow((
     mClearColor = 0xffffffff; // クリアカラーを白に設定
 
 
-    if (!mWindow) throw Error("ウィンドウの作成に失敗しました.");
+    if (!mWindow) throw Error(_T("ウィンドウの作成に失敗しました."));
 
     // ウィンドウサイズ設定
     RECT window, client; // フレーム幅計算

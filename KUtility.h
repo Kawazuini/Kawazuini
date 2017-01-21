@@ -56,22 +56,6 @@ static inline float toDouble(const String& aSrc) {
     return atof(aSrc.data());
 }
 
-/** @brief 文字列のコピー */
-static inline void stringCopy(char* const dist, const char* const src, const int& size) {
-    char *d = dist;
-    const char *s = src;
-    int srcSize = 0;
-
-    for (int i = 0; i < size; ++i, ++d) {
-        if (*s) *d = *s++;
-        else {
-            *d = 0;
-            if (!srcSize) srcSize = i; // NULLに達した文字数
-        }
-    }
-    *(dist + srcSize) = '\0'; // 最終文字をNULLに
-};
-
 /**
  * @brief 指定文字列で文字列を分割(指定文字列は含まれない)
  * @param aSrc 分割する文字列
@@ -142,35 +126,23 @@ static inline int random(const int& aMax) {
     return dist(engine) % aMax;
 }
 
-/** @return byte(0_255)の整数 */
-static inline byte toByte(const int& aSrc) {
-    return aSrc > 255 ? 255 : aSrc < 0 ? 0 : aSrc;
-}
-
 /**
- * @brief Listから検索する
- * @param first  始端
- * @param last   終端
- * @param aValue 検索値
- * @return 検索結果のイテレータ(ない場合はend())
- */
-template <class Iterator, class Type>
-Iterator find(Iterator first, Iterator last, Type aValue) {
-    do {
-        if (*first == aValue) return first;
-    } while (++first != last);
-    return first;
-}
-
-/**
- * @brief リソースIDから文字列を読み込む
- * @note 1024文字までしか読み込めない
+ * \~english
+ * @brief 
+ * @param aId
+ * @return 
+ * \~japanese
+ * @brief  リソースから文字列を読み込みます。
+ * @param  aId リソースID
+ * @return 読み込んだ文字列(UTF8に変換済み)
+ * @note   リソースはShiftJISでしか読み込めない(検証済み(環境によるかも?))
+ * @note    最大で1024文字しか読み込めない
  */
 static inline String loadString(const int& aId) {
     static const int LOAD_SIZE = 1024;
-    char str[LOAD_SIZE];
-    LoadString(NULL, aId, str, LOAD_SIZE);
-    return str;
+    TCHAR str[LOAD_SIZE];
+    LoadString(GetModuleHandle(NULL), aId, str, LOAD_SIZE);
+    return P(str);
 }
 
 /**

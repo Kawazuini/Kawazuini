@@ -65,7 +65,7 @@ String KTimer::nowMinutes() {
     int hours = ((milli / (60 * 60 * 1000)) + TIME_DIFF) % 24;
 
     std::stringstream stream;
-    stream << std::setfill('0') << std::setw(2) << hours << ":" << std::setfill('0') << std::setw(2) << minutes;
+    stream << std::setfill(_T('0')) << std::setw(2) << hours << _T(":") << std::setfill('0') << std::setw(2) << minutes;
 
     return stream.str();
 }
@@ -80,27 +80,27 @@ String KTimer::nowDate() {
 
     String week;
     switch (total % 7) { // 7で割った余りが曜日(0:sun)
-        case 0: week = "日";
+        case 0: week = _T("日");
             break;
-        case 1: week = "月";
+        case 1: week = _T("月");
             break;
-        case 2: week = "火";
+        case 2: week = _T("火");
             break;
-        case 3: week = "水";
+        case 3: week = _T("水");
             break;
-        case 4: week = "木";
+        case 4: week = _T("木");
             break;
-        case 5: week = "金";
+        case 5: week = _T("金");
             break;
-        case 6: week = "土";
+        case 6: week = _T("土");
             break;
     }
 
     std::stringstream stream;
     stream << setfill('0') << setw(2) << date.mYear % 100
-            << "/" << setfill('0') << setw(2) << date.mMonth
-            << "/" << setfill('0') << setw(2) << date.mDay
-            << "(" << week << ")";
+            << _T("/") << setfill(_T('0')) << setw(2) << date.mMonth
+            << _T("/") << setfill(_T('0')) << setw(2) << date.mDay
+            << _T("(") << week << _T(")");
 
     return stream.str();
 }

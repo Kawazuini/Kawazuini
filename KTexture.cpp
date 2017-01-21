@@ -9,7 +9,7 @@
 #include "KRect.h"
 
 KTexture::KTexture(const unsigned int& aSize) :
-mPixel(new unsigned char[aSize * aSize * 4]),
+mPixel(new byte[aSize * aSize * 4]),
 mSize(aSize),
 mName(0) {
     clearRect(KRect(mSize, mSize));

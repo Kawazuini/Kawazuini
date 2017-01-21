@@ -22,6 +22,7 @@
 #include <stack>
 #include <stdexcept>
 #include <string>
+#include <tchar.h>
 #include <typeinfo>
 #include <vector>
 #include <windows.h>
