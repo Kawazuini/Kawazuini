@@ -51,8 +51,12 @@ static inline int toInt(const String& aSrc, const int& aBase = 10) {
     return strtol(aSrc.data(), NULL, aBase);
 }
 
+static inline color toColor(const String& aSrc) {
+    return strtoul(aSrc.data(), NULL, 16);
+}
+
 /** @brief 文字列を実数値に変換する */
-static inline float toDouble(const String& aSrc) {
+static inline float toFloat(const String& aSrc) {
     return atof(aSrc.data());
 }
 
