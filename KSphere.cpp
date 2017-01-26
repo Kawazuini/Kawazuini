@@ -5,9 +5,13 @@
  */
 #include "KSphere.h"
 
-KSphere::KSphere(const KVector& aPosition, const float& aRadius) {
-    mPosition = aPosition;
-    mRadius = aRadius;
+KSphere::KSphere(const float& aRadius) :
+mPosition(mDummy) {
+}
+
+KSphere::KSphere(KVector& aPosition, const float& aRadius) :
+mPosition(aPosition),
+mRadius(aRadius) {
 }
 
 bool KSphere::operator*(const KSphere& aSphere) const {

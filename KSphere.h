@@ -14,20 +14,26 @@
  * @author \~ Maeda Takumi
  */
 class KSphere {
+private:
+    /**
+     * @brief \~english  dummy coordinates
+     * @brief \~japanese ダミー座標
+     */
+    KVector mDummy;
 public:
     /**
      * @brief \~english  center coordinate
      * @brief \~japanese 中心座標
      */
-    KVector mPosition;
+    KVector& mPosition;
     /**
      * @brief \~english  radius of Sphere
      * @brief \~japanese 半径
      */
     float mRadius;
 
-    KSphere() = default;
-    KSphere(const KVector& aPosition, const float& aRadius);
+    KSphere(const float& aRadius = 0.0f);
+    KSphere(KVector& aPosition, const float& aRadius = 0.0f);
     KSphere(const KSphere& orig) = default;
     virtual ~KSphere() = default;
 
