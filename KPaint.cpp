@@ -21,9 +21,13 @@ void KTexture::clearRect(const KRect& aRect) {
 }
 
 void KTexture::drawLine(const int& fromX, const int& fromY, const int& toX, const int& toY, const color& aColor) {
-    int width = toX - fromX, height = toY - fromY, abW = Math::abs(width), abH = Math::abs(height), dWidth = mSize; // 描画・画面幅
-    int x = fromX, y = fromY;
-    byte* pixel;
+    int width(toX - fromX);
+    int height(toY - fromY);
+    int abW(Math::abs(width));
+    int abH(Math::abs(height));
+
+    int x(fromX);
+    int y(fromY);
 
     // Bresenham's algorithm
     int delSum = 0; // 増加値に対する変化値

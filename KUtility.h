@@ -48,15 +48,18 @@ static inline String toString(const Type& aSrc) {
  * @param aBase 基数(def = 10)
  */
 static inline int toInt(const String& aSrc, const int& aBase = 10) {
+    if (aSrc == "") return 0;
     return strtol(aSrc.data(), NULL, aBase);
 }
 
 static inline color toColor(const String& aSrc) {
+    if (aSrc == "") return 0;
     return strtoul(aSrc.data(), NULL, 16);
 }
 
 /** @brief 文字列を実数値に変換する */
 static inline float toFloat(const String& aSrc) {
+    if (aSrc == "") return 0;
     return atof(aSrc.data());
 }
 
