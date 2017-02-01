@@ -10,34 +10,38 @@
 
 const KVector KFPSCamera::BASE_DIRECTION(0, 0, -1);
 
-KFPSCamera::KFPSCamera() {
-    mVerticalAngle = 0;
-    mDirection = BASE_DIRECTION;
+KFPSCamera::KFPSCamera(KVector& aPosition, KVector& aDirection) :
+mFPSPosition(aPosition),
+mFPSDirection(aDirection),
+mVerticalAngle(0) {
+    mFPSDirection = mDirection = BASE_DIRECTION;
+    set();
+}
 
+void KFPSCamera::update() {
+    mPosition = mFPSPosition;
+    mDirection = mFPSDirection;
     set();
 }
 
 void KFPSCamera::move(const KVector& aMovement) {
-    mPosition += convertDirection(aMovement);
-    set();
+    mFPSPosition += convertDirection(aMovement);
 }
 
 void KFPSCamera::rotate(const float& aVAngle, const float& aHAngle) {
     static const float LIMIT = Math::PI / 2 - Math::EPSILON;
 
-    float pVAngle = mVerticalAngle;
+    float pVAngle(mVerticalAngle);
     mVerticalAngle = Math::max(-LIMIT, Math::min(mVerticalAngle + aVAngle, LIMIT));
 
-    KQuaternion v(KVector(mDirection.z, 0, -mDirection.x), mVerticalAngle - pVAngle);
+    KQuaternion v(KVector(mFPSDirection.z, 0, -mFPSDirection.x), mVerticalAngle - pVAngle);
     KQuaternion h(KVector(0, 1, 0), aHAngle);
-    mDirection = mDirection.rotate(v * h);
+    mFPSDirection = mFPSDirection.rotate(v * h);
     mHeadSlope = mHeadSlope.rotate(v * h);
-
-    set();
 }
 
 KVector KFPSCamera::convertDirection(const KVector& aVec) {
-    KQuaternion rot = BASE_DIRECTION.roundAngle(KVector(mDirection.x, 0, mDirection.z));
+    KQuaternion rot(BASE_DIRECTION.roundAngle(KVector(mFPSDirection.x, 0, mFPSDirection.z)));
     if (!KVector(rot).length() && rot.t) return -aVec;
     return aVec.rotate(rot);
 }

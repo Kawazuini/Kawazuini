@@ -13,24 +13,44 @@ class KCamera;
 class KTexture;
 
 /**
- * @brief  \~english  UI of OpenGL
+ * @brief  \~english  UI by OpenGL
  * @brief  \~japanese OpenGLで表現されるUI
  * @author \~ Maeda Takumi
  * @note   \~japanese 最前面に表示しているだけなので、描画は最後に呼び出されなければならない。
  */
 class KGLUI : private KDrawer {
-private:
+public:
+    /**
+     * @brief \~english  screen width
+     * @brief \~japanese スクリーン横幅
+     */
+    static const int WIDTH;
+    /**
+     * @brief \~english  screen height
+     * @brief \~japanese スクリーン縦幅
+     */
+    static const int HEIGHT;
     /**
      * @brief \~english  pixel information of screen
      * @brief \~japanese 画面の画素情報
      */
     KTexture mScreen;
-public:
-    static const int WIDTH;
-    static const int HEIGHT;
 
+    /**
+     * @brief \~english  camera
+     * @brief \~japanese カメラ
+     */
+    const KCamera& mCamera;
 
-    KGLUI();
+    /**
+     * \~english
+     * @brief generate UI.
+     * @param aCamera camera for drawing
+     * \~japanese
+     * @brief UIを生成します。
+     * @param aCamera 描画対象のカメラ
+     */
+    KGLUI(const KCamera& aCamera);
     virtual ~KGLUI() = default;
 
     /**
@@ -38,8 +58,6 @@ public:
      * @brief \~japanese 描画処理
      */
     void draw() const override;
-
-    KTexture& screen();
 };
 
 #endif /* KGLUI_H */

@@ -4,8 +4,10 @@
  */
 #include "KSwitch.h"
 
-KSwitch::KSwitch() {
-    mSwitch = mOnFrame = mOffFrame = 0;
+KSwitch::KSwitch() :
+mSwitch(false),
+mOnFrame(0),
+mOffFrame(0) {
 }
 
 void KSwitch::ON() {

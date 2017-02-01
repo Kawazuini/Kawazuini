@@ -7,16 +7,28 @@
 #define KFPSCAMERA_H
 
 #include "KCamera.h"
+#include "KUpdater.h"
 
-class KFPSCamera : public KCamera {
+class KFPSCamera : public KCamera, public KUpdater {
 private:
     static const KVector BASE_DIRECTION;
 
     float mVerticalAngle; ///< 垂直視点角度
+
+    KVector& mFPSPosition;
+    KVector& mFPSDirection;
 public:
-    KFPSCamera();
-    KFPSCamera(const KFPSCamera& orig) = default;
+    KFPSCamera(
+            KVector& aPosition,
+            KVector& aDirection
+            );
     virtual ~KFPSCamera() = default;
+
+    /**
+     * @brief \~english  update processing
+     * @brief \~japanese 更新処理
+     */
+    void update() override;
 
     /**
      * @brief 視点からのベクトル方向に移動する。

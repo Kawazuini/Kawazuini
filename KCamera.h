@@ -10,11 +10,31 @@
 
 class KCamera {
 public:
-    static KVector sPosition;
-    static KVector sDirection;
+    /**
+     * @brief \~english  default view angle
+     * @brief \~japanese 初期視野角
+     */
+    static const float DEFAULT_ANGLE;
+
+    /**
+     * @brief \~english  
+     * @brief \~japanese 
+     */
     static KVector sDirection_UL;
+    /**
+     * @brief \~english  
+     * @brief \~japanese 
+     */
     static KVector sDirection_UR;
+    /**
+     * @brief \~english  
+     * @brief \~japanese 
+     */
     static KVector sDirection_DL;
+    /**
+     * @brief \~english  
+     * @brief \~japanese 
+     */
     static KVector sDirection_DR;
 
     float mAngle; ///< 上下視野角
@@ -27,18 +47,29 @@ public:
     KVector mHeadSlope; ///< カメラ頭方向
 
     KCamera();
-    KCamera(const KCamera& orig) = default;
     virtual ~KCamera() = default;
 
-    /** @brief 視点の確定 */
+    /**
+     * @brief \~english  update view
+     * @brief \~japanese 視点の更新
+     */
     void set();
 
-    /***/
+    /**
+     * \~english
+     * @brier  determine the necessity of drawing from normals.
+     * @param  aNormal normal of target polygon
+     * @return necessity of drawing
+     * \~japanese
+     * @brier  法線から描画の必要性を判定します。
+     * @param  aNormal 対象ポリゴンの法線
+     * @return 描画範囲の必要性
+     */
     static inline bool checkHidden(const KVector& aNormal) {
-        return aNormal.dot(KCamera::sDirection_UL - KCamera::sPosition) <= 0
-                || aNormal.dot(KCamera::sDirection_UR - KCamera::sPosition) <= 0
-                || aNormal.dot(KCamera::sDirection_DL - KCamera::sPosition) <= 0
-                || aNormal.dot(KCamera::sDirection_DR - KCamera::sPosition) <= 0;
+        return aNormal.dot(KCamera::sDirection_UL) <= 0
+                || aNormal.dot(KCamera::sDirection_UR) <= 0
+                || aNormal.dot(KCamera::sDirection_DL) <= 0
+                || aNormal.dot(KCamera::sDirection_DR) <= 0;
     };
 };
 
