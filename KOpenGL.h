@@ -19,7 +19,7 @@ public:
     } GLConfig;
 
     KOpenGL(const GLConfig& aConfig);
-    virtual ~KOpenGL();
+    virtual ~KOpenGL() = default;
 };
 
 #endif /* KOPENGL_H */

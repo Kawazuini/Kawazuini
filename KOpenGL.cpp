@@ -28,6 +28,3 @@ KOpenGL::KOpenGL(const GLConfig& aConfig) {
     }
 }
 
-KOpenGL::~KOpenGL() {
-}
-

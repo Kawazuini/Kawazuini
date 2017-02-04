@@ -38,11 +38,13 @@ void KMouse::pass() {
 }
 
 void KMouse::show() {
-    ShowCursor(true);
+    int mouseCount(ShowCursor(true));
+    while (mouseCount < 0) mouseCount = ShowCursor(true);
 }
 
 void KMouse::hide() {
-    ShowCursor(false);
+    int mouseCount(ShowCursor(false));
+    while (mouseCount >= 0) mouseCount = ShowCursor(false);
 }
 
 KVector KMouse::pos() const {

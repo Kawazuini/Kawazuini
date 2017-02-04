@@ -8,9 +8,9 @@
 #include "KListener.h"
 #include "KMath.h"
 
-const float KWindow::ASPECT = 9.0f / 16.0f;
-const KRect KWindow::SIZE = KRect(KVector(960, 540));
-const KRect KWindow::DISPLAY_SIZE = KRect(GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN));
+const float KWindow::ASPECT(9.0f / 16.0f);
+const KRect KWindow::SIZE((KVector(960, 540)));
+const KRect KWindow::DISPLAY_SIZE(KRect(GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN)));
 
 KWindow::KWindow(
         const MainArgs* aArgs,
@@ -48,62 +48,50 @@ mWindow((
         /* メニューハンドル          */ NULL,
         /* モジュールインスタンス    */ aArgs->mInst,
         /* WM_CREATEのLPARAMに渡す値 */ this
-        ) : NULL)) {
-    mTitle = aTitle;
-
-    mFrameVisible = true;
-    mFullScreen = false;
-    mListener = NULL;
-    mClearColor = 0xffffffff; // クリアカラーを白に設定
-
-
+        ) : NULL)),
+mTitle(aTitle),
+mFrameVisible(true),
+mFullScreen(false),
+mScreenSize(aSize),
+mPixelFormat({
+    sizeof (PIXELFORMATDESCRIPTOR),
+    1,
+    PFD_DRAW_TO_WINDOW | PFD_SUPPORT_OPENGL | PFD_DOUBLEBUFFER,
+    PFD_TYPE_RGBA,
+    32, // color
+    0, 0, // R
+    0, 0, // G
+    0, 0, // B
+    0, 0, // A
+    0, 0, 0, 0, 0, // AC R G B A
+    24, // depth
+    8, // stencil
+    0, // aux
+    0, // layertype
+    0, // reserved
+    0, // layermask
+    0, // visiblemask
+    0 // damagemask
+}) {
     if (!mWindow) throw Error(_T("ウィンドウの作成に失敗しました."));
 
-    // ウィンドウサイズ設定
+    // ピクセルフォーマットの選択
+    wglDeleteContext(mGLRC);
+    mScreen = GetDC(mWindow);
+    SetPixelFormat(mScreen, ChoosePixelFormat(mScreen, &(mPixelFormat)), &(mPixelFormat));
+    mGLRC = wglCreateContext(mScreen); // OpenGL コンテキストの作成
+    wglMakeCurrent(mScreen, mGLRC);
+    ReleaseDC(mWindow, mScreen);
+
+    // フレーム幅
     RECT window, client; // フレーム幅計算
     GetWindowRect(mWindow, &window);
     GetClientRect(mWindow, &client);
-    mWindowSize = window;
-    mClientSize = client;
+    KRect w(window), c(client);
+    mFrameWidth = w.width - c.width;
+    mFrameHeight = w.height - c.height;
+
     setSize(aSize);
-
-    mCanvasSize = SIZE;
-
-    //
-    mBmpInfo.bmiHeader = BITMAPINFOHEADER{sizeof (BITMAPINFOHEADER), DISPLAY_SIZE.width, -DISPLAY_SIZE.height, 1, 32, BI_RGB}; // BMP情報ヘッダの設定
-
-    static PIXELFORMATDESCRIPTOR pformat = {
-        sizeof (PIXELFORMATDESCRIPTOR),
-        1,
-        0 | PFD_DRAW_TO_WINDOW | PFD_SUPPORT_OPENGL | PFD_DOUBLEBUFFER,
-        PFD_TYPE_RGBA,
-        32, // color
-        0, 0, // R
-        0, 0, // G
-        0, 0, // B
-        0, 0, // A
-        0, 0, 0, 0, 0, // AC R G B A
-        24, // depth
-        8, // stencil
-        0, // aux
-        0, // layertype
-        0, // reserved
-        0, // layermask
-        0, // visiblemask
-        0 // damagemask
-    };
-
-    mScreen = GetDC(mWindow);
-
-    // ピクセルフォーマットの選択
-    int pfmt = ChoosePixelFormat(mScreen, &pformat);
-    SetPixelFormat(mScreen, pfmt, &pformat);
-
-    // OpenGL コンテキストの作成
-    mGLRC = wglCreateContext(mScreen);
-    wglMakeCurrent(mScreen, mGLRC);
-
-    DeleteDC(mScreen);
 }
 
 KWindow::~KWindow() {
@@ -122,7 +110,7 @@ void KWindow::hide() const {
 }
 
 LRESULT CALLBACK KWindow::WIN_PROC(HWND aHwnd, UINT aMsg, WPARAM aWParam, LPARAM aLParam) {
-    KWindow* _this = NULL;
+    KWindow * _this(NULL);
 
     if (aMsg == WM_NCCREATE) {
         _this = (KWindow*) ((LPCREATESTRUCT) aLParam)->lpCreateParams;
@@ -156,9 +144,16 @@ LRESULT CALLBACK KWindow::WIN_PROC(HWND aHwnd, UINT aMsg, WPARAM aWParam, LPARAM
             break;
 
         case WM_SIZE:
-            // println("unti");
-            break;
+        {
+            int mode;
+            glGetIntegerv(GL_MATRIX_MODE, &mode);
+            glMatrixMode(GL_PROJECTION);
+            glLoadIdentity();
+            glViewport(_this->mScreenSize.x, _this->mScreenSize.y, _this->mScreenSize.width, _this->mScreenSize.height);
+            glMatrixMode(mode);
 
+            break;
+        }
         case WM_PAINT:
             _this->startPaint();
             _this->mListener->draw();
@@ -176,15 +171,8 @@ void KWindow::startPaint() {
 }
 
 void KWindow::clearCanvas() {
-    // float a = (float) ((mClearColor & 0xff000000) >> 8 * 3) / 0xff;
-    // float r = (float) ((mClearColor & 0x00ff0000) >> 8 * 2) / 0xff;
-    // float g = (float) ((mClearColor & 0x0000ff00) >> 8 * 1) / 0xff;
-    // float b = (float) ((mClearColor & 0x000000ff) >> 8 * 0) / 0xff;
-    // glClearColor(r, g, b, a);
-    // glClearDepth(1.0f);
-    // glClearStencil(0);
-    // glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
-    glClear(GL_DEPTH_BUFFER_BIT);
+    glClearColor(0, 0, 0, 1);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 
 void KWindow::display() {
@@ -195,26 +183,32 @@ void KWindow::display() {
 
 void KWindow::borderLoss() {
     mFrameVisible = !mFrameVisible; // 交互にスイッチ
-    long style = GetWindowLong(mWindow, GWL_STYLE);
+    long style(GetWindowLong(mWindow, GWL_STYLE));
     mFrameVisible ? style |= WS_CAPTION : style &= ~WS_CAPTION;
     SetWindowLong(mWindow, GWL_STYLE, style);
     setSize(mScreenSize);
 }
 
 void KWindow::toFullScreen() {
-    static const float scale = Math::min((float) DISPLAY_SIZE.width / SIZE.width, (float) DISPLAY_SIZE.height / SIZE.height);
-    static KRect pos;
+    static const float scale(Math::min((float) DISPLAY_SIZE.width / SIZE.width, (float) DISPLAY_SIZE.height / SIZE.height));
+    static KRect pPosition;
     if (mFullScreen != mFrameVisible) borderLoss();
     if (mFullScreen = !mFullScreen) {
+        // 事前領域の記憶
         RECT window;
         GetWindowRect(mWindow, &window);
-        pos = KRect(window.left, window.top, mScreenSize.width, mScreenSize.height);
+        pPosition = KRect(window.left, window.top, mScreenSize.width, mScreenSize.height);
+
+        int width(SIZE.width * scale);
+        int height(SIZE.height * scale);
+        // 縦横比が一致しない場合の黒塗り
+        mScreenSize = KRect((DISPLAY_SIZE.width - width) / 2, (DISPLAY_SIZE.height - height) / 2, width, height);
 
         setSize(DISPLAY_SIZE);
-
-        int width = SIZE.width * scale, height = SIZE.height * scale;
-        mScreenSize = KRect((DISPLAY_SIZE.width - width) / 2, (DISPLAY_SIZE.height - height) / 2, width, height); // 縦横比が一致しない場合の黒塗り
-    } else setSize(pos); // 全画面以前のウィンドウ位置に戻す
+    } else {
+        mScreenSize = KRect(pPosition.width, pPosition.height);
+        setSize(pPosition); // 全画面以前のウィンドウ位置に戻す
+    }
 }
 
 void KWindow::setTitle(const String & aTitle) {
@@ -223,39 +217,22 @@ void KWindow::setTitle(const String & aTitle) {
 }
 
 void KWindow::setSize(const KRect& aSize) {
-    // フレーム幅
-    static const int FrameWidth = mWindowSize.width - mClientSize.width;
-    static const int FrameHeight = mWindowSize.height - mClientSize.height;
+    KRect area(aSize);
 
-    KRect pos;
-    if (aSize.start().isZero()) { // 始点指定なし
+    if (area.start().isZero() && !mFullScreen) { // 始点指定なし(左上座標そのまま)
         RECT window;
         GetWindowRect(mWindow, &window);
-        pos = window;
+
+        area.x = window.left;
+        area.y = window.top;
     }
-
-    mScreenSize = KRect(aSize.width, aSize.height);
-
-    SetWindowPos(mWindow, NULL,
-            mFullScreen ? 0 : aSize.x ? aSize.x : pos.x,
-            mFullScreen ? 0 : aSize.y ? aSize.y : pos.y,
-            (mFrameVisible ? FrameWidth : 0) + aSize.width,
-            (mFrameVisible ? FrameHeight : 0) + aSize.height,
-            SWP_NOZORDER);
-
-    RECT window, client;
-    GetWindowRect(mWindow, &window);
-    GetClientRect(mWindow, &client);
-    mWindowSize = window;
-    mClientSize = client;
+    if (mFrameVisible) area.width += mFrameWidth;
+    if (mFrameVisible) area.height += mFrameHeight;
+    SetWindowPos(mWindow, NULL, area.x, area.y, area.width, area.height, SWP_NOZORDER);
 }
 
 void KWindow::setListener(KListener * aListener) {
     mListener = aListener;
-}
-
-void KWindow::setClearColor(const color& aColor) {
-    mClearColor = aColor;
 }
 
 KRect KWindow::windowArea() const {
@@ -264,6 +241,11 @@ KRect KWindow::windowArea() const {
     return KRect(window);
 }
 
-bool KWindow::fullScreen() const {
+const bool& KWindow::isFullScreen() const {
     return mFullScreen;
 }
+
+bool KWindow::isActive() const {
+    return mWindow == GetActiveWindow() && mWindow == GetForegroundWindow();
+}
+

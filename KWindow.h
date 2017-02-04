@@ -1,16 +1,14 @@
 /**
- * @file   KWindow.cpp
+ * @file   KWindow.h
  * @brief  KWindow
  * @author Maeda Takumi
  */
 #ifndef KWINDOW_H
 #define KWINDOW_H
 
-#include "KUtility.h"
-
 #include "KNonCopy.h"
-
 #include "KRect.h"
+#include "KUtility.h"
 
 class KListener;
 
@@ -47,16 +45,14 @@ private:
 
     HDC mScreen; ///< 画面表示HDC
 
-    /** @brief 枠幅込みのウィンドウサイズ */ KRect mWindowSize;
-    /** @brief 枠幅抜きのウィンドウサイズ */ KRect mClientSize;
+    int mFrameWidth;
+    int mFrameHeight;
 
     /** @brief スクリーンサイズ */ KRect mScreenSize;
-    /** @brief キャンバスサイズ */ KRect mCanvasSize;
 
     /** @brief 描画構造体            */ PAINTSTRUCT mPaint;
-    /** @brief mPixelの生成に必要    */ BITMAPINFO mBmpInfo;
+    /** @brief ピクセルフォーマット  */ PIXELFORMATDESCRIPTOR mPixelFormat;
 
-    color mClearColor; ///< 背景の消去色
     /** @brief イベント処理クラス */ KListener* mListener;
 
     /* ウィンドウプロシージャ */
@@ -64,8 +60,7 @@ private:
 
     /* in WM_PAINT */
     void startPaint(); // 描画処理の開始
-    void clearCanvas(); // 背景色でCanvasを塗りつぶす
-    void trans(const HDC& aDist, const KRect& aDistRec, const HDC& aSrc, const KRect& aSrcRec) const; // HDC間の転写
+    void clearCanvas(); // デパスバッファのクリア
     void display(); // 描画の表示
 
     HGLRC mGLRC;
@@ -94,17 +89,35 @@ public:
     /** @param aTitle    新しいタイトル             */ void setTitle(const String& aTitle);
     /** @param aSize     新しいサイズ               */ void setSize(const KRect& aSize);
     /** @param aListener ウィンドウイベントリスナー */ void setListener(KListener* aListener);
-    /** @param aColor    新しいクリアカラー         */ void setClearColor(const color& aColor);
-
 
     /**
-     * @brief ウィンドウの画面上の領域を返す。
-     * @return ウィンドウの画面上の領域
+     * \~english
+     * @brief  get window area in screen.
+     * @return window area in screen
+     * \~japanese
+     * @brief  ウィンドウのスクリーン上の領域を返す。
+     * @return ウィンドウのスクリーン上の領域
      */
     KRect windowArea() const;
-
-
-    /** @return フルスクリーン状態 */ bool fullScreen() const;
+    /**
+     * \~english
+     * @brief  get whether full screen.
+     * @return whether full screen
+     * \~japanese
+     * @brief  フルスクリーン状態を取得します。
+     * @return フルスクリーン状態
+     */
+    const bool& isFullScreen() const;
+    /**
+     * \~english
+     * @brief  get whether active.
+     * @return whether active
+     * \~japanese
+     * @brief  アクティブ状態を取得します。
+     * @return アクティブ状態
+     */
+    bool isActive() const;
 };
 
 #endif /* KWINDOW_H */
+
