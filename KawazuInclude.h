@@ -24,6 +24,7 @@
 #include <string>
 #include <tchar.h>
 #include <typeinfo>
+#include <unordered_map>
 #include <vector>
 #include <windows.h>
 

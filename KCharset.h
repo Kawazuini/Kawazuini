@@ -8,10 +8,10 @@
 
 #include "KNonCopy.h"
 #include "KUtility.h"
+#include "KVector.h"
 
 class KImage;
 class KRect;
-class KVector;
 
 /**
  * @brief  \~english  charset by image
@@ -20,6 +20,8 @@ class KVector;
  */
 class KCharset : private KNonCopy {
 private:
+    static const List<String> CHARSET;
+
     /**
      * \~english
      * @brief  
@@ -30,7 +32,7 @@ private:
      * @param  aChar 文字ポインタ
      * @return 位置インデックス
      */
-    static KVector getOffsetIndex(const char* aChar);
+    KVector getOffsetIndex(const char* aChar) const;
 public:
     /**
      * @brief \~english  charset image
@@ -42,6 +44,8 @@ public:
      * @brief \~japanese 文字サイズ
      */
     const int mSize;
+
+    HashMap<unsigned long, KVector> mCharMap;
 
     KCharset(const KImage& aImage, const int& aSize);
     virtual ~KCharset() = default;
