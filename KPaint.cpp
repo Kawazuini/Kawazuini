@@ -120,8 +120,8 @@ void KTexture::drawCircle(const int& aRadius, const KVector aCenter, const color
 }
 
 void KTexture::drawImage(const KImage& aImage, const KRect& aSrc, const KVector& aDist) {
-    const color* data = aImage.mPixel + aSrc.y * aImage.mWidth + aSrc.x;
-    for (int i = aDist.y, i_e = aSrc.height + i; i < i_e; ++i, data += aImage.mWidth - aSrc.width) {
+    const color * data(aImage.mPixel + aSrc.y * aImage.mWidth + aSrc.x);
+    for (int i = aDist.y, i_e = aSrc.height + i, i_diff = aImage.mWidth - aSrc.width; i < i_e; ++i, data += i_diff) {
         for (int j = aDist.x, j_e = aSrc.width + j; j < j_e; ++j, ++data) {
             setPixel(getPixel(j, i), *data);
         }
@@ -134,23 +134,26 @@ void KTexture::drawImageMono(
         const KVector& aDist,
         const color& aColor
         ) {
-    const color* data = aImage.mPixel + aSrc.y * aImage.mWidth + aSrc.x;
-    for (int i = aDist.y, i_e = aSrc.height + i; i < i_e; ++i, data += aImage.mWidth - aSrc.width) {
+    double alphaCoef((double) (aColor & 0xff000000) / 0xff000000);
+    color monoColor(aColor & 0x00ffffff);
+
+    const color * data(aImage.mPixel + aSrc.y * aImage.mWidth + aSrc.x);
+    for (int i = aDist.y, i_e = aSrc.height + i, i_diff = aImage.mWidth - aSrc.width; i < i_e; ++i, data += i_diff) {
         for (int j = aDist.x, j_e = aSrc.width + j; j < j_e; ++j, ++data) {
-            color alpha = *data & 0xff000000;
+            color alpha(*data & 0xff000000);
             if (alpha) {
-                color drawing = alpha | (aColor & 0x00ffffff);
-                setPixel(getPixel(j, i), drawing);
+                alpha = ((int) ((alpha >> 24) * alphaCoef) << 24);
+                setPixel(getPixel(j, i), alpha | monoColor);
             }
         }
     }
 }
 
 void KTexture::drawText(const KCharset& aCharset, const String& aTxt, const KVector& aVec, const color& aColor) {
-    const TCHAR* txt = aTxt.data();
-    KVector cursor = aVec;
+    const TCHAR * txt(aTxt.data());
+    KVector cursor(aVec);
     for (int i = 0, i_e = aTxt.size(); i < i_e; ++i) {
-        KRect area = aCharset.getArea(txt + i);
+        KRect area(aCharset.getArea(txt + i));
         drawImageMono(aCharset.mImage, area, cursor, aColor);
         cursor += KVector(area.width);
         if (area.width > aCharset.mSize) i += 2;
