@@ -35,6 +35,10 @@ const List<String> KCharset::CHARSET
     "進", "後", "退", "左", "右", "選", "択", "画", "面", "視", "", "", "", "", "", "",
     "点", "移", "動", "決", "定", "攻", "撃", "武", "器", "構", "", "", "", "", "", "",
     "確", "認", "解", "除", "中", "断", "再", "開", "読", "切", "", "", "", "", "", "",
+    "使", "用", "装", "備", "箇", "所", "既", "外", "投", "置", "", "", "", "", "", "",
+    "空", "振", "填", "必", "要", "最", "大", "済", "拾", "弾", "", "", "", "", "", "",
+    "何", "起", "与", "倒", "経", "験", "値", "得", "回", "復", "", "", "", "", "", "",
+    "上", "転", "項", "目", "　", "　", "　", "　", "　", "　", "", "", "", "", "", "",
 };
 
 KCharset::KCharset(const KImage& aImage, const int& aSize) :
@@ -64,9 +68,9 @@ KVector KCharset::getOffsetIndex(const char* aChar) const {
 }
 
 KRect KCharset::getArea(const char* aChar) const {
-    KVector index = getOffsetIndex(aChar);
-    KVector offset = index * mSize;
-    int kana = index.y > 5 ? 2 : 1; // 仮名の時横幅2倍
+    KVector index(getOffsetIndex(aChar));
+    KVector offset(index * mSize);
+    int kana(index.y > 5 ? 2 : 1); // 仮名の時横幅2倍
     return KRect(offset.x * kana, offset.y * 2, mSize * kana, mSize * 2);
 }
 
@@ -75,10 +79,10 @@ KRect KCharset::getArea(const String& aStr) const {
 }
 
 int KCharset::getWidth(const String& aStr) const {
-    const char* txt = aStr.data();
-    int width = 0;
+    const char* txt(aStr.data());
+    int width(0);
     for (int i = 0, i_e = aStr.size(); i < i_e; ++i) {
-        KRect area = getArea(txt + i);
+        KRect area(getArea(txt + i));
         width += area.width;
         if (area.width > mSize) i += 2;
     }
