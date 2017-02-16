@@ -122,10 +122,8 @@ float KVector::lengthSquared() const {
 }
 
 float KVector::angle(const KVector& aVec) const {
-    static const float ACOS_LIMIT = 1.0f - Math::EPSILON;
-    float len1 = length();
-    float len2 = aVec.length();
-    if (len1 && len2) return acos(Math::max(-ACOS_LIMIT, Math::min(dot(aVec) / (len1 * len2), ACOS_LIMIT)));
+    float len1(length()), len2(aVec.length());
+    if (len1 && len2) return acos(Math::max(-1.0f, Math::min(dot(aVec) / (len1 * len2), 1.0f)));
     return 0;
 }
 
