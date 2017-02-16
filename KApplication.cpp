@@ -25,7 +25,7 @@ KApplication::~KApplication() {
 
 void KApplication::wait(const int& aTime) {
     MSG msg;
-    KTimer::Time end = KTimer::now() + aTime;
+    KTimer::Time end(KTimer::now() + aTime);
     do {
         if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE)) {
             TranslateMessage(&msg);
@@ -36,8 +36,10 @@ void KApplication::wait(const int& aTime) {
 }
 
 void KApplication::start(const int& aFps) {
-    KTimer::Time start, second = 0;
-    int frame = 0;
+    KTimer::Time start(0), second(0), pass(0);
+    int frame(0);
+
+    const double waitSec(1000 / aFps);
 
     if (!mExecution) { // 二重実行を防ぐ
         mExecution = true;
@@ -55,10 +57,11 @@ void KApplication::start(const int& aFps) {
                 resume();
             }
 
-            wait(Math::max(int(1000 / aFps - (KTimer::now() - start)), 0));
+            pass = KTimer::now() - start;
+            wait(Math::max(int(waitSec - pass), 0));
 
             ++frame;
-            if ((second += (KTimer::now() - start)) >= 1000) {// 1秒ごとにfpsの更新
+            if ((second += pass) >= 1000) {// 1秒ごとにfpsの更新
                 mFrame = frame;
                 second = 0;
                 frame = 0;
