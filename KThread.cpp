@@ -7,9 +7,8 @@
 
 KThread::KThread(const ThreadFunction& aFunction) :
 mThreadFunction(aFunction) {
-    int tmp;
-    pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, &tmp);
-    pthread_setcanceltype(PTHREAD_CANCEL_DEFERRED, &tmp);
+    pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, NULL);
+    pthread_setcanceltype(PTHREAD_CANCEL_DEFERRED, NULL);
 }
 
 KThread::~KThread() {

@@ -9,15 +9,15 @@
 
 #include "KTimer.h"
 
-typedef std::runtime_error Error;
-typedef std::string String;
-typedef std::type_info const & TypeID;
+using Error = std::runtime_error;
+using String = std::string;
+using TypeID = std::type_info;
 template <class KeyType, class Type> using HashMap = std::unordered_map<KeyType, Type>;
 template <class Type> using List = std::list<Type>;
 template <class Type> using Queue = std::queue<Type>;
 template <class Type> using Stack = std::stack<Type>;
 template <class Type> using Vector = std::vector<Type>;
-typedef unsigned long color;
+using color = unsigned long;
 
 /** @brief 標準出力 */
 template <class Type>
