@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['validindex',['validIndex',['../class_k_draw_sphere.html#a74e2a2e5072b7f78afa0f9ec416ddef5',1,'KDrawSphere']]],
   ['vibraphone',['Vibraphone',['../class_k_midi.html#a11035e68ce16118fd222337c93318813a08fafabb3d7ebfad11f99e48014be3c3',1,'KMidi']]],
   ['viola',['Viola',['../class_k_midi.html#a11035e68ce16118fd222337c93318813a64ee1fba262f30519160cc7df1a9f677',1,'KMidi']]],
   ['violin',['Violin',['../class_k_midi.html#a11035e68ce16118fd222337c93318813a21821b839051f903f0f1020a618b9703',1,'KMidi']]],

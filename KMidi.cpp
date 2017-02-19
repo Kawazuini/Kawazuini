@@ -1,6 +1,7 @@
 /**
- * @file KMidi.cpp
- * @brief KMidiクラスの実装
+ * @file   KMidi.cpp
+ * @brief  KMidi
+ * @author Maeda Takumi
  */
 #include "KMidi.h"
 

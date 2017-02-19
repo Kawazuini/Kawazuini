@@ -92,6 +92,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 <div class="title">KGLUI クラス</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>OpenGLで表現されるUI.  
+ <a href="class_k_g_l_u_i.html#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_k_g_l_u_i_8h_source.html">KGLUI.h</a>&gt;</code></p>
 <div class="dynheader">
 KGLUI の継承関係図</div>
 <div class="dyncontent">
@@ -104,6 +109,9 @@ KGLUI の継承関係図</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
+<tr class="memitem:a12c3106b8f60686974589edb10149b53"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_g_l_u_i.html#a12c3106b8f60686974589edb10149b53">KGLUI</a> (const <a class="el" href="class_k_camera.html">KCamera</a> &amp;aCamera)</td></tr>
+<tr class="memdesc:a12c3106b8f60686974589edb10149b53"><td class="mdescLeft">&#160;</td><td class="mdescRight">UIを生成します。  <a href="#a12c3106b8f60686974589edb10149b53">[詳解]</a><br /></td></tr>
+<tr class="separator:a12c3106b8f60686974589edb10149b53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30b4f0815a702d500da370303db64d16"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a30b4f0815a702d500da370303db64d16"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_g_l_u_i.html#a30b4f0815a702d500da370303db64d16">draw</a> () const  override</td></tr>
 <tr class="memdesc:a30b4f0815a702d500da370303db64d16"><td class="mdescLeft">&#160;</td><td class="mdescRight">描画処理 <br /></td></tr>
@@ -111,22 +119,55 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 公開変数類</h2></td></tr>
-<tr class="memitem:af25f5d5d8aed5d9d0b894d5b6e54b976"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af25f5d5d8aed5d9d0b894d5b6e54b976"></a>
-<a class="el" href="class_k_texture.html">KTexture</a> *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_g_l_u_i.html#af25f5d5d8aed5d9d0b894d5b6e54b976">mScreen</a></td></tr>
-<tr class="memdesc:af25f5d5d8aed5d9d0b894d5b6e54b976"><td class="mdescLeft">&#160;</td><td class="mdescRight">画面の画素情報 <br /></td></tr>
-<tr class="separator:af25f5d5d8aed5d9d0b894d5b6e54b976"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbe38a5ce6ef57145e2136ca9b517280"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afbe38a5ce6ef57145e2136ca9b517280"></a>
+<a class="el" href="class_k_texture.html">KTexture</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_g_l_u_i.html#afbe38a5ce6ef57145e2136ca9b517280">mScreen</a></td></tr>
+<tr class="memdesc:afbe38a5ce6ef57145e2136ca9b517280"><td class="mdescLeft">&#160;</td><td class="mdescRight">画面の画素情報 <br /></td></tr>
+<tr class="separator:afbe38a5ce6ef57145e2136ca9b517280"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb7afd329872d57d8a467e31e84202f3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abb7afd329872d57d8a467e31e84202f3"></a>
+const <a class="el" href="class_k_camera.html">KCamera</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_g_l_u_i.html#abb7afd329872d57d8a467e31e84202f3">mCamera</a></td></tr>
+<tr class="memdesc:abb7afd329872d57d8a467e31e84202f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">カメラ <br /></td></tr>
+<tr class="separator:abb7afd329872d57d8a467e31e84202f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 静的公開変数類</h2></td></tr>
 <tr class="memitem:adf03c1b50922e5bb56be4b3914b3e320"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adf03c1b50922e5bb56be4b3914b3e320"></a>
-static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_g_l_u_i.html#adf03c1b50922e5bb56be4b3914b3e320">WIDTH</a> = 1024</td></tr>
-<tr class="memdesc:adf03c1b50922e5bb56be4b3914b3e320"><td class="mdescLeft">&#160;</td><td class="mdescRight">横幅 <br /></td></tr>
+static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_g_l_u_i.html#adf03c1b50922e5bb56be4b3914b3e320">WIDTH</a></td></tr>
+<tr class="memdesc:adf03c1b50922e5bb56be4b3914b3e320"><td class="mdescLeft">&#160;</td><td class="mdescRight">スクリーン横幅 <br /></td></tr>
 <tr class="separator:adf03c1b50922e5bb56be4b3914b3e320"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2081435b08d7649655c72a18c759d96a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2081435b08d7649655c72a18c759d96a"></a>
-static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_g_l_u_i.html#a2081435b08d7649655c72a18c759d96a">HEIGHT</a> = <a class="el" href="class_k_g_l_u_i.html#adf03c1b50922e5bb56be4b3914b3e320">WIDTH</a> * <a class="el" href="class_k_window.html#aca2b3f7c305e7c984d756cd13d20aad2">KWindow::ASPECT</a></td></tr>
-<tr class="memdesc:a2081435b08d7649655c72a18c759d96a"><td class="mdescLeft">&#160;</td><td class="mdescRight">縦幅 <br /></td></tr>
+static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_g_l_u_i.html#a2081435b08d7649655c72a18c759d96a">HEIGHT</a></td></tr>
+<tr class="memdesc:a2081435b08d7649655c72a18c759d96a"><td class="mdescLeft">&#160;</td><td class="mdescRight">スクリーン縦幅 <br /></td></tr>
 <tr class="separator:a2081435b08d7649655c72a18c759d96a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>OpenGLで表現されるUI. </p>
+<dl class="section author"><dt>著者</dt><dd>Maeda Takumi </dd></dl>
+<dl class="section note"><dt>覚え書き</dt><dd>最前面に表示しているだけなので、描画は最後に呼び出されなければならない。 </dd></dl>
+</div><h2 class="groupheader">構築子と解体子</h2>
+<a class="anchor" id="a12c3106b8f60686974589edb10149b53"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">KGLUI::KGLUI </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_k_camera.html">KCamera</a> &amp;&#160;</td>
+          <td class="paramname"><em>aCamera</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>UIを生成します。 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">aCamera</td><td>描画対象のカメラ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
 <li>C:/Users/Kawaz/Documents/Kawazuini/Kawazuini/<a class="el" href="_k_g_l_u_i_8h_source.html">KGLUI.h</a></li>
 <li>C:/Users/Kawaz/Documents/Kawazuini/Kawazuini/<a class="el" href="_k_g_l_u_i_8cpp.html">KGLUI.cpp</a></li>

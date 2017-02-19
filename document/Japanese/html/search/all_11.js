@@ -2,7 +2,6 @@ var searchData=
 [
   ['seashore',['Seashore',['../class_k_midi.html#a11035e68ce16118fd222337c93318813a360ae3d26e29f3aec0715f6a80d9ee75',1,'KMidi']]],
   ['set',['set',['../class_k_camera.html#ad44a63f5ba96aee017ddfa2b2b42a451',1,'KCamera::set()'],['../class_k_midi.html#a94a3745ff93a610d89bcfa138b323c0f',1,'KMidi::set()']]],
-  ['setclearcolor',['setClearColor',['../class_k_window.html#a8c56a581a068440f6c140c1cf7d37ee7',1,'KWindow']]],
   ['setlistener',['setListener',['../class_k_window.html#a42a02c856005608f6fae35fc5752d030',1,'KWindow']]],
   ['setpixel',['setPixel',['../class_k_texture.html#a18fe7481376f5fe8a69ebd89b3365d70',1,'KTexture']]],
   ['setpos',['setPos',['../class_k_mouse.html#aa63ba4f4d1382513f0c4bc562b14c4a8',1,'KMouse']]],

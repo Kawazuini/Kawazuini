@@ -105,18 +105,14 @@ KCamera の継承関係図</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:aa9acfe839553d025cfb1926972454db3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa9acfe839553d025cfb1926972454db3"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>KCamera</b> (const <a class="el" href="class_k_camera.html">KCamera</a> &amp;orig)=default</td></tr>
-<tr class="separator:aa9acfe839553d025cfb1926972454db3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad44a63f5ba96aee017ddfa2b2b42a451"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad44a63f5ba96aee017ddfa2b2b42a451"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_camera.html#ad44a63f5ba96aee017ddfa2b2b42a451">set</a> ()</td></tr>
-<tr class="memdesc:ad44a63f5ba96aee017ddfa2b2b42a451"><td class="mdescLeft">&#160;</td><td class="mdescRight">視点の確定 <br /></td></tr>
+<tr class="memdesc:ad44a63f5ba96aee017ddfa2b2b42a451"><td class="mdescLeft">&#160;</td><td class="mdescRight">視点の更新 <br /></td></tr>
 <tr class="separator:ad44a63f5ba96aee017ddfa2b2b42a451"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 静的公開メンバ関数</h2></td></tr>
-<tr class="memitem:afd5d285817d9f42c12855d0610999fd6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afd5d285817d9f42c12855d0610999fd6"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><b>checkHidden</b> (const <a class="el" href="class_k_vector.html">KVector</a> &amp;aNormal)</td></tr>
+<tr class="memitem:afd5d285817d9f42c12855d0610999fd6"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_camera.html#afd5d285817d9f42c12855d0610999fd6">checkHidden</a> (const <a class="el" href="class_k_vector.html">KVector</a> &amp;aNormal)</td></tr>
 <tr class="separator:afd5d285817d9f42c12855d0610999fd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -152,12 +148,10 @@ float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 静的公開変数類</h2></td></tr>
-<tr class="memitem:a5d1ce16eea6b11a8886d9e02e860e401"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5d1ce16eea6b11a8886d9e02e860e401"></a>
-static <a class="el" href="class_k_vector.html">KVector</a>&#160;</td><td class="memItemRight" valign="bottom"><b>sPosition</b></td></tr>
-<tr class="separator:a5d1ce16eea6b11a8886d9e02e860e401"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7df08fba5e9d8dc7f4f60552913cba99"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7df08fba5e9d8dc7f4f60552913cba99"></a>
-static <a class="el" href="class_k_vector.html">KVector</a>&#160;</td><td class="memItemRight" valign="bottom"><b>sDirection</b></td></tr>
-<tr class="separator:a7df08fba5e9d8dc7f4f60552913cba99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0a87413d4de3e0d32b4be0b7b3bf752"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae0a87413d4de3e0d32b4be0b7b3bf752"></a>
+static const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_camera.html#ae0a87413d4de3e0d32b4be0b7b3bf752">DEFAULT_ANGLE</a></td></tr>
+<tr class="memdesc:ae0a87413d4de3e0d32b4be0b7b3bf752"><td class="mdescLeft">&#160;</td><td class="mdescRight">初期視野角 <br /></td></tr>
+<tr class="separator:ae0a87413d4de3e0d32b4be0b7b3bf752"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e627ba23d352840b3743b75444f5029"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9e627ba23d352840b3743b75444f5029"></a>
 static <a class="el" href="class_k_vector.html">KVector</a>&#160;</td><td class="memItemRight" valign="bottom"><b>sDirection_UL</b></td></tr>
 <tr class="separator:a9e627ba23d352840b3743b75444f5029"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -171,6 +165,38 @@ static <a class="el" href="class_k_vector.html">KVector</a>&#160;</td><td class=
 static <a class="el" href="class_k_vector.html">KVector</a>&#160;</td><td class="memItemRight" valign="bottom"><b>sDirection_DR</b></td></tr>
 <tr class="separator:a27a008d392ecdfd3398548ceca9e19d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">関数詳解</h2>
+<a class="anchor" id="afd5d285817d9f42c12855d0610999fd6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool KCamera::checkHidden </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_k_vector.html">KVector</a> &amp;&#160;</td>
+          <td class="paramname"><em>aNormal</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>法線から描画の必要性を判定します。 </p><dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">aNormal</td><td>対象ポリゴンの法線 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>描画範囲の必要性 </dd></dl>
+
+</div>
+</div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
 <li>C:/Users/Kawaz/Documents/Kawazuini/Kawazuini/<a class="el" href="_k_camera_8h_source.html">KCamera.h</a></li>
 <li>C:/Users/Kawaz/Documents/Kawazuini/Kawazuini/<a class="el" href="_k_camera_8cpp.html">KCamera.cpp</a></li>

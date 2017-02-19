@@ -91,6 +91,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 <div class="title">KCharset クラス</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>画像による文字セット  
+ <a href="class_k_charset.html#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_k_charset_8h_source.html">KCharset.h</a>&gt;</code></p>
 <div class="dynheader">
 KCharset の継承関係図</div>
 <div class="dyncontent">
@@ -103,8 +108,8 @@ KCharset の継承関係図</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:ab57a6ed2ca45d6881ce432e43b7e2daa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_charset.html#ab57a6ed2ca45d6881ce432e43b7e2daa">KCharset</a> (const <a class="el" href="class_k_image.html">KImage</a> &amp;aImage, const int &amp;aSize)</td></tr>
-<tr class="memdesc:ab57a6ed2ca45d6881ce432e43b7e2daa"><td class="mdescLeft">&#160;</td><td class="mdescRight">画像から文字セットを作成  <a href="#ab57a6ed2ca45d6881ce432e43b7e2daa">[詳解]</a><br /></td></tr>
+<tr class="memitem:ab57a6ed2ca45d6881ce432e43b7e2daa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab57a6ed2ca45d6881ce432e43b7e2daa"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>KCharset</b> (const <a class="el" href="class_k_image.html">KImage</a> &amp;aImage, const int &amp;aSize)</td></tr>
 <tr class="separator:ab57a6ed2ca45d6881ce432e43b7e2daa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a235b96345523a1003c770c70fc0016b9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a235b96345523a1003c770c70fc0016b9"></a>
 <a class="el" href="class_k_rect.html">KRect</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getArea</b> (const char *aChar) const </td></tr>
@@ -112,58 +117,56 @@ KCharset の継承関係図</div>
 <tr class="memitem:a5feb061b8cd8833327e1cb8c8ccc2353"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5feb061b8cd8833327e1cb8c8ccc2353"></a>
 <a class="el" href="class_k_rect.html">KRect</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getArea</b> (const String &amp;aStr) const </td></tr>
 <tr class="separator:a5feb061b8cd8833327e1cb8c8ccc2353"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e01b455d41b57d8dd5232d9eed0cdc4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3e01b455d41b57d8dd5232d9eed0cdc4"></a>
-<a class="el" href="class_k_vector.html">KVector</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getOffsetIndex</b> (const char *aChar) const </td></tr>
-<tr class="separator:a3e01b455d41b57d8dd5232d9eed0cdc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5b2661ddd5f733c60161c000e48a717"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_charset.html#ae5b2661ddd5f733c60161c000e48a717">getWidth</a> (const String &amp;aStr) const </td></tr>
+<tr class="memdesc:ae5b2661ddd5f733c60161c000e48a717"><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列描画に必要な描画幅を返します。  <a href="#ae5b2661ddd5f733c60161c000e48a717">[詳解]</a><br /></td></tr>
+<tr class="separator:ae5b2661ddd5f733c60161c000e48a717"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 公開変数類</h2></td></tr>
-<tr class="memitem:a4cc9352686bb4667bbf5a94d2aa35d14"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4cc9352686bb4667bbf5a94d2aa35d14"></a>
-const <a class="el" href="class_k_image.html">KImage</a> *const&#160;</td><td class="memItemRight" valign="bottom"><b>mImage</b></td></tr>
-<tr class="separator:a4cc9352686bb4667bbf5a94d2aa35d14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5889e2204f14f7e85a081e89fdf7d5f9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5889e2204f14f7e85a081e89fdf7d5f9"></a>
+const <a class="el" href="class_k_image.html">KImage</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_charset.html#a5889e2204f14f7e85a081e89fdf7d5f9">mImage</a></td></tr>
+<tr class="memdesc:a5889e2204f14f7e85a081e89fdf7d5f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">文字セット画像 <br /></td></tr>
+<tr class="separator:a5889e2204f14f7e85a081e89fdf7d5f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b9a12fa1842fe335b5a9bd1ca8ae5a0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0b9a12fa1842fe335b5a9bd1ca8ae5a0"></a>
-const int&#160;</td><td class="memItemRight" valign="bottom"><b>mSize</b></td></tr>
+const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_charset.html#a0b9a12fa1842fe335b5a9bd1ca8ae5a0">mSize</a></td></tr>
+<tr class="memdesc:a0b9a12fa1842fe335b5a9bd1ca8ae5a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">文字サイズ <br /></td></tr>
 <tr class="separator:a0b9a12fa1842fe335b5a9bd1ca8ae5a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99097191b88ababd17a9b92a17b65339"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a99097191b88ababd17a9b92a17b65339"></a>
+HashMap&lt; unsigned long, <a class="el" href="class_k_vector.html">KVector</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mCharMap</b></td></tr>
+<tr class="separator:a99097191b88ababd17a9b92a17b65339"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">構築子と解体子</h2>
-<a class="anchor" id="ab57a6ed2ca45d6881ce432e43b7e2daa"></a>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>画像による文字セット </p>
+<dl class="section author"><dt>著者</dt><dd>Maeda Takumi </dd></dl>
+</div><h2 class="groupheader">関数詳解</h2>
+<a class="anchor" id="ae5b2661ddd5f733c60161c000e48a717"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">KCharset::KCharset </td>
+          <td class="memname">int KCharset::getWidth </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_k_image.html">KImage</a> &amp;&#160;</td>
-          <td class="paramname"><em>aImage</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int &amp;&#160;</td>
-          <td class="paramname"><em>aSize</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">const String &amp;&#160;</td>
+          <td class="paramname"><em>aStr</em></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>画像から文字セットを作成 </p>
+<p>文字列描画に必要な描画幅を返します。 </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">aImage</td><td>文字セット画像 </td></tr>
-    <tr><td class="paramname">aSize</td><td>文字の大きさ </td></tr>
+    <tr><td class="paramname">aStr</td><td>描画文字列 </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>戻り値</dt><dd>描画幅 </dd></dl>
 
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
 <li>C:/Users/Kawaz/Documents/Kawazuini/Kawazuini/<a class="el" href="_k_charset_8h_source.html">KCharset.h</a></li>
-<li>C:/Users/Kawaz/Documents/Kawazuini/Kawazuini/KCharset.cpp</li>
+<li>C:/Users/Kawaz/Documents/Kawazuini/Kawazuini/<a class="el" href="_k_charset_8cpp.html">KCharset.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
