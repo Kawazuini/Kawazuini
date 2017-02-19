@@ -1,7 +1,7 @@
 /** 
- * @file KawazuInclude.h
+ * @file   KawazuInclude.h
  * @author Maeda Takumi
- * @brief Project's include file
+ * @brief  Project's include file
  */
 #ifndef KAWAZUINCLUDE_H
 #define KAWAZUINCLUDE_H
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <list>
 #include <mmsystem.h>
+#include <pthread.h>
 #include <queue>
 #include <random>
 #include <sstream>
