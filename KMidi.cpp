@@ -10,10 +10,10 @@ const int KMidi::STATE_PLAY(0x9);
 const int KMidi::STATE_CHANGE(0xC);
 
 KMidi::KMidi() :
-mThread(TimeManager),
+mThread(TimeManager, this),
 mNotes(CHANNEL_COUNT) {
     midiOutOpen(&mMidi, MIDIMAPPER, 0, 0, 0);
-    mThread.detach(this);
+    mNoteLock.unlock();
 }
 
 KMidi::~KMidi() {

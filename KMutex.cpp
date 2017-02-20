@@ -7,10 +7,10 @@
 
 KMutex::KMutex() {
     pthread_mutex_init(&mMutex, NULL);
+    pthread_mutex_lock(&mMutex);
 }
 
 KMutex::~KMutex() {
-    pthread_mutex_unlock(&mMutex);
     pthread_mutex_destroy(&mMutex);
 }
 

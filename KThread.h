@@ -15,11 +15,11 @@ private:
     pthread_t mThread;
     ThreadFunction mThreadFunction;
 public:
-    KThread(const ThreadFunction& aFunction);
+    KThread(const ThreadFunction& aFunction, void* args = NULL);
     ~KThread();
 
-    void join(void* arg = NULL);
-    void detach(void* arg = NULL);
+    void join();
+    void detach();
     void stop();
 };
 
