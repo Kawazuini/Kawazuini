@@ -32,11 +32,17 @@ void* KMidi::TimeManager(void* aMidi) {
         for (int i = 0; i < CHANNEL_COUNT; ++i) {
             int count(0);
             for (auto j = midi.mNotes[i].begin(); j != midi.mNotes[i].end(); ++j, ++count) {
-                j->mPhonetic -= pass;
-                if (j->mPhonetic < 0) { // 音価を使い切る
-                    midi.stop(i, *j);
+                int phon(j->mPhonetic -= pass);
+                if (phon < 0) { // 音価を使い切る
+                    bool stop(true);
+                    for (Note k : midi.mNotes[i]) {
+                        if (k.mTone == j->mTone && k.mPhonetic != phon) { // 重なった音は止めない
+                            stop = false;
+                            break;
+                        }
+                    }
+                    if (stop) midi.stop(i, *j);
                     midi.mNotes[i].erase(j);
-                    int deb(midi.mNotes[i].size());
                     if (count == midi.mNotes[i].size()) break;
                     j = midi.mNotes[i].begin() + count;
                 }
