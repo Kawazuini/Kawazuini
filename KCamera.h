@@ -63,13 +63,13 @@ public:
      * \~japanese
      * @brier  法線から描画の必要性を判定します。
      * @param  aNormal 対象ポリゴンの法線
-     * @return 描画範囲の必要性
+     * @return 描画の必要性
      */
-    static inline bool checkHidden(const KVector& aNormal) {
-        return aNormal.dot(KCamera::sDirection_UL) <= 0
-                || aNormal.dot(KCamera::sDirection_UR) <= 0
-                || aNormal.dot(KCamera::sDirection_DL) <= 0
-                || aNormal.dot(KCamera::sDirection_DR) <= 0;
+    static inline bool isInCamera(const KVector& aNormal) {
+        return aNormal.dot(sDirection_UL) <= 0
+                || aNormal.dot(sDirection_UR) <= 0
+                || aNormal.dot(sDirection_DL) <= 0
+                || aNormal.dot(sDirection_DR) <= 0;
     };
 };
 
