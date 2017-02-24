@@ -16,16 +16,8 @@
  */
 class KUpdater : private KNonCopy {
 private:
-    /**
-     * @brief \~english  list of KUpdater
-     * @brief \~japanese KUpdaterリスト
-     */
-    static List<KUpdater*> sUpdaters;
-    /**
-     * @brief \~english  whether updated
-     * @brief \~japanese 更新有無
-     */
-    bool mUpdated;
+    /* 更新リスト */ static List<KUpdater*> sUpdaters;
+    /* 更新状態   */ bool mUpdated;
 protected:
     KUpdater();
     virtual ~KUpdater();
