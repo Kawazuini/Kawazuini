@@ -22,22 +22,10 @@ class KVector;
  */
 class KTexture : private KNonCopy {
 private:
-    /**
-     * @brief \~english  pixel info
-     * @brief \~japanese 画素情報
-     */
-    byte * const mPixel;
-
-    /**
-     * @brief \~english  size of texture
-     * @brief \~japanese テクスチャサイズ
-     */
-    const unsigned int mSize;
-    /**
-     * @brief \~english  name of registration
-     * @brief \~japanese テクスチャ登録名
-     */
-    const unsigned int mName;
+    /* 画素情報   */ byte * const mPixel;
+    /* サイズ     */ const unsigned int mSize;
+    /* 登録名     */ const unsigned int mName;
+    /* 登録レベル */ const unsigned int mLevel;
 public:
     KTexture(const unsigned int& aSize);
     virtual ~KTexture();

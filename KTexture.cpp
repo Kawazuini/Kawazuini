@@ -11,18 +11,19 @@
 KTexture::KTexture(const unsigned int& aSize) :
 mPixel(new byte[aSize * aSize * 4]),
 mSize(aSize),
-mName(0) {
+mName(0),
+mLevel(0) {
     clearRect(KRect(mSize, mSize));
 
     glGenTextures(1, const_cast<unsigned int*> (&mName));
     glBindTexture(GL_TEXTURE_2D, mName);
     glTexImage2D(
-            GL_TEXTURE_2D, 0, GL_RGBA,
+            GL_TEXTURE_2D, mLevel, GL_RGBA,
             mSize, mSize, 0,
             GL_RGBA, GL_UNSIGNED_BYTE, mPixel
             );
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 }
 
 KTexture::~KTexture() {
@@ -32,7 +33,7 @@ KTexture::~KTexture() {
 void KTexture::reflect() const {
     glBindTexture(GL_TEXTURE_2D, mName);
     glTexSubImage2D(
-            GL_TEXTURE_2D, 0,
+            GL_TEXTURE_2D, mLevel,
             0, 0, mSize, mSize,
             GL_RGBA, GL_UNSIGNED_BYTE, mPixel
             );
