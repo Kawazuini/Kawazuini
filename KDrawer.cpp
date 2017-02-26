@@ -20,6 +20,7 @@ void const KDrawer::DRAW() {
 }
 
 void KDrawer::add() {
+    remove(); // 二重追加を防ぐ
     sDrawers.push_back(this);
 }
 

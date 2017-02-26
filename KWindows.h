@@ -5,7 +5,7 @@
 #ifndef KWINDOWS_H
 #define KWINDOWS_H
 
-#include "KawazuInclude.h"
+#include "KUtility.h"
 
 /** @brief メッセージボックスの表示 */
 static inline void message(

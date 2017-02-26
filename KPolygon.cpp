@@ -8,9 +8,9 @@
 #include "KMath.h"
 #include "KSegment.h"
 
-KPolygon::KPolygon(const Vector<KVector>& aVertex) {
-    mVertex = aVertex;
-    mNormal = (mVertex[1] - mVertex[0]).cross(mVertex[2] - mVertex[1]).normalization();
+KPolygon::KPolygon(const Vector<KVector>& aVertex) :
+mVertex(aVertex),
+mNormal((mVertex[1] - mVertex[0]).cross(mVertex[2] - mVertex[1]).normalization()) {
 }
 
 bool KPolygon::operator*(const KVector& aPoint) const {

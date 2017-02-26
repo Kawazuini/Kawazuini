@@ -7,18 +7,20 @@
 #define KHANDLIGHT_H
 
 #include "KLight.h"
-
 #include "KVector.h"
 
 class KHandLight : public KLight {
+private:
+    static const float DIFFUSE[3];
+    static const float AMBIENT[3];
+    static const float SPECULAR[3];
 public:
     KVector mPosition;
     KVector mDirection;
-public:
+
     KHandLight();
-    KHandLight(const KHandLight& orig);
-    virtual ~KHandLight();
-    
+    virtual ~KHandLight() = default;
+
     void at();
 };
 

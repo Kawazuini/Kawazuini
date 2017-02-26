@@ -16,6 +16,7 @@
 #include <iostream>
 #include <list>
 #include <mmsystem.h>
+#include <new>
 #include <pthread.h>
 #include <queue>
 #include <random>
@@ -31,6 +32,9 @@
 
 #include <GL/gl.h>
 #include <GL/glu.h>
+#include <GL/glcorearb.h>
+#include <GL/glext.h>
+#include <GL/wglext.h>
 
 #endif /* KAWAZUINCLUDE_H */
 

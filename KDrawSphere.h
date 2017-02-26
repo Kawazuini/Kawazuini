@@ -98,7 +98,7 @@ public:
      * @brief \~english  texture
      * @breif \~japanese テクスチャ
      */
-    KTexture* mTexture;
+    const KTexture* mTexture;
 
     KDrawSphere(
             const KVector& aPosition,

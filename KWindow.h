@@ -22,48 +22,46 @@ class KWindow : private KNonCopy {
 public:
 
     /** @brief メイン関数の引数 */
-    typedef struct {
+    struct MainArgs {
         /** @brief インスタンスハンドル */ HINSTANCE mInst;
         /** @brief 常にNULL             */ HINSTANCE mPrevInst;
         /** @brief コマンドライン引数   */ LPSTR mCmndLine;
         /** @brief ウィンドウの表示方法 */ int mCmndShow;
-    } MainArgs;
+    };
 
     /** @brief デフォルトのアスペクト比   */ static const float ASPECT;
     /** @brief デフォルトウィンドウサイズ */ static const KRect SIZE;
     /** @brief PCの画面サイズ             */ static const KRect DISPLAY_SIZE;
-private:
-    /** @brief メイン引数         */ const MainArgs * const mArgs;
-    /** @brief 登録用文字列       */ const String mClassName;
-    /** @brief ウィンドウクラス   */ const WNDCLASSEX mWindowClass;
-    /** @brief ウィンドウハンドル */ const HWND mWindow;
-    /** @brief 表示タイトル       */ String mTitle;
 
-    /** @brief ウィンドウ生成状態 */ bool mExist;
-    /** @brief 外枠表示           */ bool mFrameVisible;
-    /** @brief フルスクリーン状態 */ bool mFullScreen;
+    /* メイン引数         */ const MainArgs * const mArgs;
+    /* 登録用文字列       */ const String mClassName;
+    /* ウィンドウクラス   */ const WNDCLASSEX mWindowClass;
+    /* ウィンドウハンドル */ const HWND mWindow;
+private:
+    /* 表示タイトル       */ String mTitle;
+
+    /* ウィンドウ生成状態 */ bool mExist;
+    /* 外枠表示           */ bool mFrameVisible;
+    /* フルスクリーン状態 */ bool mFullScreen;
 
     HDC mScreen; ///< 画面表示HDC
 
     int mFrameWidth;
     int mFrameHeight;
 
-    /** @brief スクリーンサイズ */ KRect mScreenSize;
+    /* スクリーンサイズ */ KRect mScreenSize;
 
-    /** @brief 描画構造体            */ PAINTSTRUCT mPaint;
-    /** @brief ピクセルフォーマット  */ PIXELFORMATDESCRIPTOR mPixelFormat;
+    /* 描画構造体            */ PAINTSTRUCT mPaint;
 
-    /** @brief イベント処理クラス */ KListener* mListener;
+    /* イベント処理クラス */ KListener* mListener;
 
     /* ウィンドウプロシージャ */
     static LRESULT CALLBACK WIN_PROC(HWND aHwnd, UINT aMsg, WPARAM aWParam, LPARAM aLParam);
 
-    /* in WM_PAINT */
-    void startPaint(); // 描画処理の開始
-    void clearCanvas(); // デパスバッファのクリア
-    void display(); // 描画の表示
-
-    HGLRC mGLRC;
+    // in WM_PAINT
+    /* 描画処理の開始   */ void startPaint();
+    /* バッファのクリア */ void clearCanvas();
+    /* 描画の表示       */ void display();
 public:
 
     /**

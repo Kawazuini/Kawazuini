@@ -52,39 +52,11 @@ mWindow((
 mTitle(aTitle),
 mFrameVisible(true),
 mFullScreen(false),
-mScreenSize(aSize),
-mPixelFormat({
-    sizeof (PIXELFORMATDESCRIPTOR),
-    1,
-    PFD_DRAW_TO_WINDOW | PFD_SUPPORT_OPENGL | PFD_DOUBLEBUFFER,
-    PFD_TYPE_RGBA,
-    32, // color
-    0, 0, // R
-    0, 0, // G
-    0, 0, // B
-    0, 0, // A
-    0, 0, 0, 0, 0, // AC R G B A
-    24, // depth
-    8, // stencil
-    0, // aux
-    0, // layertype
-    0, // reserved
-    0, // layermask
-    0, // visiblemask
-    0 // damagemask
-}) {
+mScreenSize(aSize) {
     if (!mWindow) throw Error(_T("ウィンドウの作成に失敗しました."));
 
-    // ピクセルフォーマットの選択
-    wglDeleteContext(mGLRC);
-    mScreen = GetDC(mWindow);
-    SetPixelFormat(mScreen, ChoosePixelFormat(mScreen, &(mPixelFormat)), &(mPixelFormat));
-    mGLRC = wglCreateContext(mScreen); // OpenGL コンテキストの作成
-    wglMakeCurrent(mScreen, mGLRC);
-    ReleaseDC(mWindow, mScreen);
-
-    // フレーム幅
-    RECT window, client; // フレーム幅計算
+    // フレーム幅の計算
+    RECT window, client;
     GetWindowRect(mWindow, &window);
     GetClientRect(mWindow, &client);
     KRect w(window), c(client);
@@ -95,9 +67,6 @@ mPixelFormat({
 }
 
 KWindow::~KWindow() {
-    wglMakeCurrent(NULL, NULL);
-    wglDeleteContext(mGLRC);
-
     UnregisterClass(mClassName.data(), mArgs->mInst);
 }
 
@@ -171,7 +140,6 @@ void KWindow::startPaint() {
 }
 
 void KWindow::clearCanvas() {
-    glClearColor(0, 0, 0, 1);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 

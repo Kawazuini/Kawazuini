@@ -24,6 +24,7 @@ void KGLUI::draw() const {
     mScreen.reflect();
 
     glDisable(GL_DEPTH_TEST); // 絶対描画
+    glNormal3f(DEPLOYMENT(-mCamera.mDirection));
     mScreen.bindON();
     glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
     glBegin(GL_TRIANGLE_FAN);

@@ -9,6 +9,7 @@
 #include "KTexture.h"
 
 #include "KOpenGL.h"
+#include "KShader.h"
 
 // Camera
 #include "KCamera.h"

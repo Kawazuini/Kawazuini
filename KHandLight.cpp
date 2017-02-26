@@ -7,18 +7,14 @@
 
 #include "KUtility.h"
 
+const float KHandLight::DIFFUSE[3]{
+    1.0, 1.0, 1.0
+}; //拡散光
+const float KHandLight::AMBIENT[3]{0.25, 0.25, 0.25}; //環境光
+const float KHandLight::SPECULAR[3]{1.0, 1.0, 1.0}; //鏡面光
+
 KHandLight::KHandLight() {
 }
-
-KHandLight::KHandLight(const KHandLight& orig) {
-}
-
-KHandLight::~KHandLight() {
-}
-
-static GLfloat lightDiffuse[3] = {1.0, 1.0, 1.0}; //拡散光
-static GLfloat lightAmbient[3] = {0.25, 0.25, 0.25}; //環境光
-static GLfloat lightSpecular[3] = {1.0, 1.0, 1.0}; //鏡面光
 
 void KHandLight::at() {
     float lightPosition[4] = {DEPLOYMENT(mPosition), 1.0f};
@@ -26,11 +22,14 @@ void KHandLight::at() {
     float lightDirection[3] = {DEPLOYMENT(mDirection)};
     glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, lightDirection);
 
-    glLightfv(GL_LIGHT0, GL_DIFFUSE, lightDiffuse);
-    glLightfv(GL_LIGHT0, GL_AMBIENT, lightAmbient);
-    glLightfv(GL_LIGHT0, GL_SPECULAR, lightSpecular);
-    glLightf(GL_LIGHT0, GL_LINEAR_ATTENUATION, 0.01);
+    glLightfv(GL_LIGHT0, GL_DIFFUSE, DIFFUSE);
+    glLightfv(GL_LIGHT0, GL_AMBIENT, AMBIENT);
+    glLightfv(GL_LIGHT0, GL_SPECULAR, SPECULAR);
+
+    glLightf(GL_LIGHT0, GL_CONSTANT_ATTENUATION, 0);
+    glLightf(GL_LIGHT0, GL_LINEAR_ATTENUATION, 0);
+    glLightf(GL_LIGHT0, GL_QUADRATIC_ATTENUATION, 0.001);
     glLightf(GL_LIGHT0, GL_SPOT_CUTOFF, 30.0); // スポットライトの絞り（デフォルト 180.0）
-    glLightf(GL_LIGHT0, GL_SPOT_EXPONENT, 0.1); // スポットライトの中心からの減衰の度合い（デフォルト 0）
+    glLightf(GL_LIGHT0, GL_SPOT_EXPONENT, 7.5); // スポットライトの中心からの減衰の度合い（デフォルト 0）
 }
 

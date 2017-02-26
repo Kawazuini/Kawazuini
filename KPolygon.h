@@ -31,7 +31,6 @@ public:
 
     KPolygon() = default;
     KPolygon(const Vector<KVector>& aVertex);
-    KPolygon(const KPolygon& orig) = default;
     virtual ~KPolygon() = default;
 
     /**

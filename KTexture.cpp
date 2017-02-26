@@ -28,6 +28,7 @@ mLevel(0) {
 
 KTexture::~KTexture() {
     glDeleteTextures(1, const_cast<unsigned int*> (&mName));
+    delete[] mPixel;
 }
 
 void KTexture::reflect() const {
