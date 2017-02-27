@@ -9,6 +9,7 @@
 // <gdiplus.h>の#ifdefをごまかす
 #define PROPID ULONG
 
+#include <algorithm>
 #include <chrono>
 #include <fstream>
 #include <gdiplus.h>
