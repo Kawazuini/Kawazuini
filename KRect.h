@@ -8,8 +8,15 @@
 
 #include "KawazuInclude.h"
 
-#include "KVector.h"
+class KVector;
 
+#define DEPLOY_RECT(aRec) (aRec).x, (aRec).y, (aRec).width, (aRec).height
+
+/**
+ * @brief  \~english  Rect
+ * @brief  \~japanese 矩形
+ * @author \~ Maeda Takumi
+ */
 class KRect {
 public:
     /** @brief 始点x座標 */ int x;
@@ -47,7 +54,8 @@ public:
     /** @return 矩形右端のx座標            */ int right() const;
     /** @return 矩形の水平方向の中心座標   */ int centerX() const;
     /** @return 矩形の垂直方向の中心座標   */ int centerY() const;
-    /** @return 始点座標                   */ KVector start() const;
+    /** @return 始点座標                   */ KVector begin() const;
+    /** @return 終点座標                   */ KVector end() const;
     /** @return 中心座標                   */ KVector center() const;
 };
 

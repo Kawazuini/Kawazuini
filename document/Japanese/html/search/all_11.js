@@ -18,7 +18,7 @@ var searchData=
   ['sopranosax',['SopranoSax',['../class_k_midi.html#a11035e68ce16118fd222337c93318813aab54082a64f29d8c3a0357a3fe273030',1,'KMidi']]],
   ['start',['start',['../class_k_application.html#afd9ecbc6332362d556bd934f2eceb648',1,'KApplication::start()'],['../class_k_rect.html#aa2dc10626a3e6d1ce3fa98442394707c',1,'KRect::start()']]],
   ['steeldrums',['SteelDrums',['../class_k_midi.html#a11035e68ce16118fd222337c93318813aa66ca5ca91f9bc961201d234dd7acc6c',1,'KMidi']]],
-  ['stop',['stop',['../class_k_application.html#ad442a053413ab9125645d07321b66034',1,'KApplication::stop()'],['../class_k_midi.html#a1eb53ea90218051689887f8efe963993',1,'KMidi::stop()']]],
+  ['stop',['stop',['../class_k_application.html#ac7cb721ffc89bb76f26976dacc885a49',1,'KApplication::stop()'],['../class_k_application.html#a8ee1f3a3509ba8a104b7b872667374de',1,'KApplication::stop(KSwitch &amp;aPauseSwitch)'],['../class_k_midi.html#a559e20013ce7fb988191423f619a984d',1,'KMidi::stop(const int &amp;aChannel, const Note &amp;aNote) const '],['../class_k_midi.html#a13c2d6731fe0acbfeeba5729056660dc',1,'KMidi::stop()'],['../class_k_thread.html#a67f00b94fbe7c881cfb6aea373aa549c',1,'KThread::stop()']]],
   ['stringensemble1',['StringEnsemble1',['../class_k_midi.html#a11035e68ce16118fd222337c93318813a950f3d509443c59b53673f280adf51ca',1,'KMidi']]],
   ['stringensemble2',['StringEnsemble2',['../class_k_midi.html#a11035e68ce16118fd222337c93318813a2118a9b5a1efd1e51d9ea1a601349f37',1,'KMidi']]],
   ['synthbass1',['SynthBass1',['../class_k_midi.html#a11035e68ce16118fd222337c93318813a03541f28c1ee48b11077b4a5eacdc123',1,'KMidi']]],

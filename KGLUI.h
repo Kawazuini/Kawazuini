@@ -8,56 +8,49 @@
 
 #include "KDrawer.h"
 #include "KTexture.h"
+#include "KRect.h"
+#include "KUpdater.h"
+#include "KWindow.h"
 
 class KCamera;
+class KGLContent;
 class KTexture;
+class KWindow;
 
 /**
  * @brief  \~english  UI by OpenGL
  * @brief  \~japanese OpenGLで表現されるUI
  * @author \~ Maeda Takumi
- * @note   \~japanese 最前面に表示しているだけなので、描画は最後に呼び出されなければならない。
  */
-class KGLUI : private KDrawer {
+class KGLUI : private KDrawer, private KUpdater {
 public:
-    /**
-     * @brief \~english  screen width
-     * @brief \~japanese スクリーン横幅
-     */
-    static const int WIDTH;
-    /**
-     * @brief \~english  screen height
-     * @brief \~japanese スクリーン縦幅
-     */
-    static const int HEIGHT;
-    /**
-     * @brief \~english  pixel information of screen
-     * @brief \~japanese 画面の画素情報
-     */
-    KTexture mScreen;
+    /** @brief UI size */ static const int SIZE;
+private:
+    /* camera for drawing */ const KCamera& mCamera;
+    /* window for drawing */ const KWindow& mWindow;
+    /* UI components      */ List<KGLContent*> mComponents;
 
-    /**
-     * @brief \~english  camera
-     * @brief \~japanese カメラ
-     */
-    const KCamera& mCamera;
-
-    /**
-     * \~english
-     * @brief generate UI.
-     * @param aCamera camera for drawing
-     * \~japanese
-     * @brief UIを生成します。
-     * @param aCamera 描画対象のカメラ
-     */
+    /* pixel information of screen   */ KTexture mScreen;
+    /* whether updated of screen     */ bool mUpdated;
+    /* scale between UI and Window   */ float mScale;
+    /* drawabel area of screen       */ KRect mArea;
+    /* aspect ratio of drawable area */ float mAspect;
+public:
     KGLUI(const KCamera& aCamera);
     virtual ~KGLUI() = default;
 
-    /**
-     * @brief \~english  drawing processing
-     * @brief \~japanese 描画処理
-     */
     void draw() const override;
+    void update() override;
+    void refrect();
+    void addContent(KGLContent& aContent);
+
+    bool isContentsActive() const;
+
+    KVector mousePosition() const;
+
+    const KWindow& window() const;
+    KTexture& screen();
+    const KRect& area() const;
 };
 
 #endif /* KGLUI_H */

@@ -1,14 +1,19 @@
 /**
- * @file KImage.h
+ * @file   KImage.h
+ * @brief  KImage
  * @author Maeda Takumi
  */
 #ifndef KIMAGE_H
 #define KIMAGE_H
 
 #include "KUtility.h"
-
 #include "KNonCopy.h"
 
+/**
+ * @brief  \~english  image object
+ * @brief  \~japanese 画像オブジェクト
+ * @author \~ Maeda Takumi
+ */
 class KImage : private KNonCopy {
 public:
 
@@ -22,38 +27,53 @@ public:
     } ext;
 private:
 
+    /* GDI+の初期化 */
     static const class KInit {
     private:
         ULONG_PTR mGdiplus;
     public:
 
         KInit() {
-            using namespace Gdiplus;
-            GdiplusStartupInput startUp;
-            GdiplusStartup(&mGdiplus, &startUp, NULL);
+            Gdiplus::GdiplusStartupInput startUp;
+            Gdiplus::GdiplusStartup(&mGdiplus, &startUp, NULL);
         };
 
         virtual ~KInit() {
-            using namespace Gdiplus;
-            GdiplusShutdown(mGdiplus);
+            Gdiplus::GdiplusShutdown(mGdiplus);
         };
     } GPINIT;
 
-    /** @brief GDI+画像定義 */ typedef Gdiplus::Bitmap GBitmap;
-    /** @brief リソース画像 */ GBitmap * const mResource;
+    /* GDI+画像定義 */ typedef Gdiplus::Bitmap GBitmap;
+    /* リソース画像 */ GBitmap * const mResource;
 
-    /**
-     * @brief リソースからイメージを読み込む
-     * @note GDI+が開始されていない場合,プログラムは不正終了する
+    /*
+     * リソースからイメージを読み込みます。
+     * GDI+が開始されていない場合,プログラムは不正終了します。
      */
     GBitmap* loadImage(const int& aId, const ext& aExt);
 public:
-    const int mWidth; ///< 横幅
-    const int mHeight; ///< 縦幅
-    const color * const mPixel; ///< 画素情報
+    /**
+     * @brief \~english  width
+     * @brief \~japanese 横幅
+     */
+    const int mWidth;
+    /**
+     * @brief \~english  height
+     * @brief \~japanese 縦幅
+     */
+    const int mHeight;
+    /**
+     * @brief \~english  pixel information
+     * @brief \~japanese 画素情報
+     */
+    const color * const mPixel;
 
     /**
-     * @param aId リソースID
+     * \~english
+     * @param aId  resource ID
+     * @param aExt image extension
+     * \~japanese
+     * @param aId  リソースID
      * @param aExt 画像拡張子
      */
     KImage(const int& aId, const ext& aExt = ext::PNG);

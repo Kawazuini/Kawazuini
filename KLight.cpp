@@ -12,9 +12,3 @@ KLight::KLight() {
     glEnable(GL_LIGHT0);
 }
 
-KLight::KLight(const KLight& orig) {
-}
-
-KLight::~KLight() {
-}
-

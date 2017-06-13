@@ -1,6 +1,7 @@
 /**
- * @file KTimer.h
- * @brief 時計クラス
+ * @file   KTimer.h
+ * @brief  KTimer
+ * @author Maeda Takumi
  */
 #ifndef KTIMER_H
 #define KTIMER_H
@@ -9,7 +10,11 @@
 
 #include "KNonCopy.h"
 
-/** @brief 時計 */
+/**
+ * @brief  \~english  Timer
+ * @brief  \~japanese 時計
+ * @author \~ Maeda Takumi
+ */
 class KTimer : private KNonCopy {
 public:
     /** @brief 時間 */ typedef long long Time;

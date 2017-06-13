@@ -1,6 +1,7 @@
 /**
- * @file KSwitch.cpp
- * @brief KSwitchクラスの実装
+ * @file   KSwitch.cpp
+ * @brief  KSwitch
+ * @author Maeda Takumi
  */
 #include "KSwitch.h"
 

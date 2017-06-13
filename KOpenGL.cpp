@@ -1,5 +1,6 @@
 /**
- * @file KOpenGL.cpp
+ * @file   KOpenGL.cpp
+ * @brief  KOpenGL
  * @author Maeda Takumi
  */
 #include "KOpenGL.h"

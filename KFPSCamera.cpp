@@ -5,23 +5,28 @@
  */
 #include "KFPSCamera.h"
 
-#include "KUtility.h"
 #include "KQuaternion.h"
+#include "KUtility.h"
 
 const KVector KFPSCamera::BASE_DIRECTION(0, 0, -1);
 
-KFPSCamera::KFPSCamera(KVector& aPosition, KVector& aDirection) :
+KFPSCamera::KFPSCamera(
+        KCamera& aCamera,
+        KVector& aPosition,
+        KVector& aDirection
+        ) :
+mCamera(aCamera),
 mFPSPosition(aPosition),
 mFPSDirection(aDirection),
 mVerticalAngle(0) {
-    mFPSDirection = mDirection = BASE_DIRECTION;
-    set();
+    mFPSDirection = mCamera.mInformation.mDirection = BASE_DIRECTION;
+    mCamera.set();
 }
 
 void KFPSCamera::update() {
-    mPosition = mFPSPosition;
-    mDirection = mFPSDirection;
-    set();
+    mCamera.mInformation.mPosition = mFPSPosition;
+    mCamera.mInformation.mDirection = mFPSDirection;
+    mCamera.set();
 }
 
 void KFPSCamera::move(const KVector& aMovement) {
@@ -29,7 +34,7 @@ void KFPSCamera::move(const KVector& aMovement) {
 }
 
 void KFPSCamera::rotate(const float& aVAngle, const float& aHAngle) {
-    static const float LIMIT = Math::PI / 2 - Math::EPSILON;
+    static const float LIMIT(Math::HALF_PI - Math::EPSILON);
 
     float pVAngle(mVerticalAngle);
     mVerticalAngle = Math::max(-LIMIT, Math::min(mVerticalAngle + aVAngle, LIMIT));
@@ -37,7 +42,7 @@ void KFPSCamera::rotate(const float& aVAngle, const float& aHAngle) {
     KQuaternion v(KVector(mFPSDirection.z, 0, -mFPSDirection.x), mVerticalAngle - pVAngle);
     KQuaternion h(KVector(0, 1, 0), aHAngle);
     mFPSDirection = mFPSDirection.rotate(v * h);
-    mHeadSlope = mHeadSlope.rotate(v * h);
+    mCamera.mInformation.mHeadSlope = mCamera.mInformation.mHeadSlope.rotate(v * h);
 }
 
 KVector KFPSCamera::convertDirection(const KVector& aVec) {

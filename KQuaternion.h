@@ -10,6 +10,11 @@
 
 class KVector;
 
+/**
+ * @brief  \~english  Quaternion
+ * @brief  \~japanese クォータニオン
+ * @author \~ Maeda Takumi
+ */
 class KQuaternion {
 public:
     float t; ///< 

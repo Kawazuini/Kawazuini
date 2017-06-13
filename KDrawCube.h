@@ -6,15 +6,15 @@
 #ifndef KDRAWCUBE_H
 #define KDRAWCUBE_H
 
-#include "KDrawObject.h"
+#include "KDrawer.h"
 #include "KVector.h"
 
 /**
- * @brief  \~english  cube for drawing
+ * @brief  \~english  Cube for drawing
  * @brief  \~japanese 描画用立方体
  * @author \~ Maeda Takumi
  */
-class KDrawCube : public KDrawObject {
+class KDrawCube : public KDrawer {
 protected:
     /**
      * @brief \~english  centroid vertex number
@@ -43,6 +43,14 @@ protected:
      */
     float mRadius;
 public:
+    /**
+     * \~english
+     * @param aScale    length of one side of cube
+     * @param aPosition centroid of cube
+     * \~japanese
+     * @param aScale    立方体の一辺の長さ
+     * @param aPosition 立方体の重心座標
+     */
     KDrawCube(const float& aScale, const KVector& aPosition = KVector());
     virtual ~KDrawCube() = default;
 

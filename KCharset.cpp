@@ -27,7 +27,7 @@ const List<String> KCharset::CHARSET
     "サ", "シ", "ス", "セ", "ソ", "タ", "チ", "ツ", "テ", "ト", "", "", "", "", "", "",
     "ナ", "ニ", "ヌ", "ネ", "ノ", "ハ", "ヒ", "フ", "ヘ", "ホ", "", "", "", "", "", "",
     "マ", "ミ", "ム", "メ", "モ", "ヤ", "　", "ユ", "　", "ヨ", "", "", "", "", "", "",
-    "ラ", "リ", "ル", "レ", "ロ", "ワ", "　", "ヲ", "　", "ン", "", "", "", "", "", "",
+    "ラ", "リ", "ル", "レ", "ロ", "ワ", "　", "ヲ", "ヴ", "ン", "", "", "", "", "", "",
     "ガ", "ギ", "グ", "ゲ", "ゴ", "ザ", "ジ", "ズ", "ゼ", "ゾ", "", "", "", "", "", "",
     "ダ", "ヂ", "ヅ", "デ", "ド", "バ", "ビ", "ブ", "ベ", "ボ", "", "", "", "", "", "",
     "パ", "ピ", "プ", "ペ", "ポ", "ッ", "ャ", "ュ", "ョ", "ー", "", "", "", "", "", "",
@@ -39,7 +39,12 @@ const List<String> KCharset::CHARSET
     "空", "振", "填", "必", "要", "最", "大", "済", "拾", "弾", "", "", "", "", "", "",
     "何", "起", "与", "倒", "経", "験", "値", "得", "回", "復", "", "", "", "", "", "",
     "上", "転", "項", "目", "総", "重", "量", "効", "果", "力", "", "", "", "", "", "",
-    "防", "御", "有", "射", "程", "範", "囲", "°", "数", "", "", "", "", "", "", "",
+    "防", "御", "有", "射", "程", "範", "囲", "°", "数", "生", "", "", "", "", "", "",
+    "肉", "自", "然", "手", "榴", "周", "巻", "込", "爆", "発", "", "", "", "", "", "",
+    "矢", "弓", "飛", "当", "痛", "系", "丸", "口", "径", "火", "", "", "", "", "", "",
+    "剣", "今", "壊", "片", "扱", "小", "型", "銃", "連", "速", "", "", "", "", "", "",
+    "狙", "高", "威", "超", "持", "運", "可", "能", "軽", "盾", "", "", "", "", "", "",
+    "腹", "靴", "下", "", "", "", "", "", "", "", "", "", "", "", "", "",
 };
 
 KCharset::KCharset(const KImage& aImage, const int& aSize) :
@@ -75,10 +80,6 @@ KRect KCharset::getArea(const char* aChar) const {
     return KRect(offset.x * kana, offset.y * 2, mSize * kana, mSize * 2);
 }
 
-KRect KCharset::getArea(const String& aStr) const {
-    return getArea(aStr.data());
-}
-
 int KCharset::getWidth(const String& aStr) const {
     const char* txt(aStr.data());
     int width(0);
@@ -88,5 +89,24 @@ int KCharset::getWidth(const String& aStr) const {
         if (area.width > mSize) i += 2;
     }
     return width;
+}
+
+bool KCharset::getDrawable(const String& aStr) const {
+    const char* txt(aStr.data());
+    for (int i = 0, i_e = aStr.size(); i < i_e; ++i) {
+        const char* character(txt + i);
+        try {
+            if (*character < 0) { // 全角文字(char文字を3つ繋げる)
+                unsigned long chhh(((*(character + 0) & 0xff) << 16) | ((*(character + 1) & 0xff) << 8) | ((*(character + 2) & 0xff) << 0));
+                mCharMap.at(chhh);
+            } else {
+                mCharMap.at(*character);
+            }
+        } catch (std::out_of_range) {
+            return false;
+        }
+        if ((getArea(character)).width > mSize) i += 2;
+    }
+    return true;
 }
 

@@ -86,6 +86,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
   <div class="summary">
 <a href="#nested-classes">クラス</a> &#124;
 <a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pub-attribs">公開変数類</a> &#124;
 <a href="#pub-static-attribs">静的公開変数類</a> &#124;
 <a href="#friends">フレンド</a> &#124;
 <a href="class_k_window-members.html">全メンバ一覧</a>  </div>
@@ -94,7 +95,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 </div><!--header-->
 <div class="contents">
 
-<p>Windows Window.  
+<p>ウィンドウ  
  <a href="class_k_window.html#details">[詳解]</a></p>
 
 <p><code>#include &lt;<a class="el" href="_k_window_8h_source.html">KWindow.h</a>&gt;</code></p>
@@ -116,8 +117,8 @@ KWindow の継承関係図</div>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a6288e93bdb99107c8898153b939f2ec9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_window.html#a6288e93bdb99107c8898153b939f2ec9">KWindow</a> (const <a class="el" href="struct_k_window_1_1_main_args.html">MainArgs</a> *aArgs, const <a class="el" href="class_k_rect.html">KRect</a> &amp;aSize, const String &amp;aTitle=&quot;&quot;, const bool &amp;aResizable=false)</td></tr>
-<tr class="separator:a6288e93bdb99107c8898153b939f2ec9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15d8e97f8f4e010d5956eb10a51d8206"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_window.html#a15d8e97f8f4e010d5956eb10a51d8206">KWindow</a> (const <a class="el" href="struct_k_window_1_1_main_args.html">MainArgs</a> &amp;aArgs, const <a class="el" href="class_k_rect.html">KRect</a> &amp;aSize, const String &amp;aTitle=&quot;&quot;, const bool &amp;aResizable=false)</td></tr>
+<tr class="separator:a15d8e97f8f4e010d5956eb10a51d8206"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a3356e8ddb803aef89eda6d2af5cde8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2a3356e8ddb803aef89eda6d2af5cde8"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_window.html#a2a3356e8ddb803aef89eda6d2af5cde8">show</a> () const </td></tr>
 <tr class="memdesc:a2a3356e8ddb803aef89eda6d2af5cde8"><td class="mdescLeft">&#160;</td><td class="mdescRight">ウィンドウ表示 <br /></td></tr>
@@ -150,6 +151,21 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memdesc:a25e1b88ef4931faba6808751a0b32756"><td class="mdescLeft">&#160;</td><td class="mdescRight">アクティブ状態を取得します。  <a href="#a25e1b88ef4931faba6808751a0b32756">[詳解]</a><br /></td></tr>
 <tr class="separator:a25e1b88ef4931faba6808751a0b32756"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+公開変数類</h2></td></tr>
+<tr class="memitem:a1dd7e51db7591e15458ab10668477629"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1dd7e51db7591e15458ab10668477629"></a>
+const <a class="el" href="struct_k_window_1_1_main_args.html">MainArgs</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>mArgs</b></td></tr>
+<tr class="separator:a1dd7e51db7591e15458ab10668477629"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a5966f87d2a5797d0395b20de3e4ea5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5a5966f87d2a5797d0395b20de3e4ea5"></a>
+const String&#160;</td><td class="memItemRight" valign="bottom"><b>mClassName</b></td></tr>
+<tr class="separator:a5a5966f87d2a5797d0395b20de3e4ea5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7becb466356d21125ff64acb0debfd81"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7becb466356d21125ff64acb0debfd81"></a>
+const WNDCLASSEX&#160;</td><td class="memItemRight" valign="bottom"><b>mWindowClass</b></td></tr>
+<tr class="separator:a7becb466356d21125ff64acb0debfd81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af331d4a939ea79c36ea00edc0260ff64"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af331d4a939ea79c36ea00edc0260ff64"></a>
+const HWND&#160;</td><td class="memItemRight" valign="bottom"><b>mWindow</b></td></tr>
+<tr class="separator:af331d4a939ea79c36ea00edc0260ff64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 静的公開変数類</h2></td></tr>
 <tr class="memitem:aca2b3f7c305e7c984d756cd13d20aad2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aca2b3f7c305e7c984d756cd13d20aad2"></a>
@@ -175,17 +191,17 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>KMouse</b></td></tr>
 <tr class="separator:ac3021b29eca9c90252fe7d975f327831"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
-<div class="textblock"><p>Windows Window. </p>
+<div class="textblock"><p>ウィンドウ </p>
 <dl class="section author"><dt>著者</dt><dd>Maeda Takumi </dd></dl>
 </div><h2 class="groupheader">構築子と解体子</h2>
-<a class="anchor" id="a6288e93bdb99107c8898153b939f2ec9"></a>
+<a class="anchor" id="a15d8e97f8f4e010d5956eb10a51d8206"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">KWindow::KWindow </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_k_window_1_1_main_args.html">MainArgs</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="struct_k_window_1_1_main_args.html">MainArgs</a> &amp;&#160;</td>
           <td class="paramname"><em>aArgs</em>, </td>
         </tr>
         <tr>

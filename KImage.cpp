@@ -1,5 +1,6 @@
 /**
- * @file KImage.cpp
+ * @file   KImage.cpp
+ * @brief  KImage
  * @author Maeda Takumi
  */
 #include "KImage.h"
@@ -17,10 +18,10 @@ mPixel(new color[mWidth * mHeight]) {
     Rect rect(0, 0, mWidth, mHeight);
     BitmapData source;
     mResource->LockBits(&rect, ImageLockModeRead, PixelFormat32bppARGB, &source);
-    byte* array = (byte*) source.Scan0;
+    byte * array((byte*) source.Scan0);
 
     // 配列の写しをとる
-    color* pixel = const_cast<color*> (mPixel);
+    color * pixel(const_cast<color*> (mPixel));
     for (int i = mWidth * mHeight - 1; i >= 0; --i, ++pixel) {
         *pixel = *(array++) | *(array++) << 8 | *(array++) << 16 | *(array++) << 24;
     }
@@ -36,7 +37,7 @@ KImage::GBitmap* KImage::loadImage(const int& aId, const ext& aExt) {
     using namespace Gdiplus;
 
     Bitmap* bmp; // 返却値
-    String resName("#" + std::to_string(aId));
+    String resName("#" + toString(aId));
 
     String imageType;
     switch (aExt) {
@@ -52,18 +53,18 @@ KImage::GBitmap* KImage::loadImage(const int& aId, const ext& aExt) {
         case PNG: imageType = "PNG";
     }
 
-    HRSRC hResource = FindResource(NULL, resName.data(), imageType.data());
+    HRSRC hResource(FindResource(NULL, resName.data(), imageType.data()));
     if (!hResource) throw Error(resName + " is not found");
-    DWORD resSize = SizeofResource(NULL, hResource);
+    DWORD resSize(SizeofResource(NULL, hResource));
     if (!resSize) throw Error(resName + "'s size is zero");
-    const void* resData = LockResource(LoadResource(NULL, hResource));
+    const void* resData(LockResource(LoadResource(NULL, hResource)));
     if (!resData) throw Error("Loading is failed : " + resName);
-    HGLOBAL hResBuffer = GlobalAlloc(GMEM_MOVEABLE, resSize);
+    HGLOBAL hResBuffer(GlobalAlloc(GMEM_MOVEABLE, resSize));
     if (!hResBuffer) {
         GlobalFree(hResBuffer);
         throw Error("Securing memory is failed");
     }
-    auto resBuffer = GlobalLock(hResBuffer);
+    LPVOID resBuffer(GlobalLock(hResBuffer));
     if (!resBuffer) {
         GlobalUnlock(hResBuffer);
         GlobalFree(hResBuffer);
@@ -72,7 +73,7 @@ KImage::GBitmap* KImage::loadImage(const int& aId, const ext& aExt) {
 
     CopyMemory(resBuffer, resData, resSize);
 
-    IStream* iStream = NULL;
+    IStream * iStream(NULL);
     if (CreateStreamOnHGlobal(hResBuffer, false, &iStream) == S_OK) {
         bmp = Bitmap::FromStream(iStream);
 

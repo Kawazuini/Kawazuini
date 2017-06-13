@@ -1,15 +1,18 @@
 /**
- * @file KOpenGL.h
+ * @file   KOpenGL.h
+ * @brief  KOpenGL
  * @author Maeda Takumi
  */
 #ifndef KOPENGL_H
 #define KOPENGL_H
 
 #include "KawazuInclude.h"
+
 #include "KNonCopy.h"
 
 class KWindow;
 
+/* OpenGL関数群 */
 extern PFNGLCREATESHADERPROC glCreateShader;
 extern PFNGLSHADERSOURCEPROC glShaderSource;
 extern PFNGLCOMPILESHADERPROC glCompileShader;
@@ -27,14 +30,20 @@ extern PFNGLUNIFORM2FPROC glUniform2f;
 extern PFNGLUNIFORM2FVPROC glUniform2fv;
 extern PFNGLGETUNIFORMLOCATIONPROC glGetUniformLocation;
 
+/**
+ * @brief  \~english  Enable OpenGL
+ * @brief  \~japanese OpenGLの有効化
+ * @author \~ Maeda Takumi
+ */
 class KOpenGL : private KNonCopy {
 private:
     /* ピクセルフォーマット */ PIXELFORMATDESCRIPTOR mPixelFormat;
     /* OpenGLコンテキスト   */ HGLRC mGLRC;
 public:
-    static const char* SHADER_VERTEX[];
-    static const char* SHADER_FRAGMENT[];
-
+    /**
+     * @param \~english  aWindow Enable Window
+     * @param \~japanese aWindow 有効にするウィンドウ
+     */
     KOpenGL(const KWindow& aWindow);
     virtual ~KOpenGL();
 };

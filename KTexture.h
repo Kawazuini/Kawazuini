@@ -1,6 +1,6 @@
 /**
  * @file   KTexture.h
- * @brief  KTesture
+ * @brief  KTexture
  * @author Maeda Takumi
  */
 #ifndef KTEXTURE_H
@@ -27,7 +27,10 @@ private:
     /* 登録名     */ const unsigned int mName;
     /* 登録レベル */ const unsigned int mLevel;
 public:
-    KTexture(const unsigned int& aSize);
+    KTexture(
+            const unsigned int& aSize,
+            const bool& aFiltering = true
+            );
     virtual ~KTexture();
 
     /**
@@ -68,6 +71,24 @@ public:
         return mPixel + y * mSize * 4 + x * 4;
     };
 
+    inline color getPixelColor(const int&x, const int& y) {
+        if (x < 0 || mSize - 1 < x || y < 0 || mSize - 1 < y) return 0x00000000;
+        byte * pixel(mPixel + y * mSize * 4 + x * 4);
+        return *(pixel + 0) << 8 * 2
+                | *(pixel + 1) << 8 * 1
+                | *(pixel + 2) << 8 * 0
+                | *(pixel + 3) << 8 * 3;
+    };
+
+    static inline void setPixel(byte * const pixel, const color& aColor) {
+        if (pixel) {
+            *(pixel + 0) = (aColor & 0x00ff0000) >> 8 * 2;
+            *(pixel + 1) = (aColor & 0x0000ff00) >> 8 * 1;
+            *(pixel + 2) = (aColor & 0x000000ff) >> 8 * 0;
+            *(pixel + 3) = (aColor & 0xff000000) >> 8 * 3;
+        }
+    }
+
     /**
      * \~english
      * @brief Mix color information to the entity of the pixel information pointer.
@@ -80,12 +101,12 @@ public:
      * @param aColor 色情報
      * @note  画素情報ポインタがNULLの場合は処理を行いません。
      */
-    static inline void setPixel(byte * const pixel, const color& aColor) {
+    static inline void drawPixel(byte * const pixel, const color& aColor) {
         if (pixel) {
-            byte alpha = aColor >> 24, disAlpha = 255 ^ alpha;
+            byte alpha(aColor >> 24), disAlpha(255 ^ alpha);
             if (alpha) {
-                byte alphaTmp = disAlpha * *(pixel + 3) / 0xff;
-                byte alphaResult = alpha + alphaTmp;
+                byte alphaTmp(disAlpha * *(pixel + 3) / 0xff);
+                byte alphaResult(alpha + alphaTmp);
                 *(pixel + 0) = (((aColor & 0xff0000) >> 8 * 2) * alpha + *(pixel + 0) * alphaTmp) / alphaResult;
                 *(pixel + 1) = (((aColor & 0x00ff00) >> 8 * 1) * alpha + *(pixel + 1) * alphaTmp) / alphaResult;
                 *(pixel + 2) = (((aColor & 0x0000ff) >> 8 * 0) * alpha + *(pixel + 2) * alphaTmp) / alphaResult;

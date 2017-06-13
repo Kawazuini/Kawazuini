@@ -30,6 +30,12 @@ public:
     KVector mNormal;
 
     KPolygon() = default;
+    /**
+     * \~english
+     * @param aVertex vertex array
+     * \~japanese
+     * @param aVertex 頂点配列
+     */
     KPolygon(const Vector<KVector>& aVertex);
     virtual ~KPolygon() = default;
 

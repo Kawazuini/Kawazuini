@@ -1,5 +1,6 @@
 /**
- * @file KSegment.cpp
+ * @file   KSegment.h
+ * @brief  KSegment
  * @author Maeda Takumi
  */
 #include "KSegment.h"

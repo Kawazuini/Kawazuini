@@ -86,6 +86,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="#friends">Friends</a> &#124;
 <a href="class_k_window-members.html">List of all members</a>  </div>
@@ -94,7 +95,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>ウィンドウ  
+<p>Windows Window.  
  <a href="class_k_window.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_k_window_8h_source.html">KWindow.h</a>&gt;</code></p>
@@ -116,8 +117,8 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6288e93bdb99107c8898153b939f2ec9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_window.html#a6288e93bdb99107c8898153b939f2ec9">KWindow</a> (const <a class="el" href="struct_k_window_1_1_main_args.html">MainArgs</a> *aArgs, const <a class="el" href="class_k_rect.html">KRect</a> &amp;aSize, const String &amp;aTitle=&quot;&quot;, const bool &amp;aResizable=false)</td></tr>
-<tr class="separator:a6288e93bdb99107c8898153b939f2ec9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15d8e97f8f4e010d5956eb10a51d8206"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_window.html#a15d8e97f8f4e010d5956eb10a51d8206">KWindow</a> (const <a class="el" href="struct_k_window_1_1_main_args.html">MainArgs</a> &amp;aArgs, const <a class="el" href="class_k_rect.html">KRect</a> &amp;aSize, const String &amp;aTitle=&quot;&quot;, const bool &amp;aResizable=false)</td></tr>
+<tr class="separator:a15d8e97f8f4e010d5956eb10a51d8206"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a3356e8ddb803aef89eda6d2af5cde8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2a3356e8ddb803aef89eda6d2af5cde8"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_window.html#a2a3356e8ddb803aef89eda6d2af5cde8">show</a> () const </td></tr>
 <tr class="memdesc:a2a3356e8ddb803aef89eda6d2af5cde8"><td class="mdescLeft">&#160;</td><td class="mdescRight">ウィンドウ表示 <br /></td></tr>
@@ -140,26 +141,43 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="separator:aa2ab4a85ac76553657886f32a8798bb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42a02c856005608f6fae35fc5752d030"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_window.html#a42a02c856005608f6fae35fc5752d030">setListener</a> (<a class="el" href="class_k_listener.html">KListener</a> *aListener)</td></tr>
 <tr class="separator:a42a02c856005608f6fae35fc5752d030"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c56a581a068440f6c140c1cf7d37ee7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_window.html#a8c56a581a068440f6c140c1cf7d37ee7">setClearColor</a> (const color &amp;aColor)</td></tr>
-<tr class="separator:a8c56a581a068440f6c140c1cf7d37ee7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad4a9255dce175cb0157895d916201a06"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_k_rect.html">KRect</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_window.html#ad4a9255dce175cb0157895d916201a06">windowArea</a> () const </td></tr>
-<tr class="memdesc:ad4a9255dce175cb0157895d916201a06"><td class="mdescLeft">&#160;</td><td class="mdescRight">ウィンドウの画面上の領域を返す。  <a href="#ad4a9255dce175cb0157895d916201a06">More...</a><br /></td></tr>
+<tr class="memdesc:ad4a9255dce175cb0157895d916201a06"><td class="mdescLeft">&#160;</td><td class="mdescRight">get window area in screen.  <a href="#ad4a9255dce175cb0157895d916201a06">More...</a><br /></td></tr>
 <tr class="separator:ad4a9255dce175cb0157895d916201a06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f21e80f8e04197a7890bf81a8ea04b5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_window.html#a6f21e80f8e04197a7890bf81a8ea04b5">fullScreen</a> () const </td></tr>
-<tr class="separator:a6f21e80f8e04197a7890bf81a8ea04b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aada1ff90b74c6e5dd8f8acc0d4e039dd"><td class="memItemLeft" align="right" valign="top">const bool &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_window.html#aada1ff90b74c6e5dd8f8acc0d4e039dd">isFullScreen</a> () const </td></tr>
+<tr class="memdesc:aada1ff90b74c6e5dd8f8acc0d4e039dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">get whether full screen.  <a href="#aada1ff90b74c6e5dd8f8acc0d4e039dd">More...</a><br /></td></tr>
+<tr class="separator:aada1ff90b74c6e5dd8f8acc0d4e039dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25e1b88ef4931faba6808751a0b32756"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_window.html#a25e1b88ef4931faba6808751a0b32756">isActive</a> () const </td></tr>
+<tr class="memdesc:a25e1b88ef4931faba6808751a0b32756"><td class="mdescLeft">&#160;</td><td class="mdescRight">get whether active.  <a href="#a25e1b88ef4931faba6808751a0b32756">More...</a><br /></td></tr>
+<tr class="separator:a25e1b88ef4931faba6808751a0b32756"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a1dd7e51db7591e15458ab10668477629"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1dd7e51db7591e15458ab10668477629"></a>
+const <a class="el" href="struct_k_window_1_1_main_args.html">MainArgs</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>mArgs</b></td></tr>
+<tr class="separator:a1dd7e51db7591e15458ab10668477629"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a5966f87d2a5797d0395b20de3e4ea5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5a5966f87d2a5797d0395b20de3e4ea5"></a>
+const String&#160;</td><td class="memItemRight" valign="bottom"><b>mClassName</b></td></tr>
+<tr class="separator:a5a5966f87d2a5797d0395b20de3e4ea5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7becb466356d21125ff64acb0debfd81"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7becb466356d21125ff64acb0debfd81"></a>
+const WNDCLASSEX&#160;</td><td class="memItemRight" valign="bottom"><b>mWindowClass</b></td></tr>
+<tr class="separator:a7becb466356d21125ff64acb0debfd81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af331d4a939ea79c36ea00edc0260ff64"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af331d4a939ea79c36ea00edc0260ff64"></a>
+const HWND&#160;</td><td class="memItemRight" valign="bottom"><b>mWindow</b></td></tr>
+<tr class="separator:af331d4a939ea79c36ea00edc0260ff64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:aca2b3f7c305e7c984d756cd13d20aad2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aca2b3f7c305e7c984d756cd13d20aad2"></a>
-static const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_window.html#aca2b3f7c305e7c984d756cd13d20aad2">ASPECT</a> = 9.0f / 16.0f</td></tr>
+static const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_window.html#aca2b3f7c305e7c984d756cd13d20aad2">ASPECT</a></td></tr>
 <tr class="memdesc:aca2b3f7c305e7c984d756cd13d20aad2"><td class="mdescLeft">&#160;</td><td class="mdescRight">デフォルトのアスペクト比 <br /></td></tr>
 <tr class="separator:aca2b3f7c305e7c984d756cd13d20aad2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92ef5befd29bcf35119008cbbbaff0a2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a92ef5befd29bcf35119008cbbbaff0a2"></a>
-static const <a class="el" href="class_k_rect.html">KRect</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_window.html#a92ef5befd29bcf35119008cbbbaff0a2">SIZE</a> = <a class="el" href="class_k_rect.html">KRect</a>(<a class="el" href="class_k_vector.html">KVector</a>(960, 540))</td></tr>
+static const <a class="el" href="class_k_rect.html">KRect</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_window.html#a92ef5befd29bcf35119008cbbbaff0a2">SIZE</a></td></tr>
 <tr class="memdesc:a92ef5befd29bcf35119008cbbbaff0a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">デフォルトウィンドウサイズ <br /></td></tr>
 <tr class="separator:a92ef5befd29bcf35119008cbbbaff0a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c03749df185a2a6420add3ea3b05188"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3c03749df185a2a6420add3ea3b05188"></a>
-static const <a class="el" href="class_k_rect.html">KRect</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_window.html#a3c03749df185a2a6420add3ea3b05188">DISPLAY_SIZE</a> = <a class="el" href="class_k_rect.html">KRect</a>(GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN))</td></tr>
+static const <a class="el" href="class_k_rect.html">KRect</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_window.html#a3c03749df185a2a6420add3ea3b05188">DISPLAY_SIZE</a></td></tr>
 <tr class="memdesc:a3c03749df185a2a6420add3ea3b05188"><td class="mdescLeft">&#160;</td><td class="mdescRight">PCの画面サイズ <br /></td></tr>
 <tr class="separator:a3c03749df185a2a6420add3ea3b05188"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -173,16 +191,17 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>KMouse</b></td></tr>
 <tr class="separator:ac3021b29eca9c90252fe7d975f327831"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>ウィンドウ </p>
+<div class="textblock"><p>Windows Window. </p>
+<p>Maeda Takumi </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a6288e93bdb99107c8898153b939f2ec9"></a>
+<a class="anchor" id="a15d8e97f8f4e010d5956eb10a51d8206"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">KWindow::KWindow </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_k_window_1_1_main_args.html">MainArgs</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="struct_k_window_1_1_main_args.html">MainArgs</a> &amp;&#160;</td>
           <td class="paramname"><em>aArgs</em>, </td>
         </tr>
         <tr>
@@ -223,41 +242,39 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>KMouse</b></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a6f21e80f8e04197a7890bf81a8ea04b5"></a>
+<a class="anchor" id="a25e1b88ef4931faba6808751a0b32756"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool KWindow::fullScreen </td>
+          <td class="memname">bool KWindow::isActive </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>フルスクリーン状態 </dd></dl>
+
+<p>get whether active. </p>
+<dl class="section return"><dt>Returns</dt><dd>whether active </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a8c56a581a068440f6c140c1cf7d37ee7"></a>
+<a class="anchor" id="aada1ff90b74c6e5dd8f8acc0d4e039dd"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void KWindow::setClearColor </td>
+          <td class="memname">const bool &amp; KWindow::isFullScreen </td>
           <td>(</td>
-          <td class="paramtype">const color &amp;&#160;</td>
-          <td class="paramname"><em>aColor</em></td><td>)</td>
-          <td></td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">aColor</td><td>新しいクリアカラー </td></tr>
-  </table>
-  </dd>
-</dl>
+
+<p>get whether full screen. </p>
+<dl class="section return"><dt>Returns</dt><dd>whether full screen </dd></dl>
 
 </div>
 </div>
@@ -340,8 +357,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>KMouse</b></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>ウィンドウの画面上の領域を返す。 </p>
-<dl class="section return"><dt>Returns</dt><dd>ウィンドウの画面上の領域 </dd></dl>
+<p>get window area in screen. </p>
+<dl class="section return"><dt>Returns</dt><dd>window area in screen </dd></dl>
 
 </div>
 </div>

@@ -10,18 +10,49 @@
 
 class KQuaternion;
 
-#define DEPLOYMENT(aVec) (aVec).x, (aVec).y, (aVec).z
+#define DEPLOY_VEC(aVec) (aVec).x, (aVec).y, (aVec).z
 
+/**
+ * @brief  \~english  Three-dimensional geometric Vector
+ * @brief  \~japanese 3次元幾何ベクトル
+ * @author \~ Maeda Takumi
+ */
 class KVector {
 public:
-    float x; ///< x scalar
-    float y; ///< y scalar
-    float z; ///< z scalar
+    /**
+     * @brief \~english  x-axis element
+     * @brief \~japanese x軸要素
+     */
+    float x;
+    /**
+     * @brief \~english  y-axis element
+     * @brief \~japanese y軸要素
+     */
+    float y;
+    /**
+     * @brief \~english  z-axis element
+     * @brief \~japanese z軸要素
+     */
+    float z;
 
-    KVector(const float& ax = 0, const float& ay = 0, const float& az = 0);
+    /**
+     * \^english
+     * @param ax x-axis element
+     * @param ay y-axis element
+     * @param az z-axis element
+     * \^japanese
+     * @param ax x軸要素
+     * @param ay y軸要素
+     * @param az z軸要素
+     */
+    KVector(
+            const float& ax = 0,
+            const float& ay = 0,
+            const float& az = 0
+            );
+    /** @brief Windows compatible */
     KVector(const POINT& aPoint);
 
-    KVector(const KVector& orig) = default;
     virtual ~KVector() = default;
 
     bool operator==(const KVector& aVec) const;

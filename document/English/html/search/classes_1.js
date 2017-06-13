@@ -1,31 +1,4 @@
 var searchData=
 [
-  ['kapplication',['KApplication',['../class_k_application.html',1,'']]],
-  ['kcamera',['KCamera',['../class_k_camera.html',1,'']]],
-  ['kcharset',['KCharset',['../class_k_charset.html',1,'']]],
-  ['kdrawer',['KDrawer',['../class_k_drawer.html',1,'']]],
-  ['kdrawsphere',['KDrawSphere',['../class_k_draw_sphere.html',1,'']]],
-  ['kfile',['KFile',['../class_k_file.html',1,'']]],
-  ['kfpscamera',['KFPSCamera',['../class_k_f_p_s_camera.html',1,'']]],
-  ['kglui',['KGLUI',['../class_k_g_l_u_i.html',1,'']]],
-  ['khandlight',['KHandLight',['../class_k_hand_light.html',1,'']]],
-  ['kimage',['KImage',['../class_k_image.html',1,'']]],
-  ['kkeyboard',['KKeyboard',['../class_k_keyboard.html',1,'']]],
-  ['klight',['KLight',['../class_k_light.html',1,'']]],
-  ['klistener',['KListener',['../class_k_listener.html',1,'']]],
-  ['kmidi',['KMidi',['../class_k_midi.html',1,'']]],
-  ['kmouse',['KMouse',['../class_k_mouse.html',1,'']]],
-  ['knoncopy',['KNonCopy',['../class_k_non_copy.html',1,'']]],
-  ['kopengl',['KOpenGL',['../class_k_open_g_l.html',1,'']]],
-  ['kpolygon',['KPolygon',['../class_k_polygon.html',1,'']]],
-  ['kquaternion',['KQuaternion',['../class_k_quaternion.html',1,'']]],
-  ['krect',['KRect',['../class_k_rect.html',1,'']]],
-  ['ksegment',['KSegment',['../class_k_segment.html',1,'']]],
-  ['ksphere',['KSphere',['../class_k_sphere.html',1,'']]],
-  ['kswitch',['KSwitch',['../class_k_switch.html',1,'']]],
-  ['ktexture',['KTexture',['../class_k_texture.html',1,'']]],
-  ['ktimer',['KTimer',['../class_k_timer.html',1,'']]],
-  ['kupdater',['KUpdater',['../class_k_updater.html',1,'']]],
-  ['kvector',['KVector',['../class_k_vector.html',1,'']]],
-  ['kwindow',['KWindow',['../class_k_window.html',1,'']]]
+  ['mainargs',['MainArgs',['../struct_k_window_1_1_main_args.html',1,'KWindow']]]
 ];

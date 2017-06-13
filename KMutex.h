@@ -8,14 +8,27 @@
 
 #include "KUtility.h"
 
-class KMutex {
+/**
+ * @brief  \~english  Mutex system
+ * @brief  \~japanese 排他処理システム
+ * @author \~ Maeda Takumi
+ */
+class KMutex final {
 private:
-    pthread_mutex_t mMutex;
+    /* 排他処理 */ pthread_mutex_t mMutex;
 public:
     KMutex();
     ~KMutex();
 
+    /**
+     * @brief \~english  lock mutex.
+     * @brief \~japanese 排他処理を有効にします。
+     */
     void lock();
+    /**
+     * @brief \~english  unlock mutex.
+     * @brief \~japanese 排他処理を無効にします。
+     */
     void unlock();
 };
 

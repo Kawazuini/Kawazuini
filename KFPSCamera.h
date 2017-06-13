@@ -9,25 +9,27 @@
 #include "KCamera.h"
 #include "KUpdater.h"
 
-class KFPSCamera : public KCamera, public KUpdater {
+/**
+ * @brief  \~english  camera that can synchronize position and direction
+ * @brief  \~japanese 位置と方向を同期できるカメラ
+ * @author \~ Maeda Takumi
+ */
+class KFPSCamera : public KUpdater {
 private:
-    static const KVector BASE_DIRECTION;
+    /* 標準カメラ方向 */ static const KVector BASE_DIRECTION;
 
-    float mVerticalAngle; ///< 垂直視点角度
-
-    KVector& mFPSPosition;
-    KVector& mFPSDirection;
+    KCamera& mCamera;
+    /* 垂直視点角度     */ float mVerticalAngle;
+    /* 同期用カメラ位置 */ KVector& mFPSPosition;
+    /* 同期用カメラ方向 */ KVector& mFPSDirection;
 public:
     KFPSCamera(
+            KCamera& aCamera,
             KVector& aPosition,
             KVector& aDirection
             );
     virtual ~KFPSCamera() = default;
 
-    /**
-     * @brief \~english  update processing
-     * @brief \~japanese 更新処理
-     */
     void update() override;
 
     /**

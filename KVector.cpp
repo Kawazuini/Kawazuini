@@ -79,7 +79,7 @@ KVector::operator POINT() const {
 }
 
 KVector KVector::normalization() const {
-    float len = length();
+    float len(length());
     if (len) return *this / len;
     return *this;
 }
@@ -108,7 +108,7 @@ KVector KVector::rotate(const KQuaternion& aQuaternion) const {
     if (KVector(aQuaternion).isZero()) { // 回転軸が零ベクトル
         return *this; // 回転がない
     }
-    float len = length();
+    float len(length());
     if (len) return KVector((-aQuaternion) * KQuaternion(*this) * aQuaternion).normalization() * len;
     return *this;
 }
@@ -134,10 +134,11 @@ KQuaternion KVector::roundAngle(const KVector& aVec) const {
 void KVector::fit(const KVector& aVec) {
     if (abs(aVec.x) < abs(x)) x = aVec.x;
     if (abs(aVec.y) < abs(y)) y = aVec.y;
-    if (abs(aVec.z) < abs(z)) y = aVec.z;
+    if (abs(aVec.z) < abs(z)) z = aVec.z;
 }
 
 bool KVector::isZero() const {
-    return x == 0 && y == 0 && z == 0;
+    static const KVector ZERO;
+    return *this == ZERO;
 }
 

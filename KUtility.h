@@ -1,11 +1,10 @@
 /**
- * @file KUtility.h
+ * @file   KUtility.h
+ * @brief  Utility Headder
  * @author Maeda Takumi
  */
 #ifndef KUTILITY_H
 #define KUTILITY_H
-
-#include "KawazuInclude.h"
 
 #include "KTimer.h"
 
@@ -54,13 +53,13 @@ static inline int toInt(const String& aSrc, const int& aBase = 10) {
 }
 
 static inline color toColor(const String& aSrc) {
-    if (aSrc == "") return 0;
+    if (aSrc.empty()) return 0;
     return strtoul(aSrc.data(), NULL, 16);
 }
 
 /** @brief 文字列を実数値に変換する */
 static inline float toFloat(const String& aSrc) {
-    if (aSrc == "") return 0;
+    if (aSrc.empty()) return 0;
     return atof(aSrc.data());
 }
 
@@ -72,13 +71,24 @@ static inline float toFloat(const String& aSrc) {
  */
 static inline Vector<String> split(const String& aSrc, const String& aSep) {
     Vector<String> list;
-    int current = 0, found, seplen = aSep.size();
+    int current(0), found, seplen(aSep.size());
     while ((found = aSrc.find(aSep, current)) != String::npos) {
         list.push_back(String(aSrc, current, found - current));
         current = found + seplen;
     }
     list.push_back(String(aSrc, current, aSrc.size() - current));
     return list;
+    // std::regex reg(aSep);
+    // std::sregex_token_iterator first(aSrc.begin(), aSrc.end(), reg, -1);
+    // std::sregex_token_iterator last;
+    // return Vector<String>(first, last);
+}
+
+static inline Vector<String> split(const String& aSrc, const int& aNum) {
+    Vector<String> list;
+    for (String::const_iterator i = aSrc.begin(), i_e(aSrc.end()); i != i_e; i += aNum) {
+        // list.push_back();
+    }
 }
 
 /** @brief エンコーディングの変換 : UTF8 -> ShiftJIS */
@@ -128,8 +138,8 @@ static inline String P(const String& aSrc) {
  */
 static inline int random(const int& aMax) {
     using namespace std;
-    /** 疑似乱数生成機   */ static mt19937 engine(KTimer::now());
-    /** 乱数フォーマット */ static uniform_int_distribution<> dist(0, 0xfffffff);
+    /* 疑似乱数生成機   */ static mt19937 engine(KTimer::now());
+    /* 乱数フォーマット */ static uniform_int_distribution<> dist(0, 0xfffffff);
 
     return dist(engine) % aMax;
 }

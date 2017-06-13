@@ -1,5 +1,6 @@
 /**
- * @file KWindows.h
+ * @file   KWindows.h
+ * @brief  Windows Utility headder
  * @author Maeda Takumi
  */
 #ifndef KWINDOWS_H

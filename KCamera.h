@@ -6,47 +6,53 @@
 #ifndef KCAMERA_H
 #define KCAMERA_H
 
+#include "KUtility.h"
 #include "KVector.h"
+#include "KWindow.h"
 
+/**
+ * @brief  \~english  Camera
+ * @brief  \~japanese カメラ
+ * @author \~ Maeda Takumi
+ */
 class KCamera {
+    friend class KFPSCamera;
 public:
+    /**
+     * @brief \~english  vector up to 4 corners of the drawing area 1m ahead from the viewpoint
+     * @brief \~japanese 視点から1m先の描画領域4隅までのベクトル
+     */
+    using ViewCorner = KVector[4];
     /**
      * @brief \~english  default view angle
      * @brief \~japanese 初期視野角
      */
-    static const float DEFAULT_ANGLE;
+    static const float DEFAULT_VIEWANGLE;
+private:
+    const KWindow& mWindow;
 
-    /**
-     * @brief \~english  
-     * @brief \~japanese 
-     */
-    static KVector sDirection_UL;
-    /**
-     * @brief \~english  
-     * @brief \~japanese 
-     */
-    static KVector sDirection_UR;
-    /**
-     * @brief \~english  
-     * @brief \~japanese 
-     */
-    static KVector sDirection_DL;
-    /**
-     * @brief \~english  
-     * @brief \~japanese 
-     */
-    static KVector sDirection_DR;
+    /* 描画視点位置 */ static KVector sPosition;
+    /* 描画視野方向 */ static KVector sDirection;
+    /* 描画視野角   */ static float sAngle;
+    /* 描画領域     */ static ViewCorner sViewCorner;
 
-    float mAngle; ///< 上下視野角
-    float mAspect; ///< 水平視野倍率
-    float mNearLimit; ///< 近距離描画限界距離
-    float mFarLimit; ///< 遠距離描画限界距離
+    struct CameraOption {
+        float mAngle;
+        float mAspect;
+        float mNearLimit;
+        float mFarLimit;
+    } mOption;
 
-    KVector mPosition; ///< カメラ位置
-    KVector mDirection; ///< カメラ方向
-    KVector mHeadSlope; ///< カメラ頭方向
+    struct CameraInformation {
+        KVector mPosition;
+        KVector mDirection;
+        KVector mHeadSlope;
+    } mInformation;
 
-    KCamera();
+    KVector mWidth;
+    KVector mHeight;
+public:
+    KCamera(const KWindow& aWindow);
     virtual ~KCamera() = default;
 
     /**
@@ -55,22 +61,52 @@ public:
      */
     void set();
 
+    void translate(const KVector& aPosition);
+    void zoom(const float& aScale);
+
     /**
      * \~english
-     * @brier  determine the necessity of drawing from normals.
+     * @brief  determine the necessity of drawing from normal.
      * @param  aNormal normal of target polygon
      * @return necessity of drawing
      * \~japanese
-     * @brier  法線から描画の必要性を判定します。
+     * @brief  法線から描画の必要性を判定します。
      * @param  aNormal 対象ポリゴンの法線
      * @return 描画の必要性
      */
-    static inline bool isInCamera(const KVector& aNormal) {
-        return aNormal.dot(sDirection_UL) <= 0
-                || aNormal.dot(sDirection_UR) <= 0
-                || aNormal.dot(sDirection_DL) <= 0
-                || aNormal.dot(sDirection_DR) <= 0;
-    };
+    static bool isInCamera(const KVector& aNormal);
+    /**
+     * \~english
+     * @brief  determine the necessity of drawing from vertex.
+     * @param  aVertex vertex of target polygon
+     * @return necessity of drawing
+     * \~japanese
+     * @brief  頂点から描画の必要性を判定します。
+     * @param  aVertex 対象ポリゴンの頂点
+     * @return 描画の必要性
+     */
+    static bool isInCamera(const Vector<KVector>& aVertex);
+
+    /**
+     * \~english
+     * @brief  get four corners of the drawing area.
+     * @return four corners of the drawing area
+     * \~japanese
+     * @brief  描画領域の4隅を取得します。
+     * @return 描画領域の4隅
+     */
+    static const ViewCorner& viewCorner();
+
+    const KWindow& window() const;
+
+    const KVector& position() const;
+    const KVector& direction() const;
+
+    const KVector& width() const;
+    const KVector& height() const;
+
+    static const KVector& Position();
+    static const KVector& Direction();
 };
 
 #endif /* KCAMERA_H */

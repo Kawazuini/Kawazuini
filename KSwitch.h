@@ -1,11 +1,16 @@
 /**
- * @file KSwitch.h
- * @brief スイッチクラス
+ * @file   KSwitch.h
+ * @brief  KSwitch
+ * @author Maeda Takumi
  */
 #ifndef KSWITCH_H
 #define KSWITCH_H
 
-/** @brief スイッチ */
+/**
+ * @brief \~english  switch
+ * @brief \~japanese スイッチ
+ * @author \~ Maeda Takumi
+ */
 class KSwitch {
 private:
     /** @brief ON / OFF      */ bool mSwitch;

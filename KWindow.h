@@ -13,8 +13,9 @@
 class KListener;
 
 /**
- * @brief  Windows Window
- * @author Maeda Takumi
+ * @brief  \~english  Windows Window
+ * @brief  \~japanese ウィンドウ
+ * @author \~ Maeda Takumi
  */
 class KWindow : private KNonCopy {
     friend class KApplication;
@@ -29,31 +30,35 @@ public:
         /** @brief ウィンドウの表示方法 */ int mCmndShow;
     };
 
-    /** @brief デフォルトのアスペクト比   */ static const float ASPECT;
-    /** @brief デフォルトウィンドウサイズ */ static const KRect SIZE;
-    /** @brief PCの画面サイズ             */ static const KRect DISPLAY_SIZE;
+    /** @brief 既定のアスペクト比   */ static const float DEFAULT_ASPECT;
+    /** @brief 既定ウィンドウサイズ */ static const KRect DEFAULT_SIZE;
+    /** @brief PCの画面サイズ       */ static const KRect DISPLAY_SIZE;
 
-    /* メイン引数         */ const MainArgs * const mArgs;
-    /* 登録用文字列       */ const String mClassName;
-    /* ウィンドウクラス   */ const WNDCLASSEX mWindowClass;
-    /* ウィンドウハンドル */ const HWND mWindow;
+    /** @brief メイン引数         */ const MainArgs& mArgs;
+    /** @brief 登録用文字列       */ const String mClassName;
+    /** @brief ウィンドウクラス   */ const WNDCLASSEX mWindowClass;
+    /** @brief ウィンドウハンドル */ const HWND mWindow;
+
+    /* イベント処理クラス */ KListener* mListener;
 private:
     /* 表示タイトル       */ String mTitle;
 
+    /* サイズ変更可能か   */ bool mResizable;
+
     /* ウィンドウ生成状態 */ bool mExist;
+
     /* 外枠表示           */ bool mFrameVisible;
     /* フルスクリーン状態 */ bool mFullScreen;
+    /* フレーム幅         */ KRect mFrameWeight;
 
-    HDC mScreen; ///< 画面表示HDC
+    /* 初期ウィンドウサイズ   */ KRect mInitialSize;
+    /* 初期アスペクト比       */ float mInitialAspect;
+    /* スクリーン領域         */ KRect mScreenArea;
+    /* スクリーン領域の拡大率 */ float mScale;
 
-    int mFrameWidth;
-    int mFrameHeight;
+    /* 画面表示HDC */ HDC mScreen;
+    /* 描画構造体  */ PAINTSTRUCT mPaint;
 
-    /* スクリーンサイズ */ KRect mScreenSize;
-
-    /* 描画構造体            */ PAINTSTRUCT mPaint;
-
-    /* イベント処理クラス */ KListener* mListener;
 
     /* ウィンドウプロシージャ */
     static LRESULT CALLBACK WIN_PROC(HWND aHwnd, UINT aMsg, WPARAM aWParam, LPARAM aLParam);
@@ -63,7 +68,6 @@ private:
     /* バッファのクリア */ void clearCanvas();
     /* 描画の表示       */ void display();
 public:
-
     /**
      * @param aArgs      メイン引数
      * @param aSize      表示サイズ
@@ -71,48 +75,66 @@ public:
      * @param aResizable サイズ変更を許可するか
      */
     KWindow(
-            const MainArgs* aArgs,
+            const MainArgs& aArgs,
             const KRect& aSize,
             const String& aTitle = "",
             const bool& aResizable = false
             );
     virtual ~KWindow();
 
-    /** @brief ウィンドウ表示 */ void show() const;
-    /** @brief ウィンドウ隠蔽 */ void hide() const;
+    /** @brief show window. */ void show() const;
+    /** @brief hide window. */ void hide() const;
 
-    /** @brief フレームの有無を切り替える */ void borderLoss();
-    /** @brief フルスクリーンを切り替える */ void toFullScreen();
+    /** @brief フレームの有無を切り替える */ void changeFrame();
+    /** @brief フルスクリーンを切り替える */ void changeFullScreen();
 
-    /** @param aTitle    新しいタイトル             */ void setTitle(const String& aTitle);
-    /** @param aSize     新しいサイズ               */ void setSize(const KRect& aSize);
-    /** @param aListener ウィンドウイベントリスナー */ void setListener(KListener* aListener);
+    void setTitle(const String& aTitle);
+    void setSize(const KRect& aSize);
 
     /**
-     * \~english
+     * @brief  get mouse position on screen.
+     * @return mouse position on screen
+     */
+    KVector mousePositionOnScreen() const;
+
+    /**
+     * @brief  get initial window size.
+     * @return initial window size
+     */
+    const KRect& initialSize() const;
+    /**
+     * @brief  get initial ratio of aspect.
+     * @return initial ratio of aspect
+     */
+    const float& initialAspect() const;
+    /**
+     * @brief  get screen area.
+     * @return screen area
+     */
+    const KRect& screenArea() const;
+    /**
+     * @brief  get scale of screen.
+     * @return scale of screen
+     */
+    const float& scale() const;
+    /**
      * @brief  get window area in screen.
      * @return window area in screen
-     * \~japanese
-     * @brief  ウィンドウのスクリーン上の領域を返す。
-     * @return ウィンドウのスクリーン上の領域
      */
     KRect windowArea() const;
     /**
-     * \~english
+     * @brief  get client area in window.
+     * @return client area in window
+     */
+    KRect clientArea() const;
+    /**
      * @brief  get whether full screen.
      * @return whether full screen
-     * \~japanese
-     * @brief  フルスクリーン状態を取得します。
-     * @return フルスクリーン状態
      */
     const bool& isFullScreen() const;
     /**
-     * \~english
      * @brief  get whether active.
      * @return whether active
-     * \~japanese
-     * @brief  アクティブ状態を取得します。
-     * @return アクティブ状態
      */
     bool isActive() const;
 };

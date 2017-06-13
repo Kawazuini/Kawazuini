@@ -1,5 +1,5 @@
 /**
- * @file   KKeyboard.cpp
+ * @file   KKeyboard.h
  * @brief  KKeyboard
  * @author Maeda Takumi
  */
@@ -11,14 +11,18 @@
 
 class KSwitch;
 
-/** @brief キーボード */
-class KKeyboard : private KNonCopy {
+/**
+ * @brief  \~english  management system for keyboard
+ * @brief  \~japanese キーボード入力管理システム
+ * @author \~ Maeda Takumi
+ */
+class KKeyboard final : private KNonCopy {
     friend class KWindow;
 private:
     bool mUpOff, mDownOff, mLeftOff, mRightOff; // 同時入力防止
 
-    /** @brief 指定キーを押す */ void press(const WPARAM& aKey);
-    /** @brief 指定キーを話す */ void release(const WPARAM& aKey);
+    /* 指定キーを押す */ void press(const WPARAM& aKey);
+    /* 指定キーを話す */ void release(const WPARAM& aKey);
 public:
 
     /**
@@ -36,12 +40,20 @@ public:
         KEY_ID_U, KEY_ID_V, KEY_ID_W, KEY_ID_X, KEY_ID_Y, KEY_ID_Z,
     };
 
-    /** @brief キー配列 */ KSwitch * const mKeyboard;
+    /**
+     * @brief \~english  key array
+     * @brief \~japanese キー配列
+     */
+    KSwitch * const mKeyboard;
 
     KKeyboard();
-    virtual ~KKeyboard();
+    ~KKeyboard();
 
-    /** @brief ボタンの更新 */ void pass();
+    /**
+     * @brief \~english  update switch.
+     * @brief \~japanese ボタンを更新します。
+     */
+    void pass();
 };
 
 #endif /* KKEYBOARD_H */

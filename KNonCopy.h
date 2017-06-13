@@ -1,5 +1,6 @@
 /**
- * @file KNonCopy.h
+ * @file   KNonCopy.h
+ * @brief  KNonCopy
  * @author Maeda Takumi
  */
 #ifndef KNONCOPY_H

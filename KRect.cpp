@@ -66,7 +66,7 @@ KRect KRect::intersect(const KRect& aRec) const {
 }
 
 bool KRect::isColision(const KVector& aVec) const {
-    return (x < aVec.x && aVec.x < right() && y < aVec.y && aVec.y < bottom());
+    return (x <= aVec.x && aVec.x <= right() && y <= aVec.y && aVec.y <= bottom());
 }
 
 bool KRect::isZero() const {
@@ -97,8 +97,12 @@ int KRect::centerY() const {
     return y + height / 2;
 }
 
-KVector KRect::start() const {
+KVector KRect::begin() const {
     return KVector(x, y);
+}
+
+KVector KRect::end() const {
+    return KVector(x + width, y + height);
 }
 
 KVector KRect::center() const {

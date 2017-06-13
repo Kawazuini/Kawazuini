@@ -5,17 +5,17 @@
  */
 #include "KTexture.h"
 
+#include "KCharset.h"
 #include "KImage.h"
 #include "KMath.h"
-#include "KVector.h"
 #include "KRect.h"
-#include "KCharset.h"
+#include "KVector.h"
 
 void KTexture::clearRect(const KRect& aRect) {
     for (int i = aRect.y, i_e = aRect.height + i; i < i_e; ++i) {
         for (int j = aRect.x, j_e = aRect.width + j; j < j_e; ++j) {
-            byte* pix = getPixel(j, i);
-            *(pix + 0) = *(pix + 1) = *(pix + 2) = *(pix + 3) = 0;
+            byte * pix(getPixel(j, i));
+            if (pix) *(pix + 0) = *(pix + 1) = *(pix + 2) = *(pix + 3) = 0;
         }
     }
 }
@@ -43,7 +43,7 @@ void KTexture::drawLine(const int& fromX, const int& fromY, const int& toX, cons
                 y += sigH;
                 delSum -= abW;
             }
-            setPixel(getPixel(x, y), aColor);
+            drawPixel(getPixel(x, y), aColor);
         }
     } else {
         int sigW = Math::sign(width);
@@ -57,7 +57,7 @@ void KTexture::drawLine(const int& fromX, const int& fromY, const int& toX, cons
                 x += sigW;
                 delSum -= abH;
             }
-            setPixel(getPixel(x, y), aColor);
+            drawPixel(getPixel(x, y), aColor);
         }
     }
 }
@@ -68,20 +68,20 @@ void KTexture::drawLine(const KVector& fromVec, const KVector& toVec, const colo
 
 void KTexture::drawHLine(const int& fromX, const int& distX, const int& y, const color& aColor) {
     for (int i = Math::min(fromX, distX), i_e = Math::max(fromX, distX); i < i_e; ++i) {
-        setPixel(getPixel(i, y), aColor);
+        drawPixel(getPixel(i, y), aColor);
     }
 }
 
 void KTexture::drawVLine(const int& fromY, const int& distY, const int& x, const color& aColor) {
     for (int i = Math::min(fromY, distY), i_e = Math::max(fromY, distY); i < i_e; ++i) {
-        setPixel(getPixel(x, i), aColor);
+        drawPixel(getPixel(x, i), aColor);
     }
 }
 
 void KTexture::drawRect(const KRect& aRect, const color& aColor) {
     for (int i = aRect.y, i_e = aRect.height + i; i < i_e; ++i) {
         for (int j = aRect.x, j_e = aRect.width + j; j < j_e; ++j) {
-            setPixel(getPixel(j, i), aColor);
+            drawPixel(getPixel(j, i), aColor);
         }
     }
 }
@@ -108,14 +108,14 @@ void KTexture::drawCircle(const int& aRadius, const KVector aCenter, const color
             --cy;
         }
         // 45度ずつ描画
-        setPixel(getPixel(x - cx, y - cy), aColor);
-        setPixel(getPixel(x - cx, y + cy), aColor);
-        setPixel(getPixel(x + cx, y - cy), aColor);
-        setPixel(getPixel(x + cx, y + cy), aColor);
-        setPixel(getPixel(x - cy, y - cx), aColor);
-        setPixel(getPixel(x - cy, y + cx), aColor);
-        setPixel(getPixel(x + cy, y - cx), aColor);
-        setPixel(getPixel(x + cy, y + cx), aColor);
+        drawPixel(getPixel(x - cx, y - cy), aColor);
+        drawPixel(getPixel(x - cx, y + cy), aColor);
+        drawPixel(getPixel(x + cx, y - cy), aColor);
+        drawPixel(getPixel(x + cx, y + cy), aColor);
+        drawPixel(getPixel(x - cy, y - cx), aColor);
+        drawPixel(getPixel(x - cy, y + cx), aColor);
+        drawPixel(getPixel(x + cy, y - cx), aColor);
+        drawPixel(getPixel(x + cy, y + cx), aColor);
     }
 }
 
@@ -123,7 +123,7 @@ void KTexture::drawImage(const KImage& aImage, const KRect& aSrc, const KVector&
     const color * data(aImage.mPixel + aSrc.y * aImage.mWidth + aSrc.x);
     for (int i = aDist.y, i_e = aSrc.height + i, i_diff = aImage.mWidth - aSrc.width; i < i_e; ++i, data += i_diff) {
         for (int j = aDist.x, j_e = aSrc.width + j; j < j_e; ++j, ++data) {
-            setPixel(getPixel(j, i), *data);
+            drawPixel(getPixel(j, i), *data);
         }
     }
 }
@@ -143,7 +143,7 @@ void KTexture::drawImageMono(
             color alpha(*data & 0xff000000);
             if (alpha) {
                 alpha = ((int) ((alpha >> 24) * alphaCoef) << 24);
-                setPixel(getPixel(j, i), alpha | monoColor);
+                drawPixel(getPixel(j, i), alpha | monoColor);
             }
         }
     }

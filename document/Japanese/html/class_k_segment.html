@@ -91,34 +91,111 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 <div class="title">KSegment クラス</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>衝突判定用有向線分  
+ <a href="class_k_segment.html#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_k_segment_8h_source.html">KSegment.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a5efc38b58b4c81669fdb3484039a6155"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5efc38b58b4c81669fdb3484039a6155"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>KSegment</b> (const <a class="el" href="class_k_vector.html">KVector</a> &amp;aVec1, const <a class="el" href="class_k_vector.html">KVector</a> &amp;aVec2)</td></tr>
+<tr class="memitem:a5efc38b58b4c81669fdb3484039a6155"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_segment.html#a5efc38b58b4c81669fdb3484039a6155">KSegment</a> (const <a class="el" href="class_k_vector.html">KVector</a> &amp;aVec1, const <a class="el" href="class_k_vector.html">KVector</a> &amp;aVec2)</td></tr>
 <tr class="separator:a5efc38b58b4c81669fdb3484039a6155"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20e18ef69f0ed387f2997971b3988c3b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a20e18ef69f0ed387f2997971b3988c3b"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>KSegment</b> (const <a class="el" href="class_k_segment.html">KSegment</a> &amp;orig)=default</td></tr>
-<tr class="separator:a20e18ef69f0ed387f2997971b3988c3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a21c1fec1c40b7e013e0be4d6ff2470"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3a21c1fec1c40b7e013e0be4d6ff2470"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>length</b> () const </td></tr>
+<tr class="memitem:a3a21c1fec1c40b7e013e0be4d6ff2470"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_segment.html#a3a21c1fec1c40b7e013e0be4d6ff2470">length</a> () const </td></tr>
+<tr class="memdesc:a3a21c1fec1c40b7e013e0be4d6ff2470"><td class="mdescLeft">&#160;</td><td class="mdescRight">線分の長さを取得します。  <a href="#a3a21c1fec1c40b7e013e0be4d6ff2470">[詳解]</a><br /></td></tr>
 <tr class="separator:a3a21c1fec1c40b7e013e0be4d6ff2470"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5261707a03d685babbf9b090c9fbdb3f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5261707a03d685babbf9b090c9fbdb3f"></a>
-<a class="el" href="class_k_vector.html">KVector</a>&#160;</td><td class="memItemRight" valign="bottom"><b>direction</b> () const </td></tr>
+<tr class="memitem:a5261707a03d685babbf9b090c9fbdb3f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_k_vector.html">KVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_segment.html#a5261707a03d685babbf9b090c9fbdb3f">direction</a> () const </td></tr>
+<tr class="memdesc:a5261707a03d685babbf9b090c9fbdb3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">有向線分の向きを取得します。  <a href="#a5261707a03d685babbf9b090c9fbdb3f">[詳解]</a><br /></td></tr>
 <tr class="separator:a5261707a03d685babbf9b090c9fbdb3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 公開変数類</h2></td></tr>
 <tr class="memitem:aaead4056a2bdf67733be44eda6693c44"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaead4056a2bdf67733be44eda6693c44"></a>
-<a class="el" href="class_k_vector.html">KVector</a>&#160;</td><td class="memItemRight" valign="bottom"><b>mVec1</b></td></tr>
+<a class="el" href="class_k_vector.html">KVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_segment.html#aaead4056a2bdf67733be44eda6693c44">mVec1</a></td></tr>
+<tr class="memdesc:aaead4056a2bdf67733be44eda6693c44"><td class="mdescLeft">&#160;</td><td class="mdescRight">線分始端 <br /></td></tr>
 <tr class="separator:aaead4056a2bdf67733be44eda6693c44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afef1b9c271b21c1e4dd784633aeee400"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afef1b9c271b21c1e4dd784633aeee400"></a>
-<a class="el" href="class_k_vector.html">KVector</a>&#160;</td><td class="memItemRight" valign="bottom"><b>mVec2</b></td></tr>
+<a class="el" href="class_k_vector.html">KVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_segment.html#afef1b9c271b21c1e4dd784633aeee400">mVec2</a></td></tr>
+<tr class="memdesc:afef1b9c271b21c1e4dd784633aeee400"><td class="mdescLeft">&#160;</td><td class="mdescRight">線分終端 <br /></td></tr>
 <tr class="separator:afef1b9c271b21c1e4dd784633aeee400"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>衝突判定用有向線分 </p>
+<dl class="section author"><dt>著者</dt><dd>Maeda Takumi </dd></dl>
+</div><h2 class="groupheader">構築子と解体子</h2>
+<a class="anchor" id="a5efc38b58b4c81669fdb3484039a6155"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">KSegment::KSegment </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_k_vector.html">KVector</a> &amp;&#160;</td>
+          <td class="paramname"><em>aVec1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_k_vector.html">KVector</a> &amp;&#160;</td>
+          <td class="paramname"><em>aVec2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">aVec1</td><td>線分始端 </td></tr>
+    <tr><td class="paramname">aVec2</td><td>線分終端 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a class="anchor" id="a5261707a03d685babbf9b090c9fbdb3f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_k_vector.html">KVector</a> KSegment::direction </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>有向線分の向きを取得します。 </p>
+<dl class="section return"><dt>戻り値</dt><dd>有向線分の向き </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a3a21c1fec1c40b7e013e0be4d6ff2470"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float KSegment::length </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>線分の長さを取得します。 </p>
+<dl class="section return"><dt>戻り値</dt><dd>線分の長さ </dd></dl>
+
+</div>
+</div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
 <li>C:/Users/Kawaz/Documents/Kawazuini/Kawazuini/<a class="el" href="_k_segment_8h_source.html">KSegment.h</a></li>
-<li>C:/Users/Kawaz/Documents/Kawazuini/Kawazuini/<a class="el" href="_k_segment_8cpp.html">KSegment.cpp</a></li>
+<li>C:/Users/Kawaz/Documents/Kawazuini/Kawazuini/KSegment.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

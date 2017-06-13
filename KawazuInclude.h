@@ -1,18 +1,19 @@
 /** 
  * @file   KawazuInclude.h
- * @author Maeda Takumi
  * @brief  Project's include file
+ * @author Maeda Takumi
  */
 #ifndef KAWAZUINCLUDE_H
 #define KAWAZUINCLUDE_H
 
-// <gdiplus.h>の#ifdefをごまかす
-#define PROPID ULONG
+#define __USE_MINGW_ANSI_STDIO 0 // <stdio.h>, <libmingwex.a> での vsnprintf の競合を防ぐ
+#define PROPID ULONG // <gdiplus.h>の#ifdefをごまかす
 
 #include <algorithm>
 #include <chrono>
 #include <fstream>
 #include <gdiplus.h>
+#include <imm.h>
 #include <iomanip>
 #include <iostream>
 #include <list>
@@ -21,6 +22,7 @@
 #include <pthread.h>
 #include <queue>
 #include <random>
+#include <regex>
 #include <sstream>
 #include <stack>
 #include <stdexcept>
@@ -30,6 +32,7 @@
 #include <unordered_map>
 #include <vector>
 #include <windows.h>
+#include <commctrl.h> // windows.hの後でないとダメ
 
 #include <GL/gl.h>
 #include <GL/glu.h>

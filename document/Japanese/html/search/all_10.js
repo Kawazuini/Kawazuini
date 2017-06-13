@@ -10,6 +10,6 @@ var searchData=
   ['reversecymbal',['ReverseCymbal',['../class_k_midi.html#a11035e68ce16118fd222337c93318813aff24749aba4906535c89d36a2158095c',1,'KMidi']]],
   ['right',['right',['../class_k_rect.html#a94d54199aef201191f9ac6be84914bb7',1,'KRect']]],
   ['rockorgan',['RockOrgan',['../class_k_midi.html#a11035e68ce16118fd222337c93318813ad22632ffe35598bc160f039f005f2dfc',1,'KMidi']]],
-  ['rotate',['rotate',['../class_k_draw_cube.html#ab95bc9990bad13a71404f57857869cae',1,'KDrawCube::rotate()'],['../class_k_draw_sphere.html#a05919eca9670fc2005fdd67f4222529b',1,'KDrawSphere::rotate()'],['../class_k_f_p_s_camera.html#a60c674f4f4e9c9c0b201e14f16cb4da4',1,'KFPSCamera::rotate()'],['../class_k_vector.html#a0087a01efd6ec82a1be05a4747624489',1,'KVector::rotate()']]],
+  ['rotate',['rotate',['../class_k_draw_board.html#a5d0addca976ec9bbf3b5c2bb9bdc24e9',1,'KDrawBoard::rotate()'],['../class_k_draw_cube.html#ab95bc9990bad13a71404f57857869cae',1,'KDrawCube::rotate()'],['../class_k_draw_sphere.html#a05919eca9670fc2005fdd67f4222529b',1,'KDrawSphere::rotate()'],['../class_k_f_p_s_camera.html#a60c674f4f4e9c9c0b201e14f16cb4da4',1,'KFPSCamera::rotate()'],['../class_k_vector.html#a0087a01efd6ec82a1be05a4747624489',1,'KVector::rotate()']]],
   ['roundangle',['roundAngle',['../class_k_vector.html#aa22513a39e22451029eb4376e0f6e55b',1,'KVector']]]
 ];

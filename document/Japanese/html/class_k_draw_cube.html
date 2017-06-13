@@ -103,16 +103,14 @@ KDrawCube の継承関係図</div>
  <div class="center">
   <img src="class_k_draw_cube.png" usemap="#KDrawCube_map" alt=""/>
   <map id="KDrawCube_map" name="KDrawCube_map">
-<area href="class_k_draw_object.html" title="描画用オブジェクト " alt="KDrawObject" shape="rect" coords="0,112,87,136"/>
-<area href="class_k_drawer.html" title="描画用基底 " alt="KDrawer" shape="rect" coords="0,56,87,80"/>
-<area href="class_k_non_copy.html" title="コピー禁止クラス " alt="KNonCopy" shape="rect" coords="0,0,87,24"/>
+<area href="class_k_drawer.html" title="描画用基底 " alt="KDrawer" shape="rect" coords="0,56,80,80"/>
+<area href="class_k_non_copy.html" title="コピー禁止クラス " alt="KNonCopy" shape="rect" coords="0,0,80,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a375d9ba330cb14eb1f67a48f320b61ab"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a375d9ba330cb14eb1f67a48f320b61ab"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>KDrawCube</b> (const float &amp;aScale, const <a class="el" href="class_k_vector.html">KVector</a> &amp;aPosition=<a class="el" href="class_k_vector.html">KVector</a>())</td></tr>
+<tr class="memitem:a375d9ba330cb14eb1f67a48f320b61ab"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_cube.html#a375d9ba330cb14eb1f67a48f320b61ab">KDrawCube</a> (const float &amp;aScale, const <a class="el" href="class_k_vector.html">KVector</a> &amp;aPosition=<a class="el" href="class_k_vector.html">KVector</a>())</td></tr>
 <tr class="separator:a375d9ba330cb14eb1f67a48f320b61ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e9e0ac21e87c5ab9f74251fc6c53ee6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9e9e0ac21e87c5ab9f74251fc6c53ee6"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_cube.html#a9e9e0ac21e87c5ab9f74251fc6c53ee6">draw</a> () const  override</td></tr>
@@ -176,7 +174,41 @@ static void const&#160;</td><td class="memItemRight" valign="bottom"><a class="e
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>描画用立方体 </p>
 <dl class="section author"><dt>著者</dt><dd>Maeda Takumi </dd></dl>
-</div><h2 class="groupheader">関数詳解</h2>
+</div><h2 class="groupheader">構築子と解体子</h2>
+<a class="anchor" id="a375d9ba330cb14eb1f67a48f320b61ab"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">KDrawCube::KDrawCube </td>
+          <td>(</td>
+          <td class="paramtype">const float &amp;&#160;</td>
+          <td class="paramname"><em>aScale</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_k_vector.html">KVector</a> &amp;&#160;</td>
+          <td class="paramname"><em>aPosition</em> = <code><a class="el" href="class_k_vector.html">KVector</a>()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">aScale</td><td>立方体の一辺の長さ </td></tr>
+    <tr><td class="paramname">aPosition</td><td>立方体の重心座標 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
 <a class="anchor" id="a79d73b84fb3ca3320901666b529cbfbc"></a>
 <div class="memitem">
 <div class="memproto">

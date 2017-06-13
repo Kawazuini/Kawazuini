@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mainargs',['MainArgs',['../struct_k_window_1_1_main_args.html',1,'KWindow']]]
+  ['note',['Note',['../struct_k_midi_1_1_note.html',1,'KMidi']]]
 ];

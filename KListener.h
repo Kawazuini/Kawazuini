@@ -10,34 +10,32 @@
 #include "KMouse.h"
 
 /**
- * @brief  Application's Listener System
- * @author Maeda Takumi
+ * @brief  \~english  Event processing system
+ * @brief  \~japanese イベント処理システム
+ * @author \~ Maeda Takumi
  */
 class KListener : private KNonCopy {
     friend class KWindow;
 protected:
-    KKeyboard mKeyboard; ///< キーボード
-    KMouse mMouse; ///< マウス
+    KKeyboard mKeyboard;
+    KMouse mMouse;
 
     KListener() = default;
     virtual ~KListener() = default;
 public:
-
     /**
      * @brief \~english  drawing processing
      * @brief \~japanese 描画処理
      */
-    virtual void draw() {
-    };
+    virtual void draw() const = 0;
 
-    /**
-     * @brief \~english  update processing
-     * @brief \~japanese 更新処理
-     */
-    virtual void update() {
-        mKeyboard.pass();
-        mMouse.pass();
-    };
+    const KKeyboard& keyboard()const {
+        return mKeyboard;
+    }
+
+    const KMouse& mosue()const {
+        return mMouse;
+    }
 };
 
 #endif /* KLISTENER_H */

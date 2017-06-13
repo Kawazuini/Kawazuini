@@ -1,14 +1,8 @@
 var searchData=
 [
-  ['off',['OFF',['../class_k_switch.html#ae69b29f86a618d800327a8e207072bdf',1,'KSwitch']]],
-  ['offframe',['offFrame',['../class_k_switch.html#a0a64a62c65b8fbdad045bc0f98fd5bfb',1,'KSwitch']]],
-  ['on',['ON',['../class_k_switch.html#a9bcbb28d7a5cb374ddee72f801da7ecf',1,'KSwitch']]],
-  ['onframe',['onFrame',['../class_k_switch.html#a5e1b9e3efd786ae3668aa4955591bde8',1,'KSwitch']]],
-  ['operator_20point',['operator POINT',['../class_k_vector.html#ac36808c00cc8ec094b27a46437fddc71',1,'KVector']]],
-  ['operator_20rect',['operator RECT',['../class_k_rect.html#af69c375dc7d619f85e2671778b435ffa',1,'KRect']]],
-  ['operator_2a',['operator*',['../class_k_polygon.html#a2b05d6fd28e22fbc75a22792130be192',1,'KPolygon::operator*(const KVector &amp;aPoint) const '],['../class_k_polygon.html#a0887e8fbf921061252743f74d3d62735',1,'KPolygon::operator*(const KSegment &amp;aSegment) const '],['../class_k_sphere.html#a86c7ea35f280c9629cd7c283846715a4',1,'KSphere::operator*()']]],
-  ['operator_2d',['operator-',['../class_k_quaternion.html#a6015835dc51dd5bc6d314aa44f117a58',1,'KQuaternion']]],
-  ['operator_3c',['operator&lt;',['../class_k_rect.html#a849708d0dc03433a18be486497641329',1,'KRect']]],
-  ['operator_3d_3d',['operator==',['../class_k_rect.html#a047c95a14a3e4a8c808cd63b715a47ed',1,'KRect']]],
-  ['operator_3e',['operator&gt;',['../class_k_rect.html#a2d841569b1553572b1fa3245fe381610',1,'KRect']]]
+  ['normal',['normal',['../class_k_draw_board.html#a99a271c868d55b813ee8af05c2f84d4d',1,'KDrawBoard']]],
+  ['normalization',['normalization',['../class_k_vector.html#a8c04959b43ca62a533e6743c0d3e476f',1,'KVector']]],
+  ['now',['now',['../class_k_timer.html#a695ed31fc18e4d086ceff0032e66d0e0',1,'KTimer']]],
+  ['nowdate',['nowDate',['../class_k_timer.html#a103139ffa5d5c429bcb64386161c4132',1,'KTimer']]],
+  ['nowminutes',['nowMinutes',['../class_k_timer.html#aa6e9cf93ebc6103dba991352abd64c15',1,'KTimer']]]
 ];

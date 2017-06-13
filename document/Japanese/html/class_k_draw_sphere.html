@@ -104,7 +104,6 @@ KDrawSphere の継承関係図</div>
  <div class="center">
   <img src="class_k_draw_sphere.png" usemap="#KDrawSphere_map" alt=""/>
   <map id="KDrawSphere_map" name="KDrawSphere_map">
-<area href="class_k_draw_object.html" title="描画用オブジェクト " alt="KDrawObject" shape="rect" coords="0,112,91,136"/>
 <area href="class_k_drawer.html" title="描画用基底 " alt="KDrawer" shape="rect" coords="0,56,91,80"/>
 <area href="class_k_non_copy.html" title="コピー禁止クラス " alt="KNonCopy" shape="rect" coords="0,0,91,24"/>
 </map>
@@ -112,8 +111,7 @@ KDrawSphere の継承関係図</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a64ce35bb66926a8459a3965919218d3b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a64ce35bb66926a8459a3965919218d3b"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>KDrawSphere</b> (const <a class="el" href="class_k_vector.html">KVector</a> &amp;aPosition, const float &amp;aRadius, const int &amp;aStack, const int &amp;aSlice)</td></tr>
+<tr class="memitem:a64ce35bb66926a8459a3965919218d3b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_sphere.html#a64ce35bb66926a8459a3965919218d3b">KDrawSphere</a> (const <a class="el" href="class_k_vector.html">KVector</a> &amp;aPosition, const float &amp;aRadius, const int &amp;aStack, const int &amp;aSlice)</td></tr>
 <tr class="separator:a64ce35bb66926a8459a3965919218d3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c49f4a0ec113a9f8c4181725338545d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4c49f4a0ec113a9f8c4181725338545d"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_sphere.html#a4c49f4a0ec113a9f8c4181725338545d">draw</a> () const  override</td></tr>
@@ -137,10 +135,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 公開変数類</h2></td></tr>
-<tr class="memitem:a384d363a3eb402ce6c507d074c346e3b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a384d363a3eb402ce6c507d074c346e3b"></a>
-<a class="el" href="class_k_texture.html">KTexture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_sphere.html#a384d363a3eb402ce6c507d074c346e3b">mTexture</a></td></tr>
-<tr class="memdesc:a384d363a3eb402ce6c507d074c346e3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">テクスチャ <br /></td></tr>
-<tr class="separator:a384d363a3eb402ce6c507d074c346e3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a898414150767d2f77d412afa27c35a5f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a898414150767d2f77d412afa27c35a5f"></a>
+const <a class="el" href="class_k_texture.html">KTexture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_sphere.html#a898414150767d2f77d412afa27c35a5f">mTexture</a></td></tr>
+<tr class="memdesc:a898414150767d2f77d412afa27c35a5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">テクスチャ <br /></td></tr>
+<tr class="separator:a898414150767d2f77d412afa27c35a5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 限定公開メンバ関数</h2></td></tr>
@@ -196,7 +194,55 @@ static void const&#160;</td><td class="memItemRight" valign="bottom"><a class="e
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>描画用球体 </p>
 <dl class="section author"><dt>著者</dt><dd>Maeda Takumi </dd></dl>
-</div><h2 class="groupheader">関数詳解</h2>
+</div><h2 class="groupheader">構築子と解体子</h2>
+<a class="anchor" id="a64ce35bb66926a8459a3965919218d3b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">KDrawSphere::KDrawSphere </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_k_vector.html">KVector</a> &amp;&#160;</td>
+          <td class="paramname"><em>aPosition</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float &amp;&#160;</td>
+          <td class="paramname"><em>aRadius</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"><em>aStack</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"><em>aSlice</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">aPosition</td><td>中心座標 </td></tr>
+    <tr><td class="paramname">aRadius</td><td>半径 </td></tr>
+    <tr><td class="paramname">aStack</td><td>水平分割数 </td></tr>
+    <tr><td class="paramname">aSlice</td><td>垂直分割数 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
 <a class="anchor" id="a654f423658c530d55eaced48fc6d4838"></a>
 <div class="memitem">
 <div class="memproto">

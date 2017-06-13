@@ -1,6 +1,7 @@
 /**
- * @file KFile.h
- * @brief ファイル入出力クラス
+ * @file   KFile.h
+ * @brief  KFile
+ * @author Maeda Takumi
  */
 #ifndef KFILE_H
 #define KFILE_H
@@ -10,29 +11,71 @@
 #include "KNonCopy.h"
 
 /** @brief ファイル入出力 */
+
+/**
+ * @brief  \~english  File I/O
+ * @brief  \~japanese ファイル入出力
+ * @author \~ Maeda Takumi
+ */
 class KFile : private KNonCopy {
     typedef std::ifstream InPut;
     typedef std::ofstream OutPut;
     typedef std::ios::openmode OpenMode;
 private:
-    /** @brief バイナリモード */ static const OpenMode BIN = std::ios::binary;
-    /** @brief 追加出力       */ static const OpenMode ADD = std::ios::app;
+    /* バイナリモード */ static const OpenMode BIN;
+    /* 追加出力       */ static const OpenMode ADD;
 
-    /** @brief ファイル名     */ String mFileName;
+    /* ファイル名     */ String mFileName;
 public:
-    /** @param aName ファイル名(プログラムからの相対パス) */
+    /**
+     * \~english
+     * @param aName File name (Relative path from program)
+     * \~japanese
+     * @param aName ファイル名(プログラムからの相対パス)
+     */
     KFile(const String& aName);
     virtual ~KFile() = default;
 
-    /** @brief ファイル名の変更 */ void change(const String& aName);
     /**
-     * @brief ファイルを読み込む
-     * @param aCO コメントを外すか
+     * \~english
+     * @brief change file name.
+     * @param aName new file name
+     * \~japanese
+     * @brief ファイル名を変更します。
+     * @param aName 新しいファイル名
+     */
+    void change(const String& aName);
+
+    /**
+     * \~english
+     * @brief  read file.
+     * @param  aCommOut whether comment out
+     * @return file contents per line
+     * \~japanese
+     * @brief  ファイルを読み込みます。
+     * @param  aCommOut コメントを外すか
      * @return 一行ごとのファイル内容
      */
     Vector<String> read(const bool& aCommOut = true) const;
-    /** @brief ファイルに書き込む */ void write(const Vector<String>& aTxt) const;
-    /** @brief ファイルに書き足す */ void add(const Vector<String>& aTxt) const;
+    /**
+     * \~english
+     * @brief write in file
+     * @param aTxt write content per line
+     * \~japanese
+     * @brief ファイルに書き込みます。
+     * @param aTxt 行ごとの書き込み内容
+     */
+    void write(const Vector<String>& aTxt) const;
+    /**
+     * \~english
+     * @brief add write in file
+     * @param aTxt write content per line
+     * \~japanese
+     * @brief ファイルに書き足します。
+     * @param aTxt 行ごとの書き込み内容
+     */
+    void add(const Vector<String>& aTxt) const;
 };
 
 #endif /* KFILE_H */
+

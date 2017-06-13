@@ -10,16 +10,16 @@
 const float KHandLight::DIFFUSE[3]{
     1.0, 1.0, 1.0
 }; //拡散光
-const float KHandLight::AMBIENT[3]{0.25, 0.25, 0.25}; //環境光
 const float KHandLight::SPECULAR[3]{1.0, 1.0, 1.0}; //鏡面光
+const float KHandLight::AMBIENT[3]{0.25, 0.25, 0.25}; //環境光
 
 KHandLight::KHandLight() {
 }
 
 void KHandLight::at() {
-    float lightPosition[4] = {DEPLOYMENT(mPosition), 1.0f};
+    float lightPosition[4]{DEPLOY_VEC(mPosition), 1.0f};
     glLightfv(GL_LIGHT0, GL_POSITION, lightPosition);
-    float lightDirection[3] = {DEPLOYMENT(mDirection)};
+    float lightDirection[3]{DEPLOY_VEC(mDirection)};
     glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, lightDirection);
 
     glLightfv(GL_LIGHT0, GL_DIFFUSE, DIFFUSE);

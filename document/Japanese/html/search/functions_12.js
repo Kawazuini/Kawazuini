@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['update',['UPDATE',['../class_k_updater.html#a66b27bd460309b55a7614a86d0dab170',1,'KUpdater::UPDATE()'],['../class_k_f_p_s_camera.html#a353413a322af5a1e95e3769b2e1ad766',1,'KFPSCamera::update()'],['../class_k_listener.html#a5e83ec0c30d8af9453705b9985613f0d',1,'KListener::update()'],['../class_k_updater.html#ac76abd88afdbea67784e8d366f65f5ac',1,'KUpdater::update()']]]
+  ['tofullscreen',['toFullScreen',['../class_k_window.html#a4a944d9903b1749703460dd62dc1599c',1,'KWindow']]],
+  ['top',['top',['../class_k_rect.html#a67dc8857b2b3c3e4b7ef8e3e9f9a6943',1,'KRect']]],
+  ['translate',['translate',['../class_k_draw_board.html#aff6a0598a8ddbff9a94c437d75e73594',1,'KDrawBoard::translate()'],['../class_k_draw_cube.html#ac8a9c5ee709690bce61267bca24bbefa',1,'KDrawCube::translate()'],['../class_k_draw_sphere.html#af746d5c534541f852d17de7c52f56d4e',1,'KDrawSphere::translate()']]]
 ];

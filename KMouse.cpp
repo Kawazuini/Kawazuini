@@ -1,13 +1,14 @@
 /**
- * @file KMouse.cpp
+ * @file   KMouse.cpp
+ * @brief  KMouse
  * @author Maeda Takumi
  */
 #include "KMouse.h"
 
 #include "KVector.h"
 
-KMouse::KMouse() {
-    mWheel = 0;
+KMouse::KMouse() :
+mWheel(0) {
 }
 
 void KMouse::press(const UINT& aMsg) {

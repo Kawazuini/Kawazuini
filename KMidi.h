@@ -13,10 +13,10 @@
 
 /**
  * @brief  \~english  MIDI controller
- * @brief  \~japanese MIDI(Musical Instrument Digital Interface)コントローラ
+ * @brief  \~japanese MIDIコントローラ
  * @author \~ Maeda Takumi
  */
-class KMidi : private KNonCopy {
+class KMidi final : private KNonCopy {
 public:
 
     /**
@@ -219,7 +219,10 @@ public:
         C10, _C10, D10_ = _C10, D10, _D10, E10_ = _D10, E10, F10, _F10, G10_ = _F10, G10, // G10(127)
     };
 
-    /** @brief 音符 */
+    /**
+     * @brief \~english  note
+     * @brief \~japanese 音符
+     */
     struct Note {
         /** @brief 音程 */ Tone mTone;
         /** @brief 音価 */ int mPhonetic;
@@ -227,22 +230,22 @@ public:
     };
 
 private:
-    /** @brief midi出力デバイス */ HMIDIOUT mMidi;
+    /* チャンネル数     */ static const int CHANNEL_COUNT;
+    /* 再生パラメータ   */ static const int STATE_PLAY;
+    /* 変更パラメータ   */ static const int STATE_CHANGE;
 
-    KThread mThread;
-    KMutex mNoteLock;
+    /* midi出力デバイス */ HMIDIOUT mMidi;
 
-    Vector<Vector<Note>> mNotes;
+    /* 音価管理用スレッド */ KThread mThread;
+    /* ノート配列の保護   */ KMutex mNoteLock;
+    /* ノート配列         */ Vector<Vector<Note>> mNotes;
 
-    /** @brief チャンネル数     */ static const int CHANNEL_COUNT;
-    /** @brief 再生パラメータ   */ static const int STATE_PLAY;
-    /** @brief 変更パラメータ   */ static const int STATE_CHANGE;
-
-    /** @return midiメッセージ */
+    /* 音符情報をmidiメッセージに変換します。 */
     static inline unsigned long noteToMsg(const int& aStatus, const int& aChannel, const int& aData1, const int& aData2) {
         return (aStatus << 4) | aChannel | (aData1 << 8) | (aData2 << 16);
     };
 
+    /* 音価管理を行います。 */
     static void* TimeManager(void* aMidi);
 public:
     KMidi();
@@ -259,8 +262,28 @@ public:
      * @param aInstrument 楽器番号
      */
     void set(const int& aChannel, const Instrument& aInstrument) const;
-    /** @breif 音を流す   */ void play(const int& aChannel, const Note& aNote);
-    /** @brief 音を止める */ void stop(const int& aChannel, const Note& aNote) const;
+    /**
+     * \~english
+     * @brief play sound.
+     * @param aChannel channel number
+     * @param aNote    note
+     * \~japanese
+     * @brief 音を流します。
+     * @param aChannel チャンネル数
+     * @param aNote    音符情報
+     */
+    void play(const int& aChannel, const Note& aNote);
+    /**
+     * \~english
+     * @brief stop sound.
+     * @param aChannel channel number
+     * @param aNote    note
+     * \~japanese
+     * @brief 音を止めます。
+     * @param aChannel チャンネル数
+     * @param aNote    音符情報
+     */
+    void stop(const int& aChannel, const Note& aNote) const;
 
     /**
      * @brief \~english  stop sound in all channel.

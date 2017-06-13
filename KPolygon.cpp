@@ -28,8 +28,8 @@ bool KPolygon::operator*(const KSegment& aSegment) const {
 
 KVector KPolygon::hitPoint(const KSegment& aSegment) const {
     // 線分と面との衝突判定(線分の端がそれぞれ面の表裏に存在するか)
-    float m = (aSegment.mVec1 - mVertex[0]).dot(mNormal);
-    float n = (aSegment.mVec2 - mVertex[0]).dot(mNormal);
+    float m((aSegment.mVec1 - mVertex[0]).dot(mNormal));
+    float n((aSegment.mVec2 - mVertex[0]).dot(mNormal));
     if (m * n < 0) {
         m = Math::abs(m);
         n = Math::abs(n);

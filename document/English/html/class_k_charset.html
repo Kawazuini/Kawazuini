@@ -88,9 +88,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="class_k_charset-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">KCharset Class Reference</div>  </div>
+<div class="title">KCharset Class Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>charset by image  
+ <a href="class_k_charset.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_k_charset_8h_source.html">KCharset.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for KCharset:</div>
 <div class="dyncontent">
@@ -104,28 +109,32 @@ Inheritance diagram for KCharset:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ab57a6ed2ca45d6881ce432e43b7e2daa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_charset.html#ab57a6ed2ca45d6881ce432e43b7e2daa">KCharset</a> (const <a class="el" href="class_k_image.html">KImage</a> &amp;aImage, const int &amp;aSize)</td></tr>
-<tr class="memdesc:ab57a6ed2ca45d6881ce432e43b7e2daa"><td class="mdescLeft">&#160;</td><td class="mdescRight">画像から文字セットを作成  <a href="#ab57a6ed2ca45d6881ce432e43b7e2daa">More...</a><br /></td></tr>
 <tr class="separator:ab57a6ed2ca45d6881ce432e43b7e2daa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a235b96345523a1003c770c70fc0016b9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a235b96345523a1003c770c70fc0016b9"></a>
-<a class="el" href="class_k_rect.html">KRect</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getArea</b> (const char *aChar) const </td></tr>
+<tr class="memitem:a235b96345523a1003c770c70fc0016b9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_k_rect.html">KRect</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_charset.html#a235b96345523a1003c770c70fc0016b9">getArea</a> (const char *aChar) const </td></tr>
+<tr class="memdesc:a235b96345523a1003c770c70fc0016b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">get image area for drawing character.  <a href="#a235b96345523a1003c770c70fc0016b9">More...</a><br /></td></tr>
 <tr class="separator:a235b96345523a1003c770c70fc0016b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5feb061b8cd8833327e1cb8c8ccc2353"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5feb061b8cd8833327e1cb8c8ccc2353"></a>
-<a class="el" href="class_k_rect.html">KRect</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getArea</b> (const String &amp;aStr) const </td></tr>
-<tr class="separator:a5feb061b8cd8833327e1cb8c8ccc2353"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e01b455d41b57d8dd5232d9eed0cdc4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3e01b455d41b57d8dd5232d9eed0cdc4"></a>
-<a class="el" href="class_k_vector.html">KVector</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getOffsetIndex</b> (const char *aChar) const </td></tr>
-<tr class="separator:a3e01b455d41b57d8dd5232d9eed0cdc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5b2661ddd5f733c60161c000e48a717"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_charset.html#ae5b2661ddd5f733c60161c000e48a717">getWidth</a> (const String &amp;aStr) const </td></tr>
+<tr class="memdesc:ae5b2661ddd5f733c60161c000e48a717"><td class="mdescLeft">&#160;</td><td class="mdescRight">get drawing width required for drawing the character string.  <a href="#ae5b2661ddd5f733c60161c000e48a717">More...</a><br /></td></tr>
+<tr class="separator:ae5b2661ddd5f733c60161c000e48a717"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1aa92cfb9a5bbbca6436de594914c3d1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_charset.html#a1aa92cfb9a5bbbca6436de594914c3d1">getDrawable</a> (const String &amp;aStr) const </td></tr>
+<tr class="memdesc:a1aa92cfb9a5bbbca6436de594914c3d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">get whether character string can be drawed.  <a href="#a1aa92cfb9a5bbbca6436de594914c3d1">More...</a><br /></td></tr>
+<tr class="separator:a1aa92cfb9a5bbbca6436de594914c3d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a4cc9352686bb4667bbf5a94d2aa35d14"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4cc9352686bb4667bbf5a94d2aa35d14"></a>
-const <a class="el" href="class_k_image.html">KImage</a> *const&#160;</td><td class="memItemRight" valign="bottom"><b>mImage</b></td></tr>
-<tr class="separator:a4cc9352686bb4667bbf5a94d2aa35d14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5889e2204f14f7e85a081e89fdf7d5f9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5889e2204f14f7e85a081e89fdf7d5f9"></a>
+const <a class="el" href="class_k_image.html">KImage</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_charset.html#a5889e2204f14f7e85a081e89fdf7d5f9">mImage</a></td></tr>
+<tr class="memdesc:a5889e2204f14f7e85a081e89fdf7d5f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">charset image <br /></td></tr>
+<tr class="separator:a5889e2204f14f7e85a081e89fdf7d5f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b9a12fa1842fe335b5a9bd1ca8ae5a0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0b9a12fa1842fe335b5a9bd1ca8ae5a0"></a>
-const int&#160;</td><td class="memItemRight" valign="bottom"><b>mSize</b></td></tr>
+const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_charset.html#a0b9a12fa1842fe335b5a9bd1ca8ae5a0">mSize</a></td></tr>
+<tr class="memdesc:a0b9a12fa1842fe335b5a9bd1ca8ae5a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">charcter size <br /></td></tr>
 <tr class="separator:a0b9a12fa1842fe335b5a9bd1ca8ae5a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>charset by image </p>
+<p>Maeda Takumi </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ab57a6ed2ca45d6881ce432e43b7e2daa"></a>
 <div class="memitem">
 <div class="memproto">
@@ -149,21 +158,95 @@ const int&#160;</td><td class="memItemRight" valign="bottom"><b>mSize</b></td></
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>画像から文字セットを作成 </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">aImage</td><td>文字セット画像 </td></tr>
-    <tr><td class="paramname">aSize</td><td>文字の大きさ </td></tr>
+    <tr><td class="paramname">aImage</td><td>image of charcter set </td></tr>
+    <tr><td class="paramname">aSize</td><td>size of a character </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a235b96345523a1003c770c70fc0016b9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_k_rect.html">KRect</a> KCharset::getArea </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>aChar</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>get image area for drawing character. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">aChar</td><td>drawing character </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>image arae. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1aa92cfb9a5bbbca6436de594914c3d1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool KCharset::getDrawable </td>
+          <td>(</td>
+          <td class="paramtype">const String &amp;&#160;</td>
+          <td class="paramname"><em>aStr</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>get whether character string can be drawed. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">aStr</td><td>check string </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>whether drawing </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae5b2661ddd5f733c60161c000e48a717"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int KCharset::getWidth </td>
+          <td>(</td>
+          <td class="paramtype">const String &amp;&#160;</td>
+          <td class="paramname"><em>aStr</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>get drawing width required for drawing the character string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">aStr</td><td>drawing string </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>drawing width </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>C:/Users/Kawaz/Documents/Kawazuini/Kawazuini/<a class="el" href="_k_charset_8h_source.html">KCharset.h</a></li>
-<li>C:/Users/Kawaz/Documents/Kawazuini/Kawazuini/KCharset.cpp</li>
+<li>C:/Users/Kawaz/Documents/Kawazuini/Kawazuini/<a class="el" href="_k_charset_8cpp.html">KCharset.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

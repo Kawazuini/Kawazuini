@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['normal',['normal',['../class_k_draw_board.html#a99a271c868d55b813ee8af05c2f84d4d',1,'KDrawBoard']]],
   ['normalization',['normalization',['../class_k_vector.html#a8c04959b43ca62a533e6743c0d3e476f',1,'KVector']]],
   ['note',['Note',['../struct_k_midi_1_1_note.html',1,'KMidi']]],
   ['now',['now',['../class_k_timer.html#a695ed31fc18e4d086ceff0032e66d0e0',1,'KTimer']]],

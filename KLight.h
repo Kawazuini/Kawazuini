@@ -7,15 +7,14 @@
 #define KLIGHT_H
 
 /**
- * @brief \~english  Lighting System
- * @brief \~japanese 光源システム
+ * @brief  \~english  Lighting System
+ * @brief  \~japanese 光源システム
+ * @author \~ Maeda Takumi
  */
 class KLight {
-private:
 public:
     KLight();
-    KLight(const KLight& orig);
-    virtual ~KLight();
+    virtual ~KLight() = default;
 };
 
 #endif /* KLIGHT_H */

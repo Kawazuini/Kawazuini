@@ -6,7 +6,7 @@
 #ifndef KDRAWSPHERE_H
 #define KDRAWSPHERE_H
 
-#include "KDrawObject.h"
+#include "KDrawer.h"
 #include "KVector.h"
 
 class KTexture;
@@ -16,7 +16,7 @@ class KTexture;
  * @brief  \~japanese 描画用球体
  * @author \~ Maeda Takumi
  */
-class KDrawSphere : public KDrawObject {
+class KDrawSphere : public KDrawer {
 protected:
     /**
      * @brief \~english  center coordinate
@@ -100,6 +100,18 @@ public:
      */
     const KTexture* mTexture;
 
+    /**
+     * \~english
+     * @param aPosition center coordinate
+     * @param aRadius   radius
+     * @param aStack    Number of horizonal divisions
+     * @param aSlice    Number of vertical divisions
+     * \~japanese
+     * @param aPosition 中心座標
+     * @param aRadius   半径
+     * @param aStack    水平分割数
+     * @param aSlice    垂直分割数
+     */
     KDrawSphere(
             const KVector& aPosition,
             const float& aRadius,

@@ -1,10 +1,14 @@
 /**
- * @file KFile.cpp
- * @brief KFileクラスの実装
+ * @file   KFile.cpp
+ * @brief  KFile
+ * @author Maeda Takumi
  */
 #include "KFile.h"
 
 #include "KUtility.h"
+
+const KFile::OpenMode KFile::ADD(std::ios::app);
+const KFile::OpenMode KFile::BIN(std::ios::binary);
 
 KFile::KFile(const String& aName) {
     mFileName = aName;
@@ -58,6 +62,5 @@ void KFile::write(const Vector<String>& aTxt) const {
 
 void KFile::add(const Vector<String>& aTxt) const {
     OutPut stream(mFileName, ADD);
-    for (auto i = aTxt.begin(), i_e = aTxt.end(); i != i_e; ++i)
-        stream << *i << std::endl;
+    for (String i : aTxt) stream << i << std::endl;
 }

@@ -1,11 +1,11 @@
 /**
- * @file KawazuOpenGL.h
+ * @file   KawazuOpenGL.h
+ * @brief  OpenGL headder
  * @author Maeda Takumi
  */
 #ifndef KAWAZUOPENGL_H
 #define KAWAZUOPENGL_H
 
-#include "KGLUI.h"
 #include "KTexture.h"
 
 #include "KOpenGL.h"

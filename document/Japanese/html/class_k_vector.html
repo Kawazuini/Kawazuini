@@ -91,18 +91,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 <div class="title">KVector クラス</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>3次元幾何ベクトル  
+ <a href="class_k_vector.html#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="_k_vector_8h_source.html">KVector.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a06ca06407b8a00020c7c2552cf2531f0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a06ca06407b8a00020c7c2552cf2531f0"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>KVector</b> (const float &amp;ax=0, const float &amp;ay=0, const float &amp;az=0)</td></tr>
+<tr class="memitem:a06ca06407b8a00020c7c2552cf2531f0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_vector.html#a06ca06407b8a00020c7c2552cf2531f0">KVector</a> (const float &amp;ax=0, const float &amp;ay=0, const float &amp;az=0)</td></tr>
 <tr class="separator:a06ca06407b8a00020c7c2552cf2531f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af35dfb59edd6f1964c5a4e4cb004fba2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af35dfb59edd6f1964c5a4e4cb004fba2"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>KVector</b> (const POINT &amp;aPoint)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_vector.html#af35dfb59edd6f1964c5a4e4cb004fba2">KVector</a> (const POINT &amp;aPoint)</td></tr>
+<tr class="memdesc:af35dfb59edd6f1964c5a4e4cb004fba2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Windows compatible. <br /></td></tr>
 <tr class="separator:af35dfb59edd6f1964c5a4e4cb004fba2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab9d24b93a0c55face41263ca9a8030a3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab9d24b93a0c55face41263ca9a8030a3"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>KVector</b> (const <a class="el" href="class_k_vector.html">KVector</a> &amp;orig)=default</td></tr>
-<tr class="separator:ab9d24b93a0c55face41263ca9a8030a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78117b84304941b238cfad505a1845a6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a78117b84304941b238cfad505a1845a6"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="class_k_vector.html">KVector</a> &amp;aVec) const </td></tr>
 <tr class="separator:a78117b84304941b238cfad505a1845a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -180,17 +182,64 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const
 公開変数類</h2></td></tr>
 <tr class="memitem:abdd965755c7de8ade1165150f845b57d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abdd965755c7de8ade1165150f845b57d"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_vector.html#abdd965755c7de8ade1165150f845b57d">x</a></td></tr>
-<tr class="memdesc:abdd965755c7de8ade1165150f845b57d"><td class="mdescLeft">&#160;</td><td class="mdescRight">x scalar <br /></td></tr>
+<tr class="memdesc:abdd965755c7de8ade1165150f845b57d"><td class="mdescLeft">&#160;</td><td class="mdescRight">x軸要素 <br /></td></tr>
 <tr class="separator:abdd965755c7de8ade1165150f845b57d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac651682926a64ce97152e5953f00bbc5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac651682926a64ce97152e5953f00bbc5"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_vector.html#ac651682926a64ce97152e5953f00bbc5">y</a></td></tr>
-<tr class="memdesc:ac651682926a64ce97152e5953f00bbc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">y scalar <br /></td></tr>
+<tr class="memdesc:ac651682926a64ce97152e5953f00bbc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">y軸要素 <br /></td></tr>
 <tr class="separator:ac651682926a64ce97152e5953f00bbc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8a3bd17e646845b47c215573c207dc2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab8a3bd17e646845b47c215573c207dc2"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_vector.html#ab8a3bd17e646845b47c215573c207dc2">z</a></td></tr>
-<tr class="memdesc:ab8a3bd17e646845b47c215573c207dc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">z scalar <br /></td></tr>
+<tr class="memdesc:ab8a3bd17e646845b47c215573c207dc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">z軸要素 <br /></td></tr>
 <tr class="separator:ab8a3bd17e646845b47c215573c207dc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>3次元幾何ベクトル </p>
+<dl class="section author"><dt>著者</dt><dd>Maeda Takumi </dd></dl>
+</div><h2 class="groupheader">構築子と解体子</h2>
+<a class="anchor" id="a06ca06407b8a00020c7c2552cf2531f0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">KVector::KVector </td>
+          <td>(</td>
+          <td class="paramtype">const float &amp;&#160;</td>
+          <td class="paramname"><em>ax</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float &amp;&#160;</td>
+          <td class="paramname"><em>ay</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float &amp;&#160;</td>
+          <td class="paramname"><em>az</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>\^english </p><dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ax</td><td>x-axis element </td></tr>
+    <tr><td class="paramname">ay</td><td>y-axis element </td></tr>
+    <tr><td class="paramname">az</td><td>z-axis element \^japanese </td></tr>
+    <tr><td class="paramname">ax</td><td>x軸要素 </td></tr>
+    <tr><td class="paramname">ay</td><td>y軸要素 </td></tr>
+    <tr><td class="paramname">az</td><td>z軸要素 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <h2 class="groupheader">関数詳解</h2>
 <a class="anchor" id="a83e8bd9d7f25f680e2ff4ee6b1dd745a"></a>
 <div class="memitem">

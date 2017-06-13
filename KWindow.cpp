@@ -7,27 +7,28 @@
 
 #include "KListener.h"
 #include "KMath.h"
+#include "KVector.h"
 
-const float KWindow::ASPECT(9.0f / 16.0f);
-const KRect KWindow::SIZE((KVector(960, 540)));
-const KRect KWindow::DISPLAY_SIZE(KRect(GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN)));
+const float KWindow::DEFAULT_ASPECT(9.0f / 16.0f);
+const KRect KWindow::DEFAULT_SIZE((KVector(960, 540)));
+const KRect KWindow::DISPLAY_SIZE(GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN));
 
 KWindow::KWindow(
-        const MainArgs* aArgs,
+        const MainArgs& aArgs,
         const KRect& aSize,
         const String& aTitle,
         const bool& aResizable
         ) :
 mArgs(aArgs),
-mClassName(aTitle),
+mClassName(W(aTitle)),
 mWindowClass(WNDCLASSEX{// ウィンドウクラスの設定
     /* 構造体サイズ                 */ sizeof (WNDCLASSEX),
     /* ウィンドウスタイル           */ CS_HREDRAW | CS_VREDRAW,
     /* コールバック関数ポインタ     */ WIN_PROC,
     /* 構造体後の補足バイト数       */ 0,
     /* インスタンス後の補足バイト数 */ 0,
-    /* インスタンス                 */ aArgs->mInst,
-    /* アイコン                     */ NULL,
+    /* インスタンス                 */ aArgs.mInst,
+    /* アイコン                     */ LoadIcon(aArgs.mInst, TEXT("IDI_ICON")),
     /* マウスカーソルのリソース     */ LoadCursor(NULL, IDC_ARROW),
     /* ウィンドウ背景色             */ (HBRUSH) COLOR_BACKGROUND,
     /* デフォルトメニュー名         */ NULL,
@@ -46,36 +47,29 @@ mWindow((
         /* ウィンドウ縦幅            */ aSize.height,
         /* 親ウィンドウハンドル      */ NULL,
         /* メニューハンドル          */ NULL,
-        /* モジュールインスタンス    */ aArgs->mInst,
+        /* モジュールインスタンス    */ aArgs.mInst,
         /* WM_CREATEのLPARAMに渡す値 */ this
         ) : NULL)),
+mListener(NULL),
 mTitle(aTitle),
+mResizable(aResizable),
 mFrameVisible(true),
 mFullScreen(false),
-mScreenSize(aSize) {
+mInitialSize(aSize),
+mInitialAspect((float) aSize.height / aSize.width),
+mScreenArea(aSize),
+mScale(1.0f) {
     if (!mWindow) throw Error(_T("ウィンドウの作成に失敗しました."));
 
     // フレーム幅の計算
-    RECT window, client;
-    GetWindowRect(mWindow, &window);
-    GetClientRect(mWindow, &client);
-    KRect w(window), c(client);
-    mFrameWidth = w.width - c.width;
-    mFrameHeight = w.height - c.height;
+    KRect w(windowArea()), c(clientArea());
+    mFrameWeight = KRect(w.width - c.width, w.height - c.height);
 
     setSize(aSize);
 }
 
 KWindow::~KWindow() {
-    UnregisterClass(mClassName.data(), mArgs->mInst);
-}
-
-void KWindow::show() const {
-    ShowWindow(mWindow, SW_SHOWNORMAL);
-}
-
-void KWindow::hide() const {
-    ShowWindow(mWindow, SW_HIDE);
+    UnregisterClass(mClassName.data(), mArgs.mInst);
 }
 
 LRESULT CALLBACK KWindow::WIN_PROC(HWND aHwnd, UINT aMsg, WPARAM aWParam, LPARAM aLParam) {
@@ -101,11 +95,13 @@ LRESULT CALLBACK KWindow::WIN_PROC(HWND aHwnd, UINT aMsg, WPARAM aWParam, LPARAM
         case WM_LBUTTONDOWN:
         case WM_MBUTTONDOWN:
         case WM_RBUTTONDOWN:
+            SetCapture(_this->mWindow);
             _this->mListener->mMouse.press(aMsg);
             break;
         case WM_LBUTTONUP:
         case WM_MBUTTONUP:
         case WM_RBUTTONUP:
+            ReleaseCapture();
             _this->mListener->mMouse.release(aMsg);
             break;
         case WM_MOUSEWHEEL:
@@ -114,13 +110,21 @@ LRESULT CALLBACK KWindow::WIN_PROC(HWND aHwnd, UINT aMsg, WPARAM aWParam, LPARAM
 
         case WM_SIZE:
         {
-            int mode;
-            glGetIntegerv(GL_MATRIX_MODE, &mode);
-            glMatrixMode(GL_PROJECTION);
-            glLoadIdentity();
-            glViewport(_this->mScreenSize.x, _this->mScreenSize.y, _this->mScreenSize.width, _this->mScreenSize.height);
-            glMatrixMode(mode);
+            KRect client(_this->clientArea());
+            _this->mScale =
+                    Math::min(
+                    (float) client.width / _this->mInitialSize.width,
+                    (float) client.height / _this->mInitialSize.height
+                    );
+            int width(_this->mInitialSize.width * _this->mScale);
+            int height(_this->mInitialSize.height * _this->mScale);
+            _this->mScreenArea = KRect(
+                    (client.width - width) / 2,
+                    (client.height - height) / 2,
+                    width, height);
 
+            KRect area(_this->mScreenArea);
+            glViewport(DEPLOY_RECT(area));
             break;
         }
         case WM_PAINT:
@@ -149,32 +153,36 @@ void KWindow::display() {
     EndPaint(mWindow, &mPaint);
 }
 
-void KWindow::borderLoss() {
-    mFrameVisible = !mFrameVisible; // 交互にスイッチ
-    long style(GetWindowLong(mWindow, GWL_STYLE));
-    mFrameVisible ? style |= WS_CAPTION : style &= ~WS_CAPTION;
-    SetWindowLong(mWindow, GWL_STYLE, style);
-    setSize(mScreenSize);
+void KWindow::show() const {
+    ShowWindow(mWindow, SW_SHOWNORMAL);
 }
 
-void KWindow::toFullScreen() {
-    static const float scale(Math::min((float) DISPLAY_SIZE.width / SIZE.width, (float) DISPLAY_SIZE.height / SIZE.height));
+void KWindow::hide() const {
+    ShowWindow(mWindow, SW_HIDE);
+}
+
+void KWindow::changeFrame() {
+    mFrameVisible = !mFrameVisible; // 交互にスイッチ
+
+    long frameStyle(WS_CAPTION);
+    if (mResizable) frameStyle = WS_CAPTION ^ WS_DLGFRAME | WS_THICKFRAME;
+
+    long style(GetWindowLong(mWindow, GWL_STYLE));
+    mFrameVisible ? style |= frameStyle : style ^= frameStyle;
+    SetWindowLong(mWindow, GWL_STYLE, style);
+    setSize(mScreenArea);
+}
+
+void KWindow::changeFullScreen() {
+    static const float SCALE(Math::min((float) DISPLAY_SIZE.width / DEFAULT_SIZE.width, (float) DISPLAY_SIZE.height / DEFAULT_SIZE.height));
     static KRect pPosition;
-    if (mFullScreen != mFrameVisible) borderLoss();
+    if (mFullScreen != mFrameVisible) changeFrame();
     if (mFullScreen = !mFullScreen) {
         // 事前領域の記憶
-        RECT window;
-        GetWindowRect(mWindow, &window);
-        pPosition = KRect(window.left, window.top, mScreenSize.width, mScreenSize.height);
-
-        int width(SIZE.width * scale);
-        int height(SIZE.height * scale);
-        // 縦横比が一致しない場合の黒塗り
-        mScreenSize = KRect((DISPLAY_SIZE.width - width) / 2, (DISPLAY_SIZE.height - height) / 2, width, height);
-
+        KRect w(windowArea());
+        pPosition = KRect(w.x, w.y, mScreenArea.width, mScreenArea.height);
         setSize(DISPLAY_SIZE);
     } else {
-        mScreenSize = KRect(pPosition.width, pPosition.height);
         setSize(pPosition); // 全画面以前のウィンドウ位置に戻す
     }
 }
@@ -187,26 +195,58 @@ void KWindow::setTitle(const String & aTitle) {
 void KWindow::setSize(const KRect& aSize) {
     KRect area(aSize);
 
-    if (area.start().isZero() && !mFullScreen) { // 始点指定なし(左上座標そのまま)
-        RECT window;
-        GetWindowRect(mWindow, &window);
-
-        area.x = window.left;
-        area.y = window.top;
+    if (area.begin().isZero() && !mFullScreen) { // 始点指定なし(左上座標そのまま)
+        KRect w(windowArea());
+        area.x = w.x;
+        area.y = w.y;
     }
-    if (mFrameVisible) area.width += mFrameWidth;
-    if (mFrameVisible) area.height += mFrameHeight;
-    SetWindowPos(mWindow, NULL, area.x, area.y, area.width, area.height, SWP_NOZORDER);
+    if (mFrameVisible) {
+        area.width += mFrameWeight.width;
+        area.height += mFrameWeight.height;
+    }
+    SetWindowPos(mWindow, NULL, DEPLOY_RECT(area), SWP_NOZORDER);
 }
 
-void KWindow::setListener(KListener * aListener) {
-    mListener = aListener;
+KVector KWindow::mousePositionOnScreen() const {
+    POINT mousePoint;
+    GetCursorPos(&mousePoint);
+    ScreenToClient(mWindow, &mousePoint);
+    KVector mouse(mousePoint);
+
+    const KRect & screen(mScreenArea);
+
+    mouse -= screen.begin(); // スクリーンに合うように補正
+    mouse /= mScale; // 拡大率に合うように補正
+
+    return mouse;
+}
+
+const KRect& KWindow::initialSize() const {
+    return mInitialSize;
+}
+
+const float& KWindow::initialAspect() const {
+    return mInitialAspect;
+}
+
+const KRect& KWindow::screenArea() const {
+    return mScreenArea;
+}
+
+const float& KWindow::scale() const {
+    return mScale;
 }
 
 KRect KWindow::windowArea() const {
     RECT window;
     GetWindowRect(mWindow, &window);
-    return KRect(window);
+    return window;
+}
+
+KRect KWindow::clientArea() const {
+    RECT client;
+    GetClientRect(mWindow, &client);
+    return client;
 }
 
 const bool& KWindow::isFullScreen() const {

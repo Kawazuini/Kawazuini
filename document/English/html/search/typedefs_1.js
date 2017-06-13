@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['error',['Error',['../_k_utility_8h.html#a4551104bb83b3b07add92b179b93b757',1,'KUtility.h']]]
+  ['viewcorner',['ViewCorner',['../class_k_camera.html#aba75f0de95adea59eef063b2bbdd2ca3',1,'KCamera']]]
 ];

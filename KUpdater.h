@@ -27,8 +27,7 @@ public:
      * @brief \~english  update processing
      * @brief \~japanese 更新処理
      */
-    virtual void update() {
-    };
+    virtual void update() = 0;
     /**
      * @brief \~english  bulk update in list.
      * @brief \~japanese リスト内一括更新。

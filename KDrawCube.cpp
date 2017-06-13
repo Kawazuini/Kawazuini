@@ -43,9 +43,9 @@ mRadius((mVertex[0] - mVertex[CENTROID]).length()) {
 void KDrawCube::draw() const {
     for (int i = 0; i < 6; ++i) { // 六個の面
         glBegin(GL_POLYGON);
-        glNormal3f(DEPLOYMENT(mNormal[i]));
+        glNormal3f(DEPLOY_VEC(mNormal[i]));
         for (int j = 0; j < 4; ++j) { // 四角形
-            glVertex3f(DEPLOYMENT(mVertex[DRAW_VERTEX_INDEX[i][j]]));
+            glVertex3f(DEPLOY_VEC(mVertex[DRAW_VERTEX_INDEX[i][j]]));
         }
         glEnd();
     }

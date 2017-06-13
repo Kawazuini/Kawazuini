@@ -86,6 +86,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_k_draw_sphere-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">KDrawSphere Class Reference</div>  </div>
@@ -102,37 +104,233 @@ Inheritance diagram for KDrawSphere:</div>
  <div class="center">
   <img src="class_k_draw_sphere.png" usemap="#KDrawSphere_map" alt=""/>
   <map id="KDrawSphere_map" name="KDrawSphere_map">
+<area href="class_k_drawer.html" title="Base for Drawing. " alt="KDrawer" shape="rect" coords="0,56,91,80"/>
 <area href="class_k_non_copy.html" title="base of copy inhibit " alt="KNonCopy" shape="rect" coords="0,0,91,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a64ce35bb66926a8459a3965919218d3b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a64ce35bb66926a8459a3965919218d3b"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>KDrawSphere</b> (const <a class="el" href="class_k_vector.html">KVector</a> &amp;aPosition, const float &amp;aRadius, const int &amp;aStack, const int &amp;aSlice)</td></tr>
+<tr class="memitem:a64ce35bb66926a8459a3965919218d3b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_sphere.html#a64ce35bb66926a8459a3965919218d3b">KDrawSphere</a> (const <a class="el" href="class_k_vector.html">KVector</a> &amp;aPosition, const float &amp;aRadius, const int &amp;aStack, const int &amp;aSlice)</td></tr>
 <tr class="separator:a64ce35bb66926a8459a3965919218d3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd2ae657165750b4e67a83448921e7ed"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afd2ae657165750b4e67a83448921e7ed"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_sphere.html#afd2ae657165750b4e67a83448921e7ed">draw</a> () const </td></tr>
-<tr class="memdesc:afd2ae657165750b4e67a83448921e7ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">drawing processing <br /></td></tr>
-<tr class="separator:afd2ae657165750b4e67a83448921e7ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e0f455044ea35db384cd3ecbe7fb159"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_sphere.html#a7e0f455044ea35db384cd3ecbe7fb159">tlanslate</a> (const <a class="el" href="class_k_vector.html">KVector</a> &amp;aVec)</td></tr>
-<tr class="memdesc:a7e0f455044ea35db384cd3ecbe7fb159"><td class="mdescLeft">&#160;</td><td class="mdescRight">translate center coordinate into argument.  <a href="#a7e0f455044ea35db384cd3ecbe7fb159">More...</a><br /></td></tr>
-<tr class="separator:a7e0f455044ea35db384cd3ecbe7fb159"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c49f4a0ec113a9f8c4181725338545d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4c49f4a0ec113a9f8c4181725338545d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_sphere.html#a4c49f4a0ec113a9f8c4181725338545d">draw</a> () const  override</td></tr>
+<tr class="memdesc:a4c49f4a0ec113a9f8c4181725338545d"><td class="mdescLeft">&#160;</td><td class="mdescRight">drawing processing <br /></td></tr>
+<tr class="separator:a4c49f4a0ec113a9f8c4181725338545d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af746d5c534541f852d17de7c52f56d4e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_sphere.html#af746d5c534541f852d17de7c52f56d4e">translate</a> (const <a class="el" href="class_k_vector.html">KVector</a> &amp;aVec)</td></tr>
+<tr class="memdesc:af746d5c534541f852d17de7c52f56d4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">translate center coordinate into argument.  <a href="#af746d5c534541f852d17de7c52f56d4e">More...</a><br /></td></tr>
+<tr class="separator:af746d5c534541f852d17de7c52f56d4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05919eca9670fc2005fdd67f4222529b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_sphere.html#a05919eca9670fc2005fdd67f4222529b">rotate</a> (const <a class="el" href="class_k_quaternion.html">KQuaternion</a> &amp;aQuater)</td></tr>
 <tr class="memdesc:a05919eca9670fc2005fdd67f4222529b"><td class="mdescLeft">&#160;</td><td class="mdescRight">rotate each vertex at the center coordinate.  <a href="#a05919eca9670fc2005fdd67f4222529b">More...</a><br /></td></tr>
 <tr class="separator:a05919eca9670fc2005fdd67f4222529b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_k_drawer"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_k_drawer')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_k_drawer.html">KDrawer</a></td></tr>
+<tr class="memitem:a5baf6e30a29c9c4319678fde4eb695c1 inherit pub_methods_class_k_drawer"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5baf6e30a29c9c4319678fde4eb695c1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_drawer.html#a5baf6e30a29c9c4319678fde4eb695c1">add</a> ()</td></tr>
+<tr class="memdesc:a5baf6e30a29c9c4319678fde4eb695c1 inherit pub_methods_class_k_drawer"><td class="mdescLeft">&#160;</td><td class="mdescRight">add myself to list. <br /></td></tr>
+<tr class="separator:a5baf6e30a29c9c4319678fde4eb695c1 inherit pub_methods_class_k_drawer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af435e394399b037e583e78aeda3716a8 inherit pub_methods_class_k_drawer"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af435e394399b037e583e78aeda3716a8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_drawer.html#af435e394399b037e583e78aeda3716a8">remove</a> ()</td></tr>
+<tr class="memdesc:af435e394399b037e583e78aeda3716a8 inherit pub_methods_class_k_drawer"><td class="mdescLeft">&#160;</td><td class="mdescRight">remove myself form list. <br /></td></tr>
+<tr class="separator:af435e394399b037e583e78aeda3716a8 inherit pub_methods_class_k_drawer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a384d363a3eb402ce6c507d074c346e3b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a384d363a3eb402ce6c507d074c346e3b"></a>
-<a class="el" href="class_k_texture.html">KTexture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_sphere.html#a384d363a3eb402ce6c507d074c346e3b">mTexture</a></td></tr>
-<tr class="memdesc:a384d363a3eb402ce6c507d074c346e3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">texture  <br /></td></tr>
-<tr class="separator:a384d363a3eb402ce6c507d074c346e3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a898414150767d2f77d412afa27c35a5f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a898414150767d2f77d412afa27c35a5f"></a>
+const <a class="el" href="class_k_texture.html">KTexture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_sphere.html#a898414150767d2f77d412afa27c35a5f">mTexture</a></td></tr>
+<tr class="memdesc:a898414150767d2f77d412afa27c35a5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">texture  <br /></td></tr>
+<tr class="separator:a898414150767d2f77d412afa27c35a5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:aa3fa1b9d70343d6e036ca85d98e1d710"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_k_vector.html">KVector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_sphere.html#aa3fa1b9d70343d6e036ca85d98e1d710">getVertex</a> (const int &amp;aStack, const int &amp;aSlice) const </td></tr>
+<tr class="memdesc:aa3fa1b9d70343d6e036ca85d98e1d710"><td class="mdescLeft">&#160;</td><td class="mdescRight">return valid vertex.  <a href="#aa3fa1b9d70343d6e036ca85d98e1d710">More...</a><br /></td></tr>
+<tr class="separator:aa3fa1b9d70343d6e036ca85d98e1d710"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a654f423658c530d55eaced48fc6d4838"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_k_vector.html">KVector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_sphere.html#a654f423658c530d55eaced48fc6d4838">getNormal</a> (const int &amp;aStack, const int &amp;aSlice) const </td></tr>
+<tr class="memdesc:a654f423658c530d55eaced48fc6d4838"><td class="mdescLeft">&#160;</td><td class="mdescRight">return valid normal.  <a href="#a654f423658c530d55eaced48fc6d4838">More...</a><br /></td></tr>
+<tr class="separator:a654f423658c530d55eaced48fc6d4838"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74e2a2e5072b7f78afa0f9ec416ddef5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_sphere.html#a74e2a2e5072b7f78afa0f9ec416ddef5">validIndex</a> (const int &amp;aStack, const int &amp;aSlice)</td></tr>
+<tr class="memdesc:a74e2a2e5072b7f78afa0f9ec416ddef5"><td class="mdescLeft">&#160;</td><td class="mdescRight">determine whether valid vertex.  <a href="#a74e2a2e5072b7f78afa0f9ec416ddef5">More...</a><br /></td></tr>
+<tr class="separator:a74e2a2e5072b7f78afa0f9ec416ddef5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a33209f5d92a543707523b9b54e98ce16"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a33209f5d92a543707523b9b54e98ce16"></a>
+<a class="el" href="class_k_vector.html">KVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_sphere.html#a33209f5d92a543707523b9b54e98ce16">mPosition</a></td></tr>
+<tr class="memdesc:a33209f5d92a543707523b9b54e98ce16"><td class="mdescLeft">&#160;</td><td class="mdescRight">center coordinate <br /></td></tr>
+<tr class="separator:a33209f5d92a543707523b9b54e98ce16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52b9808fabfb0e3dbf93ed50afac9a43"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a52b9808fabfb0e3dbf93ed50afac9a43"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_sphere.html#a52b9808fabfb0e3dbf93ed50afac9a43">mRadius</a></td></tr>
+<tr class="memdesc:a52b9808fabfb0e3dbf93ed50afac9a43"><td class="mdescLeft">&#160;</td><td class="mdescRight">radius <br /></td></tr>
+<tr class="separator:a52b9808fabfb0e3dbf93ed50afac9a43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e568dab477dea0d01855251099253a8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7e568dab477dea0d01855251099253a8"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_sphere.html#a7e568dab477dea0d01855251099253a8">mStack</a></td></tr>
+<tr class="memdesc:a7e568dab477dea0d01855251099253a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of horizonal divisions. <br /></td></tr>
+<tr class="separator:a7e568dab477dea0d01855251099253a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a491762a7b7fd16b85fff3ddec9129584"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a491762a7b7fd16b85fff3ddec9129584"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_sphere.html#a491762a7b7fd16b85fff3ddec9129584">mSlice</a></td></tr>
+<tr class="memdesc:a491762a7b7fd16b85fff3ddec9129584"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of vertical divisions. <br /></td></tr>
+<tr class="separator:a491762a7b7fd16b85fff3ddec9129584"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa04401c59e236eec10d56e322bba9be2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa04401c59e236eec10d56e322bba9be2"></a>
+Vector&lt; Vector&lt; <a class="el" href="class_k_vector.html">KVector</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_sphere.html#aa04401c59e236eec10d56e322bba9be2">mVertex</a></td></tr>
+<tr class="memdesc:aa04401c59e236eec10d56e322bba9be2"><td class="mdescLeft">&#160;</td><td class="mdescRight">vertex array <br /></td></tr>
+<tr class="separator:aa04401c59e236eec10d56e322bba9be2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d3e64f97b6276faf977552bb9cdd670"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4d3e64f97b6276faf977552bb9cdd670"></a>
+Vector&lt; Vector&lt; <a class="el" href="class_k_vector.html">KVector</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_sphere.html#a4d3e64f97b6276faf977552bb9cdd670">mNormal</a></td></tr>
+<tr class="memdesc:a4d3e64f97b6276faf977552bb9cdd670"><td class="mdescLeft">&#160;</td><td class="mdescRight">normal array <br /></td></tr>
+<tr class="separator:a4d3e64f97b6276faf977552bb9cdd670"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4705d8c360280fb386fa280d1544f81e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4705d8c360280fb386fa280d1544f81e"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_sphere.html#a4705d8c360280fb386fa280d1544f81e">mVertexSize</a></td></tr>
+<tr class="memdesc:a4705d8c360280fb386fa280d1544f81e"><td class="mdescLeft">&#160;</td><td class="mdescRight">valid vertex number <br /></td></tr>
+<tr class="separator:a4705d8c360280fb386fa280d1544f81e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pub_static_methods_class_k_drawer"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_class_k_drawer')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="class_k_drawer.html">KDrawer</a></td></tr>
+<tr class="memitem:a6918b5269b0f880e82d4364d2b9e365c inherit pub_static_methods_class_k_drawer"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6918b5269b0f880e82d4364d2b9e365c"></a>
+static void const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_drawer.html#a6918b5269b0f880e82d4364d2b9e365c">DRAW</a> ()</td></tr>
+<tr class="memdesc:a6918b5269b0f880e82d4364d2b9e365c inherit pub_static_methods_class_k_drawer"><td class="mdescLeft">&#160;</td><td class="mdescRight">bulk drawing in list. <br /></td></tr>
+<tr class="separator:a6918b5269b0f880e82d4364d2b9e365c inherit pub_static_methods_class_k_drawer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Sphere for drawing. </p>
 <p>Maeda Takumi </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a64ce35bb66926a8459a3965919218d3b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">KDrawSphere::KDrawSphere </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_k_vector.html">KVector</a> &amp;&#160;</td>
+          <td class="paramname"><em>aPosition</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float &amp;&#160;</td>
+          <td class="paramname"><em>aRadius</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"><em>aStack</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"><em>aSlice</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">aPosition</td><td>center coordinate </td></tr>
+    <tr><td class="paramname">aRadius</td><td>radius </td></tr>
+    <tr><td class="paramname">aStack</td><td>Number of horizonal divisions </td></tr>
+    <tr><td class="paramname">aSlice</td><td>Number of vertical divisions </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a654f423658c530d55eaced48fc6d4838"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_k_vector.html">KVector</a> &amp; KDrawSphere::getNormal </td>
+          <td>(</td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"><em>aStack</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"><em>aSlice</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>return valid normal. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">aStack</td><td>latitude </td></tr>
+    <tr><td class="paramname">aSlice</td><td>longitude </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>valid normal </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aa3fa1b9d70343d6e036ca85d98e1d710"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_k_vector.html">KVector</a> &amp; KDrawSphere::getVertex </td>
+          <td>(</td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"><em>aStack</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"><em>aSlice</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>return valid vertex. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">aStack</td><td>latitude </td></tr>
+    <tr><td class="paramname">aSlice</td><td>longitude </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>valid vertex </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a05919eca9670fc2005fdd67f4222529b"></a>
 <div class="memitem">
 <div class="memproto">
@@ -157,18 +355,26 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a7e0f455044ea35db384cd3ecbe7fb159"></a>
+<a class="anchor" id="af746d5c534541f852d17de7c52f56d4e"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void KDrawSphere::tlanslate </td>
+          <td class="memname">void KDrawSphere::translate </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="class_k_vector.html">KVector</a> &amp;&#160;</td>
           <td class="paramname"><em>aVec</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>translate center coordinate into argument. </p>
@@ -178,6 +384,50 @@ Public Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a class="anchor" id="a74e2a2e5072b7f78afa0f9ec416ddef5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool KDrawSphere::validIndex </td>
+          <td>(</td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"><em>aStack</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"><em>aSlice</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>determine whether valid vertex. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">aStack</td><td>latitude </td></tr>
+    <tr><td class="paramname">aSlice</td><td>longitude </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>whether valid vertex </dd></dl>
 
 </div>
 </div>

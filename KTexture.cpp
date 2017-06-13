@@ -1,6 +1,6 @@
 /**
  * @file   KTexture.cpp
- * @brief  KTesture
+ * @brief  KTexture
  * @author Maeda Takumi
  */
 #include "KTexture.h"
@@ -8,7 +8,10 @@
 #include "KImage.h"
 #include "KRect.h"
 
-KTexture::KTexture(const unsigned int& aSize) :
+KTexture::KTexture(
+        const unsigned int& aSize,
+        const bool& aFiltering
+        ) :
 mPixel(new byte[aSize * aSize * 4]),
 mSize(aSize),
 mName(0),
@@ -22,8 +25,18 @@ mLevel(0) {
             mSize, mSize, 0,
             GL_RGBA, GL_UNSIGNED_BYTE, mPixel
             );
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+
+    // 補間方法の選択
+    if (aFiltering) {
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    } else {
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    }
+    // 縁の描画方法の選択
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
 }
 
 KTexture::~KTexture() {

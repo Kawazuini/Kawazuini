@@ -86,12 +86,12 @@ void KDrawSphere::draw() const {
             KVector n1(getNormal(i + 1, j));
 
             glTexCoord2f(x, y0);
-            glNormal3f(DEPLOYMENT(n0));
-            glVertex3f(DEPLOYMENT(v0));
+            glNormal3f(DEPLOY_VEC(n0));
+            glVertex3f(DEPLOY_VEC(v0));
 
             glTexCoord2f(x, y1);
-            glNormal3f(DEPLOYMENT(n1));
-            glVertex3f(DEPLOYMENT(v1));
+            glNormal3f(DEPLOY_VEC(n1));
+            glVertex3f(DEPLOY_VEC(v1));
         }
         glEnd();
         mTexture->bindOFF();

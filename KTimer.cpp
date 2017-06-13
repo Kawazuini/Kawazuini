@@ -1,6 +1,7 @@
 /**
- * @file KTimer.cpp
- * @brief KTimerクラスの実装
+ * @file   KTimer.h
+ * @brief  KTimer
+ * @author Maeda Takumi
  */
 #include "KTimer.h"
 

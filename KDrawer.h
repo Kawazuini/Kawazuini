@@ -16,10 +16,7 @@
  */
 class KDrawer : private KNonCopy {
 private:
-    /**
-     * @brief \~english  list of KDrawer
-     * @brief \~japanese KDrawerリスト
-     */
+    /* 描画リスト */
     static List<KDrawer*> sDrawers;
 protected:
     KDrawer();
@@ -30,8 +27,7 @@ public:
      * @brief \~english  drawing processing
      * @brief \~japanese 描画処理
      */
-    virtual void draw() const {
-    };
+    virtual void draw() const = 0;
     /**
      * @brief \~english  bulk drawing in list.
      * @brief \~japanese リスト内一括描画。
@@ -50,3 +46,4 @@ public:
 };
 
 #endif /* KDRAWER_H */
+

@@ -1,5 +1,6 @@
 /**
- * @file KMouse.h
+ * @file   KMouse.h
+ * @brief  KMouse
  * @author Maeda Takumi
  */
 #ifndef KMOUSE_H
@@ -12,41 +13,81 @@
 
 class KVector;
 
-/** @see KWindow.h */
-class KMouse : private KNonCopy {
+/**
+ * @brief  \~english  management system of mouse
+ * @brief  \~japanese マウス管理システム
+ * @author \~ Maeda Takumi
+ */
+class KMouse final : private KNonCopy {
     friend class KWindow;
 private:
-    int mWheel; ///< ホイール回転数
+    /* ホイール回転数 */ int mWheel;
 
-    void press(const UINT& aMsg);
-    void release(const UINT& aMsg);
-    void wheelSpin(const WPARAM& aWheel);
+    /* ボタンを押します。       */ void press(const UINT& aMsg);
+    /* ボタンを離します。       */ void release(const UINT& aMsg);
+    /* ホイールを回転させます。 */ void wheelSpin(const WPARAM& aWheel);
 public:
-    KSwitch mLeft; ///< 左クリック
-    KSwitch mMiddle; ///< 中央クリック
-    KSwitch mRight; ///< 右クリック
+    /**
+     * @brief \~english  left click
+     * @brief \~japanese 左クリック
+     */
+    KSwitch mLeft;
+    /**
+     * @brief \~english  middle click
+     * @brief \~japanese 中央クリック
+     */
+    KSwitch mMiddle;
+    /**
+     * @brief \~english  right click
+     * @brief \~japanese 右クリック
+     */
+    KSwitch mRight;
 
     KMouse();
-    virtual ~KMouse() = default;
+    ~KMouse() = default;
 
-    /** @brief ボタン時間を更新する。 */
+    /**
+     * @brief \~english  update button time.
+     * @brief \~japanese ボタン時間を更新します。
+     */
     void pass();
 
-    /** @brief マウスカーソルの表示。 */
+    /**
+     * @brief \~english  display mouse cursor.
+     * @brief \~japanese マウスカーソルを表示します。
+     */
     void show();
-    /** @brief マウスカーソルの隠蔽。 */
+    /**
+     * @brief \~english  hide mouse cursor.
+     * @brief \~japanese マウスカーソルを隠します。
+     */
     void hide();
 
-    /** @brief マウスポインタの座標を取得。 */
+    /**
+     * \~english
+     * @brief  get mouse pointer coordinate.
+     * @return mouse pointer coordinate
+     * \~japanese
+     * @brief  マウスポインタの座標を取得します。
+     * @return マウスポインタ座標
+     */
     KVector pos() const;
     /**
-     * @brief マウスポインタの座標設定。
-     * @param aPos 画面上の座標
+     * \~english
+     * @brief set mouse pointer coordinate.
+     * @param aPos new position
+     * \~japanese
+     * @brief マウスポインタの座標を設定します。
+     * @param aPos 新しい座標
      */
     void setPos(const KVector& aPos);
 
     /**
-     * @brief ホイール回転数の取得。
+     * \~english
+     * @brief  get wheel speed.
+     * @return wheel speed
+     * \~japanese
+     * @brief  ホイール回転数を取得します。
      * @return ホイール回転数
      */
     int wheel() const;

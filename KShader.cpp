@@ -13,12 +13,11 @@ KShader::KShader(
         const char* const* aVertexShader,
         int aFragmentShaderLength,
         const char* const* aFragmentShader
-        ) {
+        ) :
+mVertexShader(glCreateShader(GL_VERTEX_SHADER)),
+mFragmentShader(glCreateShader(GL_FRAGMENT_SHADER)),
+mProgram(glCreateProgram()) {
     int result;
-
-    // シェーダオブジェクトの作成
-    mVertexShader = glCreateShader(GL_VERTEX_SHADER);
-    mFragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
 
     glShaderSource(mVertexShader, aVertexShaderLength, aVertexShader, NULL);
     glShaderSource(mFragmentShader, aFragmentShaderLength, aFragmentShader, NULL);
@@ -40,9 +39,6 @@ KShader::KShader(
         exit(1);
     }
 
-    // プログラムオブジェクトの作成
-    mProgram = glCreateProgram();
-
     // シェーダをプログラムへ登録
     glAttachShader(mProgram, mVertexShader);
     glAttachShader(mProgram, mFragmentShader);
@@ -54,7 +50,7 @@ KShader::KShader(
     // シェーダプログラムのリンク
     glLinkProgram(mProgram);
     glGetProgramiv(mProgram, GL_LINK_STATUS, &result);
-    if (result == GL_FALSE) {
+    if (!result) {
         message(_T("Link error in shader"), _T("初期化に失敗しました"));
         exit(1);
     }
@@ -70,7 +66,8 @@ void KShader::compileResult(const unsigned int& aShader) {
 
         int length;
         glGetShaderInfoLog(aShader, bufSize, &length, infoLog);
-        fprintf(stderr, "InfoLog:\n%s\n\n", infoLog);
+        // fprintf(stderr, "InfoLog:\n%s\n\n", infoLog);
+        println(*infoLog);
         delete[] infoLog;
     }
 }
