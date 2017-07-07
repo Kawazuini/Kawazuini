@@ -5,31 +5,16 @@
  */
 #include "KHandLight.h"
 
-#include "KUtility.h"
-
-const float KHandLight::DIFFUSE[3]{
-    1.0, 1.0, 1.0
-}; //拡散光
-const float KHandLight::SPECULAR[3]{1.0, 1.0, 1.0}; //鏡面光
-const float KHandLight::AMBIENT[3]{0.25, 0.25, 0.25}; //環境光
-
-KHandLight::KHandLight() {
+KHandLight::KHandLight(
+        const KVector& aPosition,
+        const KVector& aDirection
+        ) :
+mHandPosition(aPosition),
+mHandDirection(aDirection) {
 }
 
-void KHandLight::at() {
-    float lightPosition[4]{DEPLOY_VEC(mPosition), 1.0f};
-    glLightfv(GL_LIGHT0, GL_POSITION, lightPosition);
-    float lightDirection[3]{DEPLOY_VEC(mDirection)};
-    glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, lightDirection);
-
-    glLightfv(GL_LIGHT0, GL_DIFFUSE, DIFFUSE);
-    glLightfv(GL_LIGHT0, GL_AMBIENT, AMBIENT);
-    glLightfv(GL_LIGHT0, GL_SPECULAR, SPECULAR);
-
-    glLightf(GL_LIGHT0, GL_CONSTANT_ATTENUATION, 0);
-    glLightf(GL_LIGHT0, GL_LINEAR_ATTENUATION, 0);
-    glLightf(GL_LIGHT0, GL_QUADRATIC_ATTENUATION, 0.001);
-    glLightf(GL_LIGHT0, GL_SPOT_CUTOFF, 30.0); // スポットライトの絞り（デフォルト 180.0）
-    glLightf(GL_LIGHT0, GL_SPOT_EXPONENT, 7.5); // スポットライトの中心からの減衰の度合い（デフォルト 0）
+void KHandLight::update() {
+    setPosition(mHandPosition);
+    setDirection(mHandDirection);
 }
 

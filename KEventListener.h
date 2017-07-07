@@ -1,5 +1,5 @@
 /**
- * @file   KEventListener.cpp
+ * @file   KEventListener.h
  * @brief  KEventListener
  * @author Maeda Takumi
  */
@@ -14,8 +14,7 @@ class KEventListener : private KNonCopy {
 protected:
     KEventListener();
     virtual ~KEventListener() = default;
-private:
-    friend class KEvent;
+public:
     virtual void processEvent(KEvent* e) = 0;
 };
 

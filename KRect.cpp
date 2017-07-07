@@ -8,11 +8,13 @@
 #include "KMath.h"
 #include "KVector.h"
 
-KRect::KRect(const int& ax, const int& ay, const int& aw, const int& ah) {
-    x = ax;
-    y = ay;
-    width = aw;
-    height = ah;
+KRect::KRect(
+        const int& ax,
+        const int& ay,
+        const int& aw,
+        const int& ah
+        ) :
+x(ax), y(ay), width(aw), height(ah) {
 }
 
 KRect::KRect(const int& aw, const int& ah)
@@ -32,8 +34,7 @@ KRect::KRect(const RECT& aRec)
 }
 
 bool KRect::operator==(const KRect& aRect) const {
-    return x == aRect.x && y == aRect.y
-            && width == aRect.width && height == aRect.height;
+    return x == aRect.x && y == aRect.y && width == aRect.width && height == aRect.height;
 }
 
 bool KRect::operator>(const KRect& aRect) const {
@@ -48,18 +49,23 @@ KRect::operator RECT() const {
     return RECT{x, y, width, height};
 }
 
+KRect KRect::expand(const int& aAmount) const {
+    const int doubleAmount(aAmount * 2);
+    return KRect(x - aAmount, y - aAmount, width + doubleAmount, height + doubleAmount);
+}
+
+KRect KRect::slide(const KVector& aAmount) const {
+    return KRect(x + aAmount.x, y + aAmount.y, width, height);
+}
+
 bool KRect::isColision(const KRect& aRec) const {
-    return (x < aRec.x + aRec.width &&
-            aRec.x < right() &&
-            y < aRec.y + aRec.height &&
-            aRec.y < bottom());
+    return (x < aRec.right() && aRec.x < right() && y < aRec.bottom() && aRec.y < bottom());
 }
 
 KRect KRect::intersect(const KRect& aRec) const {
-    int sx = Math::max(x, aRec.x);
-    int sy = Math::max(y, aRec.y);
-    int w = Math::min(x + width, aRec.x + aRec.width) - sx;
-    int h = Math::min(y + height, aRec.y + aRec.height) - sy;
+    int sx(Math::max(x, aRec.x)), sy(Math::max(y, aRec.y));
+    int w(Math::min(x + width, aRec.x + aRec.width) - sx);
+    int h(Math::min(y + height, aRec.y + aRec.height) - sy);
 
     if (w > 0 && h > 0) return KRect(sx, sy, w, h);
     return KRect();

@@ -10,6 +10,7 @@
 #include "KTexture.h"
 #include "KVector.h"
 #include "KWindow.h"
+#include "KEventListener.h"
 
 const String KGLButton::ACTION_CURSOR("Cursor on Button");
 const String KGLButton::ACTION_PRESS("Pressed");
@@ -19,10 +20,12 @@ KGLButton::KGLButton(const KRect& aArea) :
 KGLContent(aArea),
 mCondition(false),
 mHold(false) {
+    KEvent::remove();
 }
 
 void KGLButton::draw(KTexture& aUI) const {
-    if (mBackColor) aUI.drawRect(mArea, mBackColor);
+    if (mBackColor & 0xff000000) aUI.drawClearRect(mArea, mBackColor);
+    if (mFrontColor & 0xff000000) aUI.drawRect(mArea.expand(-1), mFrontColor);
 }
 
 void KGLButton::update(KGLUI& aUI) {
@@ -40,6 +43,9 @@ void KGLButton::update(KGLUI& aUI) {
             mActionCommand = ACTION_RELEASE;
         } else {
             mActionCommand = ACTION_CURSOR;
+        }
+        for(KEventListener* i:mListeners){
+            i->processEvent(this);
         }
     } else {
         if (!mHold) mActive = false;

@@ -10,7 +10,7 @@
 #include "KGLContent.h"
 #include "KSwitch.h"
 
-class KGLButton : public KGLContent, public KEvent {
+class KGLButton : virtual public KGLContent, public KEvent {
 public:
     static const String ACTION_CURSOR;
     static const String ACTION_PRESS;
@@ -23,8 +23,8 @@ public:
     KGLButton(const KRect& aArea);
     virtual ~KGLButton() = default;
 
-    void draw(KTexture& aUI) const override;
-    void update(KGLUI& aUI) override;
+    virtual void draw(KTexture& aUI) const;
+    virtual void update(KGLUI& aUI) override;
 
     bool condition() const override;
 };

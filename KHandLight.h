@@ -7,38 +7,25 @@
 #define KHANDLIGHT_H
 
 #include "KLight.h"
-#include "KVector.h"
+#include "KUpdater.h"
 
 /**
  * @brief  \~english  handy light
  * @brief  \~japanese ハンドライト
  * @author \~ Maeda Takumi
  */
-class KHandLight : public KLight {
+class KHandLight : public KLight, private KUpdater {
 private:
-    /* 拡散光 */ static const float DIFFUSE[3];
-    /* 環境光 */ static const float AMBIENT[3];
-    /* 鏡面光 */ static const float SPECULAR[3];
+    /* 同期用位置ベクトル */ const KVector& mHandPosition;
+    /* 同期用方向ベクトル */ const KVector& mHandDirection;
 public:
-    /**
-     * @brief \~english  position coordinates of light source
-     * @brief \~japanese 光源の位置座標
-     */
-    KVector mPosition;
-    /**
-     * @brief \~english  direction of light source
-     * @brief \~japanese 光源の向き
-     */
-    KVector mDirection;
-
-    KHandLight();
+    KHandLight(
+            const KVector& aPosition,
+            const KVector& aDirection
+            );
     virtual ~KHandLight() = default;
 
-    /**
-     * @brief \~english  update information of light source.
-     * @brief \~japanese 光源情報を更新します。
-     */
-    void at();
+    void update() override;
 };
 
 #endif /* KHANDLIGHT_H */

@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.11"/>
+<title>Kawazuini: C:/Users/Kawaz/Documents/Kawazuini/Kawazuini/KShading.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Kawazuini
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.8.11 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>総合概要</span></a></li>
+      <li><a href="pages.html"><span>諸情報</span></a></li>
+      <li><a href="annotated.html"><span>クラス</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>ファイルメンバ</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">C:/Users/Kawaz/Documents/Kawazuini/Kawazuini/KShading.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_k_shading_8h.html">[詳解]</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef KSHADING_H</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define KSHADING_H</span></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_k_shader_8h.html">KShader.h</a>&quot;</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div><div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_k_shading.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_k_shading.html">KShading</a> final : <span class="keyword">private</span> <a class="code" href="class_k_non_copy.html">KNonCopy</a> {</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">private</span>:</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="comment">/* フラグメントシェーダのソースコード */</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="comment">/* 色そのまま           */</span> <span class="keyword">static</span> <span class="keyword">const</span> Vector&lt;String&gt; SHADER_FRAGMENT_COLOR;</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="comment">/* フォンシェーディング */</span> <span class="keyword">static</span> <span class="keyword">const</span> Vector&lt;String&gt; SHADER_FRAGMENT_PHONG;</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_k_shading.html#a80ab5de5db96c7afc0c9eb0644b16ad4">   19</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> Vector&lt;String&gt; <a class="code" href="class_k_shading.html#a80ab5de5db96c7afc0c9eb0644b16ad4">SHADER_VERTEX</a>;</div><div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_k_shading.html#a411c4b2e92ef9f7347c1f4a5bde1278f">   22</a></span>&#160;    <span class="keyword">static</span> <a class="code" href="class_k_shader.html">KShader</a>* <a class="code" href="class_k_shading.html#a411c4b2e92ef9f7347c1f4a5bde1278f">ColorShading</a>;</div><div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_k_shading.html#a531f2e473a7d25abb3a362a65882c38b">   25</a></span>&#160;    <span class="keyword">static</span> <a class="code" href="class_k_shader.html">KShader</a>* <a class="code" href="class_k_shading.html#a531f2e473a7d25abb3a362a65882c38b">PhongShading</a>;</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="class_k_shading.html">KShading</a>();</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_k_shading.html">KShading</a>();</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;};</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* KSHADING_H */</span><span class="preprocessor"></span></div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div><div class="ttc" id="class_k_shading_html"><div class="ttname"><a href="class_k_shading.html">KShading</a></div><div class="ttdef"><b>Definition:</b> KShading.h:11</div></div>
+<div class="ttc" id="_k_shader_8h_html"><div class="ttname"><a href="_k_shader_8h.html">KShader.h</a></div><div class="ttdoc">KShader. </div></div>
+<div class="ttc" id="class_k_non_copy_html"><div class="ttname"><a href="class_k_non_copy.html">KNonCopy</a></div><div class="ttdoc">コピー禁止クラス </div><div class="ttdef"><b>Definition:</b> KNonCopy.h:14</div></div>
+<div class="ttc" id="class_k_shading_html_a531f2e473a7d25abb3a362a65882c38b"><div class="ttname"><a href="class_k_shading.html#a531f2e473a7d25abb3a362a65882c38b">KShading::PhongShading</a></div><div class="ttdeci">static KShader * PhongShading</div><div class="ttdoc">フォンシェーディング </div><div class="ttdef"><b>Definition:</b> KShading.h:25</div></div>
+<div class="ttc" id="class_k_shader_html"><div class="ttname"><a href="class_k_shader.html">KShader</a></div><div class="ttdoc">シェーダシステム </div><div class="ttdef"><b>Definition:</b> KShader.h:17</div></div>
+<div class="ttc" id="class_k_shading_html_a411c4b2e92ef9f7347c1f4a5bde1278f"><div class="ttname"><a href="class_k_shading.html#a411c4b2e92ef9f7347c1f4a5bde1278f">KShading::ColorShading</a></div><div class="ttdeci">static KShader * ColorShading</div><div class="ttdoc">色そのまま </div><div class="ttdef"><b>Definition:</b> KShading.h:22</div></div>
+<div class="ttc" id="class_k_shading_html_a80ab5de5db96c7afc0c9eb0644b16ad4"><div class="ttname"><a href="class_k_shading.html#a80ab5de5db96c7afc0c9eb0644b16ad4">KShading::SHADER_VERTEX</a></div><div class="ttdeci">static const Vector&lt; String &gt; SHADER_VERTEX</div><div class="ttdoc">頂点シェーダのソースコード </div><div class="ttdef"><b>Definition:</b> KShading.h:19</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築: &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.11
+</small></address>
+</body>
+</html>

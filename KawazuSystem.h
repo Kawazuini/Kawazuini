@@ -1,6 +1,6 @@
 /**
  * @file   KawazuSystem.h
- * @brief  System headder
+ * @brief  Header of System
  * @author Maeda Takumi
  */
 #ifndef KAWAZUSYSTEM_H
@@ -19,7 +19,9 @@
 #include "KGLUI.h"
 #include "KGLButton.h"
 #include "KGLPanel.h"
+#include "KGLScrollPanel.h"
 #include "KGLSlider.h"
+#include "KGLTextButton.h"
 #include "KGLTextLabel.h"
 
 // ColliderObjects

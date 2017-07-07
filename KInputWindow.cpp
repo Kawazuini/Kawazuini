@@ -4,6 +4,8 @@
  * @author Maeda Takumi
  */
 #include "KInputWindow.h"
+
+#include "KCharset.h"
 #include "KWindows.h"
 
 const int KInputWindow::ID_EDIT(1);
@@ -13,7 +15,8 @@ KInputWindow::KInputWindow(
         const KWindow::MainArgs& aArgs,
         const KRect& aSize,
         const String& aTitle,
-        const String& aText
+        const String& aText,
+        const KCharset* aCharset
         ) :
 mArgs(aArgs),
 mClassName(W(aTitle)),
@@ -48,7 +51,9 @@ mWindow((
         ) : NULL)),
 mDefaultText(aText),
 mSize(aSize),
-mDecide(false) {
+mDecide(false),
+mFont("メイリオ", 20),
+mCharset(aCharset) {
     if (!mWindow) throw Error(_T("ウィンドウの作成に失敗しました."));
     HWND edit(CreateWindow(// EDIT画面の作成
             /* クラスネーム              */ WC_EDIT,
@@ -66,7 +71,7 @@ mDecide(false) {
     mDefaultProc = (WNDPROC) SetWindowLongPtr(edit, GWLP_WNDPROC, (LONG_PTR) WIN_PROC_EDIT);
     SetWindowLong(edit, GWL_USERDATA, uintptr_t(this));
     SetFocus(edit);
-    CreateWindow(// ボタンの作成
+    HWND button(CreateWindow(// ボタンの作成
             /* クラスネーム              */ WC_BUTTON,
             /* ウィンドウタイトル        */ W("決定").data(),
             /* ウィンドウスタイル        */ WS_CHILD | WS_VISIBLE | BS_TEXT,
@@ -78,9 +83,10 @@ mDecide(false) {
             /* メニューハンドル          */ (HMENU) ID_BUTTON,
             /* モジュールインスタンス    */ aArgs.mInst,
             /* WM_CREATEのLPARAMに渡す値 */ NULL
-            );
+            ));
 
-    ShowWindow(mWindow, SW_SHOWNORMAL);
+    SendMessage(edit, WM_SETFONT, (WPARAM) mFont.font(), 0);
+    SendMessage(button, WM_SETFONT, (WPARAM) mFont.font(), 0);
 
     RECT client;
     GetClientRect(mWindow, &client);
@@ -90,6 +96,7 @@ mDecide(false) {
 }
 
 KInputWindow::~KInputWindow() {
+    DestroyWindow(mWindow);
     UnregisterClass(mClassName.data(), mArgs.mInst);
 }
 
@@ -108,7 +115,7 @@ LRESULT KInputWindow::WIN_PROC(HWND aHwnd, UINT aMsg, WPARAM aWParam, LPARAM aLP
     _this->mDecide = false;
 
     switch (aMsg) {
-        // ボタンの押下もしくはEnterキーで決定
+            // ボタンの押下もしくはEnterキーで決定
         case WM_KEYDOWN:
             if (aWParam == VK_RETURN) _this->mDecide = true;
             break;
@@ -118,7 +125,7 @@ LRESULT KInputWindow::WIN_PROC(HWND aHwnd, UINT aMsg, WPARAM aWParam, LPARAM aLP
                     break;
             }
             break;
-            
+
         case WM_DESTROY: _this->mExist = false;
     }
 
@@ -138,21 +145,26 @@ LRESULT KInputWindow::WIN_PROC_EDIT(HWND aHwnd, UINT aMsg, WPARAM aWParam, LPARA
     return _this->mDefaultProc(aHwnd, aMsg, aWParam, aLParam);
 }
 
-const bool& KInputWindow::exist() const {
-    return mExist;
-}
-
-const bool& KInputWindow::decide() const {
-    return mDecide;
-}
-
-void KInputWindow::close() {
-    DestroyWindow(mWindow);
-}
-
 String KInputWindow::getText() const {
-    char text[1024];
-    GetWindowText(GetDlgItem(mWindow, ID_EDIT), text, 1024);
-    return P(text);
+    String text;
+
+    ShowWindow(mWindow, SW_SHOWNORMAL);
+
+    while (mExist) {
+        if (mDecide) {
+            text = getEditText();
+            if (mCharset && !mCharset->getDrawable(text)) message("使える文字は半角英数字・ひらがな・カタカナです。", "使えない文字が含まれています。");
+            else if (text.empty()) message("使える文字は半角英数字・ひらがな・カタカナです。", "文字を入力してください。");
+            else break;
+        }
+
+        MSG msg;
+        if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE)) {
+            TranslateMessage(&msg);
+            DispatchMessage(&msg);
+        }
+    }
+    ShowWindow(mWindow, SW_HIDE);
+    return text;
 }
 

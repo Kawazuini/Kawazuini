@@ -45,9 +45,11 @@ void KKeyboard::press(const WPARAM& aKey) {
                 (mKeyboard + KEY_ID_LEFT)->OFF();
             }
             return (mKeyboard + KEY_ID_RIGHT)->ON();
+        case VK_CONTROL: return (mKeyboard + KEY_ID_CTRL)->ON();
         case VK_SHIFT: return (mKeyboard + KEY_ID_SHIFT)->ON();
         case VK_SPACE: return (mKeyboard + KEY_ID_SPACE)->ON();
         case VK_ESCAPE: return (mKeyboard + KEY_ID_ESCAPE)->ON();
+        case VK_BACK:return (mKeyboard + KEY_ID_BACK_SPACE)->ON();
         case VK_TAB: return (mKeyboard + KEY_ID_TAB)->ON();
         case '0': return (mKeyboard + KEY_ID_0)->ON();
         case '1': return (mKeyboard + KEY_ID_1)->ON();
@@ -118,9 +120,11 @@ void KKeyboard::release(const WPARAM& aKey) {
                 (mKeyboard + KEY_ID_LEFT)->ON();
             }
             return (mKeyboard + KEY_ID_RIGHT)->OFF();
+        case VK_CONTROL: return (mKeyboard + KEY_ID_CTRL)->OFF();
         case VK_SHIFT: return (mKeyboard + KEY_ID_SHIFT)->OFF();
         case VK_SPACE: return (mKeyboard + KEY_ID_SPACE)->OFF();
         case VK_ESCAPE: return (mKeyboard + KEY_ID_ESCAPE)->OFF();
+        case VK_BACK:return (mKeyboard + KEY_ID_BACK_SPACE)->OFF();
         case VK_TAB: return (mKeyboard + KEY_ID_TAB)->OFF();
         case '0': return (mKeyboard + KEY_ID_0)->OFF();
         case '1': return (mKeyboard + KEY_ID_1)->OFF();

@@ -6,6 +6,8 @@
 #include "KGLPanel.h"
 
 #include "KTexture.h"
+#include "KGLUI.h"
+#include "KVector.h"
 
 KGLPanel::KGLPanel(const KRect& aArea) :
 KGLContent(aArea) {
@@ -26,8 +28,28 @@ void KGLPanel::update(KGLUI& aUI) {
         if (i->mUpdated) mUpdated = true;
         if (i->mActive) mActive = true;
     }
+    if (!mActive) mActive = mArea.isColision(aUI.mousePosition());
 }
 
 void KGLPanel::addContent(KGLContent& aContent) {
+    aContent.setParent(this);
     mContents.push_back(&aContent);
+}
+
+void KGLPanel::removeContent(KGLContent& aContent) {
+    mUpdated = true;
+    for (auto i = mContents.begin(), i_e(mContents.end()); i != i_e; ++i) {
+        if (*i == &aContent) {
+            mContents.erase(i);
+            return;
+        }
+    }
+}
+
+void KGLPanel::slide(const KVector& aSlide) {
+    KGLContent::slide(aSlide);
+
+    for (KGLContent* i : mContents) {
+        i->slide(aSlide);
+    }
 }

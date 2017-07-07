@@ -6,36 +6,32 @@
 #ifndef KCAMERA_H
 #define KCAMERA_H
 
+#include "KNonCopy.h"
 #include "KUtility.h"
 #include "KVector.h"
-#include "KWindow.h"
+
+class KQuaternion;
+class KWindow;
 
 /**
  * @brief  \~english  Camera
  * @brief  \~japanese カメラ
  * @author \~ Maeda Takumi
  */
-class KCamera {
+class KCamera : private KNonCopy {
     friend class KFPSCamera;
 public:
-    /**
-     * @brief \~english  vector up to 4 corners of the drawing area 1m ahead from the viewpoint
-     * @brief \~japanese 視点から1m先の描画領域4隅までのベクトル
-     */
+    /// @brief \~english  vector up to 4 corners of the drawing area 1m ahead from the viewpoint
+    /// @brief \~japanese 視点から1m先の描画領域4隅までのベクトル
     using ViewCorner = KVector[4];
-    /**
-     * @brief \~english  default view angle
-     * @brief \~japanese 初期視野角
-     */
+    /// @brief \~english  default view angle
+    /// @brief \~japanese 初期視野角
     static const float DEFAULT_VIEWANGLE;
 private:
-    const KWindow& mWindow;
+    /* 描画対象のウィンドウ */ const KWindow& mWindow;
+    /* 描画領域             */ ViewCorner mViewCorner;
 
-    /* 描画視点位置 */ static KVector sPosition;
-    /* 描画視野方向 */ static KVector sDirection;
-    /* 描画視野角   */ static float sAngle;
-    /* 描画領域     */ static ViewCorner sViewCorner;
-
+    /* カメラ設定 */
     struct CameraOption {
         float mAngle;
         float mAspect;
@@ -43,25 +39,54 @@ private:
         float mFarLimit;
     } mOption;
 
+    /* カメラ情報 */
     struct CameraInformation {
         KVector mPosition;
         KVector mDirection;
         KVector mHeadSlope;
     } mInformation;
 
-    KVector mWidth;
-    KVector mHeight;
+    /* 描画領域の横幅の半分 */ KVector mHalfWidth;
+    /* 描画領域の縦幅の半分 */ KVector mHalfHeight;
 public:
+    /**
+     * @param \~english  aWindow window for drawing
+     * @param \~japanese aWindow 描画を行うウィンドウ
+     */
     KCamera(const KWindow& aWindow);
     virtual ~KCamera() = default;
 
     /**
-     * @brief \~english  update view
-     * @brief \~japanese 視点の更新
+     * @brief \~english  update view.
+     * @brief \~japanese 視点を更新します。
      */
     void set();
-
+    /**
+     * \~english
+     * @brief translate new camera position.
+     * @param aPosition new camera position
+     * \~japanese
+     * @brief カメラ位置を変更します。
+     * @param aPosition 新しいカメラ位置
+     */
     void translate(const KVector& aPosition);
+    /**
+     * \~english
+     * @brief rotate the view direction.
+     * @param aQuaternion rotation information
+     * \~japanese
+     * @brief 視点方向を回転させます。
+     * @param aQuaternion 回転情報
+     */
+    void rotate(const KQuaternion& aQuaternion);
+    /**
+     * \~english
+     * @brief change the zoom magnification of the camera
+     * @param aScale change magnification
+     * \~japanese
+     * @brief カメラのズーム倍率を変更します。
+     * @param aScale 変更倍率
+     */
     void zoom(const float& aScale);
 
     /**
@@ -74,7 +99,7 @@ public:
      * @param  aNormal 対象ポリゴンの法線
      * @return 描画の必要性
      */
-    static bool isInCamera(const KVector& aNormal);
+    bool isInCamera(const KVector& aNormal) const;
     /**
      * \~english
      * @brief  determine the necessity of drawing from vertex.
@@ -85,28 +110,15 @@ public:
      * @param  aVertex 対象ポリゴンの頂点
      * @return 描画の必要性
      */
-    static bool isInCamera(const Vector<KVector>& aVertex);
-
-    /**
-     * \~english
-     * @brief  get four corners of the drawing area.
-     * @return four corners of the drawing area
-     * \~japanese
-     * @brief  描画領域の4隅を取得します。
-     * @return 描画領域の4隅
-     */
-    static const ViewCorner& viewCorner();
+    bool isInCamera(const Vector<KVector>& aVertex) const;
 
     const KWindow& window() const;
-
+    const ViewCorner& viewCorner() const;
     const KVector& position() const;
     const KVector& direction() const;
-
-    const KVector& width() const;
-    const KVector& height() const;
-
-    static const KVector& Position();
-    static const KVector& Direction();
+    const KVector& headslope() const;    
+    const KVector& halfWidth() const;
+    const KVector& halfHeight() const;
 };
 
 #endif /* KCAMERA_H */

@@ -9,8 +9,6 @@
 #include "KMath.h"
 #include "KVector.h"
 
-const float KWindow::DEFAULT_ASPECT(9.0f / 16.0f);
-const KRect KWindow::DEFAULT_SIZE((KVector(960, 540)));
 const KRect KWindow::DISPLAY_SIZE(GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN));
 
 KWindow::KWindow(
@@ -82,7 +80,8 @@ LRESULT CALLBACK KWindow::WIN_PROC(HWND aHwnd, UINT aMsg, WPARAM aWParam, LPARAM
     }
 
     _this = reinterpret_cast<KWindow*> (GetWindowLong(aHwnd, GWL_USERDATA));
-    if (!_this || !_this->mListener) return DefWindowProc(aHwnd, aMsg, aWParam, aLParam);
+    if (!_this || !_this->mListener)
+        return DefWindowProc(aHwnd, aMsg, aWParam, aLParam);
 
     switch (aMsg) {
             /* キーイベント */
@@ -129,7 +128,7 @@ LRESULT CALLBACK KWindow::WIN_PROC(HWND aHwnd, UINT aMsg, WPARAM aWParam, LPARAM
         }
         case WM_PAINT:
             _this->startPaint();
-            _this->mListener->draw();
+            _this->mListener->responsiveDraw();
             _this->display();
             break;
         case WM_DESTROY: _this->mExist = false;
@@ -174,7 +173,6 @@ void KWindow::changeFrame() {
 }
 
 void KWindow::changeFullScreen() {
-    static const float SCALE(Math::min((float) DISPLAY_SIZE.width / DEFAULT_SIZE.width, (float) DISPLAY_SIZE.height / DEFAULT_SIZE.height));
     static KRect pPosition;
     if (mFullScreen != mFrameVisible) changeFrame();
     if (mFullScreen = !mFullScreen) {

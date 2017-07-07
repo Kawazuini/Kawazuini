@@ -1,6 +1,6 @@
 /**
  * @file   KawazuUtility.h
- * @brief  Utility Include Headder
+ * @brief  Header of Utility
  * @author Maeda Takumi
  */
 #ifndef KAWAZUUTILITY_H

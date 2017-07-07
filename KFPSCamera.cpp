@@ -56,3 +56,7 @@ KVector KFPSCamera::convertDirection(const KVector& aVec) {
     return aVec.rotate(rot);
 }
 
+const KCamera& KFPSCamera::camera() const {
+    return mCamera;
+}
+

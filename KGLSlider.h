@@ -27,7 +27,7 @@ public:
             );
     virtual ~KGLSlider() = default;
 private:
-    void draw(KTexture& aUI) const override;
+    virtual void draw(KTexture& aUI) const;
     void update(KGLUI& aUI) override;
 public:
     void setValue(const double& aValue);

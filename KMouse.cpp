@@ -31,6 +31,11 @@ void KMouse::wheelSpin(const WPARAM& aWheel) {
     mWheel = GET_WHEEL_DELTA_WPARAM(aWheel);
 }
 
+int KMouse::count() const {
+    ShowCursor(false);
+    return ShowCursor(true);
+}
+
 void KMouse::pass() {
     mLeft.pass();
     mMiddle.pass();
@@ -39,13 +44,11 @@ void KMouse::pass() {
 }
 
 void KMouse::show() {
-    int mouseCount(ShowCursor(true));
-    while (mouseCount < 0) mouseCount = ShowCursor(true);
+    if (count() < 0) ShowCursor(true);
 }
 
 void KMouse::hide() {
-    int mouseCount(ShowCursor(false));
-    while (mouseCount >= 0) mouseCount = ShowCursor(false);
+    if (0 <= count()) ShowCursor(false);
 }
 
 KVector KMouse::pos() const {

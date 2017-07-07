@@ -84,11 +84,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">クラス</a> &#124;
 <a href="#pub-types">公開型</a> &#124;
 <a href="#pub-methods">公開メンバ関数</a> &#124;
-<a href="#pub-static-methods">静的公開メンバ関数</a> &#124;
-<a href="#pub-attribs">公開変数類</a> &#124;
 <a href="#pub-static-attribs">静的公開変数類</a> &#124;
+<a href="#friends">フレンド</a> &#124;
 <a href="class_k_camera-members.html">全メンバ一覧</a>  </div>
   <div class="headertitle">
 <div class="title">KCamera クラス</div>  </div>
@@ -105,7 +105,7 @@ KCamera の継承関係図</div>
  <div class="center">
   <img src="class_k_camera.png" usemap="#KCamera_map" alt=""/>
   <map id="KCamera_map" name="KCamera_map">
-<area href="class_k_f_p_s_camera.html" title="位置と方向を同期できるカメラ " alt="KFPSCamera" shape="rect" coords="0,56,88,80"/>
+<area href="class_k_non_copy.html" title="コピー禁止クラス " alt="KNonCopy" shape="rect" coords="0,0,73,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -118,53 +118,48 @@ using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
+<tr class="memitem:a9dd4b95ca87c6405750e65fab14a5da4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_camera.html#a9dd4b95ca87c6405750e65fab14a5da4">KCamera</a> (const <a class="el" href="class_k_window.html">KWindow</a> &amp;aWindow)</td></tr>
+<tr class="separator:a9dd4b95ca87c6405750e65fab14a5da4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad44a63f5ba96aee017ddfa2b2b42a451"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad44a63f5ba96aee017ddfa2b2b42a451"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_camera.html#ad44a63f5ba96aee017ddfa2b2b42a451">set</a> ()</td></tr>
-<tr class="memdesc:ad44a63f5ba96aee017ddfa2b2b42a451"><td class="mdescLeft">&#160;</td><td class="mdescRight">視点の更新 <br /></td></tr>
+<tr class="memdesc:ad44a63f5ba96aee017ddfa2b2b42a451"><td class="mdescLeft">&#160;</td><td class="mdescRight">視点を更新します。 <br /></td></tr>
 <tr class="separator:ad44a63f5ba96aee017ddfa2b2b42a451"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-静的公開メンバ関数</h2></td></tr>
-<tr class="memitem:ab0d9702fcb4885bf79cb2718e865c384"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_camera.html#ab0d9702fcb4885bf79cb2718e865c384">isInCamera</a> (const <a class="el" href="class_k_vector.html">KVector</a> &amp;aNormal)</td></tr>
-<tr class="memdesc:ab0d9702fcb4885bf79cb2718e865c384"><td class="mdescLeft">&#160;</td><td class="mdescRight">法線から描画の必要性を判定します。  <a href="#ab0d9702fcb4885bf79cb2718e865c384">[詳解]</a><br /></td></tr>
-<tr class="separator:ab0d9702fcb4885bf79cb2718e865c384"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae100689652b104c6ff0fdadd4782c2a1"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_camera.html#ae100689652b104c6ff0fdadd4782c2a1">isInCamera</a> (const Vector&lt; <a class="el" href="class_k_vector.html">KVector</a> &gt; &amp;aVertex)</td></tr>
-<tr class="memdesc:ae100689652b104c6ff0fdadd4782c2a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">頂点から描画の必要性を判定します。  <a href="#ae100689652b104c6ff0fdadd4782c2a1">[詳解]</a><br /></td></tr>
-<tr class="separator:ae100689652b104c6ff0fdadd4782c2a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa770f510084eff1cf7afada6ca0b303"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="class_k_camera.html#aba75f0de95adea59eef063b2bbdd2ca3">ViewCorner</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_camera.html#afa770f510084eff1cf7afada6ca0b303">viewCorner</a> ()</td></tr>
-<tr class="memdesc:afa770f510084eff1cf7afada6ca0b303"><td class="mdescLeft">&#160;</td><td class="mdescRight">描画領域の4隅を取得します。  <a href="#afa770f510084eff1cf7afada6ca0b303">[詳解]</a><br /></td></tr>
-<tr class="separator:afa770f510084eff1cf7afada6ca0b303"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-公開変数類</h2></td></tr>
-<tr class="memitem:ad33f6899d4790fb2f2ec32a7e18acbf2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad33f6899d4790fb2f2ec32a7e18acbf2"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_camera.html#ad33f6899d4790fb2f2ec32a7e18acbf2">mAngle</a></td></tr>
-<tr class="memdesc:ad33f6899d4790fb2f2ec32a7e18acbf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">上下視野角 <br /></td></tr>
-<tr class="separator:ad33f6899d4790fb2f2ec32a7e18acbf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac838ecea5e87a5eb25317331d9b2f2e6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac838ecea5e87a5eb25317331d9b2f2e6"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_camera.html#ac838ecea5e87a5eb25317331d9b2f2e6">mAspect</a></td></tr>
-<tr class="memdesc:ac838ecea5e87a5eb25317331d9b2f2e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">左右視野角の上下視野角との倍率 <br /></td></tr>
-<tr class="separator:ac838ecea5e87a5eb25317331d9b2f2e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78cf70e33d7afb7580ded68e931cbf6b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a78cf70e33d7afb7580ded68e931cbf6b"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_camera.html#a78cf70e33d7afb7580ded68e931cbf6b">mNearLimit</a></td></tr>
-<tr class="memdesc:a78cf70e33d7afb7580ded68e931cbf6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">近距離描画限界距離 <br /></td></tr>
-<tr class="separator:a78cf70e33d7afb7580ded68e931cbf6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0f99754974e1618453aa64fe1d0b408"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae0f99754974e1618453aa64fe1d0b408"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_camera.html#ae0f99754974e1618453aa64fe1d0b408">mFarLimit</a></td></tr>
-<tr class="memdesc:ae0f99754974e1618453aa64fe1d0b408"><td class="mdescLeft">&#160;</td><td class="mdescRight">遠距離描画限界距離 <br /></td></tr>
-<tr class="separator:ae0f99754974e1618453aa64fe1d0b408"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f59397cdb55ab678a05c8afe04aa6a8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8f59397cdb55ab678a05c8afe04aa6a8"></a>
-<a class="el" href="class_k_vector.html">KVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_camera.html#a8f59397cdb55ab678a05c8afe04aa6a8">mPosition</a></td></tr>
-<tr class="memdesc:a8f59397cdb55ab678a05c8afe04aa6a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">カメラ位置 <br /></td></tr>
-<tr class="separator:a8f59397cdb55ab678a05c8afe04aa6a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4cd6adb2dec44e36fd60e07fbb2b502b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4cd6adb2dec44e36fd60e07fbb2b502b"></a>
-<a class="el" href="class_k_vector.html">KVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_camera.html#a4cd6adb2dec44e36fd60e07fbb2b502b">mDirection</a></td></tr>
-<tr class="memdesc:a4cd6adb2dec44e36fd60e07fbb2b502b"><td class="mdescLeft">&#160;</td><td class="mdescRight">カメラ方向 <br /></td></tr>
-<tr class="separator:a4cd6adb2dec44e36fd60e07fbb2b502b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ba18768dd02d182ff9e4f92d033d227"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8ba18768dd02d182ff9e4f92d033d227"></a>
-<a class="el" href="class_k_vector.html">KVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_camera.html#a8ba18768dd02d182ff9e4f92d033d227">mHeadSlope</a></td></tr>
-<tr class="memdesc:a8ba18768dd02d182ff9e4f92d033d227"><td class="mdescLeft">&#160;</td><td class="mdescRight">カメラ頭方向 <br /></td></tr>
-<tr class="separator:a8ba18768dd02d182ff9e4f92d033d227"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9faaa71a9d4d47a92910315edacf0b1c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_camera.html#a9faaa71a9d4d47a92910315edacf0b1c">translate</a> (const <a class="el" href="class_k_vector.html">KVector</a> &amp;aPosition)</td></tr>
+<tr class="memdesc:a9faaa71a9d4d47a92910315edacf0b1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">カメラ位置を変更します。  <a href="#a9faaa71a9d4d47a92910315edacf0b1c">[詳解]</a><br /></td></tr>
+<tr class="separator:a9faaa71a9d4d47a92910315edacf0b1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37d29eb8e9ec4047407b764f21052a17"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_camera.html#a37d29eb8e9ec4047407b764f21052a17">rotate</a> (const <a class="el" href="class_k_quaternion.html">KQuaternion</a> &amp;aQuaternion)</td></tr>
+<tr class="memdesc:a37d29eb8e9ec4047407b764f21052a17"><td class="mdescLeft">&#160;</td><td class="mdescRight">視点方向を回転させます。  <a href="#a37d29eb8e9ec4047407b764f21052a17">[詳解]</a><br /></td></tr>
+<tr class="separator:a37d29eb8e9ec4047407b764f21052a17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f80803d123d1a53cafe52331ba2d624"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_camera.html#a4f80803d123d1a53cafe52331ba2d624">zoom</a> (const float &amp;aScale)</td></tr>
+<tr class="memdesc:a4f80803d123d1a53cafe52331ba2d624"><td class="mdescLeft">&#160;</td><td class="mdescRight">カメラのズーム倍率を変更します。  <a href="#a4f80803d123d1a53cafe52331ba2d624">[詳解]</a><br /></td></tr>
+<tr class="separator:a4f80803d123d1a53cafe52331ba2d624"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a7b0f728b0a66ecc767f1552c59286b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_camera.html#a4a7b0f728b0a66ecc767f1552c59286b">isInCamera</a> (const <a class="el" href="class_k_vector.html">KVector</a> &amp;aNormal) const </td></tr>
+<tr class="memdesc:a4a7b0f728b0a66ecc767f1552c59286b"><td class="mdescLeft">&#160;</td><td class="mdescRight">法線から描画の必要性を判定します。  <a href="#a4a7b0f728b0a66ecc767f1552c59286b">[詳解]</a><br /></td></tr>
+<tr class="separator:a4a7b0f728b0a66ecc767f1552c59286b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a180ef9a3c6e4b10a10a20db7d95511e3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_camera.html#a180ef9a3c6e4b10a10a20db7d95511e3">isInCamera</a> (const Vector&lt; <a class="el" href="class_k_vector.html">KVector</a> &gt; &amp;aVertex) const </td></tr>
+<tr class="memdesc:a180ef9a3c6e4b10a10a20db7d95511e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">頂点から描画の必要性を判定します。  <a href="#a180ef9a3c6e4b10a10a20db7d95511e3">[詳解]</a><br /></td></tr>
+<tr class="separator:a180ef9a3c6e4b10a10a20db7d95511e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac71b3c1f3b96b1509e447d04db13d185"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac71b3c1f3b96b1509e447d04db13d185"></a>
+const <a class="el" href="class_k_window.html">KWindow</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>window</b> () const </td></tr>
+<tr class="separator:ac71b3c1f3b96b1509e447d04db13d185"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a080d3b8405d20c56dfbc93827f2da381"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a080d3b8405d20c56dfbc93827f2da381"></a>
+const <a class="el" href="class_k_camera.html#aba75f0de95adea59eef063b2bbdd2ca3">ViewCorner</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>viewCorner</b> () const </td></tr>
+<tr class="separator:a080d3b8405d20c56dfbc93827f2da381"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe7e91ea0fb36a1c3b5c57a97d04f373"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abe7e91ea0fb36a1c3b5c57a97d04f373"></a>
+const <a class="el" href="class_k_vector.html">KVector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>position</b> () const </td></tr>
+<tr class="separator:abe7e91ea0fb36a1c3b5c57a97d04f373"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af12432da026a383acb1d4304fe9eaffb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af12432da026a383acb1d4304fe9eaffb"></a>
+const <a class="el" href="class_k_vector.html">KVector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>direction</b> () const </td></tr>
+<tr class="separator:af12432da026a383acb1d4304fe9eaffb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4254f7571f16a43abae3de570617c153"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4254f7571f16a43abae3de570617c153"></a>
+const <a class="el" href="class_k_vector.html">KVector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>headslope</b> () const </td></tr>
+<tr class="separator:a4254f7571f16a43abae3de570617c153"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b25dce77fee07923ea08334137267d3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0b25dce77fee07923ea08334137267d3"></a>
+const <a class="el" href="class_k_vector.html">KVector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>halfWidth</b> () const </td></tr>
+<tr class="separator:a0b25dce77fee07923ea08334137267d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e8e3a4cad13c2cd93f88b74b51e801f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8e8e3a4cad13c2cd93f88b74b51e801f"></a>
+const <a class="el" href="class_k_vector.html">KVector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>halfHeight</b> () const </td></tr>
+<tr class="separator:a8e8e3a4cad13c2cd93f88b74b51e801f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 静的公開変数類</h2></td></tr>
@@ -172,31 +167,52 @@ float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 static const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_camera.html#a16a1c0584328d52b43960dd0216f950a">DEFAULT_VIEWANGLE</a></td></tr>
 <tr class="memdesc:a16a1c0584328d52b43960dd0216f950a"><td class="mdescLeft">&#160;</td><td class="mdescRight">初期視野角 <br /></td></tr>
 <tr class="separator:a16a1c0584328d52b43960dd0216f950a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+フレンド</h2></td></tr>
+<tr class="memitem:a2bcaa0eaabe307da8b1f7f345f8b0e46"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2bcaa0eaabe307da8b1f7f345f8b0e46"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>KFPSCamera</b></td></tr>
+<tr class="separator:a2bcaa0eaabe307da8b1f7f345f8b0e46"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>カメラ </p>
 <dl class="section author"><dt>著者</dt><dd>Maeda Takumi </dd></dl>
-</div><h2 class="groupheader">関数詳解</h2>
-<a class="anchor" id="ab0d9702fcb4885bf79cb2718e865c384"></a>
+</div><h2 class="groupheader">構築子と解体子</h2>
+<a class="anchor" id="a9dd4b95ca87c6405750e65fab14a5da4"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">KCamera::KCamera </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_k_window.html">KWindow</a> &amp;&#160;</td>
+          <td class="paramname"><em>aWindow</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">aWindow</td><td>描画を行うウィンドウ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a class="anchor" id="a4a7b0f728b0a66ecc767f1552c59286b"></a>
+<div class="memitem">
+<div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">bool KCamera::isInCamera </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="class_k_vector.html">KVector</a> &amp;&#160;</td>
           <td class="paramname"><em>aNormal</em></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>法線から描画の必要性を判定します。 </p>
@@ -210,26 +226,18 @@ static const float&#160;</td><td class="memItemRight" valign="bottom"><a class="
 
 </div>
 </div>
-<a class="anchor" id="ae100689652b104c6ff0fdadd4782c2a1"></a>
+<a class="anchor" id="a180ef9a3c6e4b10a10a20db7d95511e3"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool KCamera::isInCamera </td>
           <td>(</td>
           <td class="paramtype">const Vector&lt; <a class="el" href="class_k_vector.html">KVector</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>aVertex</em></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>頂点から描画の必要性を判定します。 </p>
@@ -243,29 +251,75 @@ static const float&#160;</td><td class="memItemRight" valign="bottom"><a class="
 
 </div>
 </div>
-<a class="anchor" id="afa770f510084eff1cf7afada6ca0b303"></a>
+<a class="anchor" id="a37d29eb8e9ec4047407b764f21052a17"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="class_k_camera.html#aba75f0de95adea59eef063b2bbdd2ca3">KCamera::ViewCorner</a> &amp; KCamera::viewCorner </td>
+          <td class="memname">void KCamera::rotate </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="class_k_quaternion.html">KQuaternion</a> &amp;&#160;</td>
+          <td class="paramname"><em>aQuaternion</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>描画領域の4隅を取得します。 </p>
-<dl class="section return"><dt>戻り値</dt><dd>描画領域の4隅 </dd></dl>
+<p>視点方向を回転させます。 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">aQuaternion</td><td>回転情報 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a9faaa71a9d4d47a92910315edacf0b1c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void KCamera::translate </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_k_vector.html">KVector</a> &amp;&#160;</td>
+          <td class="paramname"><em>aPosition</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>カメラ位置を変更します。 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">aPosition</td><td>新しいカメラ位置 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a4f80803d123d1a53cafe52331ba2d624"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void KCamera::zoom </td>
+          <td>(</td>
+          <td class="paramtype">const float &amp;&#160;</td>
+          <td class="paramname"><em>aScale</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>カメラのズーム倍率を変更します。 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">aScale</td><td>変更倍率 </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

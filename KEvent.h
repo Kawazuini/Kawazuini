@@ -11,10 +11,9 @@
 
 class KEventListener;
 
-class KEvent : private KUpdater {
-private:
-    List<KEventListener*> mListeners;
+class KEvent : protected KUpdater {
 protected:
+    List<KEventListener*> mListeners;
     String mActionCommand;
 
     KEvent();

@@ -6,9 +6,14 @@
 #include "KApplication.h"
 
 #include "KMath.h"
-#include "KSwitch.h"
 #include "KTimer.h"
 #include "KWindow.h"
+#include "KWindows.h"
+
+void KApplication::newFailed() {
+    message(_T("メモリの確保に失敗しました。"), _T("実行時エラー"));
+    exit(1);
+}
 
 KApplication::KApplication(KWindow& aWindow) :
 mOpenGL(aWindow),
@@ -20,12 +25,25 @@ mPauseSwitch(NULL),
 mCamera(aWindow),
 mFrontUI(mCamera),
 mBackUI(mCamera) {
+    std::set_new_handler(KApplication::newFailed);
+
+    KDrawer::remove();
+    KUpdater::remove();
+
     mWindow.mListener = this;
     timeBeginPeriod(1); // 最小分解能の設定(Timerは信頼できるが,Sleepは信頼できない)
 }
 
 KApplication::~KApplication() {
     timeEndPeriod(1);
+}
+
+void KApplication::responsiveDraw() const {
+    KShading::ColorShading->ON();
+    mBackUI.draw();
+    draw();
+    KShading::ColorShading->ON();
+    mFrontUI.draw();
 }
 
 void KApplication::wait(const int& aTime) {
@@ -60,10 +78,10 @@ void KApplication::start(const int& aFps) {
                 mBackUI.refrect();
 
                 mWindow.startPaint();
-                KShading::TextureShading->ON();
+                KShading::ColorShading->ON();
                 mBackUI.draw();
                 draw();
-                KShading::TextureShading->ON();
+                KShading::ColorShading->ON();
                 mFrontUI.draw();
                 mWindow.display();
             } else if (mPauseSwitch && mPauseSwitch->isTouch()) {
@@ -101,3 +119,16 @@ void KApplication::resume() {
     }
 }
 
+KVector KApplication::mousePositionOn3D() const {
+    KVector mouse(mWindow.mousePositionOnScreen());
+    const KRect initial(mWindow.initialSize());
+
+    // correction -1 ~ 1
+    const KVector center(initial.center());
+    mouse -= center;
+    mouse.x /= center.x;
+    mouse.y /= center.y;
+
+    // correction 3D coordinate
+    return mCamera.halfWidth() * mouse.x + mCamera.halfHeight() * mouse.y + mCamera.position() + mCamera.direction();
+}

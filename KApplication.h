@@ -12,7 +12,6 @@
 #include "KOpenGL.h"
 #include "KShading.h"
 
-class KSwitch;
 class KWindow;
 
 /**
@@ -20,40 +19,42 @@ class KWindow;
  * @brief  \~japanese アプリケーション基底
  * @author \~ Maeda Takumi
  */
-class KApplication : public KListener {
+class KApplication :
+protected KListener,
+protected KDrawer,
+protected KUpdater {
 private:
-    KOpenGL mOpenGL;
-    KShading mShading;
-    void wait(const int& aTime); // ミリ秒間処理を休止
-protected:
-    /**
-     * @brief \~english  window for processing
-     * @brief \~japanese 処理を行うウィンドウ
-     */
-    KWindow& mWindow;
-    /**
-     * @brief \~english  count for frame per second
-     * @brief \~japanese 秒間フレームカウント
-     */
-    int mFrame;
-    /**
-     * @brief \~english  whether processing execution
-     * @brief \~japanese 処理を実行しているか
-     */
-    bool mExecution;
-    /**
-     * @brief \~english  whether processing pause
-     * @brief \~japanese 処理を中断しているか
-     */
-    bool mPause;
-    /**
-     * @brief \~english  resume switch
-     * @brief \~japanese ポーズ解除スイッチ
-     */
-    KSwitch* mPauseSwitch;
+    /* メモリの確保に失敗したときに呼ばれます。 */ static void newFailed();
 
+    /* OpenGLの初期化   */ KOpenGL mOpenGL;
+    /* シェーダの初期化 */ KShading mShading;
+
+    /* Windowが再描画を要求したときに呼ばれます。 */ void responsiveDraw() const override final;
+    /* 指定ミリ秒の間、処理を休止します。         */ void wait(const int& aTime);
+protected:
+    /// @brief \~english  window for processing
+    /// @brief \~japanese 処理を行っているウィンドウ
+    KWindow& mWindow;
+    /// @brief \~english  count of frame per second
+    /// @brief \~japanese 1秒間のフレームカウント
+    int mFrame;
+    /// @brief \~english  whether processing is execution
+    /// @brief \~japanese 処理を実行しているか
+    bool mExecution;
+    /// @brief \~english  whether processing is paused
+    /// @brief \~japanese 処理を中断しているか
+    bool mPause;
+    /// @brief \~english  switch for resume
+    /// @brief \~japanese ポーズ解除スイッチ
+    KSwitch* mPauseSwitch;
+    /// @brief \~english  camera for application
+    /// @brief \~japanese アプリケーションカメラ
     KCamera mCamera;
+    /// @brief \~english  frontmost UI
+    /// @brief \~japanese 最前面UI
     KGLUI mFrontUI;
+    /// @brief \~english  innermost UI
+    /// @brief \~japanese 最奥面UI
     KGLUI mBackUI;
 
     /**
@@ -63,8 +64,6 @@ protected:
     KApplication(KWindow& aWindow);
     virtual ~KApplication();
 public:
-    virtual void update() = 0;
-
     /**
      * \~english
      * @brief start main loop.
@@ -95,6 +94,15 @@ public:
      * @brief \~japanese メインループを再開します。
      */
     void resume();
+    /**
+     * \~english
+     * @brief  calculate mouse coordinates(1m ahead) on 3 dimensions.
+     * @return mouse coordinates(1m ahead) on 3 dimensions
+     * \~japanese
+     * @brief  3次元上の(1m先の)マウス座標を計算します。
+     * @return 3次元上の(1m先の)マウス座標
+     */
+    KVector mousePositionOn3D() const;
 };
 
 #endif /* KAPPLICATION_H */

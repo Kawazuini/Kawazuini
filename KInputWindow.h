@@ -6,7 +6,11 @@
 #ifndef KINPUTWINDOW_H
 #define KINPUTWINDOW_H
 
+#include "KCharset.h"
+#include "KFont.h"
 #include "KWindow.h"
+
+class KCharset;
 
 /**
  * @brief  \~english  Window that has EDIT function
@@ -28,9 +32,20 @@ private:
     /* 初期テキスト       */ const String mDefaultText;
     /* ウィンドウサイズ   */ const KRect mSize;
 
+    /* フォント           */ KFont mFont;
+
     /* ウィンドウプロシージャ       */ static LRESULT CALLBACK WIN_PROC(HWND aHwnd, UINT aMsg, WPARAM aWParam, LPARAM aLParam);
     /* デフォルトのEDITプロシージャ */ WNDPROC mDefaultProc;
     /* EDITプロシージャ             */ static LRESULT CALLBACK WIN_PROC_EDIT(HWND aHwnd, UINT aMsg, WPARAM aWParam, LPARAM aLParam);
+
+    /* 文字列チェック用文字セット   */ const KCharset* mCharset;
+
+    /* エディットのテキストを取得 */
+    inline String getEditText() const {
+        char text[1024];
+        GetWindowText(GetDlgItem(mWindow, ID_EDIT), text, 1024);
+        return P(text);
+    }
 public:
     /**
      * \~english
@@ -48,34 +63,10 @@ public:
             const KWindow::MainArgs& aArgs,
             const KRect& aSize,
             const String& aTitle,
-            const String& aText
+            const String& aText,
+            const KCharset* aCharset = NULL
             );
     virtual ~KInputWindow();
-
-    /**
-     * \~english
-     * @brief  get whether exist.
-     * @return whether exist
-     * \~japanese
-     * @brief  生存状況を取得します。
-     * @return 生存状況
-     */
-    const bool& exist() const;
-    /**
-     * \~english
-     * @brief  get whether pushed button.
-     * @return whether pushed button
-     * \~japanese
-     * @brief  ボタンの押下状態を取得します。
-     * @return ボタンの押下状態
-     */
-    const bool& decide() const;
-
-    /**
-     * @breif \~english  clise window.
-     * @breif \~japanese ウィンドウを閉じます。
-     */
-    void close();
 
     /**
      * \~english

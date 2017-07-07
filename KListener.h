@@ -22,20 +22,19 @@ protected:
 
     KListener() = default;
     virtual ~KListener() = default;
+
+private:
+    /* Response to drawing request of Window */
+    virtual void responsiveDraw() const = 0;
 public:
-    /**
-     * @brief \~english  drawing processing
-     * @brief \~japanese 描画処理
-     */
-    virtual void draw() const = 0;
 
-    const KKeyboard& keyboard()const {
+    const KKeyboard& keyboard() const {
         return mKeyboard;
-    }
+    };
 
-    const KMouse& mosue()const {
+    const KMouse& mosue() const {
         return mMouse;
-    }
+    };
 };
 
 #endif /* KLISTENER_H */

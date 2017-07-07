@@ -16,7 +16,6 @@ KGLContent(KRect(aPosition, aPosition + KVector(aCharset.getWidth(aText), aChars
 mPosition(aPosition),
 mCharset(aCharset),
 mText(aText) {
-    println(mText);
 }
 
 void KGLTextLabel::draw(KTexture& aUI) const {

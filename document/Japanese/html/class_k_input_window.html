@@ -107,16 +107,8 @@ KInputWindow の継承関係図</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:ab5ca8d83cbb827b0d1d8356a447b4ec1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_input_window.html#ab5ca8d83cbb827b0d1d8356a447b4ec1">KInputWindow</a> (const <a class="el" href="struct_k_window_1_1_main_args.html">KWindow::MainArgs</a> &amp;aArgs, const <a class="el" href="class_k_rect.html">KRect</a> &amp;aSize, const String &amp;aTitle, const String &amp;aText)</td></tr>
-<tr class="separator:ab5ca8d83cbb827b0d1d8356a447b4ec1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2f4a36a3a34aac6c07c751c4437bf51"><td class="memItemLeft" align="right" valign="top">const bool &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_input_window.html#ac2f4a36a3a34aac6c07c751c4437bf51">exist</a> () const </td></tr>
-<tr class="memdesc:ac2f4a36a3a34aac6c07c751c4437bf51"><td class="mdescLeft">&#160;</td><td class="mdescRight">生存状況を取得します。  <a href="#ac2f4a36a3a34aac6c07c751c4437bf51">[詳解]</a><br /></td></tr>
-<tr class="separator:ac2f4a36a3a34aac6c07c751c4437bf51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adda9611ab11c08c8c2dd365f7fdb5a80"><td class="memItemLeft" align="right" valign="top">const bool &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_input_window.html#adda9611ab11c08c8c2dd365f7fdb5a80">decide</a> () const </td></tr>
-<tr class="memdesc:adda9611ab11c08c8c2dd365f7fdb5a80"><td class="mdescLeft">&#160;</td><td class="mdescRight">ボタンの押下状態を取得します。  <a href="#adda9611ab11c08c8c2dd365f7fdb5a80">[詳解]</a><br /></td></tr>
-<tr class="separator:adda9611ab11c08c8c2dd365f7fdb5a80"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a88ed3f951d47caa18e348fb8add2b5d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_input_window.html#a88ed3f951d47caa18e348fb8add2b5d6">close</a> ()</td></tr>
-<tr class="separator:a88ed3f951d47caa18e348fb8add2b5d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53b71c57f9ec4e64f597d1f769a45cfa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_input_window.html#a53b71c57f9ec4e64f597d1f769a45cfa">KInputWindow</a> (const <a class="el" href="struct_k_window_1_1_main_args.html">KWindow::MainArgs</a> &amp;aArgs, const <a class="el" href="class_k_rect.html">KRect</a> &amp;aSize, const String &amp;aTitle, const String &amp;aText, const <a class="el" href="class_k_charset.html">KCharset</a> *aCharset=NULL)</td></tr>
+<tr class="separator:a53b71c57f9ec4e64f597d1f769a45cfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4003238b414fb03f929b88967fb5d8b3"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_input_window.html#a4003238b414fb03f929b88967fb5d8b3">getText</a> () const </td></tr>
 <tr class="memdesc:a4003238b414fb03f929b88967fb5d8b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">エディット内容を取得します。  <a href="#a4003238b414fb03f929b88967fb5d8b3">[詳解]</a><br /></td></tr>
 <tr class="separator:a4003238b414fb03f929b88967fb5d8b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -125,7 +117,7 @@ KInputWindow の継承関係図</div>
 <div class="textblock"><p>EDIT機能を持ったウィンドウ </p>
 <dl class="section author"><dt>著者</dt><dd>Maeda Takumi </dd></dl>
 </div><h2 class="groupheader">構築子と解体子</h2>
-<a class="anchor" id="ab5ca8d83cbb827b0d1d8356a447b4ec1"></a>
+<a class="anchor" id="a53b71c57f9ec4e64f597d1f769a45cfa"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -151,7 +143,13 @@ KInputWindow の継承関係図</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const String &amp;&#160;</td>
-          <td class="paramname"><em>aText</em>&#160;</td>
+          <td class="paramname"><em>aText</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_k_charset.html">KCharset</a> *&#160;</td>
+          <td class="paramname"><em>aCharset</em> = <code>NULL</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -173,58 +171,6 @@ KInputWindow の継承関係図</div>
 </div>
 </div>
 <h2 class="groupheader">関数詳解</h2>
-<a class="anchor" id="a88ed3f951d47caa18e348fb8add2b5d6"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void KInputWindow::close </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>ウィンドウを閉じます。 </p>
-
-</div>
-</div>
-<a class="anchor" id="adda9611ab11c08c8c2dd365f7fdb5a80"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const bool &amp; KInputWindow::decide </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>ボタンの押下状態を取得します。 </p>
-<dl class="section return"><dt>戻り値</dt><dd>ボタンの押下状態 </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ac2f4a36a3a34aac6c07c751c4437bf51"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const bool &amp; KInputWindow::exist </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>生存状況を取得します。 </p>
-<dl class="section return"><dt>戻り値</dt><dd>生存状況 </dd></dl>
-
-</div>
-</div>
 <a class="anchor" id="a4003238b414fb03f929b88967fb5d8b3"></a>
 <div class="memitem">
 <div class="memproto">

@@ -1,6 +1,6 @@
 /**
  * @file   Kawazuini.h
- * @brief  Project's Header
+ * @brief  Header of Library
  * @author Maeda Takumi
  */
 #ifndef KAWAZUINI_H

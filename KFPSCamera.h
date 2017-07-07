@@ -50,6 +50,8 @@ public:
      * @param aDirection 視点からの指定方向
      */
     KVector convertDirection(const KVector& aVec);
+
+    const KCamera& camera() const;
 };
 
 #endif /* KFPSCAMERA_H */

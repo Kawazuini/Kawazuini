@@ -8,17 +8,20 @@
 
 #include "KShader.h"
 
-class KShading {
+class KShading final : private KNonCopy {
+private:
+    /* フラグメントシェーダのソースコード */
+    /* 色そのまま           */ static const Vector<String> SHADER_FRAGMENT_COLOR;
+    /* フォンシェーディング */ static const Vector<String> SHADER_FRAGMENT_PHONG;
 public:
-    static const char* const SHADER_VERTEX[];
-    static const char* const SHADER_FRAGMENT_COLOR[];
-    static const char* const SHADER_FRAGMENT_TEXTURE[];
-    static const char* const SHADER_FRAGMENT_PHONG[];
-    static const int CHAR_SIZE;
-    static const int VERTEX_SIZE;
-
+    /// @brief \~english  source code of vertex shader
+    /// @brief \~japanese 頂点シェーダのソースコード
+    static const Vector<String> SHADER_VERTEX;
+    /// @brief \~english  color intact
+    /// @brief \~japanese 色そのまま
     static KShader* ColorShading;
-    static KShader* TextureShading;
+    /// @brief \~english  phong shading
+    /// @brief \~japanese フォンシェーディング
     static KShader* PhongShading;
 
     KShading();

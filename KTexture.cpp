@@ -6,7 +6,9 @@
 #include "KTexture.h"
 
 #include "KImage.h"
+#include "KOpenGL.h"
 #include "KRect.h"
+#include "KShading.h"
 
 KTexture::KTexture(
         const unsigned int& aSize,
@@ -57,9 +59,11 @@ void KTexture::bindON() const {
     glEnable(GL_TEXTURE_2D);
     glBindTexture(GL_TEXTURE_2D, mName);
     glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
+    glUniform1i(glGetUniformLocation(KShader::Program(), "uTexture"), 1);
 }
 
 void KTexture::bindOFF() const {
     glDisable(GL_TEXTURE_2D);
+    glUniform1i(glGetUniformLocation(KShader::Program(), "uTexture"), 0);
 }
 

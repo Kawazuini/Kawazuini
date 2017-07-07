@@ -23,24 +23,19 @@ class KMouse final : private KNonCopy {
 private:
     /* ホイール回転数 */ int mWheel;
 
-    /* ボタンを押します。       */ void press(const UINT& aMsg);
-    /* ボタンを離します。       */ void release(const UINT& aMsg);
-    /* ホイールを回転させます。 */ void wheelSpin(const WPARAM& aWheel);
+    /* ボタンを押します。         */ void press(const UINT& aMsg);
+    /* ボタンを離します。         */ void release(const UINT& aMsg);
+    /* ホイールを回転させます。   */ void wheelSpin(const WPARAM& aWheel);
+    /* 表示カウントを計算します。 */ int count() const;
 public:
-    /**
-     * @brief \~english  left click
-     * @brief \~japanese 左クリック
-     */
+    /// @brief \~english  left click
+    /// @brief \~japanese 左クリック
     KSwitch mLeft;
-    /**
-     * @brief \~english  middle click
-     * @brief \~japanese 中央クリック
-     */
+    /// @brief \~english  middle click
+    /// @brief \~japanese 中央クリック
     KSwitch mMiddle;
-    /**
-     * @brief \~english  right click
-     * @brief \~japanese 右クリック
-     */
+    /// @brief \~english  right click
+    /// @brief \~japanese 右クリック
     KSwitch mRight;
 
     KMouse();
@@ -65,10 +60,10 @@ public:
 
     /**
      * \~english
-     * @brief  get mouse pointer coordinate.
+     * @brief  calculate mouse pointer coordinate.
      * @return mouse pointer coordinate
      * \~japanese
-     * @brief  マウスポインタの座標を取得します。
+     * @brief  マウスポインタの座標を計算します。
      * @return マウスポインタ座標
      */
     KVector pos() const;
@@ -84,10 +79,10 @@ public:
 
     /**
      * \~english
-     * @brief  get wheel speed.
+     * @brief  calculate wheel speed.
      * @return wheel speed
      * \~japanese
-     * @brief  ホイール回転数を取得します。
+     * @brief  ホイール回転数を計算します。
      * @return ホイール回転数
      */
     int wheel() const;

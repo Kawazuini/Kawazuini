@@ -91,7 +91,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 </div><!--header-->
 <div class="contents">
 
-<p>描画用ポリゴン(四角形  
+<p>描画用四角形ポリゴン  
  <a href="class_k_draw_board.html#details">[詳解]</a></p>
 
 <p><code>#include &lt;<a class="el" href="_k_draw_board_8h_source.html">KDrawBoard.h</a>&gt;</code></p>
@@ -116,11 +116,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memdesc:a01d308f367a995f74a93727586d0c8c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">描画処理 <br /></td></tr>
 <tr class="separator:a01d308f367a995f74a93727586d0c8c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff6a0598a8ddbff9a94c437d75e73594"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_board.html#aff6a0598a8ddbff9a94c437d75e73594">translate</a> (const <a class="el" href="class_k_vector.html">KVector</a> &amp;aVec)</td></tr>
-<tr class="memdesc:aff6a0598a8ddbff9a94c437d75e73594"><td class="mdescLeft">&#160;</td><td class="mdescRight">立方体を移動させます。  <a href="#aff6a0598a8ddbff9a94c437d75e73594">[詳解]</a><br /></td></tr>
+<tr class="memdesc:aff6a0598a8ddbff9a94c437d75e73594"><td class="mdescLeft">&#160;</td><td class="mdescRight">ポリゴンを移動させます。  <a href="#aff6a0598a8ddbff9a94c437d75e73594">[詳解]</a><br /></td></tr>
 <tr class="separator:aff6a0598a8ddbff9a94c437d75e73594"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d0addca976ec9bbf3b5c2bb9bdc24e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_board.html#a5d0addca976ec9bbf3b5c2bb9bdc24e9">rotate</a> (const <a class="el" href="class_k_quaternion.html">KQuaternion</a> &amp;aQuater)</td></tr>
 <tr class="memdesc:a5d0addca976ec9bbf3b5c2bb9bdc24e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">ポリゴンを回転させます。  <a href="#a5d0addca976ec9bbf3b5c2bb9bdc24e9">[詳解]</a><br /></td></tr>
 <tr class="separator:a5d0addca976ec9bbf3b5c2bb9bdc24e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc63825591aad86c28435e9a941ed86a"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_k_vector.html">KVector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_board.html#afc63825591aad86c28435e9a941ed86a">position</a> () const </td></tr>
+<tr class="memdesc:afc63825591aad86c28435e9a941ed86a"><td class="mdescLeft">&#160;</td><td class="mdescRight">位置ベクトルを取得します。  <a href="#afc63825591aad86c28435e9a941ed86a">[詳解]</a><br /></td></tr>
+<tr class="separator:afc63825591aad86c28435e9a941ed86a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99a271c868d55b813ee8af05c2f84d4d"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_k_vector.html">KVector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_board.html#a99a271c868d55b813ee8af05c2f84d4d">normal</a> () const </td></tr>
 <tr class="memdesc:a99a271c868d55b813ee8af05c2f84d4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">法線ベクトルを取得します。  <a href="#a99a271c868d55b813ee8af05c2f84d4d">[詳解]</a><br /></td></tr>
 <tr class="separator:a99a271c868d55b813ee8af05c2f84d4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -143,7 +146,7 @@ static void const&#160;</td><td class="memItemRight" valign="bottom"><a class="e
 <tr class="separator:a6918b5269b0f880e82d4364d2b9e365c inherit pub_static_methods_class_k_drawer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
-<div class="textblock"><p>描画用ポリゴン(四角形 </p>
+<div class="textblock"><p>描画用四角形ポリゴン </p>
 <dl class="section author"><dt>著者</dt><dd>Maeda Takumi </dd></dl>
 </div><h2 class="groupheader">関数詳解</h2>
 <a class="anchor" id="a99a271c868d55b813ee8af05c2f84d4d"></a>
@@ -161,6 +164,24 @@ static void const&#160;</td><td class="memItemRight" valign="bottom"><a class="e
 
 <p>法線ベクトルを取得します。 </p>
 <dl class="section return"><dt>戻り値</dt><dd>法線ベクトル </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="afc63825591aad86c28435e9a941ed86a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_k_vector.html">KVector</a> &amp; KDrawBoard::position </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>位置ベクトルを取得します。 </p>
+<dl class="section return"><dt>戻り値</dt><dd>位置ベクトル </dd></dl>
 
 </div>
 </div>
@@ -203,7 +224,7 @@ static void const&#160;</td><td class="memItemRight" valign="bottom"><a class="e
       </table>
 </div><div class="memdoc">
 
-<p>立方体を移動させます。 </p>
+<p>ポリゴンを移動させます。 </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
     <tr><td class="paramname">aVec</td><td>移動先座標 </td></tr>

@@ -85,9 +85,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="class_k_shader-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">KShader Class Reference</div>  </div>
+<div class="title">KShader Class Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -95,11 +96,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <a href="class_k_shader.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_k_shader_8h_source.html">KShader.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for KShader:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_k_shader.png" usemap="#KShader_map" alt=""/>
+  <map id="KShader_map" name="KShader_map">
+<area href="class_k_non_copy.html" title="base of copy inhibit " alt="KNonCopy" shape="rect" coords="0,0,73,24"/>
+</map>
+ </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab5d9abe9c5cb3dd03927414c7ab40a76"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_shader.html#ab5d9abe9c5cb3dd03927414c7ab40a76">KShader</a> (int aVertexShaderLength, const char *const *aVertexShader, int aFragmentShaderLength, const char *const *aFragmentShader)</td></tr>
-<tr class="separator:ab5d9abe9c5cb3dd03927414c7ab40a76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6141442f97db15f6d2a44d00ff376992"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_shader.html#a6141442f97db15f6d2a44d00ff376992">KShader</a> (const Vector&lt; String &gt; aVertexShader, const Vector&lt; String &gt; aFragmentShader)</td></tr>
+<tr class="separator:a6141442f97db15f6d2a44d00ff376992"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa1280598413ab13a1ac5f70d02f4133"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaa1280598413ab13a1ac5f70d02f4133"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_shader.html#aaa1280598413ab13a1ac5f70d02f4133">ON</a> ()</td></tr>
 <tr class="memdesc:aaa1280598413ab13a1ac5f70d02f4133"><td class="mdescLeft">&#160;</td><td class="mdescRight">enable shader. <br /></td></tr>
@@ -108,40 +118,34 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_shader.html#a76c2ea26ed78ed7b51cbe7ae6af3681e">OFF</a> ()</td></tr>
 <tr class="memdesc:a76c2ea26ed78ed7b51cbe7ae6af3681e"><td class="mdescLeft">&#160;</td><td class="mdescRight">disable shader. <br /></td></tr>
 <tr class="separator:a76c2ea26ed78ed7b51cbe7ae6af3681e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a423702e7fe2063c6c5bc2a5cbd777c02"><td class="memItemLeft" align="right" valign="top">const unsigned int &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_shader.html#a423702e7fe2063c6c5bc2a5cbd777c02">program</a> () const </td></tr>
-<tr class="memdesc:a423702e7fe2063c6c5bc2a5cbd777c02"><td class="mdescLeft">&#160;</td><td class="mdescRight">get program number.  <a href="#a423702e7fe2063c6c5bc2a5cbd777c02">More...</a><br /></td></tr>
+<tr class="memitem:a423702e7fe2063c6c5bc2a5cbd777c02"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a423702e7fe2063c6c5bc2a5cbd777c02"></a>
+const unsigned int &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>program</b> () const </td></tr>
 <tr class="separator:a423702e7fe2063c6c5bc2a5cbd777c02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:afdf2760bd54dee2d4b03116fb20f5e5a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afdf2760bd54dee2d4b03116fb20f5e5a"></a>
+static const unsigned int &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>Program</b> ()</td></tr>
+<tr class="separator:afdf2760bd54dee2d4b03116fb20f5e5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>shader system </p>
 <p>Maeda Takumi </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ab5d9abe9c5cb3dd03927414c7ab40a76"></a>
+<a class="anchor" id="a6141442f97db15f6d2a44d00ff376992"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">KShader::KShader </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>aVertexShaderLength</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *const *&#160;</td>
+          <td class="paramtype">const Vector&lt; String &gt;&#160;</td>
           <td class="paramname"><em>aVertexShader</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>aFragmentShaderLength</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *const *&#160;</td>
+          <td class="paramtype">const Vector&lt; String &gt;&#160;</td>
           <td class="paramname"><em>aFragmentShader</em>&#160;</td>
         </tr>
         <tr>
@@ -153,32 +157,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">aVertexShaderLength</td><td>source code length of vertex shader </td></tr>
     <tr><td class="paramname">aVertexShader</td><td>source code of vertex shader </td></tr>
-    <tr><td class="paramname">aFragmentShaderLength</td><td>source code length of fragment shader </td></tr>
     <tr><td class="paramname">aFragmentShader</td><td>source code of fragment shader </td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a423702e7fe2063c6c5bc2a5cbd777c02"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const unsigned int &amp; KShader::program </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>get program number. </p>
-<dl class="section return"><dt>Returns</dt><dd>program number </dd></dl>
 
 </div>
 </div>

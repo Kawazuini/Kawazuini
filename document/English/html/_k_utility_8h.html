@@ -62,6 +62,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -87,7 +88,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>Utility Headder.  
+<p>Header of Utility.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="_k_timer_8h_source.html">KTimer.h</a>&quot;</code><br />
 </div>
@@ -95,12 +96,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
+<tr class="memitem:acf4b44d2f1426094a86f532840ba8452"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_k_utility_8h.html#acf4b44d2f1426094a86f532840ba8452">color</a> = unsigned long</td></tr>
+<tr class="memdesc:acf4b44d2f1426094a86f532840ba8452"><td class="mdescLeft">&#160;</td><td class="mdescRight">32bitで表される色情報(ARGB)。  <a href="#acf4b44d2f1426094a86f532840ba8452">More...</a><br /></td></tr>
+<tr class="separator:acf4b44d2f1426094a86f532840ba8452"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b316557764549264f477e7f01136fca"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4b316557764549264f477e7f01136fca"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>Error</b> = std::runtime_error</td></tr>
 <tr class="separator:a4b316557764549264f477e7f01136fca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a298122c6869c6e5608a16e15ab091ea0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a298122c6869c6e5608a16e15ab091ea0"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>Regex</b> = std::regex</td></tr>
+<tr class="separator:a298122c6869c6e5608a16e15ab091ea0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5573b97b9e5129f61d289e037d7e806c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5573b97b9e5129f61d289e037d7e806c"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>String</b> = std::string</td></tr>
 <tr class="separator:a5573b97b9e5129f61d289e037d7e806c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacf806ba1ec54c669c300f0edafbb127"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aacf806ba1ec54c669c300f0edafbb127"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>StringStream</b> = std::stringstream</td></tr>
+<tr class="separator:aacf806ba1ec54c669c300f0edafbb127"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae6b2a57aea8a45f9dad70d25d6b70a4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aae6b2a57aea8a45f9dad70d25d6b70a4"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>TypeID</b> = std::type_info</td></tr>
 <tr class="separator:aae6b2a57aea8a45f9dad70d25d6b70a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -124,14 +134,29 @@ template&lt;class Type &gt; </td></tr>
 template&lt;class Type &gt; </td></tr>
 <tr class="memitem:afe6c26ede38093ace9b559abbec4780d"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Vector</b> = std::vector&lt; Type &gt;</td></tr>
 <tr class="separator:afe6c26ede38093ace9b559abbec4780d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf4b44d2f1426094a86f532840ba8452"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acf4b44d2f1426094a86f532840ba8452"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>color</b> = unsigned long</td></tr>
-<tr class="separator:acf4b44d2f1426094a86f532840ba8452"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Utility Headder. </p>
+<div class="textblock"><p>Header of Utility. </p>
 <dl class="section author"><dt>Author</dt><dd>Maeda Takumi </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Typedef Documentation</h2>
+<a class="anchor" id="acf4b44d2f1426094a86f532840ba8452"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="_k_utility_8h.html#acf4b44d2f1426094a86f532840ba8452">color</a> =  unsigned long</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>32bitで表される色情報(ARGB)。 </p>
+<dl class="section note"><dt>Note</dt><dd>先頭の8bitから順にアルファ、赤、緑、青の値を持つ。 </dd>
+<dd>
+"Color"は&lt;gdipluscolor.h&gt;のColorクラスと被る。 </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

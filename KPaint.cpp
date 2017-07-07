@@ -67,30 +67,31 @@ void KTexture::drawLine(const KVector& fromVec, const KVector& toVec, const colo
 }
 
 void KTexture::drawHLine(const int& fromX, const int& distX, const int& y, const color& aColor) {
-    for (int i = Math::min(fromX, distX), i_e = Math::max(fromX, distX); i < i_e; ++i) {
+    for (int i = Math::min(fromX, distX), i_e(Math::max(fromX, distX)); i <= i_e; ++i) {
         drawPixel(getPixel(i, y), aColor);
     }
 }
 
 void KTexture::drawVLine(const int& fromY, const int& distY, const int& x, const color& aColor) {
-    for (int i = Math::min(fromY, distY), i_e = Math::max(fromY, distY); i < i_e; ++i) {
+    for (int i = Math::min(fromY, distY), i_e(Math::max(fromY, distY)); i <= i_e; ++i) {
         drawPixel(getPixel(x, i), aColor);
     }
 }
 
 void KTexture::drawRect(const KRect& aRect, const color& aColor) {
-    for (int i = aRect.y, i_e = aRect.height + i; i < i_e; ++i) {
-        for (int j = aRect.x, j_e = aRect.width + j; j < j_e; ++j) {
+    for (int i = aRect.y, i_e(aRect.height + i); i < i_e; ++i) {
+        for (int j = aRect.x, j_e(aRect.width + j); j < j_e; ++j) {
             drawPixel(getPixel(j, i), aColor);
         }
     }
 }
 
 void KTexture::drawClearRect(const KRect& aRect, const color& aColor) {
-    drawHLine(aRect.x, aRect.right(), aRect.y, aColor); // ↑
-    drawHLine(aRect.x, aRect.right(), aRect.bottom(), aColor); // ↓
-    drawVLine(aRect.y, aRect.bottom(), aRect.x, aColor); // ←
-    drawVLine(aRect.y, aRect.bottom(), aRect.right(), aColor); // →
+    const int right(aRect.right() - 1), bottom(aRect.bottom() - 1);
+    drawHLine(aRect.x, right, aRect.y, aColor); // ↑
+    drawHLine(aRect.x, right, bottom, aColor); // ↓
+    drawVLine(aRect.y, bottom, aRect.x, aColor); // ←
+    drawVLine(aRect.y, bottom, right, aColor); // →
 }
 
 void KTexture::drawCircle(const int& aRadius, const KVector aCenter, const color& aColor) {

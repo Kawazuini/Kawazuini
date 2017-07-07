@@ -85,7 +85,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="class_k_g_l_u_i-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -103,79 +102,57 @@ Inheritance diagram for KGLUI:</div>
  <div class="center">
   <img src="class_k_g_l_u_i.png" usemap="#KGLUI_map" alt=""/>
   <map id="KGLUI_map" name="KGLUI_map">
-<area href="class_k_drawer.html" title="Base for Drawing. " alt="KDrawer" shape="rect" coords="0,0,62,24"/>
+<area href="class_k_drawer.html" title="Base for Drawing. " alt="KDrawer" shape="rect" coords="0,0,64,24"/>
+<area href="class_k_updater.html" title="Base for Update. " alt="KUpdater" shape="rect" coords="74,0,138,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a12c3106b8f60686974589edb10149b53"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_g_l_u_i.html#a12c3106b8f60686974589edb10149b53">KGLUI</a> (const <a class="el" href="class_k_camera.html">KCamera</a> &amp;aCamera)</td></tr>
-<tr class="memdesc:a12c3106b8f60686974589edb10149b53"><td class="mdescLeft">&#160;</td><td class="mdescRight">generate UI.  <a href="#a12c3106b8f60686974589edb10149b53">More...</a><br /></td></tr>
+<tr class="memitem:a12c3106b8f60686974589edb10149b53"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a12c3106b8f60686974589edb10149b53"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>KGLUI</b> (const <a class="el" href="class_k_camera.html">KCamera</a> &amp;aCamera)</td></tr>
 <tr class="separator:a12c3106b8f60686974589edb10149b53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30b4f0815a702d500da370303db64d16"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a30b4f0815a702d500da370303db64d16"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_g_l_u_i.html#a30b4f0815a702d500da370303db64d16">draw</a> () const  override</td></tr>
 <tr class="memdesc:a30b4f0815a702d500da370303db64d16"><td class="mdescLeft">&#160;</td><td class="mdescRight">drawing processing <br /></td></tr>
 <tr class="separator:a30b4f0815a702d500da370303db64d16"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:afbe38a5ce6ef57145e2136ca9b517280"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afbe38a5ce6ef57145e2136ca9b517280"></a>
-<a class="el" href="class_k_texture.html">KTexture</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_g_l_u_i.html#afbe38a5ce6ef57145e2136ca9b517280">mScreen</a></td></tr>
-<tr class="memdesc:afbe38a5ce6ef57145e2136ca9b517280"><td class="mdescLeft">&#160;</td><td class="mdescRight">pixel information of screen <br /></td></tr>
-<tr class="separator:afbe38a5ce6ef57145e2136ca9b517280"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb7afd329872d57d8a467e31e84202f3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abb7afd329872d57d8a467e31e84202f3"></a>
-const <a class="el" href="class_k_camera.html">KCamera</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_g_l_u_i.html#abb7afd329872d57d8a467e31e84202f3">mCamera</a></td></tr>
-<tr class="memdesc:abb7afd329872d57d8a467e31e84202f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">camera for drawing <br /></td></tr>
-<tr class="separator:abb7afd329872d57d8a467e31e84202f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0103a7e8c58a2aab36708dbfeaaf4540"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0103a7e8c58a2aab36708dbfeaaf4540"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_g_l_u_i.html#a0103a7e8c58a2aab36708dbfeaaf4540">update</a> () override</td></tr>
+<tr class="memdesc:a0103a7e8c58a2aab36708dbfeaaf4540"><td class="mdescLeft">&#160;</td><td class="mdescRight">update processing <br /></td></tr>
+<tr class="separator:a0103a7e8c58a2aab36708dbfeaaf4540"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5c81715f472c284acad01a97cf3d684"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af5c81715f472c284acad01a97cf3d684"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>refrect</b> ()</td></tr>
+<tr class="separator:af5c81715f472c284acad01a97cf3d684"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f0e084d2855ab947db120919a0228cb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4f0e084d2855ab947db120919a0228cb"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>addContent</b> (<a class="el" href="class_k_g_l_content.html">KGLContent</a> &amp;aContent)</td></tr>
+<tr class="separator:a4f0e084d2855ab947db120919a0228cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa210cf70c2508a3be626e8b643c199f7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa210cf70c2508a3be626e8b643c199f7"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isContentsActive</b> () const </td></tr>
+<tr class="separator:aa210cf70c2508a3be626e8b643c199f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac429dfaff98b5e44e387f91b4e840be1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac429dfaff98b5e44e387f91b4e840be1"></a>
+<a class="el" href="class_k_vector.html">KVector</a>&#160;</td><td class="memItemRight" valign="bottom"><b>mousePosition</b> () const </td></tr>
+<tr class="separator:ac429dfaff98b5e44e387f91b4e840be1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee1b70e98150d82654989756b36ee67b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aee1b70e98150d82654989756b36ee67b"></a>
+const <a class="el" href="class_k_window.html">KWindow</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>window</b> () const </td></tr>
+<tr class="separator:aee1b70e98150d82654989756b36ee67b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1f04e739fade5b2a18af79ce567ad1f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae1f04e739fade5b2a18af79ce567ad1f"></a>
+<a class="el" href="class_k_texture.html">KTexture</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>screen</b> ()</td></tr>
+<tr class="separator:ae1f04e739fade5b2a18af79ce567ad1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9d478005faace7dcdd1366d4db49bf1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af9d478005faace7dcdd1366d4db49bf1"></a>
+const <a class="el" href="class_k_rect.html">KRect</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>area</b> () const </td></tr>
+<tr class="separator:af9d478005faace7dcdd1366d4db49bf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:adf03c1b50922e5bb56be4b3914b3e320"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adf03c1b50922e5bb56be4b3914b3e320"></a>
-static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_g_l_u_i.html#adf03c1b50922e5bb56be4b3914b3e320">WIDTH</a></td></tr>
-<tr class="memdesc:adf03c1b50922e5bb56be4b3914b3e320"><td class="mdescLeft">&#160;</td><td class="mdescRight">screen width <br /></td></tr>
-<tr class="separator:adf03c1b50922e5bb56be4b3914b3e320"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f6bf3e17fed8760cd11fed9753a3107"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2f6bf3e17fed8760cd11fed9753a3107"></a>
-static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_g_l_u_i.html#a2f6bf3e17fed8760cd11fed9753a3107">HALF_WIDTH</a></td></tr>
-<tr class="memdesc:a2f6bf3e17fed8760cd11fed9753a3107"><td class="mdescLeft">&#160;</td><td class="mdescRight">half of screen width <br /></td></tr>
-<tr class="separator:a2f6bf3e17fed8760cd11fed9753a3107"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2081435b08d7649655c72a18c759d96a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2081435b08d7649655c72a18c759d96a"></a>
-static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_g_l_u_i.html#a2081435b08d7649655c72a18c759d96a">HEIGHT</a></td></tr>
-<tr class="memdesc:a2081435b08d7649655c72a18c759d96a"><td class="mdescLeft">&#160;</td><td class="mdescRight">screen height <br /></td></tr>
-<tr class="separator:a2081435b08d7649655c72a18c759d96a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a88de0626280c17d4eebb067f9e7d2bfa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a88de0626280c17d4eebb067f9e7d2bfa"></a>
-static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_g_l_u_i.html#a88de0626280c17d4eebb067f9e7d2bfa">HALF_HEIGHT</a></td></tr>
-<tr class="memdesc:a88de0626280c17d4eebb067f9e7d2bfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">half of screen height <br /></td></tr>
-<tr class="separator:a88de0626280c17d4eebb067f9e7d2bfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a140d7c3c06bef71248d9203a196895f1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a140d7c3c06bef71248d9203a196895f1"></a>
+static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_g_l_u_i.html#a140d7c3c06bef71248d9203a196895f1">SIZE</a></td></tr>
+<tr class="memdesc:a140d7c3c06bef71248d9203a196895f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">UI size. <br /></td></tr>
+<tr class="separator:a140d7c3c06bef71248d9203a196895f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>UI by OpenGL. </p>
-<p>Maeda Takumi </p><dl class="section note"><dt>Note</dt><dd></dd></dl>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a12c3106b8f60686974589edb10149b53"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">KGLUI::KGLUI </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_k_camera.html">KCamera</a> &amp;&#160;</td>
-          <td class="paramname"><em>aCamera</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>generate UI. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">aCamera</td><td>camera for drawing </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<p>Maeda Takumi </p>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
 <li>C:/Users/Kawaz/Documents/Kawazuini/Kawazuini/<a class="el" href="_k_g_l_u_i_8h_source.html">KGLUI.h</a></li>
 <li>C:/Users/Kawaz/Documents/Kawazuini/Kawazuini/<a class="el" href="_k_g_l_u_i_8cpp.html">KGLUI.cpp</a></li>
 </ul>

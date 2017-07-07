@@ -1,8 +1,10 @@
 var searchData=
 [
   ['fiddle',['Fiddle',['../class_k_midi.html#a11035e68ce16118fd222337c93318813a047d758caeecab1a296aa97b9dfe1292',1,'KMidi']]],
+  ['filter',['Filter',['../struct_k_file_dialog_1_1_filter.html',1,'KFileDialog']]],
   ['fit',['fit',['../class_k_vector.html#acd1a5780591af0b8e7dacc3fe77ac036',1,'KVector']]],
   ['flute',['Flute',['../class_k_midi.html#a11035e68ce16118fd222337c93318813ae80241af5ee0282a14fd9448861f24bf',1,'KMidi']]],
+  ['fonttype',['FontType',['../class_k_font.html#a1916c67e56bea5bb816391ef0092fc7e',1,'KFont']]],
   ['frenchhorn',['FrenchHorn',['../class_k_midi.html#a11035e68ce16118fd222337c93318813a2d2e001f483a4ccd5d46ede20e6ef65e',1,'KMidi']]],
   ['fretlessbass',['FretlessBass',['../class_k_midi.html#a11035e68ce16118fd222337c93318813aa5030ded827da6aba84619ae758acc8c',1,'KMidi']]],
   ['fx1_5frain',['FX1_rain',['../class_k_midi.html#a11035e68ce16118fd222337c93318813a3c14a6a2c5ed9a1750973bb3ce8eeecf',1,'KMidi']]],

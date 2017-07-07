@@ -1,6 +1,6 @@
 /**
  * @file   KGLContent.h
- * @brief  KGLContetn
+ * @brief  KGLContent
  * @author Maeda Takumi
  */
 #ifndef KGLCONTENT_H
@@ -16,7 +16,10 @@ class KTexture;
 class KGLContent : private KNonCopy {
     friend class KGLUI;
     friend class KGLPanel;
+    friend class KGLScrollPanel;
 protected:
+    const KGLContent* mParent;
+
     KRect mArea;
     bool mActive;
     bool mUpdated;
@@ -29,6 +32,8 @@ protected:
 private:
     virtual void draw(KTexture& aUI) const = 0;
     virtual void update(KGLUI& aUI) = 0;
+
+    void setParent(const KGLContent* aContent);
 public:
     const bool& isActive() const;
     const bool& isUpdated() const;
@@ -38,6 +43,10 @@ public:
 
     const color& frontColor() const;
     const color& backColor() const;
+
+    virtual void slide(const KVector& aSlide);
+
+    const KRect& area() const;
 };
 
 #endif /* KGLCONTENT_H */

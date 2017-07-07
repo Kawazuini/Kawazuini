@@ -9,7 +9,7 @@
 #include "KCharset.h"
 #include "KGLContent.h"
 
-class KGLTextLabel : public KGLContent {
+class KGLTextLabel : virtual public KGLContent {
 private:
     KVector mPosition;
     const KCharset& mCharset;
@@ -21,10 +21,10 @@ public:
             const String& aText
             );
     virtual ~KGLTextLabel() = default;
-private:
-    void draw(KTexture& aUI) const override;
+protected:
+    virtual void draw(KTexture& aUI) const;
 
-    void update(KGLUI& aUI) override {
+    virtual void update(KGLUI& aUI) override {
     };
 public:
     setText(const String& aText);

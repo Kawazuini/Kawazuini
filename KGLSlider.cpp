@@ -21,15 +21,17 @@ mSlider(0) {
 }
 
 void KGLSlider::draw(KTexture& aUI) const {
-    KRect slider(mArea);
+    KRect slider(mArea.expand(-1));
     switch (mType) {
         case HORIZON:
-            slider.width = mSlider;
-            if (mBackColor && 0xff000000) aUI.drawRect(slider, mBackColor);
+            slider.width = Math::max(0, mSlider - 2);
+            if (mBackColor && 0xff000000) aUI.drawRect(mArea, mBackColor);
+            if (mFrontColor && 0xff000000) aUI.drawRect(slider, mFrontColor);
             break;
         case VERTICAL:
-            slider.height = mSlider;
-            if (mBackColor && 0xff000000) aUI.drawRect(slider, mBackColor);
+            slider.height = Math::max(0, mSlider - 2);
+            if (mBackColor && 0xff000000) aUI.drawRect(mArea, mBackColor);
+            if (mFrontColor && 0xff000000) aUI.drawRect(slider, mFrontColor);
             break;
     }
 }

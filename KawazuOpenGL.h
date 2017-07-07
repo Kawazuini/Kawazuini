@@ -1,6 +1,6 @@
 /**
  * @file   KawazuOpenGL.h
- * @brief  OpenGL headder
+ * @brief  Header of OpenGL
  * @author Maeda Takumi
  */
 #ifndef KAWAZUOPENGL_H

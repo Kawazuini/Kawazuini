@@ -65,7 +65,7 @@ String KTimer::nowMinutes() {
     int minutes = (milli / (60 * 1000)) % 60;
     int hours = ((milli / (60 * 60 * 1000)) + TIME_DIFF) % 24;
 
-    std::stringstream stream;
+    StringStream stream;
     stream << std::setfill(_T('0')) << std::setw(2) << hours << _T(":") << std::setfill('0') << std::setw(2) << minutes;
 
     return stream.str();
@@ -97,7 +97,7 @@ String KTimer::nowDate() {
             break;
     }
 
-    std::stringstream stream;
+    StringStream stream;
     stream << setfill('0') << setw(2) << date.mYear % 100
             << _T("/") << setfill(_T('0')) << setw(2) << date.mMonth
             << _T("/") << setfill(_T('0')) << setw(2) << date.mDay

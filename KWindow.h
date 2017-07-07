@@ -30,8 +30,6 @@ public:
         /** @brief ウィンドウの表示方法 */ int mCmndShow;
     };
 
-    /** @brief 既定のアスペクト比   */ static const float DEFAULT_ASPECT;
-    /** @brief 既定ウィンドウサイズ */ static const KRect DEFAULT_SIZE;
     /** @brief PCの画面サイズ       */ static const KRect DISPLAY_SIZE;
 
     /** @brief メイン引数         */ const MainArgs& mArgs;

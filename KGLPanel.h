@@ -1,5 +1,5 @@
 /**
- * @file   KGLPanel.cpp
+ * @file   KGLPanel.h
  * @brief  KGLPanel
  * @author Maeda Takumi
  */
@@ -9,16 +9,19 @@
 #include "KGLContent.h"
 
 class KGLPanel : public KGLContent {
-private:
+protected:
     List<KGLContent*> mContents;
 public:
     KGLPanel(const KRect& aArea);
     virtual ~KGLPanel() = default;
 
-    void draw(KTexture& aUI) const override;
-    void update(KGLUI& aUI) override;
+    virtual void draw(KTexture& aUI) const override;
+    virtual void update(KGLUI& aUI) override;
 
-    void addContent(KGLContent& aContent);
+    virtual void addContent(KGLContent& aContent);
+    virtual void removeContent(KGLContent& aContent);
+
+    void slide(const KVector& aSlide) override;
 };
 
 #endif /* KGLPANEL_H */

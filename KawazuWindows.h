@@ -1,6 +1,6 @@
 /**
  * @file   KawazuWindows.h
- * @brief  Windows headder
+ * @brief  Header of Windows
  * @author Maeda Takumi
  */
 #ifndef KAWAZUWINDOWS_H
@@ -11,6 +11,7 @@
 #include "KImage.h"
 #include "KMidi.h"
 #include "KWindow.h"
+#include "KFileDialog.h"
 #include "KInputWindow.h"
 
 #endif /* KAWAZUWINDOWS_H */

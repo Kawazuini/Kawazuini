@@ -24,7 +24,12 @@ public:
     /** @brief 横幅      */ int width;
     /** @brief 縦幅      */ int height;
 
-    KRect(const int& ax, const int& ay, const int& aw, const int& ah);
+    KRect(
+            const int& ax,
+            const int& ay,
+            const int& aw,
+            const int& ah
+            );
     /** @brief 原点から矩形を生成    */ KRect(const int& aw = 0, const int& ah = 0);
     /** @param aVec 右下の二次元座標 */ KRect(const KVector& aVec);
     /**
@@ -40,8 +45,10 @@ public:
     /** @return 2つの矩形が等しいかを返す  */ bool operator==(const KRect& aRect) const;
     /** @return 矩形を比較し大きいか返す   */ bool operator>(const KRect& aRect) const;
     /** @return 矩形を比較し小さいか返す   */ bool operator<(const KRect& aRect) const;
+    /** @brief 矩形情報に変換              */ operator RECT() const;
 
-    /** @brief 矩形情報に変換 */ operator RECT() const;
+    KRect expand(const int& aAmount) const;
+    KRect slide(const KVector& aAmount) const;
 
     /** @return 矩形領域に,他の矩形領域が含まれるか */ bool isColision(const KRect& aRec) const;
     /** @return 矩形領域に,二次元座標が含まれるか   */ bool isColision(const KVector& aVec) const;

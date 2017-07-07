@@ -1,12 +1,13 @@
 /** 
  * @file   KawazuInclude.h
- * @brief  Project's include file
+ * @brief  Header of Library's include
  * @author Maeda Takumi
  */
 #ifndef KAWAZUINCLUDE_H
 #define KAWAZUINCLUDE_H
 
-#define __USE_MINGW_ANSI_STDIO 0 // <stdio.h>, <libmingwex.a> での vsnprintf の競合を防ぐ
+// <stdio.h>, <libmingwex.a> での vsnprintf の競合を防ぐ
+#define __USE_MINGW_ANSI_STDIO 0 
 #define PROPID ULONG // <gdiplus.h>の#ifdefをごまかす
 
 #include <algorithm>

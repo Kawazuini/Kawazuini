@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['viewcorner',['ViewCorner',['../class_k_camera.html#aba75f0de95adea59eef063b2bbdd2ca3',1,'KCamera']]]
+  ['time',['Time',['../class_k_timer.html#aa4c115887979a939aca44c7003c196d0',1,'KTimer']]]
 ];

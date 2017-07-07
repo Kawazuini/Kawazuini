@@ -4,8 +4,10 @@ var searchData=
   ['centerx',['centerX',['../class_k_rect.html#a92989da615a5cd6640a18a367255663a',1,'KRect']]],
   ['centery',['centerY',['../class_k_rect.html#a9d240deec98ecf1bfde985aa1d00718b',1,'KRect']]],
   ['change',['change',['../class_k_file.html#a9c260184149e368997f296ce4b06b1cb',1,'KFile']]],
+  ['changeframe',['changeFrame',['../class_k_window.html#aa54e320a21db3a6f6d54b3c74edb1e36',1,'KWindow']]],
+  ['changefullscreen',['changeFullScreen',['../class_k_window.html#af341f871d8fe371a113eeb0d64978c87',1,'KWindow']]],
   ['clearrect',['clearRect',['../class_k_texture.html#afdc5b759bf1e9889e1782adcad40a441',1,'KTexture']]],
-  ['close',['close',['../class_k_input_window.html#a88ed3f951d47caa18e348fb8add2b5d6',1,'KInputWindow']]],
+  ['clientarea',['clientArea',['../class_k_window.html#a94c663c7a5991a95a15609117acad933',1,'KWindow']]],
   ['convertdirection',['convertDirection',['../class_k_f_p_s_camera.html#ab7fa04214e6703e5868ebf4367533bc4',1,'KFPSCamera']]],
   ['cross',['cross',['../class_k_vector.html#a2de4b3ad23c5f9267da7906d3be420ca',1,'KVector']]]
 ];

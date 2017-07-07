@@ -8,19 +8,25 @@
 #include "KOpenGL.h"
 #include "KWindows.h"
 
+unsigned int KShader::sProgram;
+
 KShader::KShader(
-        int aVertexShaderLength,
-        const char* const* aVertexShader,
-        int aFragmentShaderLength,
-        const char* const* aFragmentShader
-        ) :
+        const Vector<String> aVertexShader,
+        const Vector<String> aFragmentShader) :
+mVertexSourceLength(aVertexShader.size()),
+mVertexSource(new const char*[mVertexSourceLength]),
+mFragmentSourceLength(aFragmentShader.size()),
+mFragmentSource(new const char*[mFragmentSourceLength]),
 mVertexShader(glCreateShader(GL_VERTEX_SHADER)),
 mFragmentShader(glCreateShader(GL_FRAGMENT_SHADER)),
 mProgram(glCreateProgram()) {
+    for (int i = 0; i < mVertexSourceLength; ++i) mVertexSource[i] = aVertexShader[i].data();
+    for (int i = 0; i < mFragmentSourceLength; ++i) mFragmentSource[i] = aFragmentShader[i].data();
+
     int result;
 
-    glShaderSource(mVertexShader, aVertexShaderLength, aVertexShader, NULL);
-    glShaderSource(mFragmentShader, aFragmentShaderLength, aFragmentShader, NULL);
+    glShaderSource(mVertexShader, mVertexSourceLength, mVertexSource, NULL);
+    glShaderSource(mFragmentShader, mFragmentSourceLength, mFragmentSource, NULL);
 
     // バーテックスシェーダのコンパイル
     glCompileShader(mVertexShader);
@@ -56,6 +62,10 @@ mProgram(glCreateProgram()) {
     }
 }
 
+const unsigned int& KShader::Program() {
+    return sProgram;
+}
+
 void KShader::compileResult(const unsigned int& aShader) {
     int bufSize;
 
@@ -66,13 +76,13 @@ void KShader::compileResult(const unsigned int& aShader) {
 
         int length;
         glGetShaderInfoLog(aShader, bufSize, &length, infoLog);
-        // fprintf(stderr, "InfoLog:\n%s\n\n", infoLog);
-        println(*infoLog);
+        println(infoLog);
         delete[] infoLog;
     }
 }
 
 void KShader::ON() {
+    sProgram = mProgram;
     glUseProgram(mProgram);
 }
 

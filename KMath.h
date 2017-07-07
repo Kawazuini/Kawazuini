@@ -1,8 +1,7 @@
 /**
  * @file   KMath.h
- * @brief  \~english  Math Utility
- * @brief  \~japanese 数学ユーティリティ
- * @author \~ Maeda Takumi
+ * @brief  Header of Math Utility
+ * @author Maeda Takumi
  */
 #ifndef KMATH_H
 #define KMATH_H
@@ -81,11 +80,13 @@ namespace Math {
         return ideal - EPSILON < actual && actual < ideal + EPSILON;
     }
 
-    static inline float toDegree(const float& aRadian) {
+    template <class Type>
+    static inline Type toDegree(const Type& aRadian) {
         return aRadian / PI * 180;
     }
 
-    static inline float toRadian(const float& aDegree) {
+    template <class Type>
+    static inline Type toRadian(const Type& aDegree) {
         return aDegree / 180 * PI;
     }
 }

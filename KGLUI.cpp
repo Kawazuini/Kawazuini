@@ -24,8 +24,8 @@ mAspect((float) mArea.height / mArea.width) {
     KDrawer::remove();
 }
 
-void KGLUI::draw() const {
-    const KCamera::ViewCorner & vc(KCamera::viewCorner());
+void KGLUI::draw() const {    
+    const KCamera::ViewCorner & vc(mCamera.viewCorner());
     const KVector & cPos(mCamera.position());
     const KVector & cDirect(mCamera.direction());
     KVector corner[4]{// UI描画角座標
