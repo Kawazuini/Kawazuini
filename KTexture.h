@@ -33,21 +33,15 @@ public:
             );
     virtual ~KTexture();
 
-    /**
-     * @brief \~english  reflect drawing change.
-     * @brief \~japanese 描画内容を反映します。
-     */
+    /// @brief \~english  reflect drawing change.
+    /// @brief \~japanese 描画内容を反映します。
     void reflect() const;
 
-    /**
-     * @brief \~english  enable texture.
-     * @brief \~japanese テクスチャを使用可能にします。
-     */
+    /// @brief \~english  enable texture.
+    /// @brief \~japanese テクスチャを使用可能にします。
     void bindON() const;
-    /**
-     * @brief \~english  disable texture.
-     * @brief \~japanese テクスチャを使用不可にします。
-     */
+    /// @brief \~english  disable texture.
+    /// @brief \~japanese テクスチャを使用不可にします。
     void bindOFF() const;
 
     /* ------------------------- in Paint.cpp ------------------------- */
@@ -58,7 +52,7 @@ public:
      * @param  x x-coordinate
      * @param  y y-coordinate
      * @return pixel information pointer
-     * @note   when specify out of pixel information, return NULL.
+     * @note   when specify out of pixel information, return nullptr.
      * \~japanese
      * @brief  指定位置の画素情報ポインタを返します。
      * @param  x x座標
@@ -67,7 +61,7 @@ public:
      * @note   画僧情報外が指定された場合NULLを返します。
      */
     inline byte* getPixel(const int&x, const int& y) {
-        if (x < 0 || mSize - 1 < x || y < 0 || mSize - 1 < y) return NULL;
+        if (x < 0 || mSize - 1 < x || y < 0 || mSize - 1 < y) return nullptr;
         return mPixel + y * mSize * 4 + x * 4;
     };
 
@@ -94,7 +88,7 @@ public:
      * @brief Mix color information to the entity of the pixel information pointer.
      * @param pixel  pixel information
      * @param aColor color information
-     * @note  If the pixel information pointer is NULL, processing is not performed.
+     * @note  If the pixel information pointer is nullptr, processing is not performed.
      * \~japanese
      * @brief 画素情報ポインタの実体に色情報を混合します。
      * @param pixel  画素情報ポインタ

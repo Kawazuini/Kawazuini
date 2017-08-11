@@ -51,7 +51,7 @@ void KMouse::hide() {
     if (0 <= count()) ShowCursor(false);
 }
 
-KVector KMouse::pos() const {
+KVector KMouse::position() const {
     POINT pos;
     GetCursorPos(&pos);
     return KVector(pos);

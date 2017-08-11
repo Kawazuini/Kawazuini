@@ -28,11 +28,11 @@ mWindowClass({// ウィンドウクラスの設定
     /* インスタンス後の補足バイト数 */ 0,
     /* インスタンス                 */ aArgs.mInst,
     /* アイコン                     */ LoadIcon(aArgs.mInst, TEXT("IDI_ICON")),
-    /* マウスカーソルのリソース     */ LoadCursor(NULL, IDC_ARROW),
+    /* マウスカーソルのリソース     */ LoadCursor(nullptr, IDC_ARROW),
     /* ウィンドウ背景色             */ (HBRUSH) COLOR_BACKGROUND,
-    /* デフォルトメニュー名         */ NULL,
+    /* デフォルトメニュー名         */ nullptr,
     /* ウィンドウクラスにつける名前 */ mClassName.data(),
-    /* 16 x 16サイズのアイコン      */ NULL
+    /* 16 x 16サイズのアイコン      */ nullptr
 }),
 mWindow((
         RegisterClassEx(&mWindowClass) ?
@@ -44,11 +44,11 @@ mWindow((
         /* y座標(デフォルト値)       */ CW_USEDEFAULT,
         /* ウィンドウ横幅            */ aSize.width,
         /* ウィンドウ縦幅            */ aSize.height,
-        /* 親ウィンドウハンドル      */ NULL,
-        /* メニューハンドル          */ NULL,
+        /* 親ウィンドウハンドル      */ nullptr,
+        /* メニューハンドル          */ nullptr,
         /* モジュールインスタンス    */ aArgs.mInst,
         /* WM_CREATEのLPARAMに渡す値 */ this
-        ) : NULL)),
+        ) : nullptr)),
 mDefaultText(aText),
 mSize(aSize),
 mDecide(false),
@@ -82,7 +82,7 @@ mCharset(aCharset) {
             /* 親ウィンドウハンドル      */ mWindow,
             /* メニューハンドル          */ (HMENU) ID_BUTTON,
             /* モジュールインスタンス    */ aArgs.mInst,
-            /* WM_CREATEのLPARAMに渡す値 */ NULL
+            /* WM_CREATEのLPARAMに渡す値 */ nullptr
             ));
 
     SendMessage(edit, WM_SETFONT, (WPARAM) mFont.font(), 0);
@@ -91,8 +91,8 @@ mCharset(aCharset) {
     RECT client;
     GetClientRect(mWindow, &client);
     KRect cRect(client);
-    SetWindowPos(GetDlgItem(mWindow, ID_EDIT), NULL, cRect.x, cRect.y, cRect.width, cRect.height / 2, SWP_NOACTIVATE | SWP_NOZORDER);
-    SetWindowPos(GetDlgItem(mWindow, ID_BUTTON), NULL, cRect.x, cRect.centerY(), cRect.width, cRect.height / 2, SWP_NOACTIVATE | SWP_NOZORDER);
+    SetWindowPos(GetDlgItem(mWindow, ID_EDIT), nullptr, cRect.x, cRect.y, cRect.width, cRect.height / 2, SWP_NOACTIVATE | SWP_NOZORDER);
+    SetWindowPos(GetDlgItem(mWindow, ID_BUTTON), nullptr, cRect.x, cRect.centerY(), cRect.width, cRect.height / 2, SWP_NOACTIVATE | SWP_NOZORDER);
 }
 
 KInputWindow::~KInputWindow() {
@@ -101,7 +101,7 @@ KInputWindow::~KInputWindow() {
 }
 
 LRESULT KInputWindow::WIN_PROC(HWND aHwnd, UINT aMsg, WPARAM aWParam, LPARAM aLParam) {
-    KInputWindow * _this(NULL);
+    KInputWindow * _this(nullptr);
 
     if (aMsg == WM_NCCREATE) {
         _this = (KInputWindow*) ((LPCREATESTRUCT) aLParam)->lpCreateParams;
@@ -133,7 +133,7 @@ LRESULT KInputWindow::WIN_PROC(HWND aHwnd, UINT aMsg, WPARAM aWParam, LPARAM aLP
 }
 
 LRESULT KInputWindow::WIN_PROC_EDIT(HWND aHwnd, UINT aMsg, WPARAM aWParam, LPARAM aLParam) {
-    KInputWindow * _this(NULL);
+    KInputWindow * _this(nullptr);
 
     _this = reinterpret_cast<KInputWindow*> (GetWindowLong(aHwnd, GWL_USERDATA));
     if (!_this) return DefWindowProc(aHwnd, aMsg, aWParam, aLParam);
@@ -159,7 +159,7 @@ String KInputWindow::getText() const {
         }
 
         MSG msg;
-        if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE)) {
+        if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE)) {
             TranslateMessage(&msg);
             DispatchMessage(&msg);
         }

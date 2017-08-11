@@ -11,6 +11,7 @@
 #include "KRect.h"
 #include "KUpdater.h"
 #include "KWindow.h"
+#include "KVertexBufferObject.h"
 
 class KCamera;
 class KGLContent;
@@ -22,10 +23,9 @@ class KWindow;
  * @brief  \~japanese OpenGLで表現されるUI
  * @author \~ Maeda Takumi
  */
-class KGLUI : private KDrawer, private KUpdater {
-public:
-    /** @brief UI size */ static const int SIZE;
+class KGLUI final : private KDrawer, private KUpdater {
 private:
+    /* UI size            */ static const int SIZE;
     /* camera for drawing */ const KCamera& mCamera;
     /* window for drawing */ const KWindow& mWindow;
     /* UI components      */ List<KGLContent*> mComponents;
@@ -35,9 +35,12 @@ private:
     /* scale between UI and Window   */ float mScale;
     /* drawabel area of screen       */ KRect mArea;
     /* aspect ratio of drawable area */ float mAspect;
+
+    KVertexBufferObject<KVector> mVertex;
+    KVertexBufferObject<float[2]> mCoordinate;
 public:
     KGLUI(const KCamera& aCamera);
-    virtual ~KGLUI() = default;
+    ~KGLUI() = default;
 
     void draw() const override;
     void update() override;
@@ -48,6 +51,7 @@ public:
 
     KVector mousePosition() const;
 
+    const KCamera& camera() const;
     const KWindow& window() const;
     KTexture& screen();
     const KRect& area() const;

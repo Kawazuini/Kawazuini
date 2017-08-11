@@ -27,11 +27,11 @@ mWindowClass(WNDCLASSEX{// ウィンドウクラスの設定
     /* インスタンス後の補足バイト数 */ 0,
     /* インスタンス                 */ aArgs.mInst,
     /* アイコン                     */ LoadIcon(aArgs.mInst, TEXT("IDI_ICON")),
-    /* マウスカーソルのリソース     */ LoadCursor(NULL, IDC_ARROW),
+    /* マウスカーソルのリソース     */ LoadCursor(nullptr, IDC_ARROW),
     /* ウィンドウ背景色             */ (HBRUSH) COLOR_BACKGROUND,
-    /* デフォルトメニュー名         */ NULL,
+    /* デフォルトメニュー名         */ nullptr,
     /* ウィンドウクラスにつける名前 */ mClassName.data(),
-    /* 16 x 16サイズのアイコン      */ NULL
+    /* 16 x 16サイズのアイコン      */ nullptr
 }),
 mWindow((
         RegisterClassEx(&mWindowClass) ?
@@ -43,12 +43,12 @@ mWindow((
         /* y座標(デフォルト値)       */ CW_USEDEFAULT,
         /* ウィンドウ横幅            */ aSize.width,
         /* ウィンドウ縦幅            */ aSize.height,
-        /* 親ウィンドウハンドル      */ NULL,
-        /* メニューハンドル          */ NULL,
+        /* 親ウィンドウハンドル      */ nullptr,
+        /* メニューハンドル          */ nullptr,
         /* モジュールインスタンス    */ aArgs.mInst,
         /* WM_CREATEのLPARAMに渡す値 */ this
-        ) : NULL)),
-mListener(NULL),
+        ) : nullptr)),
+mListener(nullptr),
 mTitle(aTitle),
 mResizable(aResizable),
 mFrameVisible(true),
@@ -71,7 +71,7 @@ KWindow::~KWindow() {
 }
 
 LRESULT CALLBACK KWindow::WIN_PROC(HWND aHwnd, UINT aMsg, WPARAM aWParam, LPARAM aLParam) {
-    KWindow * _this(NULL);
+    KWindow * _this(nullptr);
 
     if (aMsg == WM_NCCREATE) {
         _this = (KWindow*) ((LPCREATESTRUCT) aLParam)->lpCreateParams;
@@ -137,7 +137,7 @@ LRESULT CALLBACK KWindow::WIN_PROC(HWND aHwnd, UINT aMsg, WPARAM aWParam, LPARAM
 }
 
 void KWindow::startPaint() {
-    InvalidateRect(mWindow, NULL, false);
+    InvalidateRect(mWindow, nullptr, false);
     mScreen = BeginPaint(mWindow, &mPaint);
     clearCanvas();
 }
@@ -202,7 +202,7 @@ void KWindow::setSize(const KRect& aSize) {
         area.width += mFrameWeight.width;
         area.height += mFrameWeight.height;
     }
-    SetWindowPos(mWindow, NULL, DEPLOY_RECT(area), SWP_NOZORDER);
+    SetWindowPos(mWindow, nullptr, DEPLOY_RECT(area), SWP_NOZORDER);
 }
 
 KVector KWindow::mousePositionOnScreen() const {

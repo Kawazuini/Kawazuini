@@ -12,7 +12,7 @@
 static inline void message(
         const String& aTxt,
         const String& aTitle = "",
-        const HWND& aHwnd = NULL,
+        const HWND& aHwnd = nullptr,
         const UINT& aFlag = 0
         ) {
     MessageBox(aHwnd, W(aTxt).data(), W(aTitle).data(), aFlag);

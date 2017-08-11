@@ -10,32 +10,34 @@ KDrawBoard::KDrawBoard(
         const KTexture* aTexture
         ) :
 mVertex(aVertex),
+mCenter((mVertex[0] + mVertex[1] + mVertex[2] + mVertex[3]) / 4),
 mNormal((mVertex[1] - mVertex[0]).cross(mVertex[2] - mVertex[1]).normalization()),
 mTexture(aTexture) {
-    // 中心座標の計算
-    for (KVector i : mVertex) mCenter += i;
-    mCenter /= mVertex.size();
 }
 
 void KDrawBoard::draw() const {
     // テクスチャ縁調整
     static const float TEX_VERTEX[4][2]{
-        {0.00, 1.00},
-        {1.00, 1.00},
-        {1.00, 0.00},
-        {0.00, 0.00},
+        {0.0f, 1.0f},
+        {1.0f, 1.0f},
+        {1.0f, 0.0f},
+        {0.0f, 0.0f},
     };
 
+    glNormal(mNormal);
     if (mTexture) {
         mTexture->bindON();
         glBegin(GL_TRIANGLE_FAN);
-        glNormal3f(DEPLOY_VEC(mNormal));
         for (int i = 0; i < 4; ++i) {
             glTexCoord2f(TEX_VERTEX[i][0], TEX_VERTEX[i][1]);
-            glVertex3f(DEPLOY_VEC(mVertex[i]));
+            glVertex(mVertex[i]);
         }
         glEnd();
         mTexture->bindOFF();
+    } else {
+        glBegin(GL_TRIANGLE_FAN);
+        for (const KVector& i : mVertex) glVertex(i);
+        glEnd();
     }
 }
 
@@ -49,11 +51,7 @@ void KDrawBoard::translate(const KVector& aVec) {
 
 void KDrawBoard::rotate(const KQuaternion& aQuater) {
     mNormal = mNormal.rotate(aQuater);
-    for (auto i = mVertex.begin(), i_e(mVertex.end()); i != i_e; ++i) {
-        i->operator-=(mCenter);
-        *i = i->rotate(aQuater);
-        i->operator+=(mCenter);
-    }
+    for (KVector& i : mVertex) i = (i - mCenter).rotate(aQuater) + mCenter;
 }
 
 const KVector& KDrawBoard::position() const {

@@ -19,5 +19,7 @@
 #include "KLight.h"
 #include "KHandLight.h"
 
+#include "KVertexBufferObject.h"
+
 #endif /* KAWAZUOPENGL_H */
 

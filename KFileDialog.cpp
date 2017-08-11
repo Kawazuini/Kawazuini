@@ -20,19 +20,19 @@ mOfn{
     /* size of struct    */ sizeof (OPENFILENAME),
     /* owner    hundle   */ aWindow.mWindow,
     /* instance hundle   */ aWindow.mArgs.mInst,
-    /* filter            */ NULL,
+    /* filter            */ nullptr,
     /* selected filter   */ const_cast<char*> (mCustomFilter.data()), MAX_PATH,
     /* default select    */ 0,
     /* file path name    */ const_cast<char*> (mPathName.data()), MAX_PATH,
     /* only file name    */ const_cast<char*> (mFileName.data()), MAX_PATH,
-    /* default directory */ NULL,
-    /* title of dialog   */ NULL,
+    /* default directory */ nullptr,
+    /* title of dialog   */ nullptr,
     /* flags of dialog   */ OFN_FILEMUSTEXIST | OFN_OVERWRITEPROMPT,
     /* offset            */ 0, 0,
     /* default extension */ mDefaultExt.data(),
     /* to hook function  */ 0,
-    /* hook function     */ NULL,
-    /* template name     */ NULL
+    /* hook function     */ nullptr,
+    /* template name     */ nullptr
 }
 {
     for (Filter i : aFilters) {

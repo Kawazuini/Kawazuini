@@ -28,7 +28,7 @@ public:
      * @param aFunction スレッドで処理する関数
      * @param args      関数に渡す引数
      */
-    KThread(const ThreadFunction& aFunction, void* args = NULL);
+    KThread(const ThreadFunction& aFunction, void* args = nullptr);
     ~KThread();
 
     /**

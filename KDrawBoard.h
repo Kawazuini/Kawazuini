@@ -24,14 +24,10 @@ private:
 public:
     KDrawBoard(
             const Vector<KVector>& aVertex,
-            const KTexture* aTexture = NULL
+            const KTexture* aTexture = nullptr
             );
     virtual ~KDrawBoard() = default;
 
-    /**
-     * @brief \~english  drawing processing
-     * @brief \~japanese 描画処理
-     */
     void draw() const override;
 
     /**
@@ -46,32 +42,14 @@ public:
     /**
      * \~english
      * @brief rotate Polygon.
-     * @param aOrigin rotation origin
      * @param aQuater rotation information
      * \~japanese
      * @brief ポリゴンを回転させます。
-     * @param aOrigin 回転原点
      * @param aQuater 回転情報
      */
     void rotate(const KQuaternion& aQuater);
 
-    /**
-     * \~english
-     * @brief  get position vector.
-     * @return position vector
-     * \~japanese
-     * @brief  位置ベクトルを取得します。
-     * @return 位置ベクトル
-     */
     const KVector& position() const;
-    /**
-     * \~english
-     * @brief  get normal vector.
-     * @return normal vector
-     * \~japanese
-     * @brief  法線ベクトルを取得します。
-     * @return 法線ベクトル
-     */
     const KVector& normal() const;
 };
 

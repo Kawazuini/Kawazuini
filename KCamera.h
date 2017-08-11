@@ -27,6 +27,12 @@ public:
     /// @brief \~english  default view angle
     /// @brief \~japanese 初期視野角
     static const float DEFAULT_VIEWANGLE;
+    /// @brief \~english  default near view drawing limit
+    /// @brief \~japanese 初期近景描画限界
+    static const float DEFAULT_NEARLIMIT;
+    /// @brief \~english  default far view drawing limit
+    /// @brief \~japanese 初期遠景描画限界
+    static const float DEFAULT_FARLIMIT;
 private:
     /* 描画対象のウィンドウ */ const KWindow& mWindow;
     /* 描画領域             */ ViewCorner mViewCorner;
@@ -49,17 +55,13 @@ private:
     /* 描画領域の横幅の半分 */ KVector mHalfWidth;
     /* 描画領域の縦幅の半分 */ KVector mHalfHeight;
 public:
-    /**
-     * @param \~english  aWindow window for drawing
-     * @param \~japanese aWindow 描画を行うウィンドウ
-     */
+    /// @param \~english  aWindow window for drawing
+    /// @param \~japanese aWindow 描画を行うウィンドウ
     KCamera(const KWindow& aWindow);
     virtual ~KCamera() = default;
 
-    /**
-     * @brief \~english  update view.
-     * @brief \~japanese 視点を更新します。
-     */
+    /// @brief \~english  update view.
+    /// @brief \~japanese 視点を更新します。
     void set();
     /**
      * \~english
@@ -116,7 +118,7 @@ public:
     const ViewCorner& viewCorner() const;
     const KVector& position() const;
     const KVector& direction() const;
-    const KVector& headslope() const;    
+    const KVector& headslope() const;
     const KVector& halfWidth() const;
     const KVector& halfHeight() const;
 };

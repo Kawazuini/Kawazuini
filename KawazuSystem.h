@@ -25,6 +25,7 @@
 #include "KGLTextLabel.h"
 
 // ColliderObjects
+#include "KCylinder.h"
 #include "KPolygon.h"
 #include "KSegment.h"
 #include "KSphere.h"
@@ -32,6 +33,7 @@
 // DrawObjects
 #include "KDrawBoard.h"
 #include "KDrawCube.h"
+#include "KDrawCylinder.h"
 #include "KDrawSphere.h"
 
 #endif /* KAWAZUSYSTEM_H */

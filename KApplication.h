@@ -38,6 +38,7 @@ protected:
     /// @brief \~english  count of frame per second
     /// @brief \~japanese 1秒間のフレームカウント
     int mFrame;
+    bool mFrameUpdate;
     /// @brief \~english  whether processing is execution
     /// @brief \~japanese 処理を実行しているか
     bool mExecution;
@@ -103,6 +104,9 @@ public:
      * @return 3次元上の(1m先の)マウス座標
      */
     KVector mousePositionOn3D() const;
+    
+    KVector mousePositionFromScreenCenter();
+    void setMousePositionToCenter();
 };
 
 #endif /* KAPPLICATION_H */

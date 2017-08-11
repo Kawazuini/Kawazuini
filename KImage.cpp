@@ -44,7 +44,7 @@ KImage::GBitmap* KImage::loadImage(const int& aId, const ext& aExt) {
         case ICO: imageType = "ICON";
             break;
         case BMP:
-            bmp = Bitmap::FromResource(GetModuleHandle(NULL), (const WCHAR *) MAKEINTRESOURCE(aId));
+            bmp = Bitmap::FromResource(GetModuleHandle(nullptr), (const WCHAR *) MAKEINTRESOURCE(aId));
             if (bmp->GetLastStatus() == Ok) return bmp;
         case JPG: imageType = "JPEG";
             break;
@@ -53,11 +53,11 @@ KImage::GBitmap* KImage::loadImage(const int& aId, const ext& aExt) {
         case PNG: imageType = "PNG";
     }
 
-    HRSRC hResource(FindResource(NULL, resName.data(), imageType.data()));
+    HRSRC hResource(FindResource(nullptr, resName.data(), imageType.data()));
     if (!hResource) throw Error(resName + " is not found");
-    DWORD resSize(SizeofResource(NULL, hResource));
+    DWORD resSize(SizeofResource(nullptr, hResource));
     if (!resSize) throw Error(resName + "'s size is zero");
-    const void* resData(LockResource(LoadResource(NULL, hResource)));
+    const void* resData(LockResource(LoadResource(nullptr, hResource)));
     if (!resData) throw Error("Loading is failed : " + resName);
     HGLOBAL hResBuffer(GlobalAlloc(GMEM_MOVEABLE, resSize));
     if (!hResBuffer) {
@@ -73,7 +73,7 @@ KImage::GBitmap* KImage::loadImage(const int& aId, const ext& aExt) {
 
     CopyMemory(resBuffer, resData, resSize);
 
-    IStream * iStream(NULL);
+    IStream * iStream(nullptr);
     if (CreateStreamOnHGlobal(hResBuffer, false, &iStream) == S_OK) {
         bmp = Bitmap::FromStream(iStream);
 

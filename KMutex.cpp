@@ -6,7 +6,7 @@
 #include "KMutex.h"
 
 KMutex::KMutex() {
-    pthread_mutex_init(&mMutex, NULL);
+    pthread_mutex_init(&mMutex, nullptr);
     pthread_mutex_lock(&mMutex);
 }
 

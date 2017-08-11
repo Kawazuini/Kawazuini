@@ -17,22 +17,16 @@ class KQuaternion;
  * @brief  \~japanese 3次元幾何ベクトル
  * @author \~ Maeda Takumi
  */
-class KVector {
+class KVector final {
 public:
-    /**
-     * @brief \~english  x-axis element
-     * @brief \~japanese x軸要素
-     */
+    /// @brief \~english  x-axis element
+    /// @brief \~japanese x軸要素
     float x;
-    /**
-     * @brief \~english  y-axis element
-     * @brief \~japanese y軸要素
-     */
+    /// @brief \~english  y-axis element
+    /// @brief \~japanese y軸要素
     float y;
-    /**
-     * @brief \~english  z-axis element
-     * @brief \~japanese z軸要素
-     */
+    /// @brief \~english  z-axis element
+    /// @brief \~japanese z軸要素
     float z;
 
     /**
@@ -50,10 +44,7 @@ public:
             const float& ay = 0,
             const float& az = 0
             );
-    /** @brief Windows compatible */
-    KVector(const POINT& aPoint);
-
-    virtual ~KVector() = default;
+    ~KVector() = default;
 
     bool operator==(const KVector& aVec) const;
     bool operator!=(const KVector& aVec) const;
@@ -67,7 +58,9 @@ public:
     KVector operator*(const float& aTimes) const;
     KVector operator/(const float& aTimes) const;
 
-    /** @brief 2次元座標に変換 */ operator POINT() const;
+    /* Windows compatible */
+    KVector(const POINT& aPoint);
+    operator POINT() const;
 
     /**
      * @brief ベクトルの長さを計算する

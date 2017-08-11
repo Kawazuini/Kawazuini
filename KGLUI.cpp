@@ -20,35 +20,39 @@ mScale((float) SIZE / Math::max(mWindow.initialSize().width, mWindow.initialSize
 mScreen(SIZE),
 mUpdated(false),
 mArea(KVector(), mWindow.initialSize().end() * mScale),
-mAspect((float) mArea.height / mArea.width) {
+mAspect((float) mArea.height / mArea.width),
+mVertex(4, GL_ARRAY_BUFFER, GL_STREAM_DRAW),
+mCoordinate(4, GL_ARRAY_BUFFER, GL_STATIC_DRAW) {
     KDrawer::remove();
+
+    auto coord(mCoordinate.data());
+    (*(coord + 0))[0] = 0.0f;
+    (*(coord + 0))[1] = 0.0f;
+    (*(coord + 1))[0] = 0.0f;
+    (*(coord + 1))[1] = mAspect;
+    (*(coord + 2))[0] = 1.0f;
+    (*(coord + 2))[1] = mAspect;
+    (*(coord + 3))[0] = 1.0f;
+    (*(coord + 3))[1] = 0.0f;
 }
 
-void KGLUI::draw() const {    
+void KGLUI::draw() const {
     const KCamera::ViewCorner & vc(mCamera.viewCorner());
     const KVector & cPos(mCamera.position());
-    const KVector & cDirect(mCamera.direction());
-    KVector corner[4]{// UI描画角座標
-        vc[2] + cPos,
-        vc[0] + cPos,
-        vc[1] + cPos,
-        vc[3] + cPos,
-    };
+
+    KVector * vertex(mVertex.data());
+    for (int i = 0, i_e(mVertex.size()); i < i_e; ++i, ++vertex) {
+        *vertex = vc[i] + cPos;
+    }
 
     glDisable(GL_DEPTH_TEST); // 絶対描画
-    glNormal3f(DEPLOY_VEC(-cDirect));
     mScreen.bindON();
     glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
-    glBegin(GL_TRIANGLE_FAN);
-    glTexCoord2f(0, 0);
-    glVertex3f(DEPLOY_VEC(corner[0]));
-    glTexCoord2f(0, mAspect);
-    glVertex3f(DEPLOY_VEC(corner[1]));
-    glTexCoord2f(1, mAspect);
-    glVertex3f(DEPLOY_VEC(corner[2]));
-    glTexCoord2f(1, 0);
-    glVertex3f(DEPLOY_VEC(corner[3]));
-    glEnd();
+    mVertex.bind();
+    glVertexPointer(3, GL_FLOAT, 0, 0);
+    mCoordinate.bind();
+    glTexCoordPointer(2, GL_FLOAT, 0, 0);
+    glDrawArrays(GL_TRIANGLE_FAN, 0, mVertex.size());
     mScreen.bindOFF();
     glEnable(GL_DEPTH_TEST);
 }
@@ -86,6 +90,10 @@ bool KGLUI::isContentsActive() const {
 
 KVector KGLUI::mousePosition() const {
     return mWindow.mousePositionOnScreen() * mScale;
+}
+
+const KCamera& KGLUI::camera() const {
+    return mCamera;
 }
 
 const KWindow& KGLUI::window() const {

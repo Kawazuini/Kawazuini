@@ -7,23 +7,23 @@
 #define KSEGMENT_H
 
 #include "KVector.h"
+#include "KPolygon.h"
+
+class KPolygon;
+class KSphere;
 
 /**
  * @brief  \~english  Directed Segment for collision determination
  * @brief  \~japanese 衝突判定用有向線分
  * @author \~ Maeda Takumi
  */
-class KSegment {
+class KSegment final {
 public:
-    /**
-     * @brief \~english  line start
-     * @brief \~japanese 線分始端
-     */
+    /// @brief \~english  line start
+    /// @brief \~japanese 線分始端
     KVector mVec1;
-    /**
-     * @brief \~english  line termination
-     * @brief \~japanese 線分終端
-     */
+    /// @brief \~english  line termination
+    /// @brief \~japanese 線分終端
     KVector mVec2;
 
     KSegment() = default;
@@ -36,25 +36,32 @@ public:
      * @param aVec2 線分終端
      */
     KSegment(const KVector& aVec1, const KVector& aVec2);
-    virtual ~KSegment() = default;
+    ~KSegment() = default;
 
     /**
      * \~english
-     * @brief  get length of segment.
-     * @return length of segment
+     * @brief  evaluate collision with Polygon.
+     * @param  aPolygon target Polygon
+     * @return collision determination
      * \~japanese
-     * @brief  線分の長さを取得します。
-     * @return 線分の長さ
+     * @brief  ポリゴンとの衝突判定を評価します。
+     * @param  aPolygon 対象ポリゴン
+     * @return 衝突判定
      */
-    float length() const;
+    bool operator*(const KPolygon& aPolygon) const;
     /**
      * \~english
-     * @brief  get direction of directed segment.
-     * @return direction of directed segment
+     * @brief  evaluate collision with Sphere.
+     * @param  aSphere target Sphere
+     * @return collision determination
      * \~japanese
-     * @brief  有向線分の向きを取得します。
-     * @return 有向線分の向き
+     * @brief  球体との衝突判定を評価します。
+     * @param  aSphere 対象球体
+     * @return 衝突判定
      */
+    bool operator*(const KSphere& aSphere) const;
+
+    float length() const;
     KVector direction() const;
 };
 

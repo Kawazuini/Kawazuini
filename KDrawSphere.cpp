@@ -7,117 +7,104 @@
 
 #include "KMath.h"
 #include "KOpenGL.h"
+#include "KSphere.h"
 #include "KTexture.h"
 
+const int KDrawSphere::SURFACE_POINT;
+
 KDrawSphere::KDrawSphere(
-        const KVector& aPosition,
-        const float& aRadius,
+        const KSphere& aSphere,
         const int& aStack,
-        const int& aSlice
+        const int& aSlice,
+        const color& aColor,
+        const int& aInner
         ) :
-mRadius(aRadius),
+mSphere(KVector(), aSphere.mRadius),
 mStack(aStack),
 mSlice(aSlice),
-mVertex(mStack + 1, Vector<KVector>(mSlice)),
-mNormal(mStack + 1, Vector<KVector>(mSlice)),
-mVertexSize((mStack - 1) * mSlice + 2),
-mTexture(NULL) {
-    static const float DOUBLE_PI(2.0f * Math::PI);
-    // 頂点と法線の割り当て
+mColor(aColor),
+mVertexSize((mStack + 1) * (mSlice + 1)),
+mIndexSize(mStack * mSlice * 2),
+mVertex(mVertexSize, GL_ARRAY_BUFFER, GL_STREAM_DRAW),
+mNormal(mVertexSize, GL_ARRAY_BUFFER, GL_STREAM_DRAW),
+mIndex(mIndexSize, GL_ELEMENT_ARRAY_BUFFER, GL_STATIC_DRAW) {
+    const float thetaStack(Math::PI / mStack);
+    const float thetaSlice((Math::PI * 2) / mSlice);
+
+    unsigned int number((mSlice + 1) * (mStack + 1));
+
+    // 頂点の割り当て
+    KVector * vertex(mVertex.data());
     for (int i = 0; i <= mStack; ++i) {
-        float theta(Math::PI * (float) i / mStack);
-        float y(mRadius * cos(theta)); // 輪切り高さ
-        float r(mRadius * sin(theta)); // 輪切り半径
-        for (int j = 0; j < mSlice; ++j) {
-            float phi(DOUBLE_PI * (float) j / mSlice);
-            if (validIndex(i, j)) {
-                mVertex[i][j] = KVector(r * sin(phi), y, r * cos(phi));
-                mNormal[i][j] = mVertex[i][j];
-            }
+        float stack(thetaStack * i);
+        float y(cosf(stack)); // 輪切り高さ
+        float r(sinf(stack)); // 輪切り半径
+
+        for (int j = 0; j <= mSlice; ++j) {
+            float slice(thetaSlice * j);
+            *vertex++ = KVector(r * cosf(slice), y, r * sinf(slice)) * mSphere.mRadius * aInner;
         }
     }
-    KDrawSphere::translate(aPosition);
-}
+    vertex -= number;
 
-const KVector& KDrawSphere::getVertex(const int& aStack, const int& aSlice) const {
-    int stack(aStack < 0 ? 0 : aStack > mStack ? mStack : aStack);
-    int slice(aSlice < 0 ? mSlice : aSlice);
-
-    bool yend(stack == 0 || stack == mStack); // 上端か下端
-    if ((yend && slice != 0) || (!yend && slice == mSlice)) {
-        return mVertex[stack][0];
+    // 法線の割り当て
+    KVector * normal(mNormal.data());
+    for (int i = 0; i <= mStack; ++i) {
+        for (int j = 0; j <= mSlice; ++j) {
+            *normal++ = (*vertex++).normalization() * aInner;
+        }
     }
-    return mVertex[stack][slice];
-}
 
-const KVector& KDrawSphere::getNormal(const int& aStack, const int& aSlice) const {
-    int stack(aStack < 0 ? 0 : aStack > mStack ? mStack : aStack);
-    int slice(aSlice < 0 ? mSlice : aSlice);
+    auto index(mIndex.data());
+    for (int i = 0; i < mStack; ++i) {
+        for (int j = 0; j < mSlice; ++j) {
+            int count((mSlice + 1) * i + j);
 
-    bool yend(stack == 0 || stack == mStack); // 上端か下端
-    if ((yend && slice != 0) || (!yend && slice == mSlice)) {
-        return mNormal[stack][0];
+            // 上三角形
+            (*index)[0] = count;
+            (*index)[1] = count + 1;
+            (*index)[2] = count + mSlice + 2;
+            ++index;
+
+            // 下三角形
+            (*index)[0] = count;
+            (*index)[1] = count + mSlice + 2;
+            (*index)[2] = count + mSlice + 1;
+            ++index;
+        }
     }
-    return mNormal[stack][slice];
-}
-
-bool KDrawSphere::validIndex(const int& aStack, const int& aSlice) {
-    bool yend(aStack == 0 || aStack == mStack); // 上端か下端
-    return !yend || (yend && aSlice == 0);
+    translate(aSphere.mPosition);
 }
 
 void KDrawSphere::draw() const {
-    // テクスチャ繰り返し数
-    static const int repeatY(1);
-    static const int repeatX(1);
+    glColor(mColor);
 
-    for (int i = 0; i < mStack; ++i) {
-        float y0((float) (i + 0) / mStack * repeatY);
-        float y1((float) (i + 1) / mStack * repeatY);
-
-        mTexture->bindON();
-        glBegin(GL_TRIANGLE_STRIP);
-        for (int j = 0; j <= mSlice; ++j) {
-            float x = (float) j / mSlice * repeatX;
-
-            KVector v0(getVertex(i, j));
-            KVector v1(getVertex(i + 1, j));
-            KVector n0(getNormal(i, j));
-            KVector n1(getNormal(i + 1, j));
-
-            glTexCoord2f(x, y0);
-            glNormal3f(DEPLOY_VEC(n0));
-            glVertex3f(DEPLOY_VEC(v0));
-
-            glTexCoord2f(x, y1);
-            glNormal3f(DEPLOY_VEC(n1));
-            glVertex3f(DEPLOY_VEC(v1));
-        }
-        glEnd();
-        mTexture->bindOFF();
-    }
+    mVertex.bind();
+    glVertexPointer(3, GL_FLOAT, 0, 0);
+    mNormal.bind();
+    glNormalPointer(GL_FLOAT, 0, 0);
+    mIndex.bind();
+    glDrawElements(GL_TRIANGLES, mIndex.size() * SURFACE_POINT, GL_UNSIGNED_INT, 0);
 }
 
 void KDrawSphere::translate(const KVector& aVec) {
-    KVector move(aVec - mPosition);
-    mPosition += move;
+    KVector move(aVec - mSphere.mPosition);
+    mSphere.mPosition += move;
+    // 頂点の割り当て
+    KVector * vertex(mVertex.data());
     for (int i = 0; i <= mStack; ++i) {
-        for (int j = 0; j < mSlice; ++j) {
-            if (validIndex(i, j)) {
-                mVertex[i][j] += move;
-            }
+        for (int j = 0; j <= mSlice; ++j) {
+            *vertex++ += move;
         }
     }
 }
 
 void KDrawSphere::rotate(const KQuaternion& aQuater) {
-    for (int i = 0; i <= mStack; ++i) {
-        for (int j = 0; j < mSlice; ++j) {
-            if (validIndex(i, j)) {
-                mVertex[i][j] = (mVertex[i][j] - mPosition).rotate(aQuater) + mPosition;
-                mNormal[i][j] = mNormal[i][j].rotate(aQuater);
-            }
-        }
-    }
+    //    for (int i = 0; i <= mStack; ++i) {
+    //        for (int j = 0; j < mSlice; ++j) {
+    //            mVertex[i][j] = (mVertex[i][j] - mPosition).rotate(aQuater) + mPosition;
+    //            mNormal[i][j] = mNormal[i][j].rotate(aQuater);
+    //        }
+    //    }
 }
 

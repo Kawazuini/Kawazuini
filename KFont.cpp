@@ -30,7 +30,7 @@ mLog{
 }
 
 ,
-mFont(NULL) {
+mFont(nullptr) {
     stringCopy(mLog.lfFaceName, W(mName).data(), LF_FACESIZE);
     mFont = CreateFontIndirect(&mLog);
 }

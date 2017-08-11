@@ -34,6 +34,7 @@ void const KUpdater::UPDATE() {
 }
 
 void KUpdater::add() {
+    remove(); // 二重追加を防ぐ
     sUpdaters.push_back(this);
 }
 

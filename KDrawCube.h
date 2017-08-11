@@ -16,31 +16,21 @@
  */
 class KDrawCube : public KDrawer {
 protected:
-    /**
-     * @brief \~english  centroid vertex number
-     * @brief \~japanese 重心頂点番号
-     */
+    /// @brief \~english  centroid vertex number
+    /// @brief \~japanese 重心頂点番号
     static const int CENTROID;
-    /**
-     * @brief \~english  drawing vertex number
-     * @brief \~japanese 描画頂点番号
-     */
+    /// @brief \~english  drawing vertex number
+    /// @brief \~japanese 描画頂点番号
     static const int DRAW_VERTEX_INDEX[6][4];
 
-    /**
-     * @brief \~english  vertex coordinate
-     * @brief \~japanese 頂点座標
-     */
+    /// @brief \~english  vertex coordinate
+    /// @brief \~japanese 頂点座標
     KVector mVertex[9];
-    /**
-     * @brief \~english  normal vector
-     * @brief \~japanese 法線ベクトル
-     */
+    /// @brief \~english  normal vector
+    /// @brief \~japanese 法線ベクトル
     KVector mNormal[6];
-    /**
-     * @brief \~english  distance of each vertex from the centroid coordinate
-     * @brief \~japanese 重心から頂点への距離
-     */
+    /// @brief \~english  distance of each vertex from the centroid coordinate
+    /// @brief \~japanese 重心から頂点への距離
     float mRadius;
 public:
     /**
@@ -54,10 +44,6 @@ public:
     KDrawCube(const float& aScale, const KVector& aPosition = KVector());
     virtual ~KDrawCube() = default;
 
-    /**
-     * @brief \~english  drawing processing
-     * @brief \~japanese 描画処理
-     */
     void draw() const override;
 
     /**
@@ -81,23 +67,7 @@ public:
      */
     void rotate(KVector aOrigin, const KQuaternion& aQuater);
 
-    /**
-     * \~english
-     * @brief  get centroid coordinate.
-     * @return centroid coordinate
-     * \~japanese
-     * @brief  重心座標を取得します。
-     * @return 重心座標
-     */
     const KVector& position() const;
-    /**
-     * \~english
-     * @brief  get distance of each vertex from the centroid coordinate
-     * @return distance of each vertex from the centroid coordinate
-     * \~japanese
-     * @brief  重心からの各頂点の距離を取得します
-     * @return 重心からの各頂点の距離
-     */
     const float& radius() const;
 };
 

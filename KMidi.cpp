@@ -24,10 +24,10 @@ KMidi::~KMidi() {
 
 void* KMidi::TimeManager(void* aMidi) {
     KMidi & midi(*(KMidi*) aMidi);
-    KTimer::Time time(0), pass(0);
+    Time time(0), pass(0);
 
     while (true) {
-        pass = KTimer::now() - time;
+        pass = now() - time;
         midi.mNoteLock.lock();
         for (int i = 0; i < CHANNEL_COUNT; ++i) {
             int count(0);
@@ -49,7 +49,7 @@ void* KMidi::TimeManager(void* aMidi) {
             }
         }
         midi.mNoteLock.unlock();
-        time = KTimer::now();
+        time = now();
         Sleep(1);
 
         pthread_testcancel();

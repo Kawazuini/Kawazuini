@@ -43,9 +43,9 @@ mRadius((mVertex[0] - mVertex[CENTROID]).length()) {
 void KDrawCube::draw() const {
     for (int i = 0; i < 6; ++i) { // 六個の面
         glBegin(GL_POLYGON);
-        glNormal3f(DEPLOY_VEC(mNormal[i]));
+        glNormal(mNormal[i]);
         for (int j = 0; j < 4; ++j) { // 四角形
-            glVertex3f(DEPLOY_VEC(mVertex[DRAW_VERTEX_INDEX[i][j]]));
+            glVertex(mVertex[DRAW_VERTEX_INDEX[i][j]]);
         }
         glEnd();
     }
@@ -58,16 +58,8 @@ void KDrawCube::translate(const KVector& aVec) {
 }
 
 void KDrawCube::rotate(KVector aOrigin, const KQuaternion& aQuater) {
-    // 頂点座標の回転
-    for (int i = 0; i < 9; ++i) {
-        mVertex[i] -= aOrigin;
-        mVertex[i] = mVertex[i].rotate(aQuater);
-        mVertex[i] += aOrigin;
-    }
-    // 法線の回転
-    for (int i = 0; i < 6; ++i) {
-        mNormal[i] = mNormal[i].rotate(aQuater);
-    }
+    for (KVector& i : mVertex) i = (i - aOrigin).rotate(aQuater) + aOrigin;
+    for (KVector& i : mNormal) i = i.rotate(aQuater);
 }
 
 const KVector& KDrawCube::position() const {

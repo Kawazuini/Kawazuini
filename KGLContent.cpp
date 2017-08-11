@@ -8,7 +8,7 @@
 #include "KVector.h"
 
 KGLContent::KGLContent(const KRect& aArea) :
-mParent(NULL),
+mParent(nullptr),
 mArea(aArea),
 mActive(false),
 mUpdated(true),

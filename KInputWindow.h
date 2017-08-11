@@ -64,7 +64,7 @@ public:
             const KRect& aSize,
             const String& aTitle,
             const String& aText,
-            const KCharset* aCharset = NULL
+            const KCharset* aCharset = nullptr
             );
     virtual ~KInputWindow();
 

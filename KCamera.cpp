@@ -10,10 +10,12 @@
 #include "KWindow.h"
 
 const float KCamera::DEFAULT_VIEWANGLE(30.0f);
+const float KCamera::DEFAULT_NEARLIMIT(0.1f);
+const float KCamera::DEFAULT_FARLIMIT(250.0f);
 
 KCamera::KCamera(const KWindow& aWindow) :
 mWindow(aWindow),
-mOption({DEFAULT_VIEWANGLE, 1.0f / aWindow.initialAspect(), 0.1f, 250.0f}),
+mOption({DEFAULT_VIEWANGLE, 1.0f / aWindow.initialAspect(), DEFAULT_NEARLIMIT, DEFAULT_FARLIMIT}),
 mInformation({KVector(), KVector(0, 0, -1), KVector(0, 1, 0)}) {
     set();
 }
@@ -22,9 +24,9 @@ void KCamera::set() {
     mHalfHeight = mInformation.mHeadSlope * tan(Math::toRadian(mOption.mAngle / 2));
     mHalfWidth = mHalfHeight.rotate(KQuaternion(mInformation.mDirection, -Math::HALF_PI)) * mOption.mAspect;
 
-    mViewCorner[0] = mInformation.mDirection - mHalfWidth - mHalfHeight;
-    mViewCorner[1] = mInformation.mDirection + mHalfWidth - mHalfHeight;
-    mViewCorner[2] = mInformation.mDirection - mHalfWidth + mHalfHeight;
+    mViewCorner[0] = mInformation.mDirection - mHalfWidth + mHalfHeight;
+    mViewCorner[1] = mInformation.mDirection - mHalfWidth - mHalfHeight;
+    mViewCorner[2] = mInformation.mDirection + mHalfWidth - mHalfHeight;
     mViewCorner[3] = mInformation.mDirection + mHalfWidth + mHalfHeight;
 
     int mode;

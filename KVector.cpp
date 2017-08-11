@@ -14,10 +14,6 @@ y(ay),
 z(az) {
 }
 
-KVector::KVector(const POINT& aPoint)
-: KVector(aPoint.x, aPoint.y) {
-}
-
 bool KVector::operator==(const KVector& aVec) const {
     return Math::approximately(x, aVec.x) && Math::approximately(y, aVec.y) && Math::approximately(z, aVec.z);
 }
@@ -72,6 +68,10 @@ KVector KVector::operator*(const float& aTimes) const {
 
 KVector KVector::operator/(const float& aTimes) const {
     return KVector(*this) /= aTimes;
+}
+
+KVector::KVector(const POINT& aPoint)
+: KVector(aPoint.x, aPoint.y) {
 }
 
 KVector::operator POINT() const {

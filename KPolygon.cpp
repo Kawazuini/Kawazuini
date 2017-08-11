@@ -16,7 +16,7 @@ mNormal((mVertex[1] - mVertex[0]).cross(mVertex[2] - mVertex[1]).normalization()
 bool KPolygon::operator*(const KVector& aPoint) const {
     // 交差点と頂点との外積がすべて等しい場合衝突(交差点がポリゴン内にある)
     for (auto i = mVertex.begin(), i_e = mVertex.end(); i != i_e; ++i) {
-        KVector ver = (i + 1 == i_e) ? *(mVertex.begin()) : *(i + 1);
+        KVector ver((i + 1 == i_e) ? *(mVertex.begin()) : *(i + 1));
         if (mNormal != (ver - *i).cross(aPoint - ver).normalization()) return false;
     }
     return true;

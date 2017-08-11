@@ -43,6 +43,9 @@ public:
     KQuaternion operator/(const float& aAmount) const;
 
     operator KVector() const;
+
+    KVector axis() const;
+    float angle() const;
 };
 
 #endif /* KQUATERNION_H */

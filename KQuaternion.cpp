@@ -58,3 +58,12 @@ KQuaternion KQuaternion::operator/(const float& aAmount) const {
 KQuaternion::operator KVector() const {
     return KVector(x, y, z);
 }
+
+KVector KQuaternion::axis() const {
+    return operator KVector().normalization();
+}
+
+float KQuaternion::angle() const {
+    return acos(t) * 2;
+}
+

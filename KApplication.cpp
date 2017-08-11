@@ -6,7 +6,6 @@
 #include "KApplication.h"
 
 #include "KMath.h"
-#include "KTimer.h"
 #include "KWindow.h"
 #include "KWindows.h"
 
@@ -19,9 +18,10 @@ KApplication::KApplication(KWindow& aWindow) :
 mOpenGL(aWindow),
 mWindow(aWindow),
 mFrame(0),
+mFrameUpdate(false),
 mExecution(false),
 mPause(false),
-mPauseSwitch(NULL),
+mPauseSwitch(nullptr),
 mCamera(aWindow),
 mFrontUI(mCamera),
 mBackUI(mCamera) {
@@ -48,18 +48,18 @@ void KApplication::responsiveDraw() const {
 
 void KApplication::wait(const int& aTime) {
     MSG msg;
-    KTimer::Time end(KTimer::now() + aTime);
+    Time end(now() + aTime);
     do {
-        if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE)) {
+        if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE)) {
             TranslateMessage(&msg);
             DispatchMessage(&msg);
         }
         if (aTime) Sleep(1); // CPUの占有率を下げる
-    } while (KTimer::now() < end); // 指定ミリ秒だけ回る
+    } while (now() < end); // 指定ミリ秒だけ回る
 }
 
 void KApplication::start(const int& aFps) {
-    KTimer::Time start(0), second(0), pass(0);
+    Time start(0), second(0), pass(0);
     int frame(0);
 
     const double waitMilliSecond(1000.0 / aFps);
@@ -68,7 +68,7 @@ void KApplication::start(const int& aFps) {
         mExecution = true;
         //メインループ
         while (mWindow.mExist) {
-            start = KTimer::now();
+            start = now();
 
             if (!mPause) {
                 update();
@@ -88,11 +88,11 @@ void KApplication::start(const int& aFps) {
                 resume();
             }
 
-            pass = KTimer::now() - start;
+            pass = now() - start;
             wait(Math::max(int(waitMilliSecond - pass), 0));
 
             ++frame;
-            if ((second += (KTimer::now() - start)) >= 1000) {// 1秒ごとにfpsの更新
+            if (mFrameUpdate = ((second += (now() - start)) >= 1000)) {// 1秒ごとにfpsの更新
                 mFrame = frame;
                 second = 0;
                 frame = 0;
@@ -115,7 +115,7 @@ void KApplication::resume() {
     mPause = false;
     if (mPauseSwitch) {
         mPauseSwitch->OFF();
-        mPauseSwitch = NULL;
+        mPauseSwitch = nullptr;
     }
 }
 
@@ -132,3 +132,15 @@ KVector KApplication::mousePositionOn3D() const {
     // correction 3D coordinate
     return mCamera.halfWidth() * mouse.x + mCamera.halfHeight() * mouse.y + mCamera.position() + mCamera.direction();
 }
+
+KVector KApplication::mousePositionFromScreenCenter() {
+    KVector center(mWindow.windowArea().center());
+    KVector move(mMouse.position() - center);
+    return move;
+}
+
+void KApplication::setMousePositionToCenter() {
+    KVector center(mWindow.windowArea().center());
+    mMouse.setPos(center);
+}
+

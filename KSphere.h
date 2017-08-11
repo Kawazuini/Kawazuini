@@ -7,46 +7,38 @@
 #define KSPHERE_H
 
 #include "KVector.h"
+#include "KCylinder.h"
 
+class KCylinder;
 class KSegment;
 
 /**
  * @brief  \~english  Sphere for collision determination
- * @brief  \~japanese 衝突判定用球体
+ * @brief  \~japanese 球状の衝突判定
  * @author \~ Maeda Takumi
  */
-class KSphere {
-private:
-    /* ダミー座標 */ KVector mDummy;
+class KSphere final {
 public:
-    /**
-     * @brief \~english  center coordinate
-     * @brief \~japanese 中心座標
-     */
-    KVector& mPosition;
-    /**
-     * @brief \~english  radius of Sphere
-     * @brief \~japanese 半径
-     */
+    /// @brief \~english  center coordinate
+    /// @brief \~japanese 中心座標
+    KVector mPosition;
+    /// @brief \~english  radius of Sphere
+    /// @brief \~japanese 半径
     float mRadius;
 
     /**
      * \~english
-     * @param aRadius radius
-     * \~japanese
-     * @param aRadius 半径
-     */
-    KSphere(const float& aRadius = 0.0f);
-    /**
-     * \~english
-     * @param aPosition coordinates to be synchronized
+     * @param aPosition center coordinate
      * @param aRadius   radius
      * \~japanese
-     * @param aPosition 同期する座標
+     * @param aPosition 中心座標
      * @param aRadius   半径
      */
-    KSphere(KVector& aPosition, const float& aRadius = 0.0f);
-    virtual ~KSphere() = default;
+    KSphere(
+            const KVector& aPosition,
+            const float& aRadius
+            );
+    ~KSphere() = default;
 
     /**
      * \~english
@@ -55,14 +47,14 @@ public:
      * @return collision determination
      * \~japanese
      * @brief  球体との衝突判定を評価します。
-     * @param  aSegment 対象球体
+     * @param  aSphere 対象球体
      * @return 衝突判定
      */
     bool operator*(const KSphere& aSphere) const;
     /**
      * \~english
      * @brief  evaluate collision with Segment.
-     * @param  aSphere target Segment
+     * @param  aSegment target Segment
      * @return collision determination
      * \~japanese
      * @brief  線分との衝突判定を評価します。
@@ -70,6 +62,17 @@ public:
      * @return 衝突判定
      */
     bool operator*(const KSegment& aSegment) const;
+    /**
+     * \~english
+     * @brief  evaluate collision with Cylinder.
+     * @param  aCylinder target Cylinder
+     * @return collision determination
+     * \~japanese
+     * @brief  円筒との衝突判定を評価します。
+     * @param  aCylinder 対象円筒
+     * @return 衝突判定
+     */
+    bool operator*(const KCylinder& aCylinder) const;
 };
 
 #endif /* KSPHERE_H */

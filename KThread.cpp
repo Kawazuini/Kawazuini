@@ -7,9 +7,9 @@
 
 KThread::KThread(const ThreadFunction& aFunction, void* args) :
 mThreadFunction(aFunction) {
-    pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, NULL);
-    pthread_setcanceltype(PTHREAD_CANCEL_DEFERRED, NULL);
-    pthread_create(&mThread, NULL, mThreadFunction, args);
+    pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, nullptr);
+    pthread_setcanceltype(PTHREAD_CANCEL_DEFERRED, nullptr);
+    pthread_create(&mThread, nullptr, mThreadFunction, args);
 }
 
 KThread::~KThread() {
@@ -17,7 +17,7 @@ KThread::~KThread() {
 }
 
 void KThread::join() {
-    pthread_join(mThread, NULL);
+    pthread_join(mThread, nullptr);
 }
 
 void KThread::detach() {
@@ -26,6 +26,6 @@ void KThread::detach() {
 
 void KThread::stop() {
     pthread_cancel(mThread);
-    pthread_join(mThread, NULL);
+    pthread_join(mThread, nullptr);
 }
 

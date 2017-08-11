@@ -16,28 +16,20 @@ class KSegment;
  * @brief  \~japanese 衝突判定用ポリゴン
  * @author \~ Maeda Takumi
  */
-class KPolygon {
+class KPolygon final {
 public:
-    /**
-     * @brief \~english  vertex list
-     * @brief \~japanese 頂点リスト
-     */
+    /// @brief \~english  vertex list
+    /// @brief \~japanese 頂点リスト
     Vector<KVector> mVertex;
-    /**
-     * @brief \~english  normal vector
-     * @brief \~japanese 法線ベクトル
-     */
+    /// @brief \~english  normal vector
+    /// @brief \~japanese 法線ベクトル
     KVector mNormal;
 
     KPolygon() = default;
-    /**
-     * \~english
-     * @param aVertex vertex array
-     * \~japanese
-     * @param aVertex 頂点配列
-     */
+    /// @param \~english  aVertex vertex array
+    /// @param \~japanese aVertex 頂点配列
     KPolygon(const Vector<KVector>& aVertex);
-    virtual ~KPolygon() = default;
+    ~KPolygon() = default;
 
     /**
      * \~english
@@ -59,7 +51,6 @@ public:
      * @brief  線分との衝突判定を評価します。
      * @param  aSegment 対象線分
      * @return 衝突判定
-     * 
      */
     bool operator*(const KSegment& aSegment) const;
 

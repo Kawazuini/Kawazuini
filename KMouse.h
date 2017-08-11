@@ -66,7 +66,7 @@ public:
      * @brief  マウスポインタの座標を計算します。
      * @return マウスポインタ座標
      */
-    KVector pos() const;
+    KVector position() const;
     /**
      * \~english
      * @brief set mouse pointer coordinate.

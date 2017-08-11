@@ -68,8 +68,9 @@ const Vector<String> KShading::SHADER_FRAGMENT_PHONG{
     "        vec4 col = color * gl_LightSource[i].diffuse  * diffuse    ",
     "                 +   gl_FrontLightProduct[i].specular * specular   ",
     "                 + color * gl_LightSource[i].ambient;              ",
-    "        gl_FragColor += vec4((col * attenuation).rgb, color.a);    " // 合成(透過値は変更しない)
+    "        gl_FragColor += col * attenuation;                         " // 合成
     "    }",
+    "    gl_FragColor.a = color.a;", // 透過値は変更しない
     "}\n",
 };
 
@@ -94,8 +95,8 @@ const Vector<String> KShading::SHADER_VERTEX{
     "}\n",
 };
 
-KShader* KShading::ColorShading(NULL);
-KShader* KShading::PhongShading(NULL);
+KShader* KShading::ColorShading(nullptr);
+KShader* KShading::PhongShading(nullptr);
 
 KShading::KShading() {
     if (!ColorShading) ColorShading = new KShader(SHADER_VERTEX, SHADER_FRAGMENT_COLOR);

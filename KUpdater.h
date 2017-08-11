@@ -22,26 +22,17 @@ protected:
     KUpdater();
     virtual ~KUpdater();
 public:
-
-    /**
-     * @brief \~english  update processing
-     * @brief \~japanese 更新処理
-     */
+    /// @brief \~english  update processing
+    /// @brief \~japanese 更新処理
     virtual void update() = 0;
-    /**
-     * @brief \~english  bulk update in list.
-     * @brief \~japanese リスト内一括更新。
-     */
+    /// @brief \~english  bulk update in list.
+    /// @brief \~japanese リスト内一括更新。
     static void const UPDATE();
-    /**
-     * @brief \~english  add myself to list.
-     * @brief \~japanese リストに自分を追加します。
-     */
+    /// @brief \~english  add myself to list.
+    /// @brief \~japanese リストに自分を追加します。
     void add();
-    /**
-     * @brief \~english  remove myself form list.
-     * @brief \~japanese リストから自分を消します。
-     */
+    /// @brief \~english  remove myself form list.
+    /// @brief \~japanese リストから自分を消します。
     void remove();
 };
 

@@ -16,32 +16,22 @@
  */
 class KDrawer : private KNonCopy {
 private:
-    /* 描画リスト */
-    static List<KDrawer*> sDrawers;
+    /* 描画リスト */ static List<KDrawer*> sDrawers;
 protected:
     KDrawer();
     virtual ~KDrawer();
 public:
-
-    /**
-     * @brief \~english  drawing processing
-     * @brief \~japanese 描画処理
-     */
+    /// @brief \~english  drawing processing
+    /// @brief \~japanese 描画処理
     virtual void draw() const = 0;
-    /**
-     * @brief \~english  bulk drawing in list.
-     * @brief \~japanese リスト内一括描画。
-     */
+    /// @brief \~english  bulk drawing in list.
+    /// @brief \~japanese リスト内一括描画。
     static void const DRAW();
-    /**
-     * @brief \~english  add myself to list.
-     * @brief \~japanese リストに自分を追加します。
-     */
+    /// @brief \~english  add myself to list.
+    /// @brief \~japanese リストに自分を追加します。
     void add();
-    /**
-     * @brief \~english  remove myself form list.
-     * @brief \~japanese リストから自分を消します。
-     */
+    /// @brief \~english  remove myself form list.
+    /// @brief \~japanese リストから自分を消します。
     void remove();
 };
 

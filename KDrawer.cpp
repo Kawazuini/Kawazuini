@@ -25,7 +25,7 @@ void KDrawer::add() {
 }
 
 void KDrawer::remove() {
-    for (auto i = sDrawers.begin(), i_e = sDrawers.end(); i != i_e; ++i) {
+    for (auto i = sDrawers.begin(), i_e(sDrawers.end()); i != i_e; ++i) {
         if (*i == this) {
             sDrawers.erase(i);
             return;

@@ -35,7 +35,7 @@ private:
 
         KInit() {
             Gdiplus::GdiplusStartupInput startUp;
-            Gdiplus::GdiplusStartup(&mGdiplus, &startUp, NULL);
+            Gdiplus::GdiplusStartup(&mGdiplus, &startUp, nullptr);
         };
 
         virtual ~KInit() {

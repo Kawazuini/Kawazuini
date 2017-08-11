@@ -25,8 +25,8 @@ mProgram(glCreateProgram()) {
 
     int result;
 
-    glShaderSource(mVertexShader, mVertexSourceLength, mVertexSource, NULL);
-    glShaderSource(mFragmentShader, mFragmentSourceLength, mFragmentSource, NULL);
+    glShaderSource(mVertexShader, mVertexSourceLength, mVertexSource, nullptr);
+    glShaderSource(mFragmentShader, mFragmentSourceLength, mFragmentSource, nullptr);
 
     // バーテックスシェーダのコンパイル
     glCompileShader(mVertexShader);

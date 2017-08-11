@@ -7,22 +7,28 @@
 
 #include "KWindow.h"
 
-PFNGLCREATESHADERPROC glCreateShader(NULL);
-PFNGLSHADERSOURCEPROC glShaderSource(NULL);
-PFNGLCOMPILESHADERPROC glCompileShader(NULL);
-PFNGLGETSHADERIVPROC glGetShaderiv(NULL);
-PFNGLGETSHADERINFOLOGPROC glGetShaderInfoLog(NULL);
-PFNGLCREATEPROGRAMPROC glCreateProgram(NULL);
-PFNGLATTACHSHADERPROC glAttachShader(NULL);
-PFNGLDELETESHADERPROC glDeleteShader(NULL);
-PFNGLLINKPROGRAMPROC glLinkProgram(NULL);
-PFNGLGETPROGRAMIVPROC glGetProgramiv(NULL);
-PFNGLUSEPROGRAMPROC glUseProgram(NULL);
-PFNGLUNIFORM1IPROC glUniform1i(NULL);
-PFNGLUNIFORM1FPROC glUniform1f(NULL);
-PFNGLUNIFORM2FPROC glUniform2f(NULL);
-PFNGLUNIFORM2FVPROC glUniform2fv(NULL);
-PFNGLGETUNIFORMLOCATIONPROC glGetUniformLocation(NULL);
+PFNGLCREATESHADERPROC glCreateShader(nullptr);
+PFNGLSHADERSOURCEPROC glShaderSource(nullptr);
+PFNGLCOMPILESHADERPROC glCompileShader(nullptr);
+PFNGLGETSHADERIVPROC glGetShaderiv(nullptr);
+PFNGLGETSHADERINFOLOGPROC glGetShaderInfoLog(nullptr);
+PFNGLCREATEPROGRAMPROC glCreateProgram(nullptr);
+PFNGLATTACHSHADERPROC glAttachShader(nullptr);
+PFNGLDELETESHADERPROC glDeleteShader(nullptr);
+PFNGLLINKPROGRAMPROC glLinkProgram(nullptr);
+PFNGLGETPROGRAMIVPROC glGetProgramiv(nullptr);
+PFNGLUSEPROGRAMPROC glUseProgram(nullptr);
+PFNGLUNIFORM1IPROC glUniform1i(nullptr);
+PFNGLUNIFORM1FPROC glUniform1f(nullptr);
+PFNGLUNIFORM2FPROC glUniform2f(nullptr);
+PFNGLUNIFORM2FVPROC glUniform2fv(nullptr);
+PFNGLGETUNIFORMLOCATIONPROC glGetUniformLocation(nullptr);
+PFNGLGENBUFFERSPROC glGenBuffers(nullptr);
+PFNGLBINDBUFFERPROC glBindBuffer(nullptr);
+PFNGLBUFFERDATAPROC glBufferData(nullptr);
+PFNGLDELETEBUFFERSPROC glDeleteBuffers(nullptr);
+PFNGLMAPBUFFERPROC glMapBuffer(nullptr);
+PFNGLUNMAPBUFFERPROC glUnmapBuffer(nullptr);
 
 KOpenGL::KOpenGL(const KWindow& aWindow) :
 mPixelFormat({
@@ -69,6 +75,12 @@ mPixelFormat({
     glUniform2f = (PFNGLUNIFORM2FPROC) wglGetProcAddress("glUniform2f");
     glUniform2fv = (PFNGLUNIFORM2FVPROC) wglGetProcAddress("glUniform2fv");
     glGetUniformLocation = (PFNGLGETUNIFORMLOCATIONPROC) wglGetProcAddress("glGetUniformLocation");
+    glGenBuffers = (PFNGLGENBUFFERSPROC) wglGetProcAddress("glGenBuffers");
+    glBindBuffer = (PFNGLBINDBUFFERPROC) wglGetProcAddress("glBindBuffer");
+    glBufferData = (PFNGLBUFFERDATAPROC) wglGetProcAddress("glBufferData");
+    glDeleteBuffers = (PFNGLDELETEBUFFERSPROC) wglGetProcAddress("glDeleteBuffers");
+    glMapBuffer = (PFNGLMAPBUFFERPROC) wglGetProcAddress("glMapBuffer");
+    glUnmapBuffer = (PFNGLUNMAPBUFFERPROC) wglGetProcAddress("glUnmapBuffer");
 
     glClearColor(0, 0, 0, 1);
     { // 陰面消去
@@ -90,10 +102,16 @@ mPixelFormat({
         glEnable(GL_CULL_FACE);
         glCullFace(GL_BACK);
     }
+
+    { // 配列使用
+        glEnableClientState(GL_VERTEX_ARRAY);
+        glEnableClientState(GL_NORMAL_ARRAY);
+        glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+    }
 }
 
 KOpenGL::~KOpenGL() {
-    wglMakeCurrent(NULL, NULL);
+    wglMakeCurrent(nullptr, nullptr);
     wglDeleteContext(mGLRC);
 }
 

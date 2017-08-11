@@ -4,6 +4,7 @@
  * @author Maeda Takumi
  */
 #include "KSegment.h"
+#include "KSphere.h"
 
 KSegment::KSegment(const KVector& aVec1, const KVector& aVec2) {
     mVec1 = aVec1;
@@ -16,5 +17,13 @@ float KSegment::length() const {
 
 KVector KSegment::direction() const {
     return (mVec2 - mVec1).normalization();
+}
+
+bool KSegment::operator*(const KPolygon& aPolygon) const {
+    return aPolygon.operator*(*this);
+}
+
+bool KSegment::operator*(const KSphere& aSphere) const {
+    return aSphere.operator*(*this);
 }
 
