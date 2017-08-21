@@ -25,7 +25,7 @@ mVertex(4, GL_ARRAY_BUFFER, GL_STREAM_DRAW),
 mCoordinate(4, GL_ARRAY_BUFFER, GL_STATIC_DRAW) {
     KDrawer::remove();
 
-    auto coord(mCoordinate.data());
+    auto coord(mCoordinate.data(GL_WRITE_ONLY));
     (*(coord + 0))[0] = 0.0f;
     (*(coord + 0))[1] = 0.0f;
     (*(coord + 1))[0] = 0.0f;
@@ -40,7 +40,10 @@ void KGLUI::draw() const {
     const KCamera::ViewCorner & vc(mCamera.viewCorner());
     const KVector & cPos(mCamera.position());
 
-    KVector * vertex(mVertex.data());
+    glEnableClientState(GL_VERTEX_ARRAY);
+    glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+
+    KVector * vertex(mVertex.data(GL_WRITE_ONLY));
     for (int i = 0, i_e(mVertex.size()); i < i_e; ++i, ++vertex) {
         *vertex = vc[i] + cPos;
     }
@@ -55,6 +58,9 @@ void KGLUI::draw() const {
     glDrawArrays(GL_TRIANGLE_FAN, 0, mVertex.size());
     mScreen.bindOFF();
     glEnable(GL_DEPTH_TEST);
+    
+    glDisableClientState(GL_VERTEX_ARRAY);
+    glDisableClientState(GL_TEXTURE_COORD_ARRAY);
 }
 
 void KGLUI::update() {

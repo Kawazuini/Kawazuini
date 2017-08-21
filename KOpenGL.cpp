@@ -102,12 +102,6 @@ mPixelFormat({
         glEnable(GL_CULL_FACE);
         glCullFace(GL_BACK);
     }
-
-    { // 配列使用
-        glEnableClientState(GL_VERTEX_ARRAY);
-        glEnableClientState(GL_NORMAL_ARRAY);
-        glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-    }
 }
 
 KOpenGL::~KOpenGL() {

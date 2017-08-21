@@ -33,30 +33,33 @@ mIndex2(mQuality, GL_ELEMENT_ARRAY_BUFFER, GL_STATIC_DRAW) {
 
     const float rotate(2 * Math::PI / (mQuality - 1));
 
-    KVector * vertex(mVertex.data());
+    KVector * vertex(mVertex.data(GL_WRITE_ONLY));
     for (int i = 0; i < mQuality; ++i) {
         KVector v(width.rotate(KQuaternion(mDirection, rotate * i)));
         *vertex++ = mCylinder.mVec1 + v;
         *vertex++ = mCylinder.mVec2 + v;
     }
-    KVector * normal(mNormal.data());
+    KVector * normal(mNormal.data(GL_WRITE_ONLY));
     for (int i = 0; i < mQuality; ++i) {
         KVector n(width.rotate(KQuaternion(mDirection, rotate * i)).normalization());
         *normal++ = n;
         *normal++ = n;
     }
 
-    unsigned int* index1(mIndex1.data());
+    unsigned int* index1(mIndex1.data(GL_WRITE_ONLY));
     for (int i = 0, i_e(mQuality * 2); i < i_e; i += 2, ++index1) {
         *index1 = i;
     }
-    unsigned int* index2(mIndex2.data());
+    unsigned int* index2(mIndex2.data(GL_WRITE_ONLY));
     for (int i(mQuality * 2 - 1); i > 0; i -= 2, ++index2) {
         *index2 = i;
     }
 }
 
 void KDrawCylinder::draw() const {
+    glEnableClientState(GL_VERTEX_ARRAY);
+    glEnableClientState(GL_NORMAL_ARRAY);
+
     glColor(mColor);
 
     mVertex.bind();
@@ -66,13 +69,16 @@ void KDrawCylinder::draw() const {
     glDrawArrays(GL_TRIANGLE_STRIP, 0, mVertex.size());
 
     glDisableClientState(GL_NORMAL_ARRAY);
+
     glNormal(-mDirection);
     mIndex1.bind();
     glDrawElements(GL_POLYGON, mIndex1.size(), GL_UNSIGNED_INT, 0);
+
     glNormal(mDirection);
     mIndex2.bind();
     glDrawElements(GL_POLYGON, mIndex2.size(), GL_UNSIGNED_INT, 0);
-    glEnableClientState(GL_NORMAL_ARRAY);
+    
+    glDisableClientState(GL_NORMAL_ARRAY);
 }
 
 void KDrawCylinder::move(const KVector& aMoveAmount) {

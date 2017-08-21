@@ -16,8 +16,8 @@
  * @brief  \~japanese 描画用球体
  * @author \~ Maeda Takumi
  */
-class KDrawSphere final : public KDrawer {
-private:
+class KDrawSphere : public KDrawer {
+protected:
     static const int SURFACE_POINT = 3;
 
     /* 球体情報   */ KSphere mSphere;
@@ -29,6 +29,9 @@ private:
     KVertexBufferObject<KVector> mVertex;
     KVertexBufferObject<KVector> mNormal;
     KVertexBufferObject<unsigned int[SURFACE_POINT] > mIndex;
+
+    bool isValidIndex(const int& aIndex) const;
+    int convertValidIndex(const int& aIndex) const;
 public:
     /// @brief \~english  color for drawing
     /// @brief \~japanese 描画色    
@@ -41,7 +44,7 @@ public:
             const color& aColor = 0xffffffff,
             const int& aInner = 1
             );
-    ~KDrawSphere() = default;
+    virtual ~KDrawSphere() = default;
 
     void draw() const override;
 

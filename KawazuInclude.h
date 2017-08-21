@@ -8,7 +8,8 @@
 
 // <stdio.h>, <libmingwex.a> での vsnprintf の競合を防ぐ
 #define __USE_MINGW_ANSI_STDIO 0 
-#define PROPID ULONG // <gdiplus.h>の#ifdefをごまかす
+// <gdiplus.h>の#ifdefをごまかす
+#define PROPID ULONG 
 
 #include <algorithm>
 #include <chrono>

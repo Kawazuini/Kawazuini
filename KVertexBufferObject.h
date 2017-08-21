@@ -6,9 +6,6 @@
 #ifndef KVERTEXBUFFEROBJECT_H
 #define KVERTEXBUFFEROBJECT_H
 
-#include "KDrawer.h"
-#include "KUpdater.h"
-#include "KUtility.h"
 #include "KOpenGL.h"
 
 template <class Type>
@@ -33,17 +30,19 @@ public:
     };
 
     ~KVertexBufferObject() {
+        glUnmapBuffer(mTarget);
+        glBindBuffer(mTarget, 0);
         glDeleteBuffers(1, &mName);
     };
 
-    Type* data() const {
+    Type* data(const GLenum& aAccess = GL_READ_WRITE) const {
         bind();
-        return (Type*) glMapBuffer(mTarget, GL_READ_WRITE);
+        return (Type*) glMapBuffer(mTarget, aAccess);
     };
 
     void bind() const {
-        glUnmapBuffer(mTarget);
         glBindBuffer(mTarget, mName);
+        glUnmapBuffer(mTarget);
     };
 
     const unsigned int size() const {
