@@ -16,6 +16,5 @@ var searchData=
   ['pizzicatostrings',['PizzicatoStrings',['../class_k_midi.html#a11035e68ce16118fd222337c93318813a409732dedc6530d9d71d7c1a128efe39',1,'KMidi']]],
   ['play',['play',['../class_k_midi.html#add2ebb6bdc3f3675b7f30ed065bd3779',1,'KMidi']]],
   ['png',['PNG',['../class_k_image.html#ab0007e0cc1ba3ab8f09bb6c7b4604966a444e974b49848979b4ffe1cff4a6406d',1,'KImage']]],
-  ['pos',['pos',['../class_k_mouse.html#a8c49323d7b1224eeb6ec066bba9af6a6',1,'KMouse']]],
-  ['position',['position',['../class_k_draw_board.html#afc63825591aad86c28435e9a941ed86a',1,'KDrawBoard::position()'],['../class_k_draw_cube.html#a79d73b84fb3ca3320901666b529cbfbc',1,'KDrawCube::position()']]]
+  ['position',['position',['../class_k_mouse.html#a55b1b3606d7ca16360b525b95ae220aa',1,'KMouse']]]
 ];

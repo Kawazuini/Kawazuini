@@ -106,10 +106,10 @@ public:
             );
     virtual ~KWindow();
 
-    /// @brief \~englsih  show window.
+    /// @brief \~english  show window.
     /// @brief \~japanese ウィンドウを表示します。
     void show() const;
-    /// @brief \~englsih  hide window.
+    /// @brief \~english  hide window.
     /// @brief \~japanese ウィンドウを隠蔽します。
     void hide() const;
 
@@ -135,45 +135,45 @@ public:
     /// @brief \~japanese フルスクリーン状態を変更します。
     void changeFullScreen();
 
-    /// @breif \~english  set windows event listener.
-    /// @breif \~japanese イベントリスナーを設定します。
+    /// @brief \~english  set windows event listener.
+    /// @brief \~japanese イベントリスナーを設定します。
     void setListener(KListener& aListener);
-    /// @breif \~english  set title.
-    /// @breif \~japanese タイトルを設定します。
+    /// @brief \~english  set title.
+    /// @brief \~japanese タイトルを設定します。
     void setTitle(const String& aTitle);
-    /// @breif \~english  set client size.
-    /// @breif \~japanese クライアントサイズを設定します。
+    /// @brief \~english  set client size.
+    /// @brief \~japanese クライアントサイズを設定します。
     void setSize(const KRect& aSize);
 
-    /// @breif \~english  get mouse position on screen.
-    /// @breif \~japanese スクリーン上のマウス座標を取得します。
+    /// @brief \~english  get mouse position on screen.
+    /// @brief \~japanese スクリーン上のマウス座標を取得します。
     KVector getMousePositionOnScreen() const;
-    /// @breif \~english  get windows event listener.
-    /// @breif \~japanese イベントリスナーを取得します。
+    /// @brief \~english  get windows event listener.
+    /// @brief \~japanese イベントリスナーを取得します。
     const KListener& getListener() const;
-    /// @breif \~english  get initial window size.
-    /// @breif \~japanese 初期ウィンドウサイズを取得します。
+    /// @brief \~english  get initial window size.
+    /// @brief \~japanese 初期ウィンドウサイズを取得します。
     const KRect& getInitialSize() const;
-    /// @breif \~english  get initial ratio of aspect.
-    /// @breif \~japanese 初期アスペクト比を取得します。
+    /// @brief \~english  get initial ratio of aspect.
+    /// @brief \~japanese 初期アスペクト比を取得します。
     const float& getInitialAspect() const;
-    /// @breif \~english  get screen area.
-    /// @breif \~japanese スクリーン領域を取得します。
+    /// @brief \~english  get screen area.
+    /// @brief \~japanese スクリーン領域を取得します。
     const KRect& getScreenArea() const;
-    /// @breif \~english  get scale of screen.
-    /// @breif \~japanese スクリーン倍率を取得します。
+    /// @brief \~english  get scale of screen.
+    /// @brief \~japanese スクリーン倍率を取得します。
     const float& getScale() const;
-    /// @breif \~english  get window area in screen.
-    /// @breif \~japanese スクリーン上のウィンドウ領域を取得します。
+    /// @brief \~english  get window area in screen.
+    /// @brief \~japanese スクリーン上のウィンドウ領域を取得します。
     KRect getWindowArea() const;
-    /// @breif \~english  get client area in window.
-    /// @breif \~japanese ウィンドウ上のクライアント領域を取得します。
+    /// @brief \~english  get client area in window.
+    /// @brief \~japanese ウィンドウ上のクライアント領域を取得します。
     KRect getClientArea() const;
-    /// @breif \~english  get whether full screen.
-    /// @breif \~japanese フルスクリーン状態を取得します。
+    /// @brief \~english  get whether full screen.
+    /// @brief \~japanese フルスクリーン状態を取得します。
     const bool& isFullScreen() const;
-    /// @breif \~english  get whether active.
-    /// @breif \~japanese アクティブ状態を取得します。
+    /// @brief \~english  get whether active.
+    /// @brief \~japanese アクティブ状態を取得します。
     bool isActive() const;
 };
 

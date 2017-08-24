@@ -1,8 +1,6 @@
 var searchData=
 [
   ['ico',['ICO',['../class_k_image.html#ab0007e0cc1ba3ab8f09bb6c7b4604966aa86af5f32c6475f06f4b1a3998a5ce91',1,'KImage']]],
-  ['initialaspect',['initialAspect',['../class_k_window.html#a3981fedc08de761836db081af0fc14b2',1,'KWindow']]],
-  ['initialsize',['initialSize',['../class_k_window.html#a2213e891983ea71c6fbfb37dc179d97e',1,'KWindow']]],
   ['instrument',['Instrument',['../class_k_midi.html#a11035e68ce16118fd222337c93318813',1,'KMidi']]],
   ['intersect',['intersect',['../class_k_rect.html#ad42e4243fa3808027838d3a3f79bd89b',1,'KRect']]],
   ['isactive',['isActive',['../class_k_window.html#a25e1b88ef4931faba6808751a0b32756',1,'KWindow']]],

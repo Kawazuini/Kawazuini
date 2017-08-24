@@ -88,6 +88,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 <a href="#pub-attribs">公開変数類</a> &#124;
 <a href="#pro-methods">限定公開メンバ関数</a> &#124;
 <a href="#pro-attribs">限定公開変数類</a> &#124;
+<a href="#pro-static-attribs">静的限定公開変数類</a> &#124;
 <a href="class_k_draw_sphere-members.html">全メンバ一覧</a>  </div>
   <div class="headertitle">
 <div class="title">KDrawSphere クラス</div>  </div>
@@ -111,17 +112,18 @@ KDrawSphere の継承関係図</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a64ce35bb66926a8459a3965919218d3b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_sphere.html#a64ce35bb66926a8459a3965919218d3b">KDrawSphere</a> (const <a class="el" href="class_k_vector.html">KVector</a> &amp;aPosition, const float &amp;aRadius, const int &amp;aStack, const int &amp;aSlice)</td></tr>
-<tr class="separator:a64ce35bb66926a8459a3965919218d3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a600ce65d6d0848beca3e0151cf151193"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a600ce65d6d0848beca3e0151cf151193"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>KDrawSphere</b> (const <a class="el" href="class_k_sphere.html">KSphere</a> &amp;aSphere, const int &amp;aStack, const int &amp;aSlice, const <a class="el" href="_k_utility_8h.html#acf4b44d2f1426094a86f532840ba8452">color</a> &amp;aColor=0xffffffff, const int &amp;aInner=1)</td></tr>
+<tr class="separator:a600ce65d6d0848beca3e0151cf151193"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c49f4a0ec113a9f8c4181725338545d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4c49f4a0ec113a9f8c4181725338545d"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_sphere.html#a4c49f4a0ec113a9f8c4181725338545d">draw</a> () const  override</td></tr>
 <tr class="memdesc:a4c49f4a0ec113a9f8c4181725338545d"><td class="mdescLeft">&#160;</td><td class="mdescRight">描画処理 <br /></td></tr>
 <tr class="separator:a4c49f4a0ec113a9f8c4181725338545d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af746d5c534541f852d17de7c52f56d4e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_sphere.html#af746d5c534541f852d17de7c52f56d4e">translate</a> (const <a class="el" href="class_k_vector.html">KVector</a> &amp;aVec)</td></tr>
-<tr class="memdesc:af746d5c534541f852d17de7c52f56d4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">中心座標を指定座標に遷移させます。  <a href="#af746d5c534541f852d17de7c52f56d4e">[詳解]</a><br /></td></tr>
+<tr class="memitem:af746d5c534541f852d17de7c52f56d4e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af746d5c534541f852d17de7c52f56d4e"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>translate</b> (const <a class="el" href="class_k_vector.html">KVector</a> &amp;aVec)</td></tr>
 <tr class="separator:af746d5c534541f852d17de7c52f56d4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05919eca9670fc2005fdd67f4222529b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_sphere.html#a05919eca9670fc2005fdd67f4222529b">rotate</a> (const <a class="el" href="class_k_quaternion.html">KQuaternion</a> &amp;aQuater)</td></tr>
-<tr class="memdesc:a05919eca9670fc2005fdd67f4222529b"><td class="mdescLeft">&#160;</td><td class="mdescRight">中心座標で各頂点を回転させます。  <a href="#a05919eca9670fc2005fdd67f4222529b">[詳解]</a><br /></td></tr>
+<tr class="memitem:a05919eca9670fc2005fdd67f4222529b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a05919eca9670fc2005fdd67f4222529b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>rotate</b> (const <a class="el" href="class_k_quaternion.html">KQuaternion</a> &amp;aQuater)</td></tr>
 <tr class="separator:a05919eca9670fc2005fdd67f4222529b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_k_drawer"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_k_drawer')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="class_k_drawer.html">KDrawer</a> に属する継承公開メンバ関数</td></tr>
 <tr class="memitem:a5baf6e30a29c9c4319678fde4eb695c1 inherit pub_methods_class_k_drawer"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5baf6e30a29c9c4319678fde4eb695c1"></a>
@@ -135,53 +137,52 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 公開変数類</h2></td></tr>
-<tr class="memitem:a898414150767d2f77d412afa27c35a5f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a898414150767d2f77d412afa27c35a5f"></a>
-const <a class="el" href="class_k_texture.html">KTexture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_sphere.html#a898414150767d2f77d412afa27c35a5f">mTexture</a></td></tr>
-<tr class="memdesc:a898414150767d2f77d412afa27c35a5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">テクスチャ <br /></td></tr>
-<tr class="separator:a898414150767d2f77d412afa27c35a5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cba99240e70f78fad1cd1b706e58d0d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0cba99240e70f78fad1cd1b706e58d0d"></a>
+<a class="el" href="_k_utility_8h.html#acf4b44d2f1426094a86f532840ba8452">color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_sphere.html#a0cba99240e70f78fad1cd1b706e58d0d">mColor</a></td></tr>
+<tr class="memdesc:a0cba99240e70f78fad1cd1b706e58d0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">描画色 <br /></td></tr>
+<tr class="separator:a0cba99240e70f78fad1cd1b706e58d0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 限定公開メンバ関数</h2></td></tr>
-<tr class="memitem:aa3fa1b9d70343d6e036ca85d98e1d710"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_k_vector.html">KVector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_sphere.html#aa3fa1b9d70343d6e036ca85d98e1d710">getVertex</a> (const int &amp;aStack, const int &amp;aSlice) const </td></tr>
-<tr class="memdesc:aa3fa1b9d70343d6e036ca85d98e1d710"><td class="mdescLeft">&#160;</td><td class="mdescRight">有効な頂点を返します。  <a href="#aa3fa1b9d70343d6e036ca85d98e1d710">[詳解]</a><br /></td></tr>
-<tr class="separator:aa3fa1b9d70343d6e036ca85d98e1d710"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a654f423658c530d55eaced48fc6d4838"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_k_vector.html">KVector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_sphere.html#a654f423658c530d55eaced48fc6d4838">getNormal</a> (const int &amp;aStack, const int &amp;aSlice) const </td></tr>
-<tr class="memdesc:a654f423658c530d55eaced48fc6d4838"><td class="mdescLeft">&#160;</td><td class="mdescRight">有効な法線を返します。  <a href="#a654f423658c530d55eaced48fc6d4838">[詳解]</a><br /></td></tr>
-<tr class="separator:a654f423658c530d55eaced48fc6d4838"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74e2a2e5072b7f78afa0f9ec416ddef5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_sphere.html#a74e2a2e5072b7f78afa0f9ec416ddef5">validIndex</a> (const int &amp;aStack, const int &amp;aSlice)</td></tr>
-<tr class="memdesc:a74e2a2e5072b7f78afa0f9ec416ddef5"><td class="mdescLeft">&#160;</td><td class="mdescRight">有効な頂点かを判定します。  <a href="#a74e2a2e5072b7f78afa0f9ec416ddef5">[詳解]</a><br /></td></tr>
-<tr class="separator:a74e2a2e5072b7f78afa0f9ec416ddef5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27ec2efcc7dc16f8b1238478cfee7427"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a27ec2efcc7dc16f8b1238478cfee7427"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isValidIndex</b> (const int &amp;aIndex) const </td></tr>
+<tr class="separator:a27ec2efcc7dc16f8b1238478cfee7427"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61c42522d8c2e40cbfe0428cdb840e28"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a61c42522d8c2e40cbfe0428cdb840e28"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>convertValidIndex</b> (const int &amp;aIndex) const </td></tr>
+<tr class="separator:a61c42522d8c2e40cbfe0428cdb840e28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 限定公開変数類</h2></td></tr>
-<tr class="memitem:a33209f5d92a543707523b9b54e98ce16"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a33209f5d92a543707523b9b54e98ce16"></a>
-<a class="el" href="class_k_vector.html">KVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_sphere.html#a33209f5d92a543707523b9b54e98ce16">mPosition</a></td></tr>
-<tr class="memdesc:a33209f5d92a543707523b9b54e98ce16"><td class="mdescLeft">&#160;</td><td class="mdescRight">中心座標 <br /></td></tr>
-<tr class="separator:a33209f5d92a543707523b9b54e98ce16"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52b9808fabfb0e3dbf93ed50afac9a43"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a52b9808fabfb0e3dbf93ed50afac9a43"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_sphere.html#a52b9808fabfb0e3dbf93ed50afac9a43">mRadius</a></td></tr>
-<tr class="memdesc:a52b9808fabfb0e3dbf93ed50afac9a43"><td class="mdescLeft">&#160;</td><td class="mdescRight">半径 <br /></td></tr>
-<tr class="separator:a52b9808fabfb0e3dbf93ed50afac9a43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc8a22fccde7fb878a27b3c76748243e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acc8a22fccde7fb878a27b3c76748243e"></a>
+<a class="el" href="class_k_sphere.html">KSphere</a>&#160;</td><td class="memItemRight" valign="bottom"><b>mSphere</b></td></tr>
+<tr class="separator:acc8a22fccde7fb878a27b3c76748243e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e568dab477dea0d01855251099253a8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7e568dab477dea0d01855251099253a8"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_sphere.html#a7e568dab477dea0d01855251099253a8">mStack</a></td></tr>
-<tr class="memdesc:a7e568dab477dea0d01855251099253a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">水平分割数 <br /></td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>mStack</b></td></tr>
 <tr class="separator:a7e568dab477dea0d01855251099253a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a491762a7b7fd16b85fff3ddec9129584"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a491762a7b7fd16b85fff3ddec9129584"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_sphere.html#a491762a7b7fd16b85fff3ddec9129584">mSlice</a></td></tr>
-<tr class="memdesc:a491762a7b7fd16b85fff3ddec9129584"><td class="mdescLeft">&#160;</td><td class="mdescRight">垂直分割数 <br /></td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>mSlice</b></td></tr>
 <tr class="separator:a491762a7b7fd16b85fff3ddec9129584"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa04401c59e236eec10d56e322bba9be2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa04401c59e236eec10d56e322bba9be2"></a>
-Vector&lt; Vector&lt; <a class="el" href="class_k_vector.html">KVector</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_sphere.html#aa04401c59e236eec10d56e322bba9be2">mVertex</a></td></tr>
-<tr class="memdesc:aa04401c59e236eec10d56e322bba9be2"><td class="mdescLeft">&#160;</td><td class="mdescRight">頂点配列 <br /></td></tr>
-<tr class="separator:aa04401c59e236eec10d56e322bba9be2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d3e64f97b6276faf977552bb9cdd670"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4d3e64f97b6276faf977552bb9cdd670"></a>
-Vector&lt; Vector&lt; <a class="el" href="class_k_vector.html">KVector</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_sphere.html#a4d3e64f97b6276faf977552bb9cdd670">mNormal</a></td></tr>
-<tr class="memdesc:a4d3e64f97b6276faf977552bb9cdd670"><td class="mdescLeft">&#160;</td><td class="mdescRight">法線配列 <br /></td></tr>
-<tr class="separator:a4d3e64f97b6276faf977552bb9cdd670"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4705d8c360280fb386fa280d1544f81e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4705d8c360280fb386fa280d1544f81e"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_draw_sphere.html#a4705d8c360280fb386fa280d1544f81e">mVertexSize</a></td></tr>
-<tr class="memdesc:a4705d8c360280fb386fa280d1544f81e"><td class="mdescLeft">&#160;</td><td class="mdescRight">有効頂点数 <br /></td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>mVertexSize</b></td></tr>
 <tr class="separator:a4705d8c360280fb386fa280d1544f81e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52b07da3c4f12241bc0ad20e07f9b2c8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a52b07da3c4f12241bc0ad20e07f9b2c8"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>mIndexSize</b></td></tr>
+<tr class="separator:a52b07da3c4f12241bc0ad20e07f9b2c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaaab03837b8cbb2d8579cf4846e734f8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaaab03837b8cbb2d8579cf4846e734f8"></a>
+<a class="el" href="class_k_vertex_buffer_object.html">KVertexBufferObject</a>&lt; <a class="el" href="class_k_vector.html">KVector</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mVertex</b></td></tr>
+<tr class="separator:aaaab03837b8cbb2d8579cf4846e734f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5ad4d5750dd3e5d7a31d8a2d9c400ac"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac5ad4d5750dd3e5d7a31d8a2d9c400ac"></a>
+<a class="el" href="class_k_vertex_buffer_object.html">KVertexBufferObject</a>&lt; <a class="el" href="class_k_vector.html">KVector</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mNormal</b></td></tr>
+<tr class="separator:ac5ad4d5750dd3e5d7a31d8a2d9c400ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada29066ea30c928ad8e712ebae862e8c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ada29066ea30c928ad8e712ebae862e8c"></a>
+<a class="el" href="class_k_vertex_buffer_object.html">KVertexBufferObject</a>&lt; unsigned int[SURFACE_POINT] &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mIndex</b></td></tr>
+<tr class="separator:ada29066ea30c928ad8e712ebae862e8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-attribs"></a>
+静的限定公開変数類</h2></td></tr>
+<tr class="memitem:a5826895f8dd11620e78410ffbbfea430"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5826895f8dd11620e78410ffbbfea430"></a>
+static const int&#160;</td><td class="memItemRight" valign="bottom"><b>SURFACE_POINT</b> = 3</td></tr>
+<tr class="separator:a5826895f8dd11620e78410ffbbfea430"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 その他の継承メンバ</h2></td></tr>
@@ -194,244 +195,7 @@ static void const&#160;</td><td class="memItemRight" valign="bottom"><a class="e
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>描画用球体 </p>
 <dl class="section author"><dt>著者</dt><dd>Maeda Takumi </dd></dl>
-</div><h2 class="groupheader">構築子と解体子</h2>
-<a class="anchor" id="a64ce35bb66926a8459a3965919218d3b"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">KDrawSphere::KDrawSphere </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_k_vector.html">KVector</a> &amp;&#160;</td>
-          <td class="paramname"><em>aPosition</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const float &amp;&#160;</td>
-          <td class="paramname"><em>aRadius</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int &amp;&#160;</td>
-          <td class="paramname"><em>aStack</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int &amp;&#160;</td>
-          <td class="paramname"><em>aSlice</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>引数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">aPosition</td><td>中心座標 </td></tr>
-    <tr><td class="paramname">aRadius</td><td>半径 </td></tr>
-    <tr><td class="paramname">aStack</td><td>水平分割数 </td></tr>
-    <tr><td class="paramname">aSlice</td><td>垂直分割数 </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<h2 class="groupheader">関数詳解</h2>
-<a class="anchor" id="a654f423658c530d55eaced48fc6d4838"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="class_k_vector.html">KVector</a> &amp; KDrawSphere::getNormal </td>
-          <td>(</td>
-          <td class="paramtype">const int &amp;&#160;</td>
-          <td class="paramname"><em>aStack</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int &amp;&#160;</td>
-          <td class="paramname"><em>aSlice</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>有効な法線を返します。 </p>
-<dl class="params"><dt>引数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">aStack</td><td>緯度 </td></tr>
-    <tr><td class="paramname">aSlice</td><td>経度 </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>戻り値</dt><dd>有効な法線 </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="aa3fa1b9d70343d6e036ca85d98e1d710"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="class_k_vector.html">KVector</a> &amp; KDrawSphere::getVertex </td>
-          <td>(</td>
-          <td class="paramtype">const int &amp;&#160;</td>
-          <td class="paramname"><em>aStack</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int &amp;&#160;</td>
-          <td class="paramname"><em>aSlice</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>有効な頂点を返します。 </p>
-<dl class="params"><dt>引数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">aStack</td><td>緯度 </td></tr>
-    <tr><td class="paramname">aSlice</td><td>経度 </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>戻り値</dt><dd>有効な頂点 </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a05919eca9670fc2005fdd67f4222529b"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void KDrawSphere::rotate </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_k_quaternion.html">KQuaternion</a> &amp;&#160;</td>
-          <td class="paramname"><em>aQuater</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>中心座標で各頂点を回転させます。 </p>
-<dl class="params"><dt>引数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">aQuater</td><td>回転情報 </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="af746d5c534541f852d17de7c52f56d4e"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void KDrawSphere::translate </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_k_vector.html">KVector</a> &amp;&#160;</td>
-          <td class="paramname"><em>aVec</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>中心座標を指定座標に遷移させます。 </p>
-<dl class="params"><dt>引数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">設定する中心座標</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="a74e2a2e5072b7f78afa0f9ec416ddef5"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool KDrawSphere::validIndex </td>
-          <td>(</td>
-          <td class="paramtype">const int &amp;&#160;</td>
-          <td class="paramname"><em>aStack</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int &amp;&#160;</td>
-          <td class="paramname"><em>aSlice</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>有効な頂点かを判定します。 </p>
-<dl class="params"><dt>引数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">aStack</td><td>緯度 </td></tr>
-    <tr><td class="paramname">aSlice</td><td>経度 </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>戻り値</dt><dd>有効な頂点か </dd></dl>
-
-</div>
-</div>
-<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+</div><hr/>このクラス詳解は次のファイルから抽出されました:<ul>
 <li>C:/Users/Kawaz/Documents/Kawazuini/Kawazuini/<a class="el" href="_k_draw_sphere_8h_source.html">KDrawSphere.h</a></li>
 <li>C:/Users/Kawaz/Documents/Kawazuini/Kawazuini/<a class="el" href="_k_draw_sphere_8cpp.html">KDrawSphere.cpp</a></li>
 </ul>

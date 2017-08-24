@@ -88,7 +88,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 <a href="#pub-attribs">公開変数類</a> &#124;
 <a href="class_k_segment-members.html">全メンバ一覧</a>  </div>
   <div class="headertitle">
-<div class="title">KSegment クラス</div>  </div>
+<div class="title">KSegment クラス<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -101,11 +101,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 公開メンバ関数</h2></td></tr>
 <tr class="memitem:a5efc38b58b4c81669fdb3484039a6155"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_segment.html#a5efc38b58b4c81669fdb3484039a6155">KSegment</a> (const <a class="el" href="class_k_vector.html">KVector</a> &amp;aVec1, const <a class="el" href="class_k_vector.html">KVector</a> &amp;aVec2)</td></tr>
 <tr class="separator:a5efc38b58b4c81669fdb3484039a6155"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a21c1fec1c40b7e013e0be4d6ff2470"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_segment.html#a3a21c1fec1c40b7e013e0be4d6ff2470">length</a> () const </td></tr>
-<tr class="memdesc:a3a21c1fec1c40b7e013e0be4d6ff2470"><td class="mdescLeft">&#160;</td><td class="mdescRight">線分の長さを取得します。  <a href="#a3a21c1fec1c40b7e013e0be4d6ff2470">[詳解]</a><br /></td></tr>
+<tr class="memitem:ad5acb1458cdff0e46d03a48f16148e35"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_segment.html#ad5acb1458cdff0e46d03a48f16148e35">operator*</a> (const <a class="el" href="class_k_polygon.html">KPolygon</a> &amp;aPolygon) const </td></tr>
+<tr class="memdesc:ad5acb1458cdff0e46d03a48f16148e35"><td class="mdescLeft">&#160;</td><td class="mdescRight">ポリゴンとの衝突判定を評価します。  <a href="#ad5acb1458cdff0e46d03a48f16148e35">[詳解]</a><br /></td></tr>
+<tr class="separator:ad5acb1458cdff0e46d03a48f16148e35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a547c01c100f61023463c5c9b8ddc09d5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_segment.html#a547c01c100f61023463c5c9b8ddc09d5">operator*</a> (const <a class="el" href="class_k_sphere.html">KSphere</a> &amp;aSphere) const </td></tr>
+<tr class="memdesc:a547c01c100f61023463c5c9b8ddc09d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">球体との衝突判定を評価します。  <a href="#a547c01c100f61023463c5c9b8ddc09d5">[詳解]</a><br /></td></tr>
+<tr class="separator:a547c01c100f61023463c5c9b8ddc09d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a21c1fec1c40b7e013e0be4d6ff2470"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3a21c1fec1c40b7e013e0be4d6ff2470"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>length</b> () const </td></tr>
 <tr class="separator:a3a21c1fec1c40b7e013e0be4d6ff2470"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5261707a03d685babbf9b090c9fbdb3f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_k_vector.html">KVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_k_segment.html#a5261707a03d685babbf9b090c9fbdb3f">direction</a> () const </td></tr>
-<tr class="memdesc:a5261707a03d685babbf9b090c9fbdb3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">有向線分の向きを取得します。  <a href="#a5261707a03d685babbf9b090c9fbdb3f">[詳解]</a><br /></td></tr>
+<tr class="memitem:a5261707a03d685babbf9b090c9fbdb3f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5261707a03d685babbf9b090c9fbdb3f"></a>
+<a class="el" href="class_k_vector.html">KVector</a>&#160;</td><td class="memItemRight" valign="bottom"><b>direction</b> () const </td></tr>
 <tr class="separator:a5261707a03d685babbf9b090c9fbdb3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -157,39 +163,53 @@ var searchBox = new SearchBox("searchBox", "search",false,'検索');
 </div>
 </div>
 <h2 class="groupheader">関数詳解</h2>
-<a class="anchor" id="a5261707a03d685babbf9b090c9fbdb3f"></a>
+<a class="anchor" id="ad5acb1458cdff0e46d03a48f16148e35"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_k_vector.html">KVector</a> KSegment::direction </td>
+          <td class="memname">bool KSegment::operator* </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="class_k_polygon.html">KPolygon</a> &amp;&#160;</td>
+          <td class="paramname"><em>aPolygon</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>有向線分の向きを取得します。 </p>
-<dl class="section return"><dt>戻り値</dt><dd>有向線分の向き </dd></dl>
+<p>ポリゴンとの衝突判定を評価します。 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">aPolygon</td><td>対象ポリゴン </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>衝突判定 </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a3a21c1fec1c40b7e013e0be4d6ff2470"></a>
+<a class="anchor" id="a547c01c100f61023463c5c9b8ddc09d5"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float KSegment::length </td>
+          <td class="memname">bool KSegment::operator* </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="class_k_sphere.html">KSphere</a> &amp;&#160;</td>
+          <td class="paramname"><em>aSphere</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>線分の長さを取得します。 </p>
-<dl class="section return"><dt>戻り値</dt><dd>線分の長さ </dd></dl>
+<p>球体との衝突判定を評価します。 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">aSphere</td><td>対象球体 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>衝突判定 </dd></dl>
 
 </div>
 </div>

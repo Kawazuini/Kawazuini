@@ -13,7 +13,6 @@ var searchData=
   ['clarinet',['Clarinet',['../class_k_midi.html#a11035e68ce16118fd222337c93318813a08589828e814fb9d3c8ea2ee012b7e4b',1,'KMidi']]],
   ['clavi',['Clavi',['../class_k_midi.html#a11035e68ce16118fd222337c93318813aafccc60694bc3d75031056030df393a7',1,'KMidi']]],
   ['clearrect',['clearRect',['../class_k_texture.html#afdc5b759bf1e9889e1782adcad40a441',1,'KTexture']]],
-  ['clientarea',['clientArea',['../class_k_window.html#a94c663c7a5991a95a15609117acad933',1,'KWindow']]],
   ['color',['color',['../_k_utility_8h.html#acf4b44d2f1426094a86f532840ba8452',1,'KUtility.h']]],
   ['colorshading',['ColorShading',['../class_k_shading.html#a411c4b2e92ef9f7347c1f4a5bde1278f',1,'KShading']]],
   ['contrabass',['ContraBass',['../class_k_midi.html#a11035e68ce16118fd222337c93318813a20d084cf7019e65a38e4415555a18be0',1,'KMidi']]],

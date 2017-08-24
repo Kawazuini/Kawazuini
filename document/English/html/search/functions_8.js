@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['initialaspect',['initialAspect',['../class_k_window.html#a3981fedc08de761836db081af0fc14b2',1,'KWindow']]],
-  ['initialsize',['initialSize',['../class_k_window.html#a2213e891983ea71c6fbfb37dc179d97e',1,'KWindow']]],
   ['intersect',['intersect',['../class_k_rect.html#ad42e4243fa3808027838d3a3f79bd89b',1,'KRect']]],
   ['isactive',['isActive',['../class_k_window.html#a25e1b88ef4931faba6808751a0b32756',1,'KWindow']]],
   ['iscolision',['isColision',['../class_k_rect.html#af693b01f8614c077e599675feb352e9b',1,'KRect::isColision(const KRect &amp;aRec) const '],['../class_k_rect.html#ac43fa7f5b7c3c13a0e586dbf26f64033',1,'KRect::isColision(const KVector &amp;aVec) const ']]],
