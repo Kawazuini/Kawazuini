@@ -60,7 +60,7 @@ mScale(1.0f) {
     if (!mWindow) throw Error(_T("ウィンドウの作成に失敗しました."));
 
     // フレーム幅の計算
-    KRect w(windowArea()), c(clientArea());
+    KRect w(getWindowArea()), c(getClientArea());
     mFrameWeight = KRect(w.width - c.width, w.height - c.height);
 
     setSize(aSize);
@@ -109,7 +109,7 @@ LRESULT CALLBACK KWindow::WIN_PROC(HWND aHwnd, UINT aMsg, WPARAM aWParam, LPARAM
 
         case WM_SIZE:
         {
-            KRect client(_this->clientArea());
+            KRect client(_this->getClientArea());
             _this->mScale =
                     Math::min(
                     (float) client.width / _this->mInitialSize.width,
@@ -160,10 +160,87 @@ void KWindow::hide() const {
     ShowWindow(mWindow, SW_HIDE);
 }
 
+bool KWindow::getEncoder(const WCHAR& aFormat, CLSID& aClsid) {
+    unsigned int num(0), size(0);
+    Gdiplus::GetImageEncodersSize(&num, &size);
+    if (!size) return false;
+
+    Gdiplus::ImageCodecInfo * imageCodecInfo(new Gdiplus::ImageCodecInfo[size]);
+    Gdiplus::GetImageEncoders(num, size, imageCodecInfo);
+
+    for (int i = 0; i < num; ++i) {
+        if (!(wcscmp((imageCodecInfo + i)->MimeType, &aFormat))) {
+            aClsid = (imageCodecInfo + i)->Clsid;
+            delete[] imageCodecInfo;
+            return true;
+        }
+    }
+    delete[] imageCodecInfo;
+    return false;
+}
+
+void KWindow::screenShot(
+        const String& aFileName,
+        const Extension& aExtension
+        ) {
+    HDC scr(GetDC(mWindow));
+    HBITMAP screen(CreateCompatibleBitmap(scr, mInitialSize.width, mInitialSize.height));
+    HDC canvas(CreateCompatibleDC(scr));
+
+    SelectObject(canvas, screen);
+
+    // 描画結果の取得と転送
+    unsigned char* pixel(new unsigned char[mInitialSize.width * mInitialSize.height * 3]);
+    glReadPixels(DEPLOY_RECT(mInitialSize), GL_RGB, GL_UNSIGNED_BYTE, pixel);
+    unsigned char* color(pixel);
+    for (int i = mInitialSize.height - 1; i >= 0; --i) {
+        for (int j = 0, j_e(mInitialSize.width); j < j_e; ++j) {
+            SetPixel(canvas, j, i, (*color++) | (*color++ << 8) | (*color++ << 16));
+        }
+    }
+    delete[] pixel;
+
+    // ファイル名と保存形式の決定
+    String name(split(aFileName, R"(\.)")[0]); // 拡張子剥がす
+    WCHAR* format;
+    switch (aExtension) {
+        case BMP:
+            name += ".bmp";
+            format = (WCHAR*) L"image/bmp";
+            break;
+        case GIF:
+            name += ".gif";
+            format = (WCHAR*) L"image/gif";
+            break;
+        case JPG:
+            name += ".jpg";
+            format = (WCHAR*) L"image/jpeg";
+            break;
+        case PNG:
+            name += ".png";
+            format = (WCHAR*) L"image/png";
+            break;
+    }
+
+    WCHAR wFileName[MAX_PATH];
+    MultiByteToWideChar(CP_ACP, 0, name.data(), -1, wFileName, MAX_PATH);
+
+    CLSID clsid;
+    Gdiplus::Bitmap bmp(screen, (HPALETTE) GetStockObject(DEFAULT_PALETTE));
+    if (getEncoder(*format, clsid)) {
+        bmp.Save(wFileName, &clsid, NULL);
+    }
+
+    ReleaseDC(mWindow, scr);
+    DeleteObject(screen);
+    DeleteDC(canvas);
+}
+
 void KWindow::changeFrame() {
     mFrameVisible = !mFrameVisible; // 交互にスイッチ
 
     long frameStyle(WS_CAPTION);
+
     if (mResizable) frameStyle = WS_CAPTION ^ WS_DLGFRAME | WS_THICKFRAME;
 
     long style(GetWindowLong(mWindow, GWL_STYLE));
@@ -177,12 +254,14 @@ void KWindow::changeFullScreen() {
     if (mFullScreen != mFrameVisible) changeFrame();
     if (mFullScreen = !mFullScreen) {
         // 事前領域の記憶
-        KRect w(windowArea());
+        KRect w(getWindowArea());
         pPosition = KRect(w.x, w.y, mScreenArea.width, mScreenArea.height);
         setSize(DISPLAY_SIZE);
-    } else {
-        setSize(pPosition); // 全画面以前のウィンドウ位置に戻す
-    }
+    } else setSize(pPosition); // 全画面以前のウィンドウ位置に戻す    
+}
+
+void KWindow::setListener(KListener& aListener) {
+    mListener = &aListener;
 }
 
 void KWindow::setTitle(const String & aTitle) {
@@ -194,18 +273,19 @@ void KWindow::setSize(const KRect& aSize) {
     KRect area(aSize);
 
     if (area.begin().isZero() && !mFullScreen) { // 始点指定なし(左上座標そのまま)
-        KRect w(windowArea());
+        KRect w(getWindowArea());
         area.x = w.x;
         area.y = w.y;
     }
     if (mFrameVisible) {
+
         area.width += mFrameWeight.width;
         area.height += mFrameWeight.height;
     }
     SetWindowPos(mWindow, nullptr, DEPLOY_RECT(area), SWP_NOZORDER);
 }
 
-KVector KWindow::mousePositionOnScreen() const {
+KVector KWindow::getMousePositionOnScreen() const {
     POINT mousePoint;
     GetCursorPos(&mousePoint);
     ScreenToClient(mWindow, &mousePoint);
@@ -219,31 +299,33 @@ KVector KWindow::mousePositionOnScreen() const {
     return mouse;
 }
 
-const KRect& KWindow::initialSize() const {
+const KRect& KWindow::getInitialSize() const {
     return mInitialSize;
 }
 
-const float& KWindow::initialAspect() const {
+const float& KWindow::getInitialAspect() const {
     return mInitialAspect;
 }
 
-const KRect& KWindow::screenArea() const {
+const KRect& KWindow::getScreenArea() const {
     return mScreenArea;
 }
 
-const float& KWindow::scale() const {
+const float& KWindow::getScale() const {
     return mScale;
 }
 
-KRect KWindow::windowArea() const {
+KRect KWindow::getWindowArea() const {
     RECT window;
     GetWindowRect(mWindow, &window);
+
     return window;
 }
 
-KRect KWindow::clientArea() const {
+KRect KWindow::getClientArea() const {
     RECT client;
     GetClientRect(mWindow, &client);
+
     return client;
 }
 

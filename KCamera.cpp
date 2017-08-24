@@ -15,7 +15,7 @@ const float KCamera::DEFAULT_FARLIMIT(250.0f);
 
 KCamera::KCamera(const KWindow& aWindow) :
 mWindow(aWindow),
-mOption({DEFAULT_VIEWANGLE, 1.0f / aWindow.initialAspect(), DEFAULT_NEARLIMIT, DEFAULT_FARLIMIT}),
+mOption({DEFAULT_VIEWANGLE, 1.0f / aWindow.getInitialAspect(), DEFAULT_NEARLIMIT, DEFAULT_FARLIMIT}),
 mInformation({KVector(), KVector(0, 0, -1), KVector(0, 1, 0)}) {
     set();
 }

@@ -30,7 +30,7 @@ mBackUI(mCamera) {
     KDrawer::remove();
     KUpdater::remove();
 
-    mWindow.mListener = this;
+    mWindow.setListener(*this);
     timeBeginPeriod(1); // 最小分解能の設定(Timerは信頼できるが,Sleepは信頼できない)
 }
 
@@ -120,8 +120,8 @@ void KApplication::resume() {
 }
 
 KVector KApplication::mousePositionOn3D() const {
-    KVector mouse(mWindow.mousePositionOnScreen());
-    const KRect initial(mWindow.initialSize());
+    KVector mouse(mWindow.getMousePositionOnScreen());
+    const KRect initial(mWindow.getInitialSize());
 
     // correction -1 ~ 1
     const KVector center(initial.center());
@@ -134,13 +134,13 @@ KVector KApplication::mousePositionOn3D() const {
 }
 
 KVector KApplication::mousePositionFromScreenCenter() {
-    KVector center(mWindow.windowArea().center());
+    KVector center(mWindow.getWindowArea().center());
     KVector move(mMouse.position() - center);
     return move;
 }
 
 void KApplication::setMousePositionToCenter() {
-    KVector center(mWindow.windowArea().center());
+    KVector center(mWindow.getWindowArea().center());
     mMouse.setPos(center);
 }
 

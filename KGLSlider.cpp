@@ -39,7 +39,7 @@ void KGLSlider::draw(KTexture& aUI) const {
 void KGLSlider::update(KGLUI& aUI) {
     const KWindow & window(aUI.window());
     const KVector mousePosition(aUI.mousePosition());
-    const KSwitch & click(window.mListener->mosue().mLeft);
+    const KSwitch & click(window.getListener().mosue().mLeft);
 
     if (mArea.isColision(mousePosition) && click.isTouch()) mHold = true;
     if (!click.onFrame()) mHold = false;

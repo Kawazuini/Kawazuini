@@ -30,7 +30,7 @@ void KGLButton::draw(KTexture& aUI) const {
 
 void KGLButton::update(KGLUI& aUI) {
     const KWindow & window(aUI.window());
-    const KSwitch & click(window.mListener->mosue().mLeft);
+    const KSwitch & click(window.getListener().mosue().mLeft);
 
     if (!click.onFrame()) mHold = false;
     if (mArea.isColision(aUI.mousePosition())) {

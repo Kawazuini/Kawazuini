@@ -27,7 +27,7 @@ void KGLScrollPanel::draw(KTexture& aUI) const {
 void KGLScrollPanel::update(KGLUI& aUI) {
     KGLPanel::update(aUI);
 
-    const KMouse & mouse(aUI.window().mListener->mosue());
+    const KMouse & mouse(aUI.window().getListener().mosue());
     int wheel(mouse.wheel());
     if (wheel && mArea.isColision(aUI.mousePosition())) {
         mActive = true;

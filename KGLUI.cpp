@@ -16,10 +16,10 @@ const int KGLUI::SIZE(1024);
 KGLUI::KGLUI(const KCamera& aCamera) :
 mCamera(aCamera),
 mWindow(mCamera.window()),
-mScale((float) SIZE / Math::max(mWindow.initialSize().width, mWindow.initialSize().height)),
+mScale((float) SIZE / Math::max(mWindow.getInitialSize().width, mWindow.getInitialSize().height)),
 mScreen(SIZE),
 mUpdated(false),
-mArea(KVector(), mWindow.initialSize().end() * mScale),
+mArea(KVector(), mWindow.getInitialSize().end() * mScale),
 mAspect((float) mArea.height / mArea.width),
 mVertex(4, GL_ARRAY_BUFFER, GL_STREAM_DRAW),
 mCoordinate(4, GL_ARRAY_BUFFER, GL_STATIC_DRAW) {
@@ -95,7 +95,7 @@ bool KGLUI::isContentsActive() const {
 }
 
 KVector KGLUI::mousePosition() const {
-    return mWindow.mousePositionOnScreen() * mScale;
+    return mWindow.getMousePositionOnScreen() * mScale;
 }
 
 const KCamera& KGLUI::camera() const {

@@ -27,6 +27,13 @@ template <class Type> using Queue = std::queue<Type>;
 template <class Type> using Stack = std::stack<Type>;
 template <class Type> using Vector = std::vector<Type>;
 
+enum Extension {
+    BMP,
+    GIF,
+    JPG,
+    PNG,
+};
+
 /**
  * \~english
  * @brief standard output
