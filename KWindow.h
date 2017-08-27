@@ -77,7 +77,12 @@ private:
 
 
     /* ウィンドウプロシージャ */
-    static LRESULT CALLBACK WIN_PROC(HWND aHwnd, UINT aMsg, WPARAM aWParam, LPARAM aLParam);
+    static LRESULT CALLBACK WIN_PROC(
+            HWND aHwnd,
+            UINT aMsg,
+            WPARAM aWParam,
+            LPARAM aLParam
+            );
 
     // in WM_PAINT
     /* 描画処理の開始   */ void startPaint();

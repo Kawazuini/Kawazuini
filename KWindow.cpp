@@ -70,7 +70,12 @@ KWindow::~KWindow() {
     UnregisterClass(mClassName.data(), mArgs.mInst);
 }
 
-LRESULT CALLBACK KWindow::WIN_PROC(HWND aHwnd, UINT aMsg, WPARAM aWParam, LPARAM aLParam) {
+LRESULT CALLBACK KWindow::WIN_PROC(
+        HWND aHwnd,
+        UINT aMsg,
+        WPARAM aWParam,
+        LPARAM aLParam
+        ) {
     KWindow * _this(nullptr);
 
     if (aMsg == WM_NCCREATE) {
@@ -122,8 +127,7 @@ LRESULT CALLBACK KWindow::WIN_PROC(HWND aHwnd, UINT aMsg, WPARAM aWParam, LPARAM
                     (client.height - height) / 2,
                     width, height);
 
-            KRect area(_this->mScreenArea);
-            glViewport(DEPLOY_RECT(area));
+            glViewport(DEPLOY_RECT(_this->mScreenArea));
             break;
         }
         case WM_PAINT:
@@ -183,18 +187,20 @@ void KWindow::screenShot(
         const String& aFileName,
         const Extension& aExtension
         ) {
+    KRect screenSize(mScreenArea);
+
     HDC scr(GetDC(mWindow));
-    HBITMAP screen(CreateCompatibleBitmap(scr, mInitialSize.width, mInitialSize.height));
+    HBITMAP screen(CreateCompatibleBitmap(scr, screenSize.width, screenSize.height));
     HDC canvas(CreateCompatibleDC(scr));
 
     SelectObject(canvas, screen);
 
     // 描画結果の取得と転送
-    unsigned char* pixel(new unsigned char[mInitialSize.width * mInitialSize.height * 3]);
-    glReadPixels(DEPLOY_RECT(mInitialSize), GL_RGB, GL_UNSIGNED_BYTE, pixel);
+    unsigned char* pixel(new unsigned char[screenSize.width * screenSize.height * 3]);
+    glReadPixels(DEPLOY_RECT(screenSize), GL_RGB, GL_UNSIGNED_BYTE, pixel);
     unsigned char* color(pixel);
-    for (int i = mInitialSize.height - 1; i >= 0; --i) {
-        for (int j = 0, j_e(mInitialSize.width); j < j_e; ++j) {
+    for (int i = screenSize.height - 1; i >= 0; --i) {
+        for (int j = 0, j_e(screenSize.width); j < j_e; ++j) {
             SetPixel(canvas, j, i, (*color++) | (*color++ << 8) | (*color++ << 16));
         }
     }
@@ -278,7 +284,6 @@ void KWindow::setSize(const KRect& aSize) {
         area.y = w.y;
     }
     if (mFrameVisible) {
-
         area.width += mFrameWeight.width;
         area.height += mFrameWeight.height;
     }
