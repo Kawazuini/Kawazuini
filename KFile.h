@@ -49,14 +49,12 @@ public:
     /**
      * \~english
      * @brief  read file.
-     * @param  aCommOut whether comment out
      * @return file contents per line
      * \~japanese
      * @brief  ファイルを読み込みます。
-     * @param  aCommOut コメントを外すか
      * @return 一行ごとのファイル内容
      */
-    Vector<String> read(const bool& aCommOut = true) const;
+    Vector<String> read() const;
     /**
      * \~english
      * @brief write in file
