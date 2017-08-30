@@ -10,7 +10,8 @@
 KFileDialog::KFileDialog(
         const KWindow& aWindow,
         const Filters& aFilters,
-        const String& aExtension
+        const String& aExtension,
+        const int& aDefaultIndex
         ) :
 mPathName(MAX_PATH, '\0'),
 mFileName(MAX_PATH, '\0'),
@@ -22,7 +23,7 @@ mOfn{
     /* instance hundle   */ aWindow.mArgs.mInst,
     /* filter            */ nullptr,
     /* selected filter   */ const_cast<char*> (mCustomFilter.data()), MAX_PATH,
-    /* default select    */ 0,
+    /* default select    */ DWORD(aDefaultIndex),
     /* file path name    */ const_cast<char*> (mPathName.data()), MAX_PATH,
     /* only file name    */ const_cast<char*> (mFileName.data()), MAX_PATH,
     /* default directory */ nullptr,

@@ -8,6 +8,7 @@
 #include "KListener.h"
 #include "KMath.h"
 #include "KVector.h"
+#include "KFileDialog.h"
 
 const KRect KWindow::DISPLAY_SIZE(GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN));
 
@@ -181,6 +182,33 @@ bool KWindow::getEncoder(const WCHAR& aFormat, CLSID& aClsid) {
     }
     delete[] imageCodecInfo;
     return false;
+}
+
+void KWindow::screenShot() {
+    KFileDialog fd(*this, KFileDialog::Filters{
+        {"BMP", "*.bmp"},
+        {"GIF", "*.gif"},
+        {"JPEG", "*.jpg"},
+        {"PNG", "*.png"},
+        {"All Types", "*.*"}
+    },
+    "png",
+    4
+    );
+
+    if (fd.save()) {
+        String name(fd.pathName());
+
+        Extension ext;
+        String extension(P(split(name, R"(\.)")[1]));
+
+        if (extension == "png") ext = PNG;
+        if (extension == "bmp") ext = BMP;
+        if (extension == "gif") ext = GIF;
+        if (extension == "jpg") ext = JPG;
+
+        screenShot(name, ext);
+    }
 }
 
 void KWindow::screenShot(

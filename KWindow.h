@@ -118,6 +118,9 @@ public:
     /// @brief \~japanese ウィンドウを隠蔽します。
     void hide() const;
 
+    /// @brief \~english  save screen shot.
+    /// @brief \~japanese スクリーンショットを保存します。
+    void screenShot();
     /**
      * \~english
      * @brief save screen shot.
