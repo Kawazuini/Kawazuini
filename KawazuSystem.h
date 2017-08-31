@@ -36,5 +36,7 @@
 #include "KDrawCylinder.h"
 #include "KDrawSphere.h"
 
+#include "KObject.h"
+
 #endif /* KAWAZUSYSTEM_H */
 

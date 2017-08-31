@@ -7,6 +7,7 @@
 #define KVERTEXBUFFEROBJECT_H
 
 #include "KOpenGL.h"
+#include "KUtility.h"
 
 template <class Type>
 class KVertexBufferObject final {
@@ -27,6 +28,17 @@ public:
         glGenBuffers(1, &mName);
         glBindBuffer(mTarget, mName);
         glBufferData(mTarget, mSize * sizeof (Type), nullptr, aUsage);
+    };
+
+    KVertexBufferObject(
+            const Vector<Type>& aData,
+            const unsigned int& aTarget,
+            const unsigned int& aUsage
+            ) :
+    KVertexBufferObject<Type>(aData.size(), aTarget, aUsage) {
+        // メモリに書き込み
+        Type * d(data(GL_WRITE_ONLY));
+        for (const Type& i : aData) *d++ = i;
     };
 
     ~KVertexBufferObject() {
