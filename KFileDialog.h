@@ -28,6 +28,11 @@ private:
     OPENFILENAME mOfn;
 public:
     KFileDialog(
+            const Filters& aFilters,
+            const String& aExtension,
+            const int& aDefaultIndex = 0
+            );
+    KFileDialog(
             const KWindow& aWindow,
             const Filters& aFilters,
             const String& aExtension,

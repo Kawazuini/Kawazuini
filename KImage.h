@@ -15,20 +15,10 @@
  * @author \~ Maeda Takumi
  */
 class KImage : private KNonCopy {
-public:
-
-    /** @brief 画像拡張子 */
-    typedef enum {
-        /** (.ico) */ ICO,
-        /** (.bmp) */ BMP,
-        /** (.jpg) */ JPG,
-        /** (.gif) */ GIF,
-        /** (.png) */ PNG,
-    } ext;
 private:
 
     /* GDI+の初期化 */
-    static const class KInit {
+    static const class KInit final : private KNonCopy {
     private:
         ULONG_PTR mGdiplus;
     public:
@@ -38,36 +28,34 @@ private:
             Gdiplus::GdiplusStartup(&mGdiplus, &startUp, nullptr);
         };
 
-        virtual ~KInit() {
+        ~KInit() {
             Gdiplus::GdiplusShutdown(mGdiplus);
         };
     } GPINIT;
 
-    /* GDI+画像定義 */ typedef Gdiplus::Bitmap GBitmap;
+    /* GDI+画像定義 */ using GBitmap = Gdiplus::Bitmap;
     /* リソース画像 */ GBitmap * const mResource;
 
-    /*
-     * リソースからイメージを読み込みます。
-     * GDI+が開始されていない場合,プログラムは不正終了します。
-     */
-    GBitmap* loadImage(const int& aId, const ext& aExt);
+    /* リソースからイメージを読み込みます。 */
+    GBitmap* loadImage(const int& aId, const Extension& aExt);
+    /* ファイルパスからイメージを読み込みます。 */
+    GBitmap* loadImage(const String& aFileName);
+    /* ファイルダイアログからイメージを読み込みます。 */
+    GBitmap* loadImage();
+
+    KImage(GBitmap* aResource);
 public:
-    /**
-     * @brief \~english  width
-     * @brief \~japanese 横幅
-     */
+    /// @brief \~english  width
+    /// @brief \~japanese 横幅
     const int mWidth;
-    /**
-     * @brief \~english  height
-     * @brief \~japanese 縦幅
-     */
+    /// @brief \~english  height
+    /// @brief \~japanese 縦幅
     const int mHeight;
-    /**
-     * @brief \~english  pixel information
-     * @brief \~japanese 画素情報
-     */
+    /// @brief \~english  pixel information
+    /// @brief \~japanese 画素情報
     const color * const mPixel;
 
+    KImage();
     /**
      * \~english
      * @param aId  resource ID
@@ -76,7 +64,7 @@ public:
      * @param aId  リソースID
      * @param aExt 画像拡張子
      */
-    KImage(const int& aId, const ext& aExt = ext::PNG);
+    KImage(const int& aId, const Extension& aExt = PNG);
     virtual ~KImage();
 };
 

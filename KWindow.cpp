@@ -185,7 +185,9 @@ bool KWindow::getEncoder(const WCHAR& aFormat, CLSID& aClsid) {
 }
 
 void KWindow::screenShot() {
-    KFileDialog fd(*this, KFileDialog::Filters{
+    KFileDialog fd(
+            *this,
+            KFileDialog::Filters{
         {"BMP", "*.bmp"},
         {"GIF", "*.gif"},
         {"JPEG", "*.jpg"},
