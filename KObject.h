@@ -15,17 +15,17 @@ class KFile;
 
 class KObject final : public KDrawer {
 private:
-    int mPolygonSize;
+
+    struct uvcoord {
+        float x, y;
+    };
+
     int mVertexSize;
-    
+
     Vector<String> mObject;
 
-    Vector<KVector> mObjectVertex;
-    Vector<float> mObjectCoord;
-    Vector<KVector> mObjectNormal;
-
     KVertexBufferObject<KVector>* mVertex;
-    KVertexBufferObject<float>* mCoord;
+    KVertexBufferObject<uvcoord>* mCoord;
     KVertexBufferObject<KVector>* mNormal;
 
     KImage mTexImage;

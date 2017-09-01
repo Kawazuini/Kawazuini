@@ -82,12 +82,7 @@ $RECYCLE.BIN/
 *.bash
 *.xml
 nbproject/private/launcher.properties
-dist/Debug/MinGW-Windows/sta01152
-dist/Debug/MinGW-Windows/sta06964
-dist/Debug/MinGW-Windows/sta03648
-dist/Debug/MinGW-Windows/sta04432
-dist/Debug/MinGW-Windows/sta06828
-dist/Debug/MinGW-Windows/sta06672
+dist/
 document/Doxyfile
 document/English/Doxy_En
 document/Japanese/Doxy_Ja
