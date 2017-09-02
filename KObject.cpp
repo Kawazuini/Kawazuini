@@ -10,16 +10,18 @@
 #include "KRect.h"
 
 KObject::KObject(const KFile& aFile) :
-mObject(aFile.read()),
 mTexImage(),
 mTexture(Math::max(mTexImage.mWidth, mTexImage.mHeight)),
 mDrawMode(GL_TRIANGLES) {
+    Vector<String> objectFile(aFile.read());
+
     // 表面情報の確認(ループ外で処理削減)
     int polySize(0);
     bool texture(false), normal(false);
-    for (const String& i : mObject) {
-        if (i[0] == 'f') {
-            Vector<String> info(split(i, R"(\s)"));
+    // 終わりから検索(表面定義は後ろの方にある)
+    for (auto i = objectFile.end() - 1, i_e(objectFile.begin());; --i) {
+        if (i->at(0) == 'f') {
+            Vector<String> info(split(*i, R"(\s)"));
             polySize = info.size() - 1;
 
             Vector<String> face(split(info[1], "/"));
@@ -27,8 +29,9 @@ mDrawMode(GL_TRIANGLES) {
             if (faceSize >= 2) texture = !face[1].empty();
             if (faceSize >= 3) normal = !face[2].empty();
             break;
-        }
+        } else if (i == i_e) throw Error("Error of [.obj file]"); // 見つからなかったらエラーを返す。
     }
+
 
     // テクスチャサイズの調整
     float iw(mTexImage.mWidth), ih(mTexImage.mHeight);
@@ -38,15 +41,15 @@ mDrawMode(GL_TRIANGLES) {
 
 
     // ファイル読み込み & 変換
-    Vector<KVector> fileVertex, objVertex;
-    Vector<uvcoord> fileCoord, objCoord;
-    Vector<KVector> fileNormal, objNormal;
-    for (const String& i : mObject) {
+    Vector<KVector> deployVertex;
+    Vector<uvcoord> deployCoord;
+    Vector<KVector> deployNormal;
+    for (const String& i : objectFile) {
         Vector<String> info(split(i, R"(\s)"));
 
         // 頂点情報
         if (info[0] == "v") {
-            fileVertex.push_back(KVector(toFloat(info[1]), toFloat(info[2]), toFloat(info[3])));
+            mObjectVertex.push_back(KVector(toFloat(info[1]), toFloat(info[2]), toFloat(info[3])));
         }
 
         // テクスチャ情報
@@ -54,40 +57,47 @@ mDrawMode(GL_TRIANGLES) {
             float x(toFloat(info[1]));
             float y(1.0f - toFloat(info[2])); // y軸反転
 
-            fileCoord.push_back(uvcoord({x * correctX, y * correctY}));
+            mObjectCoord.push_back(uvcoord({x * correctX, y * correctY}));
         }
 
         // 法線情報
         if (info[0] == "vn") {
-            fileNormal.push_back(KVector(toFloat(info[1]), toFloat(info[2]), toFloat(info[3])));
+            mObjectNormal.push_back(KVector(toFloat(info[1]), toFloat(info[2]), toFloat(info[3])));
         }
 
         if (info[0] == "f") { // 表面情報
             for (auto j = info.begin() + 1, j_e(info.end()); j != j_e; ++j) {
                 Vector<String> face(split(*j, "/")); // 頂点/テクスチャ/法線
+                Index index;
+
                 // 頂点
-                objVertex.push_back(fileVertex[toInt(face[0]) - 1]);
+                index.mVertex = toInt(face[0]) - 1;
+                deployVertex.push_back(mObjectVertex[index.mVertex]);
                 // テクスチャ
                 if (texture) {
-                    objCoord.push_back(fileCoord[toInt(face[1]) - 1]);
+                    index.mTexture = toInt(face[1]) - 1;
+                    deployCoord.push_back(mObjectCoord[index.mTexture]);
                 }
                 // 法線
                 if (normal) {
-                    objNormal.push_back(fileNormal[toInt(face[2]) - 1]);
+                    index.mNormal = toInt(face[2]) - 1;
+                    deployNormal.push_back(mObjectNormal[index.mNormal]);
                 }
+
+                mObjectIndicies.push_back(index);
             }
         }
     }
-    if (objNormal.empty()) { // 法線情報の補填(ポリゴンから法線を割り出す)
-        for (auto i = objVertex.begin(), i_e(objVertex.end()); i != i_e; i += polySize) {
+    if (deployNormal.empty()) { // 法線情報の補填(ポリゴンから法線を割り出す)
+        for (auto i = deployVertex.begin(), i_e(deployVertex.end()); i != i_e; i += polySize) {
             KVector v1(*(i + 0)), v2(*(i + 1)), v3(*(i + 2));
-            for (int j = 0; j < polySize; ++j) objNormal.push_back((v2 - v1).cross(v3 - v2).normalization());
+            for (int j = 0; j < polySize; ++j) deployNormal.push_back((v2 - v1).cross(v3 - v2).normalization());
         }
     }
 
-    mVertex = new KVertexBufferObject<KVector>(objVertex, GL_ARRAY_BUFFER, GL_STREAM_DRAW);
-    mCoord = new KVertexBufferObject<uvcoord>(objCoord, GL_ARRAY_BUFFER, GL_STREAM_DRAW);
-    mNormal = new KVertexBufferObject<KVector>(objNormal, GL_ARRAY_BUFFER, GL_STREAM_DRAW);
+    mVertex = new KVertexBufferObject<KVector>(deployVertex, GL_ARRAY_BUFFER, GL_DYNAMIC_DRAW);
+    mCoord = new KVertexBufferObject<uvcoord>(deployCoord, GL_ARRAY_BUFFER, GL_STATIC_DRAW);
+    mNormal = new KVertexBufferObject<KVector>(deployNormal, GL_ARRAY_BUFFER, GL_DYNAMIC_DRAW);
 
     mTexture.drawImage(
             mTexImage,
@@ -97,6 +107,9 @@ mDrawMode(GL_TRIANGLES) {
     mTexture.reflect();
 
     mVertexSize = mVertex->size();
+    KVector sum;
+    for (const KVector& i : mObjectVertex) sum += i;
+    mCentroid = sum / mObjectVertex.size();
 }
 
 KObject::~KObject() {
@@ -126,5 +139,31 @@ void KObject::draw() const {
     glDisableClientState(GL_VERTEX_ARRAY);
     glDisableClientState(GL_TEXTURE_COORD_ARRAY);
     glDisableClientState(GL_NORMAL_ARRAY);
+}
+
+void KObject::translate(const KVector& aCoordinate) {
+    KVector move(aCoordinate - mCentroid);
+    mCentroid += move;
+    for (KVector& i : mObjectVertex) i += move;
+    KVector * vertex(mVertex->data());
+    auto index(mObjectIndicies.begin());
+    for (int i = 0; i < mVertexSize; ++i, ++vertex, ++index) *vertex = mObjectVertex[index->mVertex];
+}
+
+void KObject::rotate(const KQuaternion& aQuaternion) {
+    for (KVector& i : mObjectVertex) i = (i - mCentroid).rotate(aQuaternion) + mCentroid;
+    for (KVector& i : mObjectNormal) i = i.rotate(aQuaternion);
+
+    KVector * vertex(mVertex->data());
+    KVector * normal(mNormal->data());
+    auto index(mObjectIndicies.begin());
+    for (int i = 0; i < mVertexSize; ++i, ++vertex, ++normal, ++index) {
+        *vertex = mObjectVertex[index->mVertex];
+        *normal = mObjectNormal[index->mNormal];
+    }
+}
+
+const KVector& KObject::centroid() const {
+    return mCentroid;
 }
 

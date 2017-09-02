@@ -20,9 +20,19 @@ private:
         float x, y;
     };
 
-    int mVertexSize;
+    struct Index {
+        int mVertex = 0;
+        int mTexture = 0;
+        int mNormal = 0;
+    };
 
-    Vector<String> mObject;
+    int mVertexSize;
+    KVector mCentroid;
+
+    Vector<KVector> mObjectVertex;
+    Vector<uvcoord> mObjectCoord;
+    Vector<KVector> mObjectNormal;
+    Vector<Index> mObjectIndicies;
 
     KVertexBufferObject<KVector>* mVertex;
     KVertexBufferObject<uvcoord>* mCoord;
@@ -37,6 +47,11 @@ public:
     ~KObject();
 
     void draw() const override;
+
+    void translate(const KVector& aCoordinate);
+    void rotate(const KQuaternion& aQuaternion);
+
+    const KVector& centroid() const;
 };
 
 #endif /* KOBJECT_H */
