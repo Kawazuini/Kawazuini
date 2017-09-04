@@ -163,6 +163,13 @@ void KObject::rotate(const KQuaternion& aQuaternion) {
     }
 }
 
+void KObject::resize(const float& aRate) {
+    for (KVector& i : mObjectVertex) i = (i - mCentroid) * aRate + mCentroid;
+    KVector * vertex(mVertex->data());
+    auto index(mObjectIndicies.begin());
+    for (int i = 0; i < mVertexSize; ++i, ++vertex, ++index) *vertex = mObjectVertex[index->mVertex];
+}
+
 const KVector& KObject::centroid() const {
     return mCentroid;
 }

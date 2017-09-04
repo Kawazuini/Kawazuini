@@ -50,6 +50,7 @@ public:
 
     void translate(const KVector& aCoordinate);
     void rotate(const KQuaternion& aQuaternion);
+    void resize(const float& aRate);
 
     const KVector& centroid() const;
 };
