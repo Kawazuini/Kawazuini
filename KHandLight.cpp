@@ -16,7 +16,7 @@ mHandDirection(aDirection) {
 }
 
 KHandLight::KHandLight(const KCamera& aCamera) :
-KHandLight(aCamera.position(), aCamera.direction()) {
+KHandLight(aCamera.getPosition(), aCamera.getDirection()) {
 }
 
 void KHandLight::update() {

@@ -16,14 +16,13 @@ const float KCamera::DEFAULT_FARLIMIT(250.0f);
 KCamera::KCamera(const KWindow& aWindow) :
 mWindow(aWindow),
 mOption({DEFAULT_VIEWANGLE, 1.0f / aWindow.getInitialAspect(), DEFAULT_NEARLIMIT, DEFAULT_FARLIMIT}),
-mInformation({KVector(), KVector(0, 0, -1), KVector(0, 1, 0)}) {
+mInformation({KVector(), KVector(0, 0, -1), KVector(0, 1, 0)}),
+mHalfHeight(mInformation.mHeadSlope * tan(Math::toRadian(mOption.mAngle / 2))),
+mHalfWidth(mHalfHeight.rotate(KQuaternion(mInformation.mDirection, -Math::HALF_PI)) * mOption.mAspect) {
     set();
 }
 
 void KCamera::set() {
-    mHalfHeight = mInformation.mHeadSlope * tan(Math::toRadian(mOption.mAngle / 2));
-    mHalfWidth = mHalfHeight.rotate(KQuaternion(mInformation.mDirection, -Math::HALF_PI)) * mOption.mAspect;
-
     mViewCorner[0] = mInformation.mDirection - mHalfWidth + mHalfHeight;
     mViewCorner[1] = mInformation.mDirection - mHalfWidth - mHalfHeight;
     mViewCorner[2] = mInformation.mDirection + mHalfWidth - mHalfHeight;
@@ -61,10 +60,15 @@ void KCamera::translate(const KVector& aPosition) {
 void KCamera::rotate(const KQuaternion& aQuaternion) {
     mInformation.mDirection = mInformation.mDirection.rotate(aQuaternion);
     mInformation.mHeadSlope = mInformation.mHeadSlope.rotate(aQuaternion);
+    mHalfHeight = mHalfHeight.rotate(aQuaternion);
+    mHalfWidth = mHalfWidth.rotate(aQuaternion);
 }
 
 void KCamera::zoom(const float& aScale) {
     mOption.mAngle = DEFAULT_VIEWANGLE * aScale;
+
+    mHalfHeight = mInformation.mHeadSlope * tan(Math::toRadian(mOption.mAngle / 2));
+    mHalfWidth = mHalfHeight.rotate(KQuaternion(mInformation.mDirection, -Math::HALF_PI)) * mOption.mAspect;
 }
 
 bool KCamera::isInCamera(const KVector& aNormal) const {
@@ -76,38 +80,37 @@ bool KCamera::isInCamera(const KVector& aNormal) const {
 
 bool KCamera::isInCamera(const Vector<KVector>& aVertex) const {
     static float HALF_PI(Math::PI / 2);
-    for (KVector i : aVertex) {
-        // 頂点が画面内に存在する
+    for (const KVector& i : aVertex) { // 頂点が画面内に存在する
         if (Math::abs((i - mInformation.mPosition).angle(mInformation.mDirection)) < HALF_PI) return true;
     }
     return false;
 }
 
-const KCamera::ViewCorner& KCamera::viewCorner() const {
+const KCamera::ViewCorner& KCamera::getViewCorner() const {
     return mViewCorner;
 }
 
-const KWindow& KCamera::window() const {
+const KWindow& KCamera::getWindow() const {
     return mWindow;
 }
 
-const KVector& KCamera::position() const {
+const KVector& KCamera::getPosition() const {
     return mInformation.mPosition;
 }
 
-const KVector& KCamera::direction() const {
+const KVector& KCamera::getDirection() const {
     return mInformation.mDirection;
 }
 
-const KVector& KCamera::headslope() const {
+const KVector& KCamera::getHeadslope() const {
     return mInformation.mHeadSlope;
 }
 
-const KVector& KCamera::halfWidth() const {
+const KVector& KCamera::getHalfWidth() const {
     return mHalfWidth;
 }
 
-const KVector& KCamera::halfHeight() const {
+const KVector& KCamera::getHalfHeight() const {
     return mHalfHeight;
 }
 

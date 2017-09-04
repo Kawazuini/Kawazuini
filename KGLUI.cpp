@@ -15,7 +15,7 @@ const int KGLUI::SIZE(1024);
 
 KGLUI::KGLUI(const KCamera& aCamera) :
 mCamera(aCamera),
-mWindow(mCamera.window()),
+mWindow(mCamera.getWindow()),
 mScale((float) SIZE / Math::max(mWindow.getInitialSize().width, mWindow.getInitialSize().height)),
 mScreen(SIZE),
 mUpdated(false),
@@ -37,8 +37,8 @@ mCoordinate(4, GL_ARRAY_BUFFER, GL_STATIC_DRAW) {
 }
 
 void KGLUI::draw() const {
-    const KCamera::ViewCorner & vc(mCamera.viewCorner());
-    const KVector & cPos(mCamera.position());
+    const KCamera::ViewCorner & vc(mCamera.getViewCorner());
+    const KVector & cPos(mCamera.getPosition());
 
     glEnableClientState(GL_VERTEX_ARRAY);
     glEnableClientState(GL_TEXTURE_COORD_ARRAY);

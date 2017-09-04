@@ -52,8 +52,8 @@ private:
         KVector mHeadSlope;
     } mInformation;
 
-    /* 描画領域の横幅の半分 */ KVector mHalfWidth;
     /* 描画領域の縦幅の半分 */ KVector mHalfHeight;
+    /* 描画領域の横幅の半分 */ KVector mHalfWidth;
 public:
     /// @param \~english  aWindow window for drawing
     /// @param \~japanese aWindow 描画を行うウィンドウ
@@ -114,13 +114,27 @@ public:
      */
     bool isInCamera(const Vector<KVector>& aVertex) const;
 
-    const KWindow& window() const;
-    const ViewCorner& viewCorner() const;
-    const KVector& position() const;
-    const KVector& direction() const;
-    const KVector& headslope() const;
-    const KVector& halfWidth() const;
-    const KVector& halfHeight() const;
+    /// @brief \~english  get drawing target window.
+    /// @brief \~japanese 描画対象のウィンドウを取得します。
+    const KWindow& getWindow() const;
+    /// @brief \~english  get information of view corner.
+    /// @brief \~japanese 描画領域の情報を取得します。
+    const ViewCorner& getViewCorner() const;
+    /// @brief \~english  get camera position.
+    /// @brief \~japanese カメラの位置座標を取得します。
+    const KVector& getPosition() const;
+    /// @brief \~english  get camera direction.
+    /// @brief \~japanese カメラの方向ベクトルを取得します。
+    const KVector& getDirection() const;
+    /// @brief \~english  get head slope of camera.
+    /// @brief \~japanese カメラの上方向の傾きを取得します。
+    const KVector& getHeadslope() const;
+    /// @brief \~english  get half height of view corner.
+    /// @brief \~japanese 描画領域の半分の高さを取得します。
+    const KVector& getHalfHeight() const;
+    /// @brief \~english  get half width of view corner.
+    /// @brief \~japanese 描画領域の半分の幅を取得します。
+    const KVector& getHalfWidth() const;
 };
 
 #endif /* KCAMERA_H */

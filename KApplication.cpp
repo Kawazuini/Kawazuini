@@ -130,7 +130,7 @@ KVector KApplication::mousePositionOn3D() const {
     mouse.y /= center.y;
 
     // correction 3D coordinate
-    return mCamera.halfWidth() * mouse.x + mCamera.halfHeight() * mouse.y + mCamera.position() + mCamera.direction();
+    return mCamera.getHalfWidth() * mouse.x + mCamera.getHalfHeight() * mouse.y + mCamera.getPosition() + mCamera.getDirection();
 }
 
 KVector KApplication::mousePositionFromScreenCenter() {
